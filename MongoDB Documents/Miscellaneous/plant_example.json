@@ -1,0 +1,39 @@
+// Hierarchy: ads -> garden_and_plant_attrs
+{
+  "_id": "60a6e5e889e7c55e25b14b44",
+  "title": "Fiddle Leaf Fig - Indoor Plant, 120cm",
+  "description": "Healthy Fiddle Leaf Fig, 120cm tall, perfect for indoor spaces. Pot included.",
+  "price": 35.00,
+  "showingPrice": "$35",
+  "isActive": true,
+  "createdAt": "2024-05-14T13:40:00Z",
+  "updatedAt": "2024-05-14T13:40:00Z",
+  "imageCount": 2,
+  "viewsCount": 22,
+  "isDollar": true,
+  "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
+  "priority": 4,
+  "slug": "fiddle-leaf-fig-indoor-plant-120cm",
+  
+  "location": {
+    "locationIds": [1, 15, 150],
+    "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+    "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+    "street": "شارع الجمهورية 123"
+  },
+
+  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
+
+  
+  "specs": {
+    "plant": {
+      "height": 120, // short
+      "isIndoor": 0 // bool
+    }
+  }
+} 
+
+// Reference Values for garden and plant fields:
+// height: الارتفاع (سم) - Height (cm)
+// isIndoor: نوع النبات (1 = ظل، 0 = شمسي) - Plant Type (1 = Indoor/Shade, 0 = Outdoor/Sunny) 

@@ -1,0 +1,75 @@
+// Hierarchy: ads -> electronic_attrs -> smart_phone_and_tablet_attrs -> brands_models
+{
+    "_id": ObjectId("507f1f77bcf86cd799439011"),
+    "title": "Samsung Galaxy S24 Ultra 512GB - Phantom Black",
+    "description": "Brand new Galaxy S24 Ultra, 512GB storage, 12GB RAM, 200MP camera, dual SIM, factory warranty.",
+    "price": 1100.00,
+    "showingPrice": "$1,100",
+    "isActive": true,
+    "createdAt": "2024-05-14T13:00:00Z",
+    "updatedAt": "2024-05-14T13:00:00Z",
+    "imageCount": 7,
+    "viewsCount": 200,
+    "isDollar": true,
+    "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+    "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
+    "priority": 2,
+    "slug": "samsung-galaxy-s24-ultra-512gb-phantom-black",
+    
+    "location": {
+        "locationIds": [1, 15, 150],
+        "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+        "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+        "street": "شارع الجمهورية 123"
+    },
+  
+    "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
+
+    
+    "specs": {
+      "electronics": {
+        "isNew": true, // bool
+        "hasWarranty": true, // bool
+        "warrantyType": 3, // sbyte
+        "warrantyMonths": 24 // sbyte
+      },
+      "smartphone": {
+        "storageCapacity": 3, // sbyte
+        "ram": 5, // sbyte
+        "color": 1, // sbyte
+        "mainCamera": true, // bool
+        "frontCamera": true, // bool
+        "mainCameraResolution": 200.0, // float
+        "frontCameraResolution": 12.0, // float
+        "batteryCapacity": 5000, // short
+        "screenSize": 6.8, // float
+        "processor": "Exynos", // string
+        "dualSim": true, // bool
+        "waterproofSupport": true, // bool
+        "stylusSupport": true, // bool
+        "modelId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a72dc"
+      }
+    }
+  }
+
+// Reference Values for electronics fields:
+// isNew: جديد أم مستعمل (0=مستعمل، 1=جديد)
+// hasWarranty: هل يوجد ضمان (0=لا، 1=نعم)
+// warrantyType: 0=بدون، 1=وكيل، 2=محل، 3=مصنع، 4=دولي
+// warrantyMonths: مدة الضمان بالأشهر (0-60)
+
+// Reference Values for smartphone fields:
+// storageCapacity: سعة التخزين بالجيجابايت (0=16، 1=32، 2=64، 3=128، 4=256، 5=512، 6=1024)
+// ram: الذاكرة العشوائية بالجيجابايت (0=1، 1=2، 2=3، 3=4، 4=6، 5=8، 6=12، 7=16، 8=32)
+// color: 0=اسود، 1=ابيض، 2=ذهبي، 3=فضي، 4=ازرق، 5=احمر، 6=اخضر، 7=وردي، 8=بنفسجي، 9=اخر
+// mainCamera: دعم الكاميرا الرئيسية (0=لا، 1=نعم)
+// frontCamera: دعم الكاميرا الأمامية (0=لا، 1=نعم)
+// mainCameraResolution: دقة الكاميرا الرئيسية بالميجابكسل (0-200)
+// frontCameraResolution: دقة الكاميرا الأمامية بالميجابكسل (0-50)
+// batteryCapacity: سعة البطارية بالمللي أمبير (1000-15000)
+// screenSize: حجم الشاشة بالبوصة (3.0-14.0)
+// processor: Snapdragon,  MediaTek, Apple, Exynos, Kirin, ,Dimensity, Bionic
+// dualSim: دعم الشريحتين (0=لا، 1=نعم)
+// waterproofSupport: مقاومة الماء (0=لا، 1=نعم)
+// stylusSupport: دعم القلم (0=لا، 1=نعم)
+// modelId: معرف الموديل (مرتبط بجدول brands_models)

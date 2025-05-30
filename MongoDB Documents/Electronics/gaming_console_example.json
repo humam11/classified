@@ -1,0 +1,82 @@
+// Hierarchy: ads -> electronic_attrs -> console_attrs -> brands_models
+{
+    "_id": "60a6e5e889e7c55e25b14b39",
+    "title": "PlayStation 5 Digital Edition with Extra Controller",
+    "description": "Brand new PS5 Digital Edition console with an extra DualSense controller. Includes 2 games and 1 year warranty.",
+    "price": 500.00,
+    "showingPrice": "$500",
+    "isActive": true,
+    "createdAt": "2024-05-14T12:30:00Z",
+    "updatedAt": "2024-05-14T12:30:00Z",
+    "imageCount": 5,
+    "viewsCount": 150,
+    "isDollar": true,
+    "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+    "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
+    "priority": 2,
+    "slug": "playstation-5-digital-edition-with-extra-controller",
+    
+    // "location": {
+    //   "cityId": 1,
+    //   "locationIds": [1, 15, 150],
+    //   "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+    //   "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+    //   "street": "شارع الجمهورية 123",
+    //   "hierarchy": {
+    //     "city": {
+    //       "id": 1,
+    //       "nameEnglish": "Baghdad",
+    //       "nameArabic": "بغداد",
+    //       "nameKurdish": "بەغدا"
+    //     },
+    //     "district": {
+    //       "id": 15,
+    //       "nameEnglish": "Al-Karkh",
+    //       "nameArabic": "الكرخ",
+    //       "nameKurdish": "کەرەخ"
+    //     },
+    //     "neighborhood": {
+    //       "id": 150,
+    //       "nameEnglish": "Al-Mansour",
+    //       "nameArabic": "المنصور",
+    //       "nameKurdish": "مەنسوور"
+    //     }
+    //   }
+    // },
+
+    "location": {
+        "locationIds": [1, 15, 150], // [cityId, districtId, neighborhoodId]
+        "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+        "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+        "street": "شارع الجمهورية 123"
+        // No redundant cityId, hierarchy names removed
+    },
+  
+  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
+
+    
+    "specs": {
+      "electronics": {
+        "isNew": true, // bool
+        "hasWarranty": true, // bool
+        "warrantyType": 3, // sbyte
+        "warrantyMonths": 12 // sbyte
+      },
+      "console": {
+        "storageCapacity": 825, // short
+        "region": 4, // sbyte
+        "modelId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a72dc"
+      }
+    }
+  }
+
+// Reference Values for electronics fields:
+// isNew: جديد أم مستعمل (0=مستعمل، 1=جديد)
+// hasWarranty: هل يوجد ضمان (0=لا، 1=نعم)
+// warrantyType: نوع الضمان (0=بدون، 1=وكيل، 2=محل، 3=مصنع، 4=دولي)
+// warrantyMonths: مدة الضمان بالأشهر (0-60)
+
+// Reference Values for console fields:
+// storageCapacity: سعة التخزين بالجيجابايت (1-4000)
+// region: 0=أمريكا، 1=أوروبا، 2=اليابان، 3=جميع المناطق، 4=أخرى
+// modelId: معرف الموديل (مرتبط بجدول brands_models)

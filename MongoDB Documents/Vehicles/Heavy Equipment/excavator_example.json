@@ -1,0 +1,57 @@
+// Hierarchy: ads -> transport_attrs -> heavy_equipment_attrs -> excavator_attrs
+{
+  "_id": "60a6e5e889e7c55e25b14b50",
+  "title": "2018 Komatsu PC210LC-11 Excavator",
+  "description": "Komatsu PC210LC-11, 2018 model, 3,000 hours, excellent condition, 1.2m³ bucket.",
+  "price": 120000.00,
+  "showingPrice": "$120,000",
+  "isActive": true,
+  "createdAt": "2024-05-14T14:40:00Z",
+  "updatedAt": "2024-05-14T14:40:00Z",
+  "imageCount": 5,
+  "viewsCount": 33,
+  "isDollar": true,
+  "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
+  "priority": 2,
+  "slug": "2018-komatsu-pc210lc-11-excavator",
+  
+  "location": {
+    "locationIds": [1, 15, 150],
+    "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+    "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+    "street": "شارع الجمهورية 123"
+  },
+
+  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
+
+  
+  "specs": {
+    "transport": {
+      "fuelType": 2, // sbyte (0-5)
+      "enginePower": 500, // short
+      "fuelTankCapacity": 200 // short
+    },
+    "heavyEquipment": {
+      "operatingMass": 2500.00, // float
+      "weight": 2.50 // float
+    }
+    "excavator": {
+      "bucketCapacity": 1.2, // float
+      "maxDiggingDepth": 6.62 // float
+    }
+  }
+}
+
+// Reference Values for transport fields:
+// fuelType: نوع الوقود: 0=بنزين، 1=ديزل (كاز)، 2=كهرباء، 3=هجين، 4=غاز، 5=أخرى
+// enginePower: قوة المحرك بالحصان (1-2000)
+// fuelTankCapacity: سعة خزان الوقود باللتر (1-1000)
+
+// Reference Values for heavy equipment fields:
+// operatingMass: الوزن التشغيلي (كغ) - Operating Mass (kg)
+// weight: الوزن الاساسي (طن) - Base Weight (tons)
+
+// Reference Values for excavator fields:
+// bucketCapacity: سعة الدلو (م مكعب) - Bucket Capacity (m³)
+// maxDiggingDepth: أقصى عمق للحفر (م) - Maximum Digging Depth (m)

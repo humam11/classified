@@ -1,0 +1,55 @@
+async function buildFullLocationAddress(districtId, streetAddress, buildingNumber, additionalDetails) {
+  // Get hierarchy from PostgreSQL
+  const locationHierarchy = await getLocationHierarchy(districtId);
+  
+  // Build address components
+  const addressComponents = {
+    street: streetAddress || "",
+    building: buildingNumber || "",
+    additional: additionalDetails || "",
+    neighborhood: locationHierarchy.find(l => l.Level === 2), // neighborhood
+    district: locationHierarchy.find(l => l.Level === 1),     // district  
+    city: locationHierarchy.find(l => l.Level === 0)          // city
+  };
+  
+  // Construct full addresses
+  const fullAddressArabic = buildArabicAddress(addressComponents);
+  const fullAddressKurdish = buildKurdishAddress(addressComponents);
+  
+  return {
+    street: streetAddress,
+    buildingNumber,
+    additionalDetails,
+    fullAddressArabic,
+    fullAddressKurdish,
+    hierarchy: buildHierarchyObject(locationHierarchy),
+    locationIds: locationHierarchy.map(l => l.LocationID),
+    cityId: addressComponents.city.LocationID
+  };
+}
+
+function buildArabicAddress(components) {
+  const parts = [];
+  
+  if (components.street) parts.push(components.street);
+  if (components.building) parts.push(components.building);
+  if (components.additional) parts.push(components.additional);
+  if (components.neighborhood) parts.push(components.neighborhood.NameArabic);
+  if (components.district) parts.push(components.district.NameArabic);
+  if (components.city) parts.push(components.city.NameArabic);
+  
+  return parts.join('، '); // Arabic comma separator
+}
+
+function buildKurdishAddress(components) {
+  const parts = [];
+  
+  if (components.street) parts.push(components.street);
+  if (components.building) parts.push(components.building);
+  if (components.additional) parts.push(components.additional);
+  if (components.neighborhood) parts.push(components.neighborhood.NameKurdish);
+  if (components.district) parts.push(components.district.NameKurdish);
+  if (components.city) parts.push(components.city.NameKurdish);
+  
+  return parts.join('، '); // Kurdish comma separator
+}

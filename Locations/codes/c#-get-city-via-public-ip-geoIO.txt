@@ -1,0 +1,23 @@
+using MaxMind.Db;
+using System;
+using System.Net;
+using Newtonsoft.Json; // Install via: Install-Package Newtonsoft.Json
+
+class Program
+{
+    static void Main()
+    {
+        string mmdbPath = @"C:\Users\Humam\source\repos\MMDBReader\MMDBReader\Data\GeoLite2-City.mmdb";
+        string ipToTest = "37.236.0.0"; // Replace with your IP
+
+        using (var reader = new Reader(mmdbPath))
+        {
+            var ip = IPAddress.Parse(ipToTest);
+            dynamic record = reader.Find<dynamic>(ip);
+
+            // Convert the entire record to JSON and print
+            string json = JsonConvert.SerializeObject(record, Formatting.Indented);
+            Console.WriteLine(json);
+        }
+    }
+}

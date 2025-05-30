@@ -1,0 +1,43 @@
+// Hierarchy: ads -> real_estate_attrs -> project_under_construction_attrs
+{
+  "_id": "60a6e5e889e7c55e25b14b36",
+  "title": "Luxury Residential Complex Under Construction in Al-Mansour",
+  "description": "Modern residential complex with premium finishes, smart home features, and comprehensive amenities. Expected completion in 2025.",
+  "price": 200000.00,
+  "showingPrice": "$200,000",
+  "isActive": true,
+  "createdAt": "2024-05-14T11:45:00Z",
+  "updatedAt": "2024-05-14T11:45:00Z",
+  "imageCount": 15,
+  "viewsCount": 180,
+  "isDollar": true,
+  "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
+  "priority": 1,
+  "slug": "luxury-residential-complex-under-construction-al-mansour",
+  
+  "location": {
+    "locationIds": [1, 15, 150],
+    "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+    "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+    "street": "شارع الجمهورية 123"
+  },
+
+  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
+
+  
+  "specs": {
+    "realEstate": {
+      "area": 250.50 // float
+    },
+    "constructionProject": {
+      "completionStatus": 1 // sbyte
+    }
+  }
+}
+
+// Reference Values for realEstate fields:
+// area: المساحة بالمتر المربع (1-10000)
+
+// Reference Values for constructionProject fields:
+// completionStatus: نسبة الإنجاز: 0=تحت الإنشاء، 1=قيد التشطيب، 2=تشطيب كامل

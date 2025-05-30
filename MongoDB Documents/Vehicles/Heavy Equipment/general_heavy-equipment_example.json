@@ -1,0 +1,50 @@
+{
+  "_id": "60a6e5e889e7c55e25b14b57",
+  "title": "Industrial Generator Set",
+  "description": "High-capacity industrial generator set, perfect for construction sites and large facilities.",
+  "price": 75000.00,
+  "showingPrice": "$75,000",
+  "isActive": true,
+  "createdAt": "2024-05-14T19:00:00Z",
+  "updatedAt": "2024-05-14T19:00:00Z",
+  "imageCount": 6,
+  "viewsCount": 95,
+  "isDollar": true,
+  "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
+  "priority": 2,
+  "slug": "industrial-generator-set",
+  
+  "location": {
+    "locationIds": [1, 15, 150],
+    "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+    "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+    "street": "شارع الجمهورية 123"
+  },
+
+  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
+
+  
+  "specs": {
+    "transport": {
+      "fuelType": 2, // sbyte (0-5)
+      "enginePower": 500, // short
+      "fuelTankCapacity": 200 // short
+    },
+    "heavyEquipment": {
+      "operatingMass": 2500.00, // double
+      "weight": 2.50 // double
+    }
+  }
+}
+
+// Hierarchy: ads -> transport_attrs -> heavy_equipment_attrs
+
+// Reference Values for transport fields:
+// fuelType: نوع الوقود: 0=بنزين، 1=ديزل (كاز)، 2=كهرباء، 3=هجين، 4=غاز، 5=أخرى
+// enginePower: قوة المحرك بالحصان (1-2000)
+// fuelTankCapacity: سعة خزان الوقود باللتر (1-1000)
+
+// Reference Values for heavy equipment fields:
+// operatingMass: الوزن التشغيلي (كغ) - Operating Mass (kg)
+// weight: الوزن الاساسي (طن) - Base Weight (tons)

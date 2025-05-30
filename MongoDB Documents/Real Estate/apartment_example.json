@@ -1,0 +1,49 @@
+// Hierarchy: ads -> real_estate_attrs -> apartment_attrs
+{
+  "_id": "60a6e5e889e7c55e25b14b32",
+  "title": "Modern 3-Bedroom Apartment in Al-Mansour",
+  "description": "Spacious 3-bedroom apartment with modern amenities, security, and parking. Located in a prime area.",
+  "price": 250000.00,
+  "showingPrice": "$250,000",
+  "isActive": true,
+  "createdAt": "2024-05-12T10:00:00Z",
+  "updatedAt": "2024-05-12T10:00:00Z",
+  "imageCount": 8,
+  "viewsCount": 120,
+  "isDollar": true,
+  "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
+  "priority": 2,
+  "slug": "modern-3-bedroom-apartment-al-mansour",
+  
+  "location": {
+    "locationIds": [1, 15, 150],
+    "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+    "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+    "street": "شارع الجمهورية 123"
+  },
+
+  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
+
+  
+  "specs": {
+    "realEstate": {
+      "area": 150.5 // float
+    },
+    "apartment": {
+      "bedrooms": 3,         // sbyte - Example: 3 bedrooms
+      "bathrooms": 2,        // sbyte - Example: 2 bathrooms
+      "elevator": true,      // bool - Example: true for has elevator
+      "furnished": true,     // bool - Example: true for furnished
+      "floorNumber": 5       // sbyte - Example: 5th floor
+  }
+}
+// Reference Values for realEstate fields:
+// area: المساحة بالمتر المربع (1-10000)
+
+// Reference Values for apartment fields:
+// bedrooms: عدد غرف النوم (0-10)
+// bathrooms: عدد الحمامات (0-10)
+// elevator: وجود مصعد (0=لا، 1=نعم)
+// furnished: مفروش (0=لا، 1=نعم)
+// floorNumber: رقم الطابق (0-99) 

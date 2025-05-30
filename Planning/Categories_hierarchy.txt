@@ -1,0 +1,40 @@
+Miscellaneous
+ads -> furniture_and_decor_attrs
+ads -> vacancy_attrs
+ads -> shoe_attrs
+ads -> cloth_attrs
+ads -> garden_and_plant_attrs
+ads -> tire_and_wheel_attrs
+ads -> book_attrs
+ads -> video_games_attrs -> brands_models
+ads -> engine_oil_attrs -> brands_models
+
+Vehicles
+ads -> transport_attrs
+ads -> transport_attrs ->  boat_and_marine_attrs
+ads -> transport_attrs->  truck_attrs ->  brands_models
+ads -> transport_attrs->  motorcycle_attrs ->  brands_models
+ads -> transport_attrs->  car_attrs ->  brands_models & sub_model-release
+ads -> transport_attrs ->  heavy_equipment_attrs (for others and general heavy equipments ads)
+ads -> transport_attrs -> heavy_equipment_attrs -> bulldozer_attrs
+ads -> transport_attrs -> heavy_equipment_attrs -> crane_attrs
+ads -> transport_attrs -> heavy_equipment_attrs -> bus_attrs
+ads -> transport_attrs -> heavy_equipment_attrs -> excavator_attrs
+
+Real Estate
+ads -> real_estate_attrs (for others and general real estate ads)
+ads -> real_estate_attrs -> house_attrs
+ads -> real_estate_attrs -> project_under_construction_attrs
+ads -> real_estate_attrs -> apartment_attrs
+
+Electronics
+ads -> electronic_attrs  (for others and general electronics ads)
+ads -> electronic_attrs -> computer_and_laptop_attrs
+ads -> electronic_attrs -> laptop_attrs -> brands_models
+ads -> electronic_attrs -> monitor_and_television_attrs -> brands_models
+ads -> electronic_attrs -> smart_phone_and_tablet_attrs -> brands_models
+ads -> electronic_attrs -> console_attrs -> brands_models
+
+Special Types
+ads -> cv_attrs -> educations & experiences & languages
+ads -> service_attrs -> service_daily_availability -> service_time_slots
