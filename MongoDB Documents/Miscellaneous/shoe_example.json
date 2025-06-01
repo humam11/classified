@@ -10,7 +10,7 @@
   "updatedAt": "2024-05-14T13:20:00Z",
   "imageCount": 3,
   "viewsCount": 60,
-  "isDollar": true,
+  "isDollar": false, // bool (always false for shoes)
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
   "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
   "priority": 4,

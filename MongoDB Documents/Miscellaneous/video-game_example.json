@@ -10,7 +10,7 @@
   "updatedAt": "2024-05-14T13:10:00Z",
   "imageCount": 2,
   "viewsCount": 45,
-  "isDollar": true,
+  "isDollar": true, // bool (could be true or false for anything related to video games)
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
   "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
   "priority": 3,

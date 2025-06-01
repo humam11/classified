@@ -10,7 +10,7 @@
   "updatedAt": "2024-05-14T11:45:00Z",
   "imageCount": 15,
   "viewsCount": 180,
-  "isDollar": true,
+  "isDollar": true,  // bool (could be true or false for anything related to general real estate)
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
   "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
   "priority": 1,

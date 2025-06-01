@@ -3,13 +3,13 @@
   "_id": "60a6e5e889e7c55e25b14b52", // string
   "title": "Senior Software Engineer CV", // string
   "description": "Experienced software engineer with 8 years of experience in full-stack development.", // string
-  "price": 0.00, // float
+  "price": 0.00, // float (expected Salary)
   "showingPrice": "Free", // string
   "createdAt": "2024-05-14T15:00:00Z", // DateTime
   "updatedAt": "2024-05-14T15:00:00Z", // DateTime
   "imageCount": 1, // sbyte
   "viewsCount": 45, // ushort
-  "isDollar": false, // bool
+  "isDollar": true, // bool (could be true or false for anything related to cv)
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
   "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
   "priority": 2, // sbyte

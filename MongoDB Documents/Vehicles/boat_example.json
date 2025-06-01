@@ -10,7 +10,7 @@
   "updatedAt": ISODate("2024-05-11T09:45:00Z"),
   "imageCount": 8,
   "viewsCount": 65,
-  "isDollar": true,
+  "isDollar": true, // bool (could be true or false for anything related to general transport)
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
   "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
   "priority": 2,

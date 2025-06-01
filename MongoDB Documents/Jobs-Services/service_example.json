@@ -3,14 +3,14 @@
   "_id": "60a6e5e889e7c55e25b14b54", // string
   "title": "Professional Web Development Services", // string
   "description": "Full-stack web development services including frontend, backend, and database development. Specializing in modern frameworks and responsive design.", // string
-  "price": 50.00, // float
+  "price": 50.00, // Price per -> combine with paymentPeriod
   "showingPrice": "$50/hour", // string
   "isActive": true, // bool
   "createdAt": "2024-05-14T16:00:00Z", // DateTime
   "updatedAt": "2024-05-14T16:00:00Z", // DateTime
   "imageCount": 3, // sbyte
   "viewsCount": 45, // ushort
-  "isDollar": true, // bool
+  "isDollar": true, // bool (could be true or false for anything related to service)
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
   "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
   "priority": 2, // sbyte
@@ -28,7 +28,7 @@
   
   "specs": {
     "service": {
-      "priceType": 3, // sbyte
+      "paymentPeriod": 3, // sbyte
       "dailyAvailability": [
         {
           "dayOfWeek": 1, // sbyte
@@ -86,7 +86,7 @@
 } 
 
 // Reference Values for service fields:
-// priceType: نوع السعر (0=للخدمة، 1=للمتر، 2=للقطعة، 3=للساعة، 4=لليوم، 5=للدقيقة) - sbyte
+// paymentPeriod: نوع السعر (0=للخدمة، 1=للمتر، 2=للقطعة، 3=للساعة، 4=لليوم، 5=للدقيقة) - sbyte
 
 // dailyAvailability:
 // dayOfWeek: يوم الأسبوع (0=الأحد، 1=الإثنين، 2=الثلاثاء، 3=الأربعاء، 4=الخميس، 5=الجمعة، 6=السبت) - sbyte

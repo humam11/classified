@@ -1,6 +1,6 @@
 -- PostgreSQL script to insert all category data
 -- Generated automatically - do not edit manually
--- Total categories to insert: 715
+-- Total categories to insert: 716
 
 BEGIN;
 
@@ -14,22 +14,24 @@ VALUES ('مركبات ونقل', 'ئۆتۆمبێل و گواستنەوە', 'مر
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('سيارات', 'ئۆتۆمبێل (سەیارە)', 'مركبات-ونقل/سيارات', 'ئۆتۆمبێل-و-گواستنەوە/ئۆتۆمبێل', '1.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
-VALUES ('دراجات نارية وعجلات اخرى', 'ماتۆڕسکیل و تایەی تر (پایسکل و چەرخی تر)', 'مركبات-ونقل/دراجات-نارية-وعجلات-اخرى', 'ئۆتۆمبێل-و-گواستنەوە/ماتۆڕسکیل-و-تایەی-تر', '1.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1'));
+VALUES ('دراجات نارية وعجلات اخرى', 'ماتۆڕسکیل و ئامرازە چەرخدارەکانی تر (پایسکل، سکۆتەر، هتد)', 'مركبات-ونقل/دراجات-نارية-وعجلات-اخرى', 'ئۆتۆمبێل-و-گواستنەوە/ماتۆڕسکیل-و-ئامرازە-چەرخدارەکانی-تر', '1.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
-VALUES ('دراجات نارية (موتوسيكلات)', 'ماتۆڕسکیل (ماتۆڕ)', 'مركبات-ونقل/دراجات-نارية-وعجلات-اخرى/دراجات-نارية', 'ئۆتۆمبێل-و-گواستنەوە/ماتۆڕسکیل-و-تایەی-تر/ماتۆڕسکیل', '1.2.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1.2'));
+VALUES ('دراجات نارية (موتوسيكلات)', 'ماتۆڕسکیل (ماتۆڕ)', 'مركبات-ونقل/دراجات-نارية-وعجلات-اخرى/دراجات-نارية', 'ئۆتۆمبێل-و-گواستنەوە/ماتۆڕسکیل-و-ئامرازە-چەرخدارەکانی-تر/ماتۆڕسکیل', '1.2.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
-VALUES ('دراجات هوائية وسكوترات', 'پاسکیل و سکۆتەر', 'مركبات-ونقل/دراجات-نارية-وعجلات-اخرى/دراجات-هوائية-وسكوترات', 'ئۆتۆمبێل-و-گواستنەوە/ماتۆڕسکیل-و-تایەی-تر/پاسکیل-و-سکۆتەر', '1.2.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1.2'));
+VALUES ('دراجات ذات ثلاث عجلات (تكتك، ستوته، وغيرها)', 'ماتۆڕی سێ تایە (توکتوک، ستووتە، و هیتر)', 'مركبات-ونقل/دراجات-نارية-وعجلات-اخرى/دراجات-ذات-ثلاث-عجلات', 'ئۆتۆمبێل-و-گواستنەوە/ماتۆڕسکیل-و-ئامرازە-چەرخدارەکانی-تر/ماتۆڕی-سێ-تایە', '1.2.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
-VALUES ('مركبات طرق وعرة (ATV)', 'ئۆتۆمبێلی ڕێگا ناخۆشەکان (ATV)', 'مركبات-ونقل/دراجات-نارية-وعجلات-اخرى/مركبات-طرق-وعرة', 'ئۆتۆمبێل-و-گواستنەوە/ماتۆڕسکیل-و-تایەی-تر/ئۆتۆمبێلی-ڕێگا-ناخۆشەکان', '1.2.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1.2'));
+VALUES ('دراجات هوائية وسكوترات', 'پاسکیل و سکۆتەر', 'مركبات-ونقل/دراجات-نارية-وعجلات-اخرى/دراجات-هوائية-وسكوترات', 'ئۆتۆمبێل-و-گواستنەوە/ماتۆڕسکیل-و-ئامرازە-چەرخدارەکانی-تر/پاسکیل-و-سکۆتەر', '1.2.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
-VALUES ('دراجات رباعية وباجي (Buggies)', 'ماتۆڕی چوار تایە و بەگی (Buggies)', 'مركبات-ونقل/دراجات-نارية-وعجلات-اخرى/دراجات-رباعية-وباجي', 'ئۆتۆمبێل-و-گواستنەوە/ماتۆڕسکیل-و-تایەی-تر/ماتۆڕی-چوار-تایە-و-بەگی', '1.2.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1.2'));
+VALUES ('مركبات طرق وعرة (ATV)', 'ئۆتۆمبێلی ڕێگا ناخۆشەکان (ATV)', 'مركبات-ونقل/دراجات-نارية-وعجلات-اخرى/مركبات-طرق-وعرة', 'ئۆتۆمبێل-و-گواستنەوە/ماتۆڕسکیل-و-ئامرازە-چەرخدارەکانی-تر/ئۆتۆمبێلی-ڕێگا-ناخۆشەکان', '1.2.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1.2'));
+INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
+VALUES ('دراجات رباعية وباجي (Buggies)', 'ماتۆڕی چوار تایە و بەگی (Buggies)', 'مركبات-ونقل/دراجات-نارية-وعجلات-اخرى/دراجات-رباعية-وباجي', 'ئۆتۆمبێل-و-گواستنەوە/ماتۆڕسکیل-و-ئامرازە-چەرخدارەکانی-تر/ماتۆڕی-چوار-تایە-و-بەگی', '1.2.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('شاحنات', 'بارهەڵگر (شاحینە)', 'مركبات-ونقل/شاحنات', 'ئۆتۆمبێل-و-گواستنەوە/بارهەڵگر', '1.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('معدات ثقيلة واليات', 'ئامێری قورس و میکانیزم', 'مركبات-ونقل/معدات-ثقيلة-واليات', 'ئۆتۆمبێل-و-گواستنەوە/ئامێری-قورس-و-میکانیزم', '1.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('نقل تجاري خفيف (بيك ام، كيه)', 'گواستنەوەی بازرگانی سووک (پیکاب، کەی)', 'مركبات-ونقل/معدات-ثقيلة-واليات/نقل-تجاري-خفيف', 'ئۆتۆمبێل-و-گواستنەوە/ئامێری-قورس-و-میکانیزم/گواستنەوەی-بازرگانی-سووک', '1.4.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1.4'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('شفلات', 'شۆفڵ', 'مركبات-ونقل/معدات-ثقيلة-واليات/شفلات', 'ئۆتۆمبێل-و-گواستنەوە/ئامێری-قورس-و-میکانیزم/شۆفڵ', '1.4.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1.4'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -48,9 +50,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('معدات زراعية', 'کەلوپەلی کشتوکاڵی', 'مركبات-ونقل/معدات-ثقيلة-واليات/معدات-زراعية', 'ئۆتۆمبێل-و-گواستنەوە/ئامێری-قورس-و-میکانیزم/کەلوپەلی-کشتوکاڵی', '1.4.9', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1.4'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('معدات بناء', 'کەلوپەلی بیناسازی', 'مركبات-ونقل/معدات-ثقيلة-واليات/معدات-بناء', 'ئۆتۆمبێل-و-گواستنەوە/ئامێری-قورس-و-میکانیزم/کەلوپەلی-بیناسازی', '1.4.10', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1.4'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('معدات واليات اخرى (الرافعات الشوكية، مضخات الخرسانة، وغيرها)', 'ئامێر و میکانیزمی تر (ڕافیعەی شەوکەدار، پەمپی کۆنکرێت، هتد)', 'مركبات-ونقل/معدات-ثقيلة-واليات/معدات-واليات-اخرى', 'ئۆتۆمبێل-و-گواستنەوە/ئامێری-قورس-و-میکانیزم/ئامێر-و-میکانیزمی-تر', '1.4.11', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1.4'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('النقل البحري', 'گواستنەوەی دەریایی', 'مركبات-ونقل/النقل-البحري', 'ئۆتۆمبێل-و-گواستنەوە/گواستنەوەی-دەریایی', '1.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -74,9 +76,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('منازل وفلل', 'ماڵ و ڤێلا', 'العقارات-والاملاك/عقارات-للبيع/سكني/منازل-وفلل', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-فرۆشتن/نیشتەجێبوون/ماڵ-و-ڤێلا', '2.1.1.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.1.1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('بيوت عادية', 'ماڵی ئاسایی', 'العقارات-والاملاك/عقارات-للبيع/سكني/منازل-وفلل/بيوت-عادية', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-فرۆشتن/نیشتەجێبوون/ماڵ-و-ڤێلا/ماڵی-ئاسایی', '2.1.1.1.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.1.1.1'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('بيوت بناء حديث', 'ماڵی تازە دروستکراو', 'العقارات-والاملاك/عقارات-للبيع/سكني/منازل-وفلل/بيوت-بناء-حديث', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-فرۆشتن/نیشتەجێبوون/ماڵ-و-ڤێلا/ماڵی-تازە-دروستکراو', '2.1.1.1.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.1.1.1'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('فلل مستقلة', 'ڤێلای سەربەخۆ', 'العقارات-والاملاك/عقارات-للبيع/سكني/منازل-وفلل/فلل-مستقلة', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-فرۆشتن/نیشتەجێبوون/ماڵ-و-ڤێلا/ڤێلای-سەربەخۆ', '2.1.1.1.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.1.1.1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -95,9 +97,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('شقق استوديو', 'شوقەی ستۆدیۆ', 'العقارات-والاملاك/عقارات-للبيع/سكني/شقق/شقق-استوديو', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-فرۆشتن/نیشتەجێبوون/شوقە/شوقەی-ستۆدیۆ', '2.1.1.2.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.1.1.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('شقق دوبلكس', 'شوقەی دوپلێکس', 'العقارات-والاملاك/عقارات-للبيع/سكني/شقق/شقق-دوبلكس', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-فرۆشتن/نیشتەجێبوون/شوقە/شوقەی-دوپلێکس', '2.1.1.2.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.1.1.2'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('قطع اراضي', 'پارچە زەوی', 'العقارات-والاملاك/عقارات-للبيع/سكني/قطع-اراضي', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-فرۆشتن/نیشتەجێبوون/پارچە-زەوی', '2.1.1.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.1.1'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اراضي سكنية (عرصات)', 'زەوی نیشتەجێبوون (عەرسە)', 'العقارات-والاملاك/عقارات-للبيع/سكني/قطع-اراضي/اراضي-سكنية', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-فرۆشتن/نیشتەجێبوون/پارچە-زەوی/زەوی-نیشتەجێبوون', '2.1.1.3.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.1.1.3'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -116,9 +118,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('مخازن ومستودعات', 'کۆگا و مەخزەن', 'العقارات-والاملاك/عقارات-للبيع/تجاري-وصناعي/مخازن-ومستودعات', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-فرۆشتن/بازرگانی-و-پیشەسازی/کۆگا-و-مەخزەن', '2.1.2.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.1.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مشاريع تحت الانشاء', 'پڕۆژەی لەژێر دروستکردن', 'العقارات-والاملاك/عقارات-للبيع/مشاريع-تحت-الانشاء', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-فرۆشتن/پڕۆژەی-لەژێر-دروستکردن', '2.1.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.1'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مشاريع سكنية تحت الانشاء', 'پڕۆژەی نیشتەجێبوونی لەژێر دروستکردن', 'العقارات-والاملاك/عقارات-للبيع/مشاريع-تحت-الانشاء/مشاريع-سكنية-تحت-الانشاء', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-فرۆشتن/پڕۆژەی-لەژێر-دروستکردن/پڕۆژەی-نیشتەجێبوونی-لەژێر-دروستکردن', '2.1.3.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.1.3'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مجمعات تجارية تحت الانشاء', 'کۆمەڵگەی بازرگانی لەژێر دروستکردن', 'العقارات-والاملاك/عقارات-للبيع/مشاريع-تحت-الانشاء/مجمعات-تجارية-تحت-الانشاء', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-فرۆشتن/پڕۆژەی-لەژێر-دروستکردن/کۆمەڵگەی-بازرگانی-لەژێر-دروستکردن', '2.1.3.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.1.3'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -137,9 +139,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('استوديوهات (غير سكني)', 'ستۆدیۆ (نا نیشتەجێبوون)', 'العقارات-والاملاك/عقارات-للبيع/فئات-عقارية-اخرى-للبيع/استوديوهات', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-فرۆشتن/پۆلەکانی-تری-خانووبەرە-بۆ-فرۆشتن/ستۆدیۆ', '2.1.5.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.1.5'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('عيادات ومراكز طبية', 'کلینیک و ناوەندی پزیشکی', 'العقارات-والاملاك/عقارات-للبيع/فئات-عقارية-اخرى-للبيع/عيادات-ومراكز-طبية', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-فرۆشتن/پۆلەکانی-تری-خانووبەرە-بۆ-فرۆشتن/کلینیک-و-ناوەندی-پزیشکی', '2.1.5.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.1.5'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مطاعم ومقاهي (كافيهات)', 'چێشتخانە و قاوەخانە (کافتریا)', 'العقارات-والاملاك/عقارات-للبيع/فئات-عقارية-اخرى-للبيع/مطاعم-ومقاهي', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-فرۆشتن/پۆلەکانی-تری-خانووبەرە-بۆ-فرۆشتن/چێشتخانە-و-قاوەخانە', '2.1.5.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.1.5'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مواقف سيارات (كراجات)', 'پارکینگی ئۆتۆمبێل (گەڕاج)', 'العقارات-والاملاك/عقارات-للبيع/فئات-عقارية-اخرى-للبيع/مواقف-سيارات', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-فرۆشتن/پۆلەکانی-تری-خانووبەرە-بۆ-فرۆشتن/پارکینگی-ئۆتۆمبێل', '2.1.5.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.1.5'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -158,9 +160,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('بيوت عادية', 'ماڵی ئاسایی', 'العقارات-والاملاك/عقارات-للايجار/سكني/منازل-وفلل-للايجار/بيوت-عادية', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-کرێ/نیشتەجێبوون/ماڵ-و-ڤێلا-بۆ-کرێ/ماڵی-ئاسایی', '2.2.1.1.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.2.1.1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('فلل مستقلة', 'ڤێلای سەربەخۆ', 'العقارات-والاملاك/عقارات-للايجار/سكني/منازل-وفلل-للايجار/فلل-مستقلة', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-کرێ/نیشتەجێبوون/ماڵ-و-ڤێلا-بۆ-کرێ/ڤێلای-سەربەخۆ', '2.2.1.1.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.2.1.1'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('فلل متلاصقة (تاون هاوس)', 'ڤێلای لکاو (تاون هاوس)', 'العقارات-والاملاك/عقارات-للايجار/سكني/منازل-وفلل-للايجار/فلل-متلاصقة', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-کرێ/نیشتەجێبوون/ماڵ-و-ڤێلا-بۆ-کرێ/ڤێلای-لکاو', '2.2.1.1.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.2.1.1'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('بيوت دوبلكس', 'ماڵی دوپلێکس', 'العقارات-والاملاك/عقارات-للايجار/سكني/منازل-وفلل-للايجار/بيوت-دوبلكس', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-کرێ/نیشتەجێبوون/ماڵ-و-ڤێلا-بۆ-کرێ/ماڵی-دوپلێکس', '2.2.1.1.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.2.1.1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -179,9 +181,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('تجاري وصناعي', 'بازرگانی و پیشەسازی', 'العقارات-والاملاك/عقارات-للايجار/تجاري-وصناعي', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-کرێ/بازرگانی-و-پیشەسازی', '2.2.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('محلات تجارية', 'دوکانی بازرگانی', 'العقارات-والاملاك/عقارات-للايجار/تجاري-وصناعي/محلات-تجارية', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-کرێ/بازرگانی-و-پیشەسازی/دوکانی-بازرگانی', '2.2.2.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.2.2'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مكاتب', 'نووسینگە (مەکتەب)', 'العقارات-والاملاك/عقارات-للايجار/تجاري-وصناعي/مكاتب', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-کرێ/بازرگانی-و-پیشەسازی/نووسینگە', '2.2.2.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.2.2'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ورش ومعامل صغيرة', 'وەرشە و کارگەی بچووک', 'العقارات-والاملاك/عقارات-للايجار/تجاري-وصناعي/ورش-ومعامل-صغيرة', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-کرێ/بازرگانی-و-پیشەسازی/وەرشە-و-کارگەی-بچووک', '2.2.2.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.2.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -200,9 +202,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('مواقف سيارات (كراجات)', 'پارکینگی ئۆتۆمبێل (گەڕاج)', 'العقارات-والاملاك/عقارات-للايجار/فئات-عقارية-اخرى-للايجار/مواقف-سيارات', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-کرێ/پۆلەکانی-تری-خانووبەرە-بۆ-کرێ/پارکینگی-ئۆتۆمبێل', '2.2.3.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.2.3'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('قاعات مناسبات وافراح', 'هۆڵی بۆنە و ئاهەنگ', 'العقارات-والاملاك/عقارات-للايجار/فئات-عقارية-اخرى-للايجار/قاعات-مناسبات-وافراح', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-کرێ/پۆلەکانی-تری-خانووبەرە-بۆ-کرێ/هۆڵی-بۆنە-و-ئاهەنگ', '2.2.3.6', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.2.3'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('قاعات مؤتمرات واجتماعات', 'هۆڵی کۆنفرانس و کۆبوونەوە', 'العقارات-والاملاك/عقارات-للايجار/فئات-عقارية-اخرى-للايجار/قاعات-مؤتمرات-واجتماعات', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-کرێ/پۆلەکانی-تری-خانووبەرە-بۆ-کرێ/هۆڵی-کۆنفرانس-و-کۆبوونەوە', '2.2.3.7', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.2.3'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('عقارات اخرى للايجار', 'خانووبەرەی تری بۆ کرێ', 'العقارات-والاملاك/عقارات-للايجار/فئات-عقارية-اخرى-للايجار/عقارات-اخرى-للايجار', 'خانووبەرە-و-موڵک/خانووبەرە-بۆ-کرێ/پۆلەکانی-تری-خانووبەرە-بۆ-کرێ/خانووبەرەی-تری-بۆ-کرێ', '2.2.3.8', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '2.2.3'));
 
@@ -226,9 +228,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('فني صحيات وكهرباء (سباك، كهربائي)', 'تەکنیکاری ئاوەڕۆ و کارەبا (سەباخ، کارەباچی)', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/البناء-والتشييد-والانشاءات/فني-صحيات-وكهرباء', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/بیناسازی-و-ئاوەدانکردنەوە/تەکنیکاری-ئاوەڕۆ-و-کارەبا', '3.1.1.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('تكنولوجيا المعلومات والاتصالات (IT)', 'تەکنەلۆژیای زانیاری و گەیاندن (IT)', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/تكنولوجيا-المعلومات-والاتصالات', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/تەکنەلۆژیای-زانیاری-و-گەیاندن', '3.1.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('تطوير برامج وتطبيقات (مبرمج)', 'پەرەپێدانی پرۆگرام و ئەپلیکەیشن (پرۆگرامساز)', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/تكنولوجيا-المعلومات-والاتصالات/تطوير-برامج-وتطبيقات', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/تەکنەلۆژیای-زانیاری-و-گەیاندن/پەرەپێدانی-پرۆگرام-و-ئەپلیکەیشن', '3.1.2.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.2'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ادارة شبكات كومبيوتر', 'بەڕێوەبردنی تۆڕەکانی کۆمپیوتەر', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/تكنولوجيا-المعلومات-والاتصالات/ادارة-شبكات-كومبيوتر', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/تەکنەلۆژیای-زانیاری-و-گەیاندن/بەڕێوەبردنی-تۆڕەکانی-کۆمپیوتەر', '3.1.2.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -247,9 +249,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('موظف استقبال', 'فەرمانبەری پێشوازی', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/وظائف-ادارية-ومكتبية/موظف-استقبال', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/کاری-کارگێڕی-و-نووسینگە/فەرمانبەری-پێشوازی', '3.1.3.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.3'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('سكرتارية تنفيذية', 'سکرتاریەتی جێبەجێکار', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/وظائف-ادارية-ومكتبية/سكرتارية-تنفيذية', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/کاری-کارگێڕی-و-نووسینگە/سکرتاریەتی-جێبەجێکار', '3.1.3.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.3'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('المحاسبة والمالية', 'ژمێریاری و دارایی', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/المحاسبة-والمالية', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/ژمێریاری-و-دارایی', '3.1.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('محاسب', 'ژمێریار', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/المحاسبة-والمالية/محاسب', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/ژمێریاری-و-دارایی/ژمێریار', '3.1.4.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.4'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -268,9 +270,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('صيدلاني', 'دەرمانساز', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/الطب-والصيدلة-والتمريض/صيدلاني', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/پزیشکی-و-دەرمانسازی-و-پەرستاری/دەرمانساز', '3.1.5.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.5'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ممرض او ممرضة', 'پەرستار (نێر یان مێ)', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/الطب-والصيدلة-والتمريض/ممرض-او-ممرضة', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/پزیشکی-و-دەرمانسازی-و-پەرستاری/پەرستار', '3.1.5.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.5'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('التعليم والتدريس والبحث العلمي', 'فێرکردن و وانەوتنەوە و توێژینەوەی زانستی', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/التعليم-والتدريس-والبحث-العلمي', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/فێرکردن-و-وانەوتنەوە-و-توێژینەوەی-زانستی', '3.1.6', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مدرس او معلم', 'مامۆستا', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/التعليم-والتدريس-والبحث-العلمي/مدرس-او-معلم', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/فێرکردن-و-وانەوتنەوە-و-توێژینەوەی-زانستی/مامۆستا', '3.1.6.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.6'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -289,9 +291,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('موظف خدمات عامة', 'فەرمانبەری خزمەتگوزاری گشتی', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/الخدمات-العامة-والتشغيل-والصيانة/موظف-خدمات-عامة', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/خزمەتگوزاری-گشتی-و-کارپێکردن-و-چاککردنەوە/فەرمانبەری-خزمەتگوزاری-گشتی', '3.1.7.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.7'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مشغل معدات ثقيلة', 'کارپێکەری ئامێری قورس', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/الخدمات-العامة-والتشغيل-والصيانة/مشغل-معدات-ثقيلة', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/خزمەتگوزاری-گشتی-و-کارپێکردن-و-چاککردنەوە/کارپێکەری-ئامێری-قورس', '3.1.7.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.7'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('المبيعات والتسويق والدعاية', 'فرۆشتن و بازاڕگەری و ڕیکلام', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/المبيعات-والتسويق-والدعاية', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/فرۆشتن-و-بازاڕگەری-و-ڕیکلام', '3.1.8', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مندوب مبيعات وتسويق', 'نوێنەری فرۆشتن و بازاڕگەری', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/المبيعات-والتسويق-والدعاية/مندوب-مبيعات-وتسويق', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/فرۆشتن-و-بازاڕگەری-و-ڕیکلام/نوێنەری-فرۆشتن-و-بازاڕگەری', '3.1.8.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.8'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -310,9 +312,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('موظف مخازن (امين مخزن)', 'فەرمانبەری کۆگا (ئەمینی کۆگا)', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/النقل-والمواصلات-والخدمات-اللوجستية/موظف-مخازن', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/گواستنەوە-و-گەیاندن-و-خزمەتگوزاری-لۆجستی/فەرمانبەری-کۆگا', '3.1.9.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.9'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('منسق شحن وتوصيل', 'هەماهەنگکاری بارکردن و گەیاندن', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/النقل-والمواصلات-والخدمات-اللوجستية/منسق-شحن-وتوصيل', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/گواستنەوە-و-گەیاندن-و-خزمەتگوزاری-لۆجستی/هەماهەنگکاری-بارکردن-و-گەیاندن', '3.1.9.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.9'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('الضيافة والفندقة والسياحة', 'میوانداری و هۆتێلداری و گەشتوگوزار', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/الضيافة-والفندقة-والسياحة', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/میوانداری-و-هۆتێلداری-و-گەشتوگوزار', '3.1.10', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('موظف استقبال فندقي', 'فەرمانبەری پێشوازی هۆتێل', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/الضيافة-والفندقة-والسياحة/موظف-استقبال-فندقي', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/میوانداری-و-هۆتێلداری-و-گەشتوگوزار/فەرمانبەری-پێشوازی-هۆتێل', '3.1.10.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.10'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -331,9 +333,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('مصمم جرافيك', 'دیزاینەری گرافیک', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/الفنون-والتصميم-والترفيه/مصمم-جرافيك', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/هونەر-و-دیزاین-و-کات-بەسەربردن/دیزاینەری-گرافیک', '3.1.11.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.11'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('منتج ومونتير فيديو', 'بەرهەمهێنەر و مۆنتێری ڤیدیۆ', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/الفنون-والتصميم-والترفيه/منتج-ومونتير-فيديو', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/هونەر-و-دیزاین-و-کات-بەسەربردن/بەرهەمهێنەر-و-مۆنتێری-ڤیدیۆ', '3.1.11.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.11'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('الامن والحماية والسلامة', 'ئاسایش و پاراستن و سەلامەتی', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/الامن-والحماية-والسلامة', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/ئاسایش-و-پاراستن-و-سەلامەتی', '3.1.12', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('حارس امن', 'پاسەوانی ئاسایش', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/الامن-والحماية-والسلامة/حارس-امن', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/ئاسایش-و-پاراستن-و-سەلامەتی/پاسەوانی-ئاسایش', '3.1.12.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.12'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -352,9 +354,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('سائق خاص', 'شۆفێری تایبەت', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/العمالة-المنزلية-والخدم/سائق-خاص', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/کاری-ماڵەوە-و-خزمەتکار/شۆفێری-تایبەت', '3.1.13.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.13'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مربية اطفال', 'دایەنی منداڵ', 'الوظائف-وفرص-العمل/ابحث-عن-عمل/العمالة-المنزلية-والخدم/مربية-اطفال', 'کار-و-هەلی-کار/گەڕان-بەدوای-کار/کاری-ماڵەوە-و-خزمەتکار/دایەنی-منداڵ', '3.1.13.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.1.13'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ابحث عن موظف (عروض عمل)', 'گەڕان بەدوای فەرمانبەر (پێشنیاری کار)', 'الوظائف-وفرص-العمل/ابحث-عن-موظف', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر', '3.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('البناء والتشييد والانشاءات', 'بیناسازی و ئاوەدانکردنەوە', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/البناء-والتشييد-والانشاءات', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/بیناسازی-و-ئاوەدانکردنەوە', '3.2.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -373,9 +375,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('ادارة شبكات كومبيوتر', 'بەڕێوەبردنی تۆڕەکانی کۆمپیوتەر', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/تكنولوجيا-المعلومات-والاتصالات/ادارة-شبكات-كومبيوتر', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/تەکنەلۆژیای-زانیاری-و-گەیاندن/بەڕێوەبردنی-تۆڕەکانی-کۆمپیوتەر', '3.2.2.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('دعم فني (IT Support)', 'پشتیوانی تەکنیکی (IT Support)', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/تكنولوجيا-المعلومات-والاتصالات/دعم-فني', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/تەکنەلۆژیای-زانیاری-و-گەیاندن/پشتیوانی-تەکنیکی', '3.2.2.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.2'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('امن معلومات (Cybersecurity)', 'ئاسایشی زانیاری (Cybersecurity)', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/تكنولوجيا-المعلومات-والاتصالات/امن-معلومات', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/تەکنەلۆژیای-زانیاری-و-گەیاندن/ئاسایشی-زانیاری', '3.2.2.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.2'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('تحليل بيانات', 'شیکردنەوەی داتا', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/تكنولوجيا-المعلومات-والاتصالات/تحليل-بيانات', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/تەکنەلۆژیای-زانیاری-و-گەیاندن/شیکردنەوەی-داتا', '3.2.2.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -394,9 +396,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('محاسب', 'ژمێریار', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/المحاسبة-والمالية/محاسب', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/ژمێریاری-و-دارایی/ژمێریار', '3.2.4.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.4'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مدقق حسابات', 'وردبینەری هەژمارەکان', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/المحاسبة-والمالية/مدقق-حسابات', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/ژمێریاری-و-دارایی/وردبینەری-هەژمارەکان', '3.2.4.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.4'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('محلل مالي', 'شیکەرەوەی دارایی', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/المحاسبة-والمالية/محلل-مالي', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/ژمێریاری-و-دارایی/شیکەرەوەی-دارایی', '3.2.4.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.4'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مدير مالي', 'بەڕێوەبەری دارایی', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/المحاسبة-والمالية/مدير-مالي', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/ژمێریاری-و-دارایی/بەڕێوەبەری-دارایی', '3.2.4.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.4'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -415,9 +417,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('مدرس او معلم', 'مامۆستا', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/التعليم-والتدريس-والبحث-العلمي/مدرس-او-معلم', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/فێرکردن-و-وانەوتنەوە-و-توێژینەوەی-زانستی/مامۆستا', '3.2.6.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.6'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('باحث علمي', 'توێژەری زانستی', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/التعليم-والتدريس-والبحث-العلمي/باحث-علمي', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/فێرکردن-و-وانەوتنەوە-و-توێژینەوەی-زانستی/توێژەری-زانستی', '3.2.6.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.6'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('فني مختبرات علمية', 'تەکنیکاری تاقیگەی زانستی', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/التعليم-والتدريس-والبحث-العلمي/فني-مختبرات-علمية', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/فێرکردن-و-وانەوتنەوە-و-توێژینەوەی-زانستی/تەکنیکاری-تاقیگەی-زانستی', '3.2.6.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.6'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مدرب مهني وحرفي', 'ڕاهێنەری پیشەیی و دەستی', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/التعليم-والتدريس-والبحث-العلمي/مدرب-مهني-وحرفي', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/فێرکردن-و-وانەوتنەوە-و-توێژینەوەی-زانستی/ڕاهێنەری-پیشەیی-و-دەستی', '3.2.6.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.6'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -436,9 +438,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('مندوب مبيعات وتسويق', 'نوێنەری فرۆشتن و بازاڕگەری', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/المبيعات-والتسويق-والدعاية/مندوب-مبيعات-وتسويق', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/فرۆشتن-و-بازاڕگەری-و-ڕیکلام/نوێنەری-فرۆشتن-و-بازاڕگەری', '3.2.8.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.8'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مدير مبيعات', 'بەڕێوەبەری فرۆشتن', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/المبيعات-والتسويق-والدعاية/مدير-مبيعات', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/فرۆشتن-و-بازاڕگەری-و-ڕیکلام/بەڕێوەبەری-فرۆشتن', '3.2.8.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.8'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اخصائي تسويق الكتروني', 'پسپۆڕی بازاڕگەری ئەلیکترۆنی', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/المبيعات-والتسويق-والدعاية/اخصائي-تسويق-الكتروني', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/فرۆشتن-و-بازاڕگەری-و-ڕیکلام/پسپۆڕی-بازاڕگەری-ئەلیکترۆنی', '3.2.8.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.8'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اخصائي علاقات عامة', 'پسپۆڕی پەیوەندییە گشتییەکان', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/المبيعات-والتسويق-والدعاية/اخصائي-علاقات-عامة', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/فرۆشتن-و-بازاڕگەری-و-ڕیکلام/پسپۆڕی-پەیوەندییە-گشتییەکان', '3.2.8.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.8'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -457,9 +459,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('موظف استقبال فندقي', 'فەرمانبەری پێشوازی هۆتێل', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/الضيافة-والفندقة-والسياحة/موظف-استقبال-فندقي', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/میوانداری-و-هۆتێلداری-و-گەشتوگوزار/فەرمانبەری-پێشوازی-هۆتێل', '3.2.10.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.10'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('شيف او طباخ', 'شێف یان چێشتلێنەر', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/الضيافة-والفندقة-والسياحة/شيف-او-طباخ', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/میوانداری-و-هۆتێلداری-و-گەشتوگوزار/شێف-یان-چێشتلێنەر', '3.2.10.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.10'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('نادل (ويتر)', 'گارسۆن (وەیتەر)', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/الضيافة-والفندقة-والسياحة/نادل', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/میوانداری-و-هۆتێلداری-و-گەشتوگوزار/گارسۆن', '3.2.10.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.10'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('منظم فعاليات ومناسبات', 'ڕێکخەری چالاکی و بۆنەکان', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/الضيافة-والفندقة-والسياحة/منظم-فعاليات-ومناسبات', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/میوانداری-و-هۆتێلداری-و-گەشتوگوزار/ڕێکخەری-چالاکی-و-بۆنەکان', '3.2.10.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.10'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -478,9 +480,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('حارس امن', 'پاسەوانی ئاسایش', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/الامن-والحماية-والسلامة/حارس-امن', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/ئاسایش-و-پاراستن-و-سەلامەتی/پاسەوانی-ئاسایش', '3.2.12.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.12'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مشرف امن', 'سەرپەرشتیاری ئاسایش', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/الامن-والحماية-والسلامة/مشرف-امن', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/ئاسایش-و-پاراستن-و-سەلامەتی/سەرپەرشتیاری-ئاسایش', '3.2.12.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.12'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مسؤول سلامة مهنية', 'بەرپرسی سەلامەتی پیشەیی', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/الامن-والحماية-والسلامة/مسؤول-سلامة-مهنية', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/ئاسایش-و-پاراستن-و-سەلامەتی/بەرپرسی-سەلامەتی-پیشەیی', '3.2.12.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.12'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مشغل كاميرات مراقبة', 'کارپێکەری کامێرای چاودێری', 'الوظائف-وفرص-العمل/ابحث-عن-موظف/الامن-والحماية-والسلامة/مشغل-كاميرات-مراقبة', 'کار-و-هەلی-کار/گەڕان-بەدوای-فەرمانبەر/ئاسایش-و-پاراستن-و-سەلامەتی/کارپێکەری-کامێرای-چاودێری', '3.2.12.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '3.2.12'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -504,9 +506,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('خدمات المركبات (ورش تصليح، ايجار، غسيل)', 'خزمەتگوزاری ئۆتۆمبێل (وەرشەی چاککردنەوە، بەکرێدان، شوشتن)', 'الخدمات/خدمات-المركبات', 'خزمەتگوزارییەکان/خزمەتگوزاری-ئۆتۆمبێل', '4.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('تصليح وصيانة السيارات (فيترچي سيارات)', 'چاککردنەوە و سیانەی ئۆتۆمبێل (فیتەری سەیارە)', 'الخدمات/خدمات-المركبات/تصليح-وصيانة-السيارات', 'خزمەتگوزارییەکان/خزمەتگوزاری-ئۆتۆمبێل/چاککردنەوە-و-سیانەی-ئۆتۆمبێل', '4.1.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.1'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ايجار سيارات', 'بەکرێدانی ئۆتۆمبێل', 'الخدمات/خدمات-المركبات/ايجار-سيارات', 'خزمەتگوزارییەکان/خزمەتگوزاری-ئۆتۆمبێل/بەکرێدانی-ئۆتۆمبێل', '4.1.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.1'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('تصليح وصيانة دراجات نارية (فيترچي دراجات)', 'چاککردنەوە و سیانەی ماتۆڕسکیل (فیتەری ماتۆڕ)', 'الخدمات/خدمات-المركبات/تصليح-وصيانة-دراجات-نارية', 'خزمەتگوزارییەکان/خزمەتگوزاری-ئۆتۆمبێل/چاککردنەوە-و-سیانەی-ماتۆڕسکیل', '4.1.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -525,9 +527,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('خدمات مركبات اخرى', 'خزمەتگوزاری تری ئۆتۆمبێل', 'الخدمات/خدمات-المركبات/خدمات-مركبات-اخرى', 'خزمەتگوزارییەکان/خزمەتگوزاری-ئۆتۆمبێل/خزمەتگوزاری-تری-ئۆتۆمبێل', '4.1.10', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خدمات البناء والمقاولات والمعدات الثقيلة', 'خزمەتگوزاری بیناسازی و بەڵێندەرایەتی و ئامێری قورس', 'الخدمات/خدمات-البناء-والمقاولات-والمعدات-الثقيلة', 'خزمەتگوزارییەکان/خزمەتگوزاری-بیناسازی-و-بەڵێندەرایەتی-و-ئامێری-قورس', '4.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مقاولات بناء وترميم', 'بەڵێندەرایەتی بیناسازی و نۆژەنکردنەوە', 'الخدمات/خدمات-البناء-والمقاولات-والمعدات-الثقيلة/مقاولات-بناء-وترميم', 'خزمەتگوزارییەکان/خزمەتگوزاری-بیناسازی-و-بەڵێندەرایەتی-و-ئامێری-قورس/بەڵێندەرایەتی-بیناسازی-و-نۆژەنکردنەوە', '4.2.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.2'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('تاجير معدات ثقيلة (كرينات، حفارات، شفلات)', 'بەکرێدانی ئامێری قورس (کڕێن، حەفارە، شۆفڵ)', 'الخدمات/خدمات-البناء-والمقاولات-والمعدات-الثقيلة/تاجير-معدات-ثقيلة', 'خزمەتگوزارییەکان/خزمەتگوزاری-بیناسازی-و-بەڵێندەرایەتی-و-ئامێری-قورس/بەکرێدانی-ئامێری-قورس', '4.2.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -546,9 +548,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('خدمات الشحن الثقيل والتخليص الكمركي', 'خزمەتگوزاری بارکردنی قورس و دەرکردنی گومرگی', 'الخدمات/خدمات-نقل-البضائع-والشحن/خدمات-الشحن-الثقيل-والتخليص-الكمركي', 'خزمەتگوزارییەکان/خزمەتگوزاری-گواستنەوەی-کاڵا-و-بارکردن/خزمەتگوزاری-بارکردنی-قورس-و-دەرکردنی-گومرگی', '4.3.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.3'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('الخدمات اللوجستية والتخزين', 'خزمەتگوزاری لۆجستی و کۆگاکردن', 'الخدمات/الخدمات-اللوجستية-والتخزين', 'خزمەتگوزارییەکان/خزمەتگوزاری-لۆجستی-و-کۆگاکردن', '4.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ادارة سلسلة التوريد', 'بەڕێوەبردنی زنجیرەی دابینکردن', 'الخدمات/الخدمات-اللوجستية-والتخزين/ادارة-سلسلة-التوريد', 'خزمەتگوزارییەکان/خزمەتگوزاری-لۆجستی-و-کۆگاکردن/بەڕێوەبردنی-زنجیرەی-دابینکردن', '4.4.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.4'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خدمات تخزين في مستودعات', 'خزمەتگوزاری کۆگاکردن لە مەخزەنەکان', 'الخدمات/الخدمات-اللوجستية-والتخزين/خدمات-تخزين-في-مستودعات', 'خزمەتگوزارییەکان/خزمەتگوزاری-لۆجستی-و-کۆگاکردن/خزمەتگوزاری-کۆگاکردن-لە-مەخزەنەکان', '4.4.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.4'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -567,9 +569,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('خدمات نقل للزيارات الدينية والسياحية', 'خزمەتگوزاری گواستنەوە بۆ زیارەتی ئایینی و گەشتیاری', 'الخدمات/خدمات-نقل-الركاب-والمواصلات/خدمات-نقل-للزيارات-الدينية-والسياحية', 'خزمەتگوزارییەکان/خزمەتگوزاری-گواستنەوەی-سەرنشین-و-گەیاندن/خزمەتگوزاری-گواستنەوە-بۆ-زیارەتی-ئایینی-و-گەشتیاری', '4.5.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.5'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خدمات نقل للمناسبات الخاصة', 'خزمەتگوزاری گواستنەوە بۆ بۆنە تایبەتەکان', 'الخدمات/خدمات-نقل-الركاب-والمواصلات/خدمات-نقل-للمناسبات-الخاصة', 'خزمەتگوزارییەکان/خزمەتگوزاری-گواستنەوەی-سەرنشین-و-گەیاندن/خزمەتگوزاری-گواستنەوە-بۆ-بۆنە-تایبەتەکان', '4.5.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.5'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خدمات الاعمار والبناء والتشطيبات', 'خزمەتگوزاری ئاوەدانکردنەوە و بیناسازی و تەواوکاری', 'الخدمات/خدمات-الاعمار-والبناء-والتشطيبات', 'خزمەتگوزارییەکان/خزمەتگوزاری-ئاوەدانکردنەوە-و-بیناسازی-و-تەواوکاری', '4.6', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('بناء وترميم المنازل والشقق (مقاولات بناء)', 'دروستکردن و نۆژەنکردنەوەی ماڵ و شوقە (بەڵێندەرایەتی بیناسازی)', 'الخدمات/خدمات-الاعمار-والبناء-والتشطيبات/بناء-وترميم-المنازل-والشقق', 'خزمەتگوزارییەکان/خزمەتگوزاری-ئاوەدانکردنەوە-و-بیناسازی-و-تەواوکاری/دروستکردن-و-نۆژەنکردنەوەی-ماڵ-و-شوقە', '4.6.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.6'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -588,9 +590,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('تنظيف منازل وشقق ومكاتب (شركات تنظيف)', 'پاککردنەوەی ماڵ و شوقە و نووسینگە (کۆمپانیای پاککەرەوە)', 'الخدمات/الخدمات-المنزلية-المتنوعة/تنظيف-منازل-وشقق-ومكاتب', 'خزمەتگوزارییەکان/خزمەتگوزاری-جۆراوجۆری-ماڵەوە/پاککردنەوەی-ماڵ-و-شوقە-و-نووسینگە', '4.7.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.7'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مكافحة حشرات وقوارض ورش مبيدات', 'لەناوبردنی مێروو و قرتێنەر و پرژاندنی دەرمانی مێرووکوژ', 'الخدمات/الخدمات-المنزلية-المتنوعة/مكافحة-حشرات-وقوارض-ورش-مبيدات', 'خزمەتگوزارییەکان/خزمەتگوزاری-جۆراوجۆری-ماڵەوە/لەناوبردنی-مێروو-و-قرتێنەر-و-پرژاندنی-دەرمانی-مێرووکوژ', '4.7.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.7'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خدمات العناية بالحدائق', 'خزمەتگوزاری چاودێری باخچە', 'الخدمات/الخدمات-المنزلية-المتنوعة/خدمات-العناية-بالحدائق', 'خزمەتگوزارییەکان/خزمەتگوزاری-جۆراوجۆری-ماڵەوە/خزمەتگوزاری-چاودێری-باخچە', '4.7.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.7'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خدمات طبخ وضيافة للمناسبات والعزائم', 'خزمەتگوزاری چێشتلێنان و میوانداری بۆ بۆنە و خوانەکان', 'الخدمات/الخدمات-المنزلية-المتنوعة/خدمات-طبخ-وضيافة-للمناسبات-والعزائم', 'خزمەتگوزارییەکان/خزمەتگوزاری-جۆراوجۆری-ماڵەوە/خزمەتگوزاری-چێشتلێنان-و-میوانداری-بۆ-بۆنە-و-خوانەکان', '4.7.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.7'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -609,9 +611,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('خدمات سباكة وكهرباء منزلية (تصليحات)', 'خزمەتگوزاری ئاوەڕۆ و کارەبای ماڵەوە (چاککردنەوە)', 'الخدمات/خدمات-اصلاح-وصيانة-عامة/خدمات-سباكة-وكهرباء-منزلية', 'خزمەتگوزارییەکان/خزمەتگوزاری-چاککردنەوە-و-سیانەی-گشتی/خزمەتگوزاری-ئاوەڕۆ-و-کارەبای-ماڵەوە', '4.8.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.8'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خدمات تجهيز الطعام والمناسبات', 'خزمەتگوزاری ئامادەکردنی خواردن و بۆنەکان', 'الخدمات/خدمات-تجهيز-الطعام-والمناسبات', 'خزمەتگوزارییەکان/خزمەتگوزاری-ئامادەکردنی-خواردن-و-بۆنەکان', '4.9', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خدمات طبخ منزلي حسب الطلب', 'خزمەتگوزاری چێشتلێنانی ماڵەوە بەپێی داواکاری', 'الخدمات/خدمات-تجهيز-الطعام-والمناسبات/خدمات-طبخ-منزلي-حسب-الطلب', 'خزمەتگوزارییەکان/خزمەتگوزاری-ئامادەکردنی-خواردن-و-بۆنەکان/خزمەتگوزاری-چێشتلێنانی-ماڵەوە-بەپێی-داواکاری', '4.9.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.9'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('تجهيز ولائم ومناسبات', 'ئامادەکردنی خوان و بۆنەکان', 'الخدمات/خدمات-تجهيز-الطعام-والمناسبات/تجهيز-ولائم-ومناسبات', 'خزمەتگوزارییەکان/خزمەتگوزاری-ئامادەکردنی-خواردن-و-بۆنەکان/ئامادەکردنی-خوان-و-بۆنەکان', '4.9.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.9'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -630,9 +632,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('خدمات تمريض منزلي ورعاية صحية لكبار السن', 'خزمەتگوزاری پەرستاری ماڵەوە و چاودێری تەندروستی بۆ بەساڵاچووان', 'الخدمات/خدمات-صحية-وتجميلية-وعناية-شخصية/خدمات-تمريض-منزلي-ورعاية-صحية-لكبار-السن', 'خزمەتگوزارییەکان/خزمەتگوزاری-تەندروستی-و-جوانکاری-و-چاودێری-کەسی/خزمەتگوزاری-پەرستاری-ماڵەوە-و-چاودێری-تەندروستی-بۆ-بەساڵاچووان', '4.11.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.11'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خدمات عيادات متنقلة وفحوصات منزلية', 'خزمەتگوزاری کلینیکی گەڕۆک و پشکنینی ماڵەوە', 'الخدمات/خدمات-صحية-وتجميلية-وعناية-شخصية/خدمات-عيادات-متنقلة-وفحوصات-منزلية', 'خزمەتگوزارییەکان/خزمەتگوزاری-تەندروستی-و-جوانکاری-و-چاودێری-کەسی/خزمەتگوزاری-کلینیکی-گەڕۆک-و-پشکنینی-ماڵەوە', '4.11.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.11'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خدمات تجميل وليزر وعناية بالبشرة (مراكز تجميل)', 'خزمەتگوزاری جوانکاری و لێزەر و چاودێری پێست (ناوەندی جوانکاری)', 'الخدمات/خدمات-صحية-وتجميلية-وعناية-شخصية/خدمات-تجميل-وليزر-وعناية-بالبشرة', 'خزمەتگوزارییەکان/خزمەتگوزاری-تەندروستی-و-جوانکاری-و-چاودێری-کەسی/خزمەتگوزاری-جوانکاری-و-لێزەر-و-چاودێری-پێست', '4.11.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.11'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('صالونات حلاقة وتجميل (نسائي ورجالي)', 'ئارایشتگای سەرتاشین و جوانکاری (ژنان و پیاوان)', 'الخدمات/خدمات-صحية-وتجميلية-وعناية-شخصية/صالونات-حلاقة-وتجميل', 'خزمەتگوزارییەکان/خزمەتگوزاری-تەندروستی-و-جوانکاری-و-چاودێری-کەسی/ئارایشتگای-سەرتاشین-و-جوانکاری', '4.11.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.11'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -651,9 +653,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('خدمات تقنية ومعلوماتية', 'خزمەتگوزاری تەکنیکی و زانیاری', 'الخدمات/خدمات-تقنية-ومعلوماتية', 'خزمەتگوزارییەکان/خزمەتگوزاری-تەکنیکی-و-زانیاری', '4.13', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('صيانة موبايلات وكومبيوترات ولابتوبات', 'چاککردنەوەی مۆبایل و کۆمپیوتەر و لاپتۆپ', 'الخدمات/خدمات-تقنية-ومعلوماتية/صيانة-موبايلات-وكومبيوترات-ولابتوبات', 'خزمەتگوزارییەکان/خزمەتگوزاری-تەکنیکی-و-زانیاری/چاککردنەوەی-مۆبایل-و-کۆمپیوتەر-و-لاپتۆپ', '4.13.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.13'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('تصميم وتطوير مواقع الكترونية وتطبيقات', 'دیزاین و پەرەپێدانی ماڵپەڕ و ئەپلیکەیشن', 'الخدمات/خدمات-تقنية-ومعلوماتية/تصميم-وتطوير-مواقع-الكترونية-وتطبيقات', 'خزمەتگوزارییەکان/خزمەتگوزاری-تەکنیکی-و-زانیاری/دیزاین-و-پەرەپێدانی-ماڵپەڕ-و-ئەپلیکەیشن', '4.13.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.13'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خدمات تسويق الكتروني ودعاية واعلان اونلاين', 'خزمەتگوزاری بازاڕگەری ئەلیکترۆنی و ڕیکلامی ئۆنلاین', 'الخدمات/خدمات-تقنية-ومعلوماتية/خدمات-تسويق-الكتروني-ودعاية-واعلان-اونلاين', 'خزمەتگوزارییەکان/خزمەتگوزاری-تەکنیکی-و-زانیاری/خزمەتگوزاری-بازاڕگەری-ئەلیکترۆنی-و-ڕیکلامی-ئۆنلاین', '4.13.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.13'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -672,9 +674,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('مكافحة افات زراعية وحشرات ضارة', 'لەناوبردنی ئافاتی کشتوکاڵی و مێرووی زیانبەخش', 'الخدمات/خدمات-زراعية-وبستنة/مكافحة-افات-زراعية-وحشرات-ضارة', 'خزمەتگوزارییەکان/خزمەتگوزاری-کشتوکاڵی-و-باخداری/لەناوبردنی-ئافاتی-کشتوکاڵی-و-مێرووی-زیانبەخش', '4.14.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.14'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خدمات قانونية ومالية واستشارية', 'خزمەتگوزاری یاسایی و دارایی و ڕاوێژکاری', 'الخدمات/خدمات-قانونية-ومالية-واستشارية', 'خزمەتگوزارییەکان/خزمەتگوزاری-یاسایی-و-دارایی-و-ڕاوێژکاری', '4.15', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خدمات محاماة واستشارات قانونية (كتابة عرائض)', 'خزمەتگوزاری پارێزەری و ڕاوێژی یاسایی (نووسینی داواکاری)', 'الخدمات/خدمات-قانونية-ومالية-واستشارية/خدمات-محاماة-واستشارات-قانونية', 'خزمەتگوزارییەکان/خزمەتگوزاری-یاسایی-و-دارایی-و-ڕاوێژکاری/خزمەتگوزاری-پارێزەری-و-ڕاوێژی-یاسایی', '4.15.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.15'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خدمات محاسبة وتنظيم حسابات وضرائب', 'خزمەتگوزاری ژمێریاری و ڕێکخستنی هەژمار و باج', 'الخدمات/خدمات-قانونية-ومالية-واستشارية/خدمات-محاسبة-وتنظيم-حسابات-وضرائب', 'خزمەتگوزارییەکان/خزمەتگوزاری-یاسایی-و-دارایی-و-ڕاوێژکاری/خزمەتگوزاری-ژمێریاری-و-ڕێکخستنی-هەژمار-و-باج', '4.15.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.15'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -693,9 +695,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('تصوير فوتوغرافي وفيديو للمناسبات (مصورين)', 'وێنەگرتنی فۆتۆگرافی و ڤیدیۆیی بۆنەکان (وێنەگر)', 'الخدمات/خدمات-مناسبات-وافراح-وفعاليات/تصوير-فوتوغرافي-وفيديو-للمناسبات', 'خزمەتگوزارییەکان/خزمەتگوزاری-بۆنە-و-ئاهەنگ-و-چالاکی/وێنەگرتنی-فۆتۆگرافی-و-ڤیدیۆیی-بۆنەکان', '4.16.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.16'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خدمات سياحة وسفر وزيارات دينية', 'خزمەتگوزاری گەشتوگوزار و گەشت و زیارەتی ئایینی', 'الخدمات/خدمات-سياحة-وسفر-وزيارات-دينية', 'خزمەتگوزارییەکان/خزمەتگوزاری-گەشتوگوزار-و-گەشت-و-زیارەتی-ئایینی', '4.17', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('تنظيم رحلات سياحية داخل وخارج العراق (كروبات)', 'ڕێکخستنی گەشتی گەشتیاری لەناو و دەرەوەی عێراق (گرووپ)', 'الخدمات/خدمات-سياحة-وسفر-وزيارات-دينية/تنظيم-رحلات-سياحية-داخل-وخارج-العراق', 'خزمەتگوزارییەکان/خزمەتگوزاری-گەشتوگوزار-و-گەشت-و-زیارەتی-ئایینی/ڕێکخستنی-گەشتی-گەشتیاری-لەناو-و-دەرەوەی-عێراق', '4.17.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.17'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خدمات حج وعمرة وزيارات', 'خزمەتگوزاری حەج و عومرە و زیارەت', 'الخدمات/خدمات-سياحة-وسفر-وزيارات-دينية/خدمات-حج-وعمرة-وزيارات', 'خزمەتگوزارییەکان/خزمەتگوزاری-گەشتوگوزار-و-گەشت-و-زیارەتی-ئایینی/خزمەتگوزاری-حەج-و-عومرە-و-زیارەت', '4.17.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.17'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -714,9 +716,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('تركيب وصيانة الواح طاقة شمسية ومنظومات', 'دانان و سیانەی پانێڵی وزەی خۆر و سیستەمەکان', 'الخدمات/خدمات-طاقة-وكهرباء-بديلة/تركيب-وصيانة-الواح-طاقة-شمسية-ومنظومات', 'خزمەتگوزارییەکان/خزمەتگوزاری-وزە-و-کارەبای-جێگرەوە/دانان-و-سیانەی-پانێڵی-وزەی-خۆر-و-سیستەمەکان', '4.19.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.19'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خدمات توزيع وقود وغاز للمنازل والمشاريع', 'خزمەتگوزاری دابەشکردنی سووتەمەنی و غاز بۆ ماڵان و پڕۆژەکان', 'الخدمات/خدمات-طاقة-وكهرباء-بديلة/خدمات-توزيع-وقود-وغاز-للمنازل-والمشاريع', 'خزمەتگوزارییەکان/خزمەتگوزاری-وزە-و-کارەبای-جێگرەوە/خزمەتگوزاری-دابەشکردنی-سووتەمەنی-و-غاز-بۆ-ماڵان-و-پڕۆژەکان', '4.19.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.19'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('صيانة مولدات كهربائية ومحطات طاقة', 'سیانەی مۆلیدەی کارەبایی و وێستگەی وزە', 'الخدمات/خدمات-طاقة-وكهرباء-بديلة/صيانة-مولدات-كهربائية-ومحطات-طاقة', 'خزمەتگوزارییەکان/خزمەتگوزاری-وزە-و-کارەبای-جێگرەوە/سیانەی-مۆلیدەی-کارەبایی-و-وێستگەی-وزە', '4.19.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4.19'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خدمات اخرى', 'خزمەتگوزاری تر', 'الخدمات/خدمات-اخرى', 'خزمەتگوزارییەکان/خزمەتگوزاری-تر', '4.20', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '4'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -740,9 +742,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('احذية نسائية', 'پێڵاوی ژنان', 'المقتنيات-الشخصية-والصحة-والجمال/ملابس-واحذية-واكسسوارات/احذية-نسائية', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/جلوبەرگ-و-پێڵاو-و-ئێکسسوارات/پێڵاوی-ژنان', '5.1.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ملابس رجالية', 'جلوبەرگی پیاوان', 'المقتنيات-الشخصية-والصحة-والجمال/ملابس-واحذية-واكسسوارات/ملابس-رجالية', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/جلوبەرگ-و-پێڵاو-و-ئێکسسوارات/جلوبەرگی-پیاوان', '5.1.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.1'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('احذية رجالية', 'پێڵاوی پیاوان', 'المقتنيات-الشخصية-والصحة-والجمال/ملابس-واحذية-واكسسوارات/احذية-رجالية', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/جلوبەرگ-و-پێڵاو-و-ئێکسسوارات/پێڵاوی-پیاوان', '5.1.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.1'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ملابس اطفال', 'جلوبەرگی منداڵان', 'المقتنيات-الشخصية-والصحة-والجمال/ملابس-واحذية-واكسسوارات/ملابس-اطفال', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/جلوبەرگ-و-پێڵاو-و-ئێکسسوارات/جلوبەرگی-منداڵان', '5.1.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -761,9 +763,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('ساعات يد (رجالية ونسائية)', 'کاتژمێری دەست (پیاوان و ژنان)', 'المقتنيات-الشخصية-والصحة-والجمال/ملابس-واحذية-واكسسوارات/ساعات-واكسسوارات-اخرى/ساعات-يد', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/جلوبەرگ-و-پێڵاو-و-ئێکسسوارات/کاتژمێر-و-ئێکسسواراتی-تر/کاتژمێری-دەست', '5.1.8.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.1.8'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اساور ومجوهرات (اكسسوار)', 'بازن و خشڵ (ئێکسسوار)', 'المقتنيات-الشخصية-والصحة-والجمال/ملابس-واحذية-واكسسوارات/ساعات-واكسسوارات-اخرى/اساور-ومجوهرات', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/جلوبەرگ-و-پێڵاو-و-ئێکسسوارات/کاتژمێر-و-ئێکسسواراتی-تر/بازن-و-خشڵ', '5.1.8.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.1.8'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اكسسوارات اخرى', 'ئێکسسواراتی تر', 'المقتنيات-الشخصية-والصحة-والجمال/ملابس-واحذية-واكسسوارات/ساعات-واكسسوارات-اخرى/اكسسوارات-اخرى', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/جلوبەرگ-و-پێڵاو-و-ئێکسسوارات/کاتژمێر-و-ئێکسسواراتی-تر/ئێکسسواراتی-تر', '5.1.8.6', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.1.8'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('نظارات شمسية وطبية', 'چاویلکەی خۆر و پزیشکی', 'المقتنيات-الشخصية-والصحة-والجمال/ملابس-واحذية-واكسسوارات/نظارات-شمسية-وطبية', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/جلوبەرگ-و-پێڵاو-و-ئێکسسوارات/چاویلکەی-خۆر-و-پزیشکی', '5.1.9', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -782,9 +784,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('العاب تعليمية وفكرية للاطفال', 'یاری فێرکاری و هزری بۆ منداڵان', 'المقتنيات-الشخصية-والصحة-والجمال/منتجات-الاطفال-والعابهم/العاب-تعليمية-وفكرية-للاطفال', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/بەرهەمی-منداڵان-و-یارییەکانیان/یاری-فێرکاری-و-هزری-بۆ-منداڵان', '5.2.6', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('دمى وعرائس والعاب بنات', 'بووکەڵە و یاری کچان', 'المقتنيات-الشخصية-والصحة-والجمال/منتجات-الاطفال-والعابهم/دمى-وعرائس-والعاب-بنات', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/بەرهەمی-منداڵان-و-یارییەکانیان/بووکەڵە-و-یاری-کچان', '5.2.7', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.2'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مستلزمات وقرطاسية مدرسية', 'پێداویستی و قوتابخانە', 'المقتنيات-الشخصية-والصحة-والجمال/منتجات-الاطفال-والعابهم/مستلزمات-وقرطاسية-مدرسية', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/بەرهەمی-منداڵان-و-یارییەکانیان/پێداویستی-و-قوتابخانە', '5.2.8', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.2'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('الجمال والعناية الشخصية', 'جوانکاری و چاودێری کەسی', 'المقتنيات-الشخصية-والصحة-والجمال/الجمال-والعناية-الشخصية', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/جوانکاری-و-چاودێری-کەسی', '5.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -803,9 +805,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('العناية بالجسم (لوشنات، مرطبات، مقشرات جسم)', 'چاودێری لەش (لۆشن، شێدارکەرەوە، موقەشیری لەش)', 'المقتنيات-الشخصية-والصحة-والجمال/الجمال-والعناية-الشخصية/العناية-بالبشرة/العناية-بالجسم', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/جوانکاری-و-چاودێری-کەسی/چاودێری-پێست/چاودێری-لەش', '5.3.2.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.3.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('العناية بالايدي والاقدام والشفاه', 'چاودێری دەست و پێ و لێو', 'المقتنيات-الشخصية-والصحة-والجمال/الجمال-والعناية-الشخصية/العناية-بالبشرة/العناية-بالايدي-والاقدام-والشفاه', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/جوانکاری-و-چاودێری-کەسی/چاودێری-پێست/چاودێری-دەست-و-پێ-و-لێو', '5.3.2.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.3.2'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('العناية بالشعر', 'چاودێری قژ', 'المقتنيات-الشخصية-والصحة-والجمال/الجمال-والعناية-الشخصية/العناية-بالشعر', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/جوانکاری-و-چاودێری-کەسی/چاودێری-قژ', '5.3.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.3'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('شامبو وبلسم وصبغات شعر', 'شامپۆ و بەلسەم و بۆیەی قژ', 'المقتنيات-الشخصية-والصحة-والجمال/الجمال-والعناية-الشخصية/العناية-بالشعر/شامبو-وبلسم-وصبغات-شعر', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/جوانکاری-و-چاودێری-کەسی/چاودێری-قژ/شامپۆ-و-بەلسەم-و-بۆیەی-قژ', '5.3.3.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.3.3'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -824,9 +826,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('الاستحمام والعناية الشخصية', 'خۆشوشتن و چاودێری کەسی', 'المقتنيات-الشخصية-والصحة-والجمال/الجمال-والعناية-الشخصية/الاستحمام-والعناية-الشخصية', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/جوانکاری-و-چاودێری-کەسی/خۆشوشتن-و-چاودێری-کەسی', '5.3.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.3'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('منتجات الاستحمام (غسول جسم، صابون، زيوت)', 'بەرهەمی خۆشوشتن (غەسولی لەش، سابوون، زەیت)', 'المقتنيات-الشخصية-والصحة-والجمال/الجمال-والعناية-الشخصية/الاستحمام-والعناية-الشخصية/منتجات-الاستحمام', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/جوانکاری-و-چاودێری-کەسی/خۆشوشتن-و-چاودێری-کەسی/بەرهەمی-خۆشوشتن', '5.3.5.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.3.5'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ادوات استحمام ومساج (ليفة، حجر قدم، اجهزة مساج)', 'کەرەستەی خۆشوشتن و مەساج (لیفکە، بەردی پێ، ئامێری مەساج)', 'المقتنيات-الشخصية-والصحة-والجمال/الجمال-والعناية-الشخصية/الاستحمام-والعناية-الشخصية/ادوات-استحمام-ومساج', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/جوانکاری-و-چاودێری-کەسی/خۆشوشتن-و-چاودێری-کەسی/کەرەستەی-خۆشوشتن-و-مەساج', '5.3.5.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.3.5'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('عدسات ورموش تجميلية', 'هاوێنە و برژانگی جوانکاری', 'المقتنيات-الشخصية-والصحة-والجمال/الجمال-والعناية-الشخصية/عدسات-ورموش-تجميلية', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/جوانکاری-و-چاودێری-کەسی/هاوێنە-و-برژانگی-جوانکاری', '5.3.6', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.3'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -845,9 +847,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('مجوهرات ذهب وفضة', 'خشڵی زێڕ و زیو', 'المقتنيات-الشخصية-والصحة-والجمال/المجوهرات-والاكسسوارات/مجوهرات-ذهب-وفضة', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/خشڵ-و-ئێکسسوارات/خشڵی-زێڕ-و-زیو', '5.4.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.4'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مجوهرات الماس واحجار كريمة', 'خشڵی ئەڵماس و بەردی بەنرخ', 'المقتنيات-الشخصية-والصحة-والجمال/المجوهرات-والاكسسوارات/مجوهرات-الماس-واحجار-كريمة', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/خشڵ-و-ئێکسسوارات/خشڵی-ئەڵماس-و-بەردی-بەنرخ', '5.4.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.4'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('العناية الصحية والطبية', 'چاودێری تەندروستی و پزیشکی', 'المقتنيات-الشخصية-والصحة-والجمال/العناية-الصحية-والطبية', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/چاودێری-تەندروستی-و-پزیشکی', '5.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('العناية النسائية (فوط صحية، غسول مناطق حساسة)', 'چاودێری ژنان (فۆتەی تەندروستی، غەسولی ناوچە هەستیارەکان)', 'المقتنيات-الشخصية-والصحة-والجمال/العناية-الصحية-والطبية/العناية-النسائية', 'کەلوپەلی-کەسی-و-تەندروستی-و-جوانکاری/چاودێری-تەندروستی-و-پزیشکی/چاودێری-ژنان', '5.5.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '5.5'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -871,9 +873,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('اثاث منزلي (تخم، غرف نوم، ميز طعام)', 'کەلوپەلی ماڵ (تەخم، ژووری نووستن، مێزی نانخواردن)', 'المنزل-والمطبخ-والحديقة/اثاث-منزلي', 'ماڵ-و-چێشتخانە-و-باخچە/کەلوپەلی-ماڵ', '6.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('غرف نوم كاملة ومفردة (اسرّة، خزانات ملابس، تسريحات)', 'ژووری نووستنی تەواو و تاک (جێگا، کەنتۆری جل، مێزی ئارایشت)', 'المنزل-والمطبخ-والحديقة/اثاث-منزلي/غرف-نوم-كاملة-ومفردة', 'ماڵ-و-چێشتخانە-و-باخچە/کەلوپەلی-ماڵ/ژووری-نووستنی-تەواو-و-تاک', '6.1.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.1'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('تخم وصالات (قنفات، مجالس عربية)', 'تەخم و هۆڵ (قەنەفە، دیوەخانی عەرەبی)', 'المنزل-والمطبخ-والحديقة/اثاث-منزلي/تخم-وصالات', 'ماڵ-و-چێشتخانە-و-باخچە/کەلوپەلی-ماڵ/تەخم-و-هۆڵ', '6.1.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.1'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('طاولات وبوفيهات طعام', 'مێز و بۆفێی نانخواردن', 'المنزل-والمطبخ-والحديقة/اثاث-منزلي/طاولات-وبوفيهات-طعام', 'ماڵ-و-چێشتخانە-و-باخچە/کەلوپەلی-ماڵ/مێز-و-بۆفێی-نانخواردن', '6.1.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -892,9 +894,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('عدة كهربائية يدوية (دريل، كوسرة، منشار كهربائي)', 'عەدەی کارەبایی دەستی (دڕێل، کۆسەرە، مشار کارەبایی)', 'المنزل-والمطبخ-والحديقة/ادوات-ومعدات/عدة-كهربائية-يدوية', 'ماڵ-و-چێشتخانە-و-باخچە/ئامراز-و-کەرەستە/عەدەی-کارەبایی-دەستی', '6.3.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.3'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('عدة يدوية (مفكات، چاكوك، بلايس، سبانات، فيته)', 'عەدەی دەستی (دەسکی، چەکوش، پلایس، سپانە، فیتە)', 'المنزل-والمطبخ-والحديقة/ادوات-ومعدات/عدة-يدوية', 'ماڵ-و-چێشتخانە-و-باخچە/ئامراز-و-کەرەستە/عەدەی-دەستی', '6.3.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.3'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('طفايات حريق منزلية', 'ئاگرکوژێنەوەی ماڵان', 'المنزل-والمطبخ-والحديقة/ادوات-ومعدات/طفايات-حريق-منزلية', 'ماڵ-و-چێشتخانە-و-باخچە/ئامراز-و-کەرەستە/ئاگرکوژێنەوەی-ماڵان', '6.3.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.3'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مواد بناء وصيانة (للبيت)', 'کەرەستەی بیناسازی و چاککردنەوە (بۆ ماڵ)', 'المنزل-والمطبخ-والحديقة/مواد-بناء-وصيانة', 'ماڵ-و-چێشتخانە-و-باخچە/کەرەستەی-بیناسازی-و-چاککردنەوە', '6.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -913,9 +915,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('لوحات وتحف فنية وانتيكات', 'تابلۆ و شتی هونەری و ئەنتیکە', 'المنزل-والمطبخ-والحديقة/ديكور-ومفروشات-البيت/لوحات-وتحف-فنية-وانتيكات', 'ماڵ-و-چێشتخانە-و-باخچە/دیکۆر-و-مافوری-ماڵ/تابلۆ-و-شتی-هونەری-و-ئەنتیکە', '6.5.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.5'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مفروشات (شراشف، بطانيات، كفرات، وجوه كوشات)', 'ڕایەخ (چەرچەف، بەتانی، کەوەری قەنەفە، ڕووی کوشن)', 'المنزل-والمطبخ-والحديقة/ديكور-ومفروشات-البيت/مفروشات', 'ماڵ-و-چێشتخانە-و-باخچە/دیکۆر-و-مافوری-ماڵ/ڕایەخ', '6.5.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.5'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('معطرات جو وبخور للمنزل', 'بۆنخۆشکەری هەوا و بخوور بۆ ماڵ', 'المنزل-والمطبخ-والحديقة/ديكور-ومفروشات-البيت/معطرات-جو-وبخور-للمنزل', 'ماڵ-و-چێشتخانە-و-باخچە/دیکۆر-و-مافوری-ماڵ/بۆنخۆشکەری-هەوا-و-بخوور-بۆ-ماڵ', '6.5.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.5'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اكسسوارات حمامات وديكور', 'ئێکسسواراتی حەمام و دیکۆر', 'المنزل-والمطبخ-والحديقة/ديكور-ومفروشات-البيت/اكسسوارات-حمامات-وديكور', 'ماڵ-و-چێشتخانە-و-باخچە/دیکۆر-و-مافوری-ماڵ/ئێکسسواراتی-حەمام-و-دیکۆر', '6.5.6', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.5'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -934,9 +936,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('مسابح منزلية وملحقاتها (نفخ، اطار معدني، فلاتر)', 'مەلەوانگەی ماڵان و پێداویستییەکانی (فووکردن، چوارچێوەی کانزایی، فلتەر)', 'المنزل-والمطبخ-والحديقة/مستلزمات-الحديقة-والكراج/مسابح-منزلية-وملحقاتها', 'ماڵ-و-چێشتخانە-و-باخچە/پێداویستی-باخچە-و-گەراج/مەلەوانگەی-ماڵان-و-پێداویستییەکانی', '6.6.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.6'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ادوات المطبخ (غير كهربائية)', 'ئامرازی چێشتخانە (ناکارەبایی)', 'المنزل-والمطبخ-والحديقة/ادوات-المطبخ', 'ماڵ-و-چێشتخانە-و-باخچە/ئامرازی-چێشتخانە', '6.7', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اواني الطهي (مقالي، صواني فرن، جدور)', 'قاپوقاچاخی چێشتلێنان (تاوە، سینی فڕن، مەنجەڵ)', 'المنزل-والمطبخ-والحديقة/ادوات-المطبخ/اواني-الطهي', 'ماڵ-و-چێشتخانە-و-باخچە/ئامرازی-چێشتخانە/قاپوقاچاخی-چێشتلێنان', '6.7.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.7'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ادوات المائدة والتقديم (اطباق، اكواب، ملاعق، سكاكين)', 'کەرەستەی سفرە و پێشکەشکردن (قاپ، پەرداخ، کەوچک، چەقۆ)', 'المنزل-والمطبخ-والحديقة/ادوات-المطبخ/ادوات-المائدة-والتقديم', 'ماڵ-و-چێشتخانە-و-باخچە/ئامرازی-چێشتخانە/کەرەستەی-سفرە-و-پێشکەشکردن', '6.7.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.7'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -955,9 +957,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('اقفال وكيلونات وحماية شبابيك وابواب', 'قوفڵ و کلیل و پاراستنی پەنجەرە و دەرگا', 'المنزل-والمطبخ-والحديقة/امن-وحماية-البيت/اقفال-وكيلونات-وحماية-شبابيك-وابواب', 'ماڵ-و-چێشتخانە-و-باخچە/ئاسایش-و-پاراستنی-ماڵ/قوفڵ-و-کلیل-و-پاراستنی-پەنجەرە-و-دەرگا', '6.8.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.8'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('معدات سلامة منزلية (سلم، صندوق اسعافات)', 'کەرەستەی سەلامەتی ماڵ (پەیژە، سندوقی فریاگوزاری)', 'المنزل-والمطبخ-والحديقة/امن-وحماية-البيت/معدات-سلامة-منزلية', 'ماڵ-و-چێشتخانە-و-باخچە/ئاسایش-و-پاراستنی-ماڵ/کەرەستەی-سەلامەتی-ماڵ', '6.8.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.8'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('متفرقات للمنزل والتراثيات', 'شتی جۆراوجۆر بۆ ماڵ و کەلەپوور', 'المنزل-والمطبخ-والحديقة/متفرقات-للمنزل-والتراثيات', 'ماڵ-و-چێشتخانە-و-باخچە/شتی-جۆراوجۆر-بۆ-ماڵ-و-کەلەپوور', '6.9', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('زينة وهدايا للمناسبات والاعياد', 'ڕازاندنەوە و دیاری بۆ بۆنە و جەژنەکان', 'المنزل-والمطبخ-والحديقة/متفرقات-للمنزل-والتراثيات/زينة-وهدايا-للمناسبات-والاعياد', 'ماڵ-و-چێشتخانە-و-باخچە/شتی-جۆراوجۆر-بۆ-ماڵ-و-کەلەپوور/ڕازاندنەوە-و-دیاری-بۆ-بۆنە-و-جەژنەکان', '6.9.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.9'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -976,9 +978,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('صابون ومعقمات لليدين', 'سابوون و پاککەرەوەی دەست', 'المنزل-والمطبخ-والحديقة/منظفات-وادوات-تنظيف-البيت/صابون-ومعقمات-لليدين', 'ماڵ-و-چێشتخانە-و-باخچە/پاککەرەوە-و-ئامرازی-پاککردنەوەی-ماڵ/سابوون-و-پاککەرەوەی-دەست', '6.10.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.10'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مستلزمات غسيل الملابس', 'پێداویستی جل شوشتن', 'المنزل-والمطبخ-والحديقة/منظفات-وادوات-تنظيف-البيت/مستلزمات-غسيل-الملابس', 'ماڵ-و-چێشتخانە-و-باخچە/پاککەرەوە-و-ئامرازی-پاککردنەوەی-ماڵ/پێداویستی-جل-شوشتن', '6.10.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.10'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مستلزمات غسيل الاطباق', 'پێداویستی قاپ شوشتن', 'المنزل-والمطبخ-والحديقة/منظفات-وادوات-تنظيف-البيت/مستلزمات-غسيل-الاطباق', 'ماڵ-و-چێشتخانە-و-باخچە/پاککەرەوە-و-ئامرازی-پاککردنەوەی-ماڵ/پێداویستی-قاپ-شوشتن', '6.10.6', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.10'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('سلات واكياس مهملات', 'سەبەتە و کیسی خۆڵ', 'المنزل-والمطبخ-والحديقة/منظفات-وادوات-تنظيف-البيت/سلات-واكياس-مهملات', 'ماڵ-و-چێشتخانە-و-باخچە/پاککەرەوە-و-ئامرازی-پاککردنەوەی-ماڵ/سەبەتە-و-کیسی-خۆڵ', '6.10.7', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '6.10'));
 
@@ -1002,9 +1004,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('قطع كهرباء والكترونيات السيارة (فيوزات، حساسات، كمبيوتر سيارة)', 'پارچەی کارەبا و ئەلیکترۆنیاتی ئۆتۆمبێل (فیوز، حەساس، کۆمپیوتەری سەیارە)', 'قطع-الغيار-والاكسسوارات-للمركبات/قطع-غيار-السيارات/قطع-كهرباء-والكترونيات-السيارة', 'پارچەی-یەدەگ-و-ئێکسسواراتی-ئۆتۆمبێل/پارچەی-یەدەگی-ئۆتۆمبێل/پارچەی-کارەبا-و-ئەلیکترۆنیاتی-ئۆتۆمبێل', '7.1.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '7.1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('(قطع ديكور داخلي، فلاتر، وغيرها) قطع غيار سيارات متنوعة', '(پارچەی دیکۆری ناوەوە، فلتەر، هتد) پارچەی یەدەگی جۆراوجۆری ئۆتۆمبێل', 'قطع-الغيار-والاكسسوارات-للمركبات/قطع-غيار-السيارات/قطع-غيار-سيارات-متنوعة', 'پارچەی-یەدەگ-و-ئێکسسواراتی-ئۆتۆمبێل/پارچەی-یەدەگی-ئۆتۆمبێل/پارچەی-یەدەگی-جۆراوجۆری-ئۆتۆمبێل', '7.1.6', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '7.1'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اطارات وعجلات للمركبات (تايرات ووويلات)', 'تایە و ویلی ئۆتۆمبێل', 'قطع-الغيار-والاكسسوارات-للمركبات/اطارات-وعجلات-للمركبات', 'پارچەی-یەدەگ-و-ئێکسسواراتی-ئۆتۆمبێل/تایە-و-ویلی-ئۆتۆمبێل', '7.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '7'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('تايرات سيارات ورنجات (ويلات)', 'تایەی ئۆتۆمبێل و ڕینگ (ویل)', 'قطع-الغيار-والاكسسوارات-للمركبات/اطارات-وعجلات-للمركبات/تايرات-سيارات-ورنجات', 'پارچەی-یەدەگ-و-ئێکسسواراتی-ئۆتۆمبێل/تایە-و-ویلی-ئۆتۆمبێل/تایەی-ئۆتۆمبێل-و-ڕینگ', '7.2.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '7.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1023,9 +1025,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('اكسسوارات وكماليات السيارات', 'ئێکسسوارات و جوانکاری ئۆتۆمبێل', 'قطع-الغيار-والاكسسوارات-للمركبات/اكسسوارات-وكماليات-السيارات', 'پارچەی-یەدەگ-و-ئێکسسواراتی-ئۆتۆمبێل/ئێکسسوارات-و-جوانکاری-ئۆتۆمبێل', '7.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '7'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اغطية وجادر للسيارة', 'بەرگ و چادر بۆ ئۆتۆمبێل', 'قطع-الغيار-والاكسسوارات-للمركبات/اكسسوارات-وكماليات-السيارات/اغطية-وجادر-للسيارة', 'پارچەی-یەدەگ-و-ئێکسسواراتی-ئۆتۆمبێل/ئێکسسوارات-و-جوانکاری-ئۆتۆمبێل/بەرگ-و-چادر-بۆ-ئۆتۆمبێل', '7.4.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '7.4'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ملصقات وزينة خارجية للسيارة', 'لۆگۆ و جوانی دەرەوەی ئۆتۆمبێل', 'قطع-الغيار-والاكسسوارات-للمركبات/اكسسوارات-وكماليات-السيارات/ملصقات-وزينة-خارجية-للسيارة', 'پارچەی-یەدەگ-و-ئێکسسواراتی-ئۆتۆمبێل/ئێکسسوارات-و-جوانکاری-ئۆتۆمبێل/لۆگۆ-و-جوانی-دەرەوەی-ئۆتۆمبێل', '7.4.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '7.4'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اضواء اضافية للسيارة (لايتات ولدات)', 'ڕووناکی زیادە بۆ ئۆتۆمبێل (لایت و لید)', 'قطع-الغيار-والاكسسوارات-للمركبات/اكسسوارات-وكماليات-السيارات/اضواء-اضافية-للسيارة', 'پارچەی-یەدەگ-و-ئێکسسواراتی-ئۆتۆمبێل/ئێکسسوارات-و-جوانکاری-ئۆتۆمبێل/ڕووناکی-زیادە-بۆ-ئۆتۆمبێل', '7.4.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '7.4'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1044,9 +1046,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('مسجلات وانظمة صوت للسيارات والمركبات', 'مسەجەل و سیستەمی دەنگ بۆ ئۆتۆمبێل و هۆکارەکانی گواستنەوە', 'قطع-الغيار-والاكسسوارات-للمركبات/انظمة-الصوت-والترفيه-للمركبات/مسجلات-وانظمة-صوت-للسيارات-والمركبات', 'پارچەی-یەدەگ-و-ئێکسسواراتی-ئۆتۆمبێل/سیستەمی-دەنگ-و-کات-بەسەربردن-بۆ-ئۆتۆمبێل/مسەجەل-و-سیستەمی-دەنگ-بۆ-ئۆتۆمبێل-و-هۆکارەکانی-گواستنەوە', '7.5.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '7.5'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('شاشات وانظمة ملاحة للمركبات (GPS)', 'شاشە و سیستەمی ڕێدۆزی بۆ ئۆتۆمبێل (GPS)', 'قطع-الغيار-والاكسسوارات-للمركبات/انظمة-الصوت-والترفيه-للمركبات/شاشات-وانظمة-ملاحة-للمركبات', 'پارچەی-یەدەگ-و-ئێکسسواراتی-ئۆتۆمبێل/سیستەمی-دەنگ-و-کات-بەسەربردن-بۆ-ئۆتۆمبێل/شاشە-و-سیستەمی-ڕێدۆزی-بۆ-ئۆتۆمبێل', '7.5.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '7.5'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('سماعات ومضخمات صوت للمركبات', 'بیستۆک و گەورەکەری دەنگ بۆ ئۆتۆمبێل', 'قطع-الغيار-والاكسسوارات-للمركبات/انظمة-الصوت-والترفيه-للمركبات/سماعات-ومضخمات-صوت-للمركبات', 'پارچەی-یەدەگ-و-ئێکسسواراتی-ئۆتۆمبێل/سیستەمی-دەنگ-و-کات-بەسەربردن-بۆ-ئۆتۆمبێل/بیستۆک-و-گەورەکەری-دەنگ-بۆ-ئۆتۆمبێل', '7.5.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '7.5'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('انظمة الامان والحماية للمركبات', 'سیستەمی ئاسایش و پاراستن بۆ ئۆتۆمبێل', 'قطع-الغيار-والاكسسوارات-للمركبات/انظمة-الامان-والحماية-للمركبات', 'پارچەی-یەدەگ-و-ئێکسسواراتی-ئۆتۆمبێل/سیستەمی-ئاسایش-و-پاراستن-بۆ-ئۆتۆمبێل', '7.6', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '7'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1065,9 +1067,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('معدات ورش وتصليح للمركبات (كمبريسر هواء)', 'کەرەستەی وەرشە و چاککردنەوە بۆ ئۆتۆمبێل (کۆمپرێسەری هەوا)', 'قطع-الغيار-والاكسسوارات-للمركبات/ادوات-ومعدات-صيانة-المركبات/معدات-ورش-وتصليح-للمركبات', 'پارچەی-یەدەگ-و-ئێکسسواراتی-ئۆتۆمبێل/ئامراز-و-کەرەستەی-سیانەی-ئۆتۆمبێل/کەرەستەی-وەرشە-و-چاککردنەوە-بۆ-ئۆتۆمبێل', '7.7.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '7.7'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('قطع غيار واكسسوارات الدراجات النارية', 'پارچەی یەدەگ و ئێکسسواراتی ماتۆڕسکیل', 'قطع-الغيار-والاكسسوارات-للمركبات/قطع-غيار-واكسسوارات-الدراجات-النارية', 'پارچەی-یەدەگ-و-ئێکسسواراتی-ئۆتۆمبێل/پارچەی-یەدەگ-و-ئێکسسواراتی-ماتۆڕسکیل', '7.8', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '7'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('قطع محرك وكير للدراجات النارية', 'پارچەی بزوێنەر و گێڕ بۆ ماتۆڕسکیل', 'قطع-الغيار-والاكسسوارات-للمركبات/قطع-غيار-واكسسوارات-الدراجات-النارية/قطع-محرك-وكير-للدراجات-النارية', 'پارچەی-یەدەگ-و-ئێکسسواراتی-ئۆتۆمبێل/پارچەی-یەدەگ-و-ئێکسسواراتی-ماتۆڕسکیل/پارچەی-بزوێنەر-و-گێڕ-بۆ-ماتۆڕسکیل', '7.8.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '7.8'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اكسسوارات وكماليات الدراجات النارية (خوذ، ملابس حماية، زينة)', 'ئێکسسوارات و جوانکاری ماتۆڕسکیل (کڵاو، جلوبەرگی پاراستن، جوانی)', 'قطع-الغيار-والاكسسوارات-للمركبات/قطع-غيار-واكسسوارات-الدراجات-النارية/اكسسوارات-وكماليات-الدراجات-النارية', 'پارچەی-یەدەگ-و-ئێکسسواراتی-ئۆتۆمبێل/پارچەی-یەدەگ-و-ئێکسسواراتی-ماتۆڕسکیل/ئێکسسوارات-و-جوانکاری-ماتۆڕسکیل', '7.8.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '7.8'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1087,13 +1089,13 @@ VALUES ('معدات سلامة وانقاذ بحري (سترات نجاة)', 'ک
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اكسسوارات بحرية (حبال، مراسي)', 'ئێکسسواراتی دەریایی ( گوریس، لەنگەر)', 'قطع-الغيار-والاكسسوارات-للمركبات/مستلزمات-القوارب-والمركبات-البحرية/اكسسوارات-بحرية', 'پارچەی-یەدەگ-و-ئێکسسواراتی-ئۆتۆمبێل/پێداویستی-بەلەم-و-ئۆتۆمبێلی-دەریایی/ئێکسسواراتی-دەریایی', '7.10.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '7.10'));
 
+
 -- End of Level 1 Category: 7
 
 -- Level 1 Category: 8 - الالكترونيات والاجهزة الرقمية
 
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('الالكترونيات والاجهزة الرقمية', 'ئەلیکترۆنیات و ئامێری دیجیتاڵی', 'الالكترونيات-والاجهزة-الرقمية', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی', '8', NULL);
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('موبايلات واجهزة لوحية (تابلت)', 'مۆبایل و تابلێت', 'الالكترونيات-والاجهزة-الرقمية/موبايلات-واجهزة-لوحية', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/مۆبایل-و-تابلێت', '8.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1112,9 +1114,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('كيبلات وشواحن', 'کێبڵ و شەحن', 'الالكترونيات-والاجهزة-الرقمية/موبايلات-واجهزة-لوحية/اكسسوارات-موبايلات-وتابلت-وساعات-ذكية/كيبلات-وشواحن', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/مۆبایل-و-تابلێت/ئێکسسواراتی-مۆبایل-و-تابلێت-و-کاتژمێری-زیرەک/کێبڵ-و-شەحن', '8.1.4.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.1.4'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('لصقات شاشة (حماية ضد الكسر والخدش)', 'لزگەی شاشە (پاراستن دژی شکاندن و ڕووشان)', 'الالكترونيات-والاجهزة-الرقمية/موبايلات-واجهزة-لوحية/اكسسوارات-موبايلات-وتابلت-وساعات-ذكية/لصقات-شاشة', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/مۆبایل-و-تابلێت/ئێکسسواراتی-مۆبایل-و-تابلێت-و-کاتژمێری-زیرەک/لزگەی-شاشە', '8.1.4.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.1.4'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('سماعات موبايل (سلكية، بلوتوث، ايربود)', 'بیستۆکی مۆبایل (وایەردار، بلوتوس، ئێربۆد)', 'الالكترونيات-والاجهزة-الرقمية/موبايلات-واجهزة-لوحية/اكسسوارات-موبايلات-وتابلت-وساعات-ذكية/سماعات-موبايل', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/مۆبایل-و-تابلێت/ئێکسسواراتی-مۆبایل-و-تابلێت-و-کاتژمێری-زیرەک/بیستۆکی-مۆبایل', '8.1.4.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.1.4'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اكسسوارات اخرى (ستاندات، حلقات مسك، اقلام تابلت، وغيرها)', 'ئێکسسواراتی تر (ستاند، ئەڵقەی گرتن، قەڵەمی تابلێت، هتد)', 'الالكترونيات-والاجهزة-الرقمية/موبايلات-واجهزة-لوحية/اكسسوارات-موبايلات-وتابلت-وساعات-ذكية/اكسسوارات-اخرى', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/مۆبایل-و-تابلێت/ئێکسسواراتی-مۆبایل-و-تابلێت-و-کاتژمێری-زیرەک/ئێکسسواراتی-تر', '8.1.4.6', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.1.4'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1133,9 +1135,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('قطع كومبيوتر داخلية (كارت شاشة، رام، معالج، ماذربورد)', 'پارچەی ناوەوەی کۆمپیوتەر (کارتی شاشە، ڕام، پرۆسێسەر، ماذەربۆرد)', 'الالكترونيات-والاجهزة-الرقمية/كومبيوترات-ولابتوبات-وملحقاتها/قطع-كومبيوتر-داخلية', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/کۆمپیوتەر-و-لاپتۆپ-و-ملحەقاتەکانی/پارچەی-ناوەوەی-کۆمپیوتەر', '8.2.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('أجهزة الإدخال للكمبيوتر (ماوس، كيبورد)', 'ئامێری داخڵکردن بۆ کۆمپیوتەر (ماوس، کیبۆرد)', 'الالكترونيات-والاجهزة-الرقمية/كومبيوترات-ولابتوبات-وملحقاتها/أجهزة-الإدخال-للكمبيوتر', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/کۆمپیوتەر-و-لاپتۆپ-و-ملحەقاتەکانی/ئامێری-داخڵکردن-بۆ-کۆمپیوتەر', '8.2.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.2'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('سماعات الراس الخاصة بالكمبيوتر (هيدفون)', 'بیستۆکی سەری تایبەت بە کۆمپیوتەر (هێدفۆن)', 'الالكترونيات-والاجهزة-الرقمية/كومبيوترات-ولابتوبات-وملحقاتها/سماعات-الراس-الخاصة-بالكمبيوتر', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/کۆمپیوتەر-و-لاپتۆپ-و-ملحەقاتەکانی/بیستۆکی-سەری-تایبەت-بە-کۆمپیوتەر', '8.2.6', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.2'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('حقائب ظهر وجنط لابتوب', 'جانتای پشت و جانتای لاپتۆپ', 'الالكترونيات-والاجهزة-الرقمية/كومبيوترات-ولابتوبات-وملحقاتها/حقائب-ظهر-وجنط-لابتوب', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/کۆمپیوتەر-و-لاپتۆپ-و-ملحەقاتەکانی/جانتای-پشت-و-جانتای-لاپتۆپ', '8.2.7', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1154,9 +1156,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('داتا شو وملحقاته (بروجكتر، شاشة عرض، كيبلات)', 'داتاشۆ و ملحەقاتەکانی (پرۆجێکتەر، شاشەی پیشاندان، کێبڵ)', 'الالكترونيات-والاجهزة-الرقمية/تلفزيونات-وشاشات-وانظمة-صوت-وفيديو/داتا-شو-وملحقاته', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/تەلەفزیۆن-و-شاشە-و-سیستەمی-دەنگ-و-ڤیدیۆ/داتاشۆ-و-ملحەقاتەکانی', '8.3.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.3'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اجهزة تسجيل وتشغيل صوت احترافية (مسجلات، مايكروفونات استوديو)', 'ئامێری تۆمارکردن و لێدانی دەنگی پرۆفیشناڵ (مسەجەل، مایکرۆفۆنی ستۆدیۆ)', 'الالكترونيات-والاجهزة-الرقمية/تلفزيونات-وشاشات-وانظمة-صوت-وفيديو/اجهزة-تسجيل-وتشغيل-صوت-احترافية', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/تەلەفزیۆن-و-شاشە-و-سیستەمی-دەنگ-و-ڤیدیۆ/ئامێری-تۆمارکردن-و-لێدانی-دەنگی-پرۆفیشناڵ', '8.3.6', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.3'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ستاندات تلفزيون وريموتات كونترول شاملة', 'ستاندی تەلەفزیۆن و ڕیمۆت کۆنترۆڵی هەمەجۆر', 'الالكترونيات-والاجهزة-الرقمية/تلفزيونات-وشاشات-وانظمة-صوت-وفيديو/ستاندات-تلفزيون-وريموتات-كونترول-شاملة', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/تەلەفزیۆن-و-شاشە-و-سیستەمی-دەنگ-و-ڤیدیۆ/ستاندی-تەلەفزیۆن-و-ڕیمۆت-کۆنترۆڵی-هەمەجۆر', '8.3.7', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.3'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('كاميرات ومعدات تصوير فوتوغرافي وفيديو', 'کامێرا و کەرەستەی وێنەگرتنی فۆتۆگرافی و ڤیدیۆ', 'الالكترونيات-والاجهزة-الرقمية/كاميرات-ومعدات-تصوير-فوتوغرافي-وفيديو', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/کامێرا-و-کەرەستەی-وێنەگرتنی-فۆتۆگرافی-و-ڤیدیۆ', '8.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1175,9 +1177,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('البومات صور واطارات صور رقمية وتقليدية', 'ئەلبوومی وێنە و چوارچێوەی وێنەی دیجیتاڵی و ئاسایی', 'الالكترونيات-والاجهزة-الرقمية/كاميرات-ومعدات-تصوير-فوتوغرافي-وفيديو/البومات-صور-واطارات-صور-رقمية-وتقليدية', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/کامێرا-و-کەرەستەی-وێنەگرتنی-فۆتۆگرافی-و-ڤیدیۆ/ئەلبوومی-وێنە-و-چوارچێوەی-وێنەی-دیجیتاڵی-و-ئاسایی', '8.4.7', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.4'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اجهزة العاب الكترونية (قيمنق)', 'ئامێری یاری ئەلیکترۆنی (گەیمینگ)', 'الالكترونيات-والاجهزة-الرقمية/اجهزة-العاب-الكترونية', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئامێری-یاری-ئەلیکترۆنی', '8.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اجهزة العاب منزلية ومحمولة (بلايستيشن، اكس بوكس، نينتندو سويتش) -- gaming_console_example.json', 'ئامێری یاری ماڵان و گەڕۆک (پلەیستەیشن، ئێکس بۆکس، نینتێندۆ سویچ)', 'الالكترونيات-والاجهزة-الرقمية/اجهزة-العاب-الكترونية/اجهزة-العاب-منزلية-ومحمولة-gaming-console-examplejson', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئامێری-یاری-ئەلیکترۆنی/ئامێری-یاری-ماڵان-و-گەڕۆک', '8.5.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.5'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('يدات تحكم (جويستك) وملحقاتها (ستيرنك قيمنق)', 'دەسکی کۆنترۆڵ (جۆیستیک) و ملحەقاتەکانی (ستێرنی گەیمینگ)', 'الالكترونيات-والاجهزة-الرقمية/اجهزة-العاب-الكترونية/يدات-تحكم-وملحقاتها', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئامێری-یاری-ئەلیکترۆنی/دەسکی-کۆنترۆڵ-و-ملحەقاتەکانی', '8.5.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.5'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1196,9 +1198,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('ثرموستات ذكي للتحكم بالتبريد والتدفئة', 'تێرمۆستاتی زیرەک بۆ کۆنترۆڵکردنی فێنککەرەوە و گەرمکەرەوە', 'الالكترونيات-والاجهزة-الرقمية/البيت-الذكي-والتحكم-عن-بعد/ثرموستات-ذكي-للتحكم-بالتبريد-والتدفئة', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ماڵی-زیرەک-و-کۆنترۆڵی-دوور/تێرمۆستاتی-زیرەک-بۆ-کۆنترۆڵکردنی-فێنککەرەوە-و-گەرمکەرەوە', '8.6.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.6'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اقفال ابواب ذكية وانظمة دخول بصمة وكارت', 'قوفڵی دەرگای زیرەک و سیستەمی چوونەژوورەوە بە پەنجەمۆر و کارت', 'الالكترونيات-والاجهزة-الرقمية/البيت-الذكي-والتحكم-عن-بعد/اقفال-ابواب-ذكية-وانظمة-دخول-بصمة-وكارت', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ماڵی-زیرەک-و-کۆنترۆڵی-دوور/قوفڵی-دەرگای-زیرەک-و-سیستەمی-چوونەژوورەوە-بە-پەنجەمۆر-و-کارت', '8.6.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.6'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اجهزة انترنت وشبكات', 'ئامێری ئینتەرنێت و تۆڕەکان', 'الالكترونيات-والاجهزة-الرقمية/اجهزة-انترنت-وشبكات', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئامێری-ئینتەرنێت-و-تۆڕەکان', '8.7', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('راوترات ومودمات', 'ڕاوتەر و مۆدێم', 'الالكترونيات-والاجهزة-الرقمية/اجهزة-انترنت-وشبكات/راوترات-ومودمات', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئامێری-ئینتەرنێت-و-تۆڕەکان/ڕاوتەر-و-مۆدێم', '8.7.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.7'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1217,9 +1219,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('اكسسوارات الكترونية عامة ومتفرقة', 'ئێکسسواراتی ئەلیکترۆنی گشتی و جۆراوجۆر', 'الالكترونيات-والاجهزة-الرقمية/اكسسوارات-الكترونية-عامة-ومتفرقة', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئێکسسواراتی-ئەلیکترۆنی-گشتی-و-جۆراوجۆر', '8.9', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('بطاريات وشواحن عامة (قلم، ريموت)', 'پاتری و شەحنی گشتی (قەڵەم، ڕیمۆت)', 'الالكترونيات-والاجهزة-الرقمية/اكسسوارات-الكترونية-عامة-ومتفرقة/بطاريات-وشواحن-عامة', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئێکسسواراتی-ئەلیکترۆنی-گشتی-و-جۆراوجۆر/پاتری-و-شەحنی-گشتی', '8.9.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.9'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('حقائب واغطية واقية لاجهزة الكترونية (عامة)', 'جانتا و بەرگی پارێزەر بۆ ئامێری ئەلیکترۆنی (گشتی)', 'الالكترونيات-والاجهزة-الرقمية/اكسسوارات-الكترونية-عامة-ومتفرقة/حقائب-واغطية-واقية-لاجهزة-الكترونية', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئێکسسواراتی-ئەلیکترۆنی-گشتی-و-جۆراوجۆر/جانتا-و-بەرگی-پارێزەر-بۆ-ئامێری-ئەلیکترۆنی', '8.9.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.9'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('حوامل وستاندات لاجهزة اخرى', 'هەڵگر و ستاند بۆ ئامێری تر', 'الالكترونيات-والاجهزة-الرقمية/اكسسوارات-الكترونية-عامة-ومتفرقة/حوامل-وستاندات-لاجهزة-اخرى', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئێکسسواراتی-ئەلیکترۆنی-گشتی-و-جۆراوجۆر/هەڵگر-و-ستاند-بۆ-ئامێری-تر', '8.9.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.9'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1238,9 +1240,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('طابعات وسكانرات ومستلزماتها', 'چاپکەر و سکانەر و پێداویستییەکانیان', 'الالكترونيات-والاجهزة-الرقمية/طابعات-وسكانرات-ومستلزماتها', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/چاپکەر-و-سکانەر-و-پێداویستییەکانیان', '8.11', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('طابعات (ليزر، حبر، متعددة الوظائف، فواتير)', 'چاپکەر (لێزەر، حوبر، فرەکار، پسوڵە)', 'الالكترونيات-والاجهزة-الرقمية/طابعات-وسكانرات-ومستلزماتها/طابعات', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/چاپکەر-و-سکانەر-و-پێداویستییەکانیان/چاپکەر', '8.11.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.11'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('سكانرات (ماسحات ضوئية)', 'سکانەر (ڕووپێوی ڕووناکی)', 'الالكترونيات-والاجهزة-الرقمية/طابعات-وسكانرات-ومستلزماتها/سكانرات', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/چاپکەر-و-سکانەر-و-پێداویستییەکانیان/سکانەر', '8.11.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.11'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('احبار طابعات', 'حوبری چاپکەر', 'الالكترونيات-والاجهزة-الرقمية/طابعات-وسكانرات-ومستلزماتها/احبار-طابعات', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/چاپکەر-و-سکانەر-و-پێداویستییەکانیان/حوبری-چاپکەر', '8.11.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.11'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1259,9 +1261,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('انظمة انذار ضد السرقة والحريق الكترونية', 'سیستەمی ئاگادارکەرەوەی دژە دزی و ئاگری ئەلیکترۆنی', 'الالكترونيات-والاجهزة-الرقمية/انظمة-امنية-الكترونية/انظمة-انذار-ضد-السرقة-والحريق-الكترونية', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/سیستەمی-ئەمنی-ئەلیکترۆنی/سیستەمی-ئاگادارکەرەوەی-دژە-دزی-و-ئاگری-ئەلیکترۆنی', '8.13.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.13'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اجهزة منزلية كهربائية', 'ئامێری کارەبایی ماڵان', 'الالكترونيات-والاجهزة-الرقمية/اجهزة-منزلية-كهربائية', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئامێری-کارەبایی-ماڵان', '8.14', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اجهزة مطبخ كبيرة', 'ئامێری گەورەی چێشتخانە', 'الالكترونيات-والاجهزة-الرقمية/اجهزة-منزلية-كهربائية/اجهزة-مطبخ-كبيرة', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئامێری-کارەبایی-ماڵان/ئامێری-گەورەی-چێشتخانە', '8.14.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.14'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ثلاجات ومجمدات (فريزرات)', 'ساردکەرەوە و بەفرگر (فریزەر)', 'الالكترونيات-والاجهزة-الرقمية/اجهزة-منزلية-كهربائية/اجهزة-مطبخ-كبيرة/ثلاجات-ومجمدات', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئامێری-کارەبایی-ماڵان/ئامێری-گەورەی-چێشتخانە/ساردکەرەوە-و-بەفرگر', '8.14.1.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.14.1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1280,9 +1282,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('مراوح (سقفية، ارضية، جدارية)', 'پانکە (سەقفی، زەوی، دیواری)', 'الالكترونيات-والاجهزة-الرقمية/اجهزة-منزلية-كهربائية/اجهزة-تبريد-وتدفئة/مراوح', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئامێری-کارەبایی-ماڵان/ئامێری-فێنککەرەوە-و-گەرمکەرەوە/پانکە', '8.14.2.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.14.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('غسالات ملابس ومجففات (نشافات)', 'جلشۆر و وشککەرەوە (نەشافە)', 'الالكترونيات-والاجهزة-الرقمية/اجهزة-منزلية-كهربائية/غسالات-ملابس-ومجففات', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئامێری-کارەبایی-ماڵان/جلشۆر-و-وشککەرەوە', '8.14.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.14'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اجهزة مطبخ صغيرة لتحضير الطعام', 'ئامێری بچووکی چێشتخانە بۆ ئامادەکردنی خواردن', 'الالكترونيات-والاجهزة-الرقمية/اجهزة-منزلية-كهربائية/اجهزة-مطبخ-صغيرة-لتحضير-الطعام', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئامێری-کارەبایی-ماڵان/ئامێری-بچووکی-چێشتخانە-بۆ-ئامادەکردنی-خواردن', '8.14.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.14'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('برادات وفلاتر مياه الشرب', 'بەڕاد و فلتەری ئاوی خواردنەوە', 'الالكترونيات-والاجهزة-الرقمية/اجهزة-منزلية-كهربائية/اجهزة-مطبخ-صغيرة-لتحضير-الطعام/برادات-وفلاتر-مياه-الشرب', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئامێری-کارەبایی-ماڵان/ئامێری-بچووکی-چێشتخانە-بۆ-ئامادەکردنی-خواردن/بەڕاد-و-فلتەری-ئاوی-خواردنەوە', '8.14.4.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.14.4'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1301,9 +1303,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('اجهزة صنع القهوة والعصائر (مكينة قهوة، عصارة فواكه)', 'ئامێری دروستکردنی قاوە و شەربەت (مەکینەی قاوە، شەربەتگر)', 'الالكترونيات-والاجهزة-الرقمية/اجهزة-منزلية-كهربائية/اجهزة-مطبخ-صغيرة-لتحضير-الطعام/اجهزة-صنع-القهوة-والعصائر', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئامێری-کارەبایی-ماڵان/ئامێری-بچووکی-چێشتخانە-بۆ-ئامادەکردنی-خواردن/ئامێری-دروستکردنی-قاوە-و-شەربەت', '8.14.4.8', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.14.4'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مكانس كهربائية واجهزة تنظيف بالبخار', 'گسکی کارەبایی و ئامێری پاککردنەوە بە هەڵم', 'الالكترونيات-والاجهزة-الرقمية/اجهزة-منزلية-كهربائية/مكانس-كهربائية-واجهزة-تنظيف-بالبخار', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئامێری-کارەبایی-ماڵان/گسکی-کارەبایی-و-ئامێری-پاککردنەوە-بە-هەڵم', '8.14.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.14'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اوتي ملابس (مكواة بخارية وعادية)', 'ئوتوی جل (ئوتوی هەڵمی و ئاسایی)', 'الالكترونيات-والاجهزة-الرقمية/اجهزة-منزلية-كهربائية/اوتي-ملابس', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئامێری-کارەبایی-ماڵان/ئوتوی-جل', '8.14.6', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.14'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ملحقات كهربائية منزلية (سيار، نقاط كهرباء، بطاريات، ماطور ماء، لايت شحن)', 'ملحەقاتی کارەبایی ماڵان (سەیار، خاڵی کارەبا، پاتری، ماتۆڕی ئاو، لایتی شەحن)', 'الالكترونيات-والاجهزة-الرقمية/اجهزة-منزلية-كهربائية/ملحقات-كهربائية-منزلية', 'ئەلیکترۆنیات-و-ئامێری-دیجیتاڵی/ئامێری-کارەبایی-ماڵان/ملحەقاتی-کارەبایی-ماڵان', '8.14.7', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '8.14'));
 
@@ -1327,9 +1329,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('رياضات دفاع عن النفس وفنون قتالية (كاراتيه، ملاكمة، بدلات، كفوف، واقيات)', 'وەرزشی بەرگری لەخۆ و هونەری جەنگی (کاراتێ، بۆکسێن، قات، دەستکێش، پارێزەر)', 'الهوايات-والترفيه-والانشطة/الرياضة-واللياقة-البدنية/رياضات-دفاع-عن-النفس-وفنون-قتالية', 'خولیا-و-کات-بەسەربردن-و-چالاکی/وەرزش-و-لەشجوانی/وەرزشی-بەرگری-لەخۆ-و-هونەری-جەنگی', '9.1.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9.1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('دراجات هوائية وملحقاتها', 'پاسکیل و ملحەقاتەکانی', 'الهوايات-والترفيه-والانشطة/الرياضة-واللياقة-البدنية/دراجات-هوائية-وملحقاتها', 'خولیا-و-کات-بەسەربردن-و-چالاکی/وەرزش-و-لەشجوانی/پاسکیل-و-ملحەقاتەکانی', '9.1.6', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9.1'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مستلزمات ركض ومشي (احذية، ساعات رياضية، ملابس)', 'پێداویستی ڕاکردن و ڕۆیشتن (پێڵاو، کاتژمێری وەرزشی، جلوبەرگ)', 'الهوايات-والترفيه-والانشطة/الرياضة-واللياقة-البدنية/مستلزمات-ركض-ومشي', 'خولیا-و-کات-بەسەربردن-و-چالاکی/وەرزش-و-لەشجوانی/پێداویستی-ڕاکردن-و-ڕۆیشتن', '9.1.7', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9.1'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ادوات سباحة ورياضات مائية', 'کەرەستەی مەلەوانی و وەرزشی ئاوی', 'الهوايات-والترفيه-والانشطة/الرياضة-واللياقة-البدنية/ادوات-سباحة-ورياضات-مائية', 'خولیا-و-کات-بەسەربردن-و-چالاکی/وەرزش-و-لەشجوانی/کەرەستەی-مەلەوانی-و-وەرزشی-ئاوی', '9.1.8', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9.1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1348,9 +1350,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('ادوات رسم وفنون تشكيلية (الوان زيتية ومائية، فرش، كانفس)', 'کەرەستەی وێنەکێشان و هونەری شێوەکاری (ڕەنگی زەیتی و ئاوی، فڵچە، کانڤاس)', 'الهوايات-والترفيه-والانشطة/الموسيقى-والفنون-اليدوية/ادوات-رسم-وفنون-تشكيلية', 'خولیا-و-کات-بەسەربردن-و-چالاکی/مۆسیقا-و-هونەری-دەستی/کەرەستەی-وێنەکێشان-و-هونەری-شێوەکاری', '9.2.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اعمال يدوية وحرف ومستلزماتها (خياطة، تطريز، اكسسوارات يدوية)', 'کاری دەستی و پیشە و پێداویستییەکانی (دوورین، چنین، ئێکسسواراتی دەستی)', 'الهوايات-والترفيه-والانشطة/الموسيقى-والفنون-اليدوية/اعمال-يدوية-وحرف-ومستلزماتها', 'خولیا-و-کات-بەسەربردن-و-چالاکی/مۆسیقا-و-هونەری-دەستی/کاری-دەستی-و-پیشە-و-پێداویستییەکانی', '9.2.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9.2'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ادوات خط عربي وزخرفة', 'کەرەستەی خەتی عەرەبی و نەخشاندن', 'الهوايات-والترفيه-والانشطة/الموسيقى-والفنون-اليدوية/ادوات-خط-عربي-وزخرفة', 'خولیا-و-کات-بەسەربردن-و-چالاکی/مۆسیقا-و-هونەری-دەستی/کەرەستەی-خەتی-عەرەبی-و-نەخشاندن', '9.2.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9.2'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('كتب وقراءة ومجلات', 'کتێب و خوێندنەوە و گۆڤار', 'الهوايات-والترفيه-والانشطة/كتب-وقراءة-ومجلات', 'خولیا-و-کات-بەسەربردن-و-چالاکی/کتێب-و-خوێندنەوە-و-گۆڤار', '9.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1369,9 +1371,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('كتب تطوير ذات وادارة اعمال وتنمية بشرية', 'کتێبی گەشەپێدانی خود و بەڕێوەبردنی کار و گەشەپێدانی مرۆیی', 'الهوايات-والترفيه-والانشطة/كتب-وقراءة-ومجلات/كتب-تطوير-ذات-وادارة-اعمال-وتنمية-بشرية', 'خولیا-و-کات-بەسەربردن-و-چالاکی/کتێب-و-خوێندنەوە-و-گۆڤار/کتێبی-گەشەپێدانی-خود-و-بەڕێوەبردنی-کار-و-گەشەپێدانی-مرۆیی', '9.3.7', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9.3'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مجلات وصحف وجرائد', 'گۆڤار و ڕۆژنامە', 'الهوايات-والترفيه-والانشطة/كتب-وقراءة-ومجلات/مجلات-وصحف-وجرائد', 'خولیا-و-کات-بەسەربردن-و-چالاکی/کتێب-و-خوێندنەوە-و-گۆڤار/گۆڤار-و-ڕۆژنامە', '9.3.8', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9.3'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('كتب نادرة وقديمة ومخطوطات', 'کتێبی دەگمەن و کۆن و دەستنووس', 'الهوايات-والترفيه-والانشطة/كتب-وقراءة-ومجلات/كتب-نادرة-وقديمة-ومخطوطات', 'خولیا-و-کات-بەسەربردن-و-چالاکی/کتێب-و-خوێندنەوە-و-گۆڤار/کتێبی-دەگمەن-و-کۆن-و-دەستنووس', '9.3.9', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9.3'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('العاب تسلية وترفيه (غير الكترونية)', 'یاری کات بەسەربردن (نا ئەلیکترۆنی)', 'الهوايات-والترفيه-والانشطة/العاب-تسلية-وترفيه', 'خولیا-و-کات-بەسەربردن-و-چالاکی/یاری-کات-بەسەربردن', '9.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1390,9 +1392,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('ساعات جيب وساعات قديمة نادرة', 'کاتژمێری گیرفان و کاتژمێری کۆنی دەگمەن', 'الهوايات-والترفيه-والانشطة/مقتنيات-وتحف-وانتيكات/ساعات-جيب-وساعات-قديمة-نادرة', 'خولیا-و-کات-بەسەربردن-و-چالاکی/شتی-کۆکراوە-و-شتی-هونەری-و-ئەنتیکە/کاتژمێری-گیرفان-و-کاتژمێری-کۆنی-دەگمەن', '9.5.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9.5'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('رحلات وكشتات وهوايات خارجية', 'گەشت و سەیران و خولیای دەرەوە', 'الهوايات-والترفيه-والانشطة/رحلات-وكشتات-وهوايات-خارجية', 'خولیا-و-کات-بەسەربردن-و-چالاکی/گەشت-و-سەیران-و-خولیای-دەرەوە', '9.6', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('معدات صيد سمك وطيور', 'کەرەستەی ڕاوکردنی ماسی و باڵندە', 'الهوايات-والترفيه-والانشطة/رحلات-وكشتات-وهوايات-خارجية/معدات-صيد-سمك-وطيور', 'خولیا-و-کات-بەسەربردن-و-چالاکی/گەشت-و-سەیران-و-خولیای-دەرەوە/کەرەستەی-ڕاوکردنی-ماسی-و-باڵندە', '9.6.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9.6'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('تجهيزات الهايكنج وتسلق المرتفعات', 'ئامادەکاری شاخەوانی و سەرکەوتنی بەرزایی', 'الهوايات-والترفيه-والانشطة/رحلات-وكشتات-وهوايات-خارجية/تجهيزات-الهايكنج-وتسلق-المرتفعات', 'خولیا-و-کات-بەسەربردن-و-چالاکی/گەشت-و-سەیران-و-خولیای-دەرەوە/ئامادەکاری-شاخەوانی-و-سەرکەوتنی-بەرزایی', '9.6.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9.6'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1411,9 +1413,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('سجاد يدوي وبسط تراثية', 'فەرشی دەستی و بەرماڵی کەلەپووری', 'الهوايات-والترفيه-والانشطة/فنون-شعبية-وتراثيات/سجاد-يدوي-وبسط-تراثية', 'خولیا-و-کات-بەسەربردن-و-چالاکی/هونەری-میللی-و-کەلەپووری/فەرشی-دەستی-و-بەرماڵی-کەلەپووری', '9.7.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9.7'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('تذاكر فعاليات ومناسبات', 'بلیتی چالاکی و بۆنەکان', 'الهوايات-والترفيه-والانشطة/تذاكر-فعاليات-ومناسبات', 'خولیا-و-کات-بەسەربردن-و-چالاکی/بلیتی-چالاکی-و-بۆنەکان', '9.9', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('تذاكر حفلات غنائية ومهرجانات', 'بلیتی ئاهەنگی گۆرانی و فیستیڤاڵ', 'الهوايات-والترفيه-والانشطة/تذاكر-فعاليات-ومناسبات/تذاكر-حفلات-غنائية-ومهرجانات', 'خولیا-و-کات-بەسەربردن-و-چالاکی/بلیتی-چالاکی-و-بۆنەکان/بلیتی-ئاهەنگی-گۆرانی-و-فیستیڤاڵ', '9.9.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9.9'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('تذاكر مباريات رياضية (كرة قدم وغيرها)', 'بلیتی یاری وەرزشی (تۆپی پێ و هیتر)', 'الهوايات-والترفيه-والانشطة/تذاكر-فعاليات-ومناسبات/تذاكر-مباريات-رياضية', 'خولیا-و-کات-بەسەربردن-و-چالاکی/بلیتی-چالاکی-و-بۆنەکان/بلیتی-یاری-وەرزشی', '9.9.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '9.9'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1437,9 +1439,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('طيور اليفة اخرى', 'باڵندەی ماڵی تر', 'الحيوانات-الاليفة-ومستلزماتها/الطيور-الاليفة-والزينة/طيور-اليفة-اخرى', 'ئاژەڵی-ماڵی-و-پێداویستییەکانیان/باڵندەی-ماڵی-و-جوانی/باڵندەی-ماڵی-تر', '10.1.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '10.1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اسماك الزينة واحواضها', 'ماسی جوانی و حەوزەکانیان', 'الحيوانات-الاليفة-ومستلزماتها/اسماك-الزينة-واحواضها', 'ئاژەڵی-ماڵی-و-پێداویستییەکانیان/ماسی-جوانی-و-حەوزەکانیان', '10.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '10'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اسماك زينة (جوبي، ذهبية، كوي)', 'ماسی جوانی (گۆپی، زێڕین، کۆی)', 'الحيوانات-الاليفة-ومستلزماتها/اسماك-الزينة-واحواضها/اسماك-زينة', 'ئاژەڵی-ماڵی-و-پێداویستییەکانیان/ماسی-جوانی-و-حەوزەکانیان/ماسی-جوانی', '10.2.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '10.2'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('احواض سمك ومستلزماتها (فلتر، هيتر، اوكسجين، ديكور)', 'حەوزی ماسی و پێداویستییەکانی (فلتەر، گەرمکەر، ئۆکسجین، دیکۆر)', 'الحيوانات-الاليفة-ومستلزماتها/اسماك-الزينة-واحواضها/احواض-سمك-ومستلزماتها', 'ئاژەڵی-ماڵی-و-پێداویستییەکانیان/ماسی-جوانی-و-حەوزەکانیان/حەوزی-ماسی-و-پێداویستییەکانی', '10.2.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '10.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1458,9 +1460,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('اغنام وماعز (غنم، طليان)', 'مەڕ و بزن (مەڕ، بەرخ)', 'الحيوانات-الاليفة-ومستلزماتها/حيوانات-مزارع-وحقول/اغنام-وماعز', 'ئاژەڵی-ماڵی-و-پێداویستییەکانیان/ئاژەڵی-کێڵگە-و-مەزرا/مەڕ-و-بزن', '10.5.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '10.5'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ابقار وجاموس وعجول', 'مانگا و گامێش و گوێرەکە', 'الحيوانات-الاليفة-ومستلزماتها/حيوانات-مزارع-وحقول/ابقار-وجاموس-وعجول', 'ئاژەڵی-ماڵی-و-پێداویستییەکانیان/ئاژەڵی-کێڵگە-و-مەزرا/مانگا-و-گامێش-و-گوێرەکە', '10.5.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '10.5'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('خيول وحمير وبغال (حصين)', 'ئەسپ و کەر و هێستر (ئەسپ)', 'الحيوانات-الاليفة-ومستلزماتها/حيوانات-مزارع-وحقول/خيول-وحمير-وبغال', 'ئاژەڵی-ماڵی-و-پێداویستییەکانیان/ئاژەڵی-کێڵگە-و-مەزرا/ئەسپ-و-کەر-و-هێستر', '10.5.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '10.5'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('حيوانات وطيور متنوعة', 'ئاژەڵ و باڵندەی جۆراوجۆر', 'الحيوانات-الاليفة-ومستلزماتها/حيوانات-وطيور-متنوعة', 'ئاژەڵی-ماڵی-و-پێداویستییەکانیان/ئاژەڵ-و-باڵندەی-جۆراوجۆر', '10.6', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '10'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1479,9 +1481,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('اكل ومستلزمات الحيوانات الاليفة', 'خواردن و پێداویستی ئاژەڵی ماڵی', 'الحيوانات-الاليفة-ومستلزماتها/اكل-ومستلزمات-الحيوانات-الاليفة', 'ئاژەڵی-ماڵی-و-پێداویستییەکانیان/خواردن-و-پێداویستی-ئاژەڵی-ماڵی', '10.7', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '10'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اكل حيوانات', 'خواردنی ئاژەڵ', 'الحيوانات-الاليفة-ومستلزماتها/اكل-ومستلزمات-الحيوانات-الاليفة/اكل-حيوانات', 'ئاژەڵی-ماڵی-و-پێداویستییەکانیان/خواردن-و-پێداویستی-ئاژەڵی-ماڵی/خواردنی-ئاژەڵ', '10.7.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '10.7'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اكل قطط', 'خواردنی پشیلە', 'الحيوانات-الاليفة-ومستلزماتها/اكل-ومستلزمات-الحيوانات-الاليفة/اكل-حيوانات/اكل-قطط', 'ئاژەڵی-ماڵی-و-پێداویستییەکانیان/خواردن-و-پێداویستی-ئاژەڵی-ماڵی/خواردنی-ئاژەڵ/خواردنی-پشیلە', '10.7.1.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '10.7.1'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('اكل كلاب', 'خواردنی سەگ', 'الحيوانات-الاليفة-ومستلزماتها/اكل-ومستلزمات-الحيوانات-الاليفة/اكل-حيوانات/اكل-كلاب', 'ئاژەڵی-ماڵی-و-پێداویستییەکانیان/خواردن-و-پێداویستی-ئاژەڵی-ماڵی/خواردنی-ئاژەڵ/خواردنی-سەگ', '10.7.1.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '10.7.1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1500,9 +1502,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('مستلزمات عناية ونظافة (شامبو، فرشاة شعر، مقراضة اظافر)', 'پێداویستی چاودێری و پاکوخاوێنی (شامپۆ، فڵچەی قژ، نینۆکبڕ)', 'الحيوانات-الاليفة-ومستلزماتها/اكل-ومستلزمات-الحيوانات-الاليفة/ادوات-نظافة-وعناية-بالحيوانات/مستلزمات-عناية-ونظافة', 'ئاژەڵی-ماڵی-و-پێداویستییەکانیان/خواردن-و-پێداویستی-ئاژەڵی-ماڵی/کەرەستەی-پاکوخاوێنی-و-چاودێری-ئاژەڵ/پێداویستی-چاودێری-و-پاکوخاوێنی', '10.7.4.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '10.7.4'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('رمل قطط وملحقاته (جاروف، صندوق رمل)', 'لم و پێداویستی پشیلە (خاکەناز، سندوقی لم)', 'الحيوانات-الاليفة-ومستلزماتها/اكل-ومستلزمات-الحيوانات-الاليفة/ادوات-نظافة-وعناية-بالحيوانات/رمل-قطط-وملحقاته', 'ئاژەڵی-ماڵی-و-پێداویستییەکانیان/خواردن-و-پێداویستی-ئاژەڵی-ماڵی/کەرەستەی-پاکوخاوێنی-و-چاودێری-ئاژەڵ/لم-و-پێداویستی-پشیلە', '10.7.4.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '10.7.4'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('حفاضات ومناديل للحيوانات', 'دایبی و کلینێکسی ئاژەڵ', 'الحيوانات-الاليفة-ومستلزماتها/اكل-ومستلزمات-الحيوانات-الاليفة/ادوات-نظافة-وعناية-بالحيوانات/حفاضات-ومناديل-للحيوانات', 'ئاژەڵی-ماڵی-و-پێداویستییەکانیان/خواردن-و-پێداویستی-ئاژەڵی-ماڵی/کەرەستەی-پاکوخاوێنی-و-چاودێری-ئاژەڵ/دایبی-و-کلینێکسی-ئاژەڵ', '10.7.4.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '10.7.4'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('ملابس للحيوانات الاليفة', 'جلوبەرگی ئاژەڵی ماڵی', 'الحيوانات-الاليفة-ومستلزماتها/اكل-ومستلزمات-الحيوانات-الاليفة/ملابس-للحيوانات-الاليفة', 'ئاژەڵی-ماڵی-و-پێداویستییەکانیان/خواردن-و-پێداویستی-ئاژەڵی-ماڵی/جلوبەرگی-ئاژەڵی-ماڵی', '10.7.5', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '10.7'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1526,9 +1528,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('الاعمال والمعدات التجارية والصناعية', 'کار و کەرەستەی بازرگانی و پیشەسازی', 'الاعمال-والمعدات-التجارية-والصناعية', 'کار-و-کەرەستەی-بازرگانی-و-پیشەسازی', '11', NULL);
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('معدات والات للاعمال', 'کەرەستە و ئامێری کار', 'الاعمال-والمعدات-التجارية-والصناعية/معدات-والات-للاعمال', 'کار-و-کەرەستەی-بازرگانی-و-پیشەسازی/کەرەستە-و-ئامێری-کار', '11.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '11'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مكائن ومعدات صناعية وتصنيع', 'مەکینە و کەرەستەی پیشەسازی و بەرهەمهێنان', 'الاعمال-والمعدات-التجارية-والصناعية/معدات-والات-للاعمال/مكائن-ومعدات-صناعية-وتصنيع', 'کار-و-کەرەستەی-بازرگانی-و-پیشەسازی/کەرەستە-و-ئامێری-کار/مەکینە-و-کەرەستەی-پیشەسازی-و-بەرهەمهێنان', '11.1.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '11.1'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('تجهيزات مطاعم ومحلات وفنادق (ثلاجات عرض، رفوف، كاشيرات)', 'ئامادەکاری چێشتخانە و دوکان و هۆتێل (ساردکەرەوەی پیشاندان، ڕەفە، کاشێر)', 'الاعمال-والمعدات-التجارية-والصناعية/معدات-والات-للاعمال/تجهيزات-مطاعم-ومحلات-وفنادق', 'کار-و-کەرەستەی-بازرگانی-و-پیشەسازی/کەرەستە-و-ئامێری-کار/ئامادەکاری-چێشتخانە-و-دوکان-و-هۆتێل', '11.1.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '11.1'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1547,9 +1549,9 @@ INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKu
 VALUES ('امتيازات تجارية (فرانشايز)', 'ئیمتیازی بازرگانی (فرانچایز)', 'الاعمال-والمعدات-التجارية-والصناعية/فرص-تجارية-ومشاريع-وشراكات/امتيازات-تجارية', 'کار-و-کەرەستەی-بازرگانی-و-پیشەسازی/هەلی-بازرگانی-و-پڕۆژە-و-هاوبەشی/ئیمتیازی-بازرگانی', '11.2.1', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '11.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('مشاريع جاهزة للبيع (محلات، شركات شغالة)', 'پڕۆژەی ئامادە بۆ فرۆشتن (دوکان، کۆمپانیای کارا)', 'الاعمال-والمعدات-التجارية-والصناعية/فرص-تجارية-ومشاريع-وشراكات/مشاريع-جاهزة-للبيع', 'کار-و-کەرەستەی-بازرگانی-و-پیشەسازی/هەلی-بازرگانی-و-پڕۆژە-و-هاوبەشی/پڕۆژەی-ئامادە-بۆ-فرۆشتن', '11.2.2', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '11.2'));
+
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('فرص شراكة واستثمار في مشاريع', 'هەلی هاوبەشی و وەبەرهێنان لە پڕۆژەکان', 'الاعمال-والمعدات-التجارية-والصناعية/فرص-تجارية-ومشاريع-وشراكات/فرص-شراكة-واستثمار-في-مشاريع', 'کار-و-کەرەستەی-بازرگانی-و-پیشەسازی/هەلی-بازرگانی-و-پڕۆژە-و-هاوبەشی/هەلی-هاوبەشی-و-وەبەرهێنان-لە-پڕۆژەکان', '11.2.3', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '11.2'));
-
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
 VALUES ('وكالات تجارية (مطلوب وكيل او عرض وكالة)', 'بریکاری بازرگانی (پێویستە بریکار یان پێشنیاری بریکاری)', 'الاعمال-والمعدات-التجارية-والصناعية/فرص-تجارية-ومشاريع-وشراكات/وكالات-تجارية', 'کار-و-کەرەستەی-بازرگانی-و-پیشەسازی/هەلی-بازرگانی-و-پڕۆژە-و-هاوبەشی/بریکاری-بازرگانی', '11.2.4', (SELECT "CategoryID" FROM "Category" WHERE "hierarchy_path" = '11.2'));
 INSERT INTO "Category" ("NameArabic", "NameKurdish", "UrlSlugArabic", "UrlSlugKurdish", "hierarchy_path", "ParentID") 
@@ -1582,7 +1584,7 @@ ALTER TABLE "Category" ADD CONSTRAINT "uk_category_url_slug_kurdish" UNIQUE ("Ur
 -- Analyze table for query optimization
 ANALYZE "Category";
 
--- Successfully inserted 715 categories
+-- Successfully inserted 716 categories
 
 -- Query 1: Display hierarchy with proper indentation (tabs based on level)
 -- This shows the complete hierarchy structure with visual indentation

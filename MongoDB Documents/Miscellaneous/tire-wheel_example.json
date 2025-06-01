@@ -10,7 +10,7 @@
   "updatedAt": "2024-05-14T13:50:00Z",
   "imageCount": 2,
   "viewsCount": 18,
-  "isDollar": true,
+  "isDollar": false, // bool (always false for tires and wheels)
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
   "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
   "priority": 4,
@@ -26,16 +26,14 @@
   "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
 
   
-  "specs": {
+"specs": {
     "tireWheel": {
-      "width": 245.0, // float
-      "diameter": 48.26, // float
-      "height": 24.0 // float
+      "length": 245, // int
+      "height": 24 // int
     }
   }
-} 
+}
 
 // Reference Values for tire and wheel fields:
-// width: عرض الإطار (13.5 سم - 100 سم) - Tire Width (13.5 cm - 100 cm)
-// diameter: قطر العجلة (33.02 سم - 121.92 سم) - Wheel Diameter (33.02 cm - 121.92 cm)
-// height: الارتفاع الفعلي (سم) - Actual Height (cm) 
+// length: طول الإطار (13.5 سم - 100 سم) - Tire Length (13.5 cm - 100 cm)
+// height: الارتفاع الفعلي (سم) - Actual Height (cm)
