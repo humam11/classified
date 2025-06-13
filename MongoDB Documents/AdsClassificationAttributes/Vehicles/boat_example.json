@@ -1,0 +1,52 @@
+// Hierarchy: ads → transport_attrs → boat_and_marine_attrs
+{
+  "_id": ObjectId("60a6e5e889e7c55e25b14b30"),
+  "title": "2023 Sea Ray Sundancer 320 - Luxury Yacht",
+  "description": "Beautiful Sea Ray Sundancer 320 yacht in perfect condition. Fully equipped with modern amenities.",
+  "price": {
+    "value": 250000.00,
+    "isDollar": true, // bool (could be true or false for anything related to general transport)
+    "showingPrice": "250,000 دولار"
+  },
+  "isActive": true,
+  "createdAt": ISODate("2024-05-11T09:45:00Z"),
+  "updatedAt": ISODate("2024-05-11T09:45:00Z"),
+  "imageCount": 8,
+  "viewsCount": 65,
+  "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
+  "priority": 2,
+  "slug": "2023-sea-ray-sundancer-320-luxury-yacht",
+
+  "location": {
+    "locationIds": [1, 15, 150],
+    "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+    "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+    "street": "شارع الجمهورية 123"
+  },
+
+  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
+
+  
+  "specs": {
+    "transport": {
+      "fuelType": 1,         // sbyte (0-5)
+      "enginePower": 304,    // short (1-9999)
+      "fuelTankCapacity": 138 // short (1-1000)
+    },
+    
+    "boat": {
+      "length": 9.75,        // float (1-100)
+      "capacity": 12         // sbyte (1-100)
+    }
+  }
+}
+
+// Reference Values for transport fields:
+// fuelType: نوع الوقود: 0=بنزين، 1=ديزل (كاز)، 2=كهرباء، 3=هجين، 4=غاز، 5=أخرى
+// enginePower: قوة المحرك بالحصان (1-2000)
+// fuelTankCapacity: سعة خزان الوقود باللتر (1-1000)
+
+// Reference Values for boat fields:
+// length: طول القارب بالمتر (1-100)
+// capacity: سعة الركاب (1-100) 

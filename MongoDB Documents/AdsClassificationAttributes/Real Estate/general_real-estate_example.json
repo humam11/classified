@@ -1,0 +1,39 @@
+// Hierarchy: ads -> real_estate_attrs
+{
+  "_id": "60a6e5e889e7c55e25b14b55",
+  "title": "Commercial Property for Sale",
+  "description": "Prime commercial property in a strategic location, suitable for various business purposes.",
+  "price": {
+    "value": 250000.00,
+    "isDollar": true, // bool (could be true or false for anything related to general real estate)
+    "showingPrice": "250,000 دولار"
+  },
+  "isActive": true,
+  "createdAt": "2024-05-14T17:00:00Z",
+  "updatedAt": "2024-05-14T17:00:00Z",
+  "imageCount": 5,
+  "viewsCount": 120,
+  "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
+  "priority": 2,
+  "slug": "commercial-property-for-sale",
+  
+  "location": {
+    "locationIds": [1, 15, 150],
+    "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+    "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+    "street": "شارع الجمهورية 123"
+  },
+
+  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
+
+  
+  "specs": {
+    "realEstate": {
+      "area": 250.50 // float
+    }
+  }
+} 
+
+// Reference Values for realEstate fields:
+// area: المساحة بالمتر المربع (1-10000)

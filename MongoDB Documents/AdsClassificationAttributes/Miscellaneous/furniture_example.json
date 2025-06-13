@@ -1,0 +1,45 @@
+// Hierarchy: ads -> furniture_and_decor_attrs
+{
+  "_id": "60a6e5e889e7c55e25b14b43",
+  "title": "Modern Wooden Dining Table - 6 Seats",
+  "description": "Elegant wooden dining table, seats 6, made from solid oak, perfect for modern homes.",
+  "price": {
+    "value": 450.00,
+    "isDollar": false, // bool (always false for furniture)
+    "showingPrice": "450,000 الف دينار عراقي"
+  },
+  "isActive": true,
+  "createdAt": "2024-05-14T13:30:00Z",
+  "updatedAt": "2024-05-14T13:30:00Z",
+  "imageCount": 4,
+  "viewsCount": 38,
+  "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
+  "priority": 3,
+  "slug": "modern-wooden-dining-table-6-seats",
+  
+  "location": {
+    "locationIds": [1, 15, 150],
+    "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+    "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+    "street": "شارع الجمهورية 123"
+  },
+
+  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
+
+  
+  "specs": {
+    "furniture": {
+      "material": 1, // sbyte
+      "length": 180, // short
+      "width": 90, // short
+      "height": 75 // short
+    }
+  }
+}
+
+// Reference Values for furniture fields:
+// material: نوع المادة (0=خشب، 1=حديد، 2=زجاج، 3=بلاستيك، 4=جلد، 5=قماش، 6=اخر) - Material (0=Wood, 1=Metal, 2=Glass, 3=Plastic, 4=Leather, 5=Fabric, 6=Other)
+// length: الطول بالسنتيمتر (1-1000)
+// width: العرض بالسنتيمتر (1-1000)
+// height: الارتفاع بالسنتيمتر (1-500) 

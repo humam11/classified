@@ -1,0 +1,41 @@
+// Hierarchy: ads -> electronic_attrs
+{
+    "_id": "60a6e5e889e7c55e25b14b56",
+    "title": "Professional Audio Equipment",
+    "description": "High-quality audio equipment for professional use, including mixers and amplifiers.",
+    "price": {
+        "value": 1500.00,
+        "isDollar": true, // bool (could be true or false for anything related to general electronics)
+        "showingPrice": "1,500 دولار"
+    },
+    "isActive": true,
+    "createdAt": "2024-05-14T18:00:00Z",
+    "updatedAt": "2024-05-14T18:00:00Z",
+    "imageCount": 4,
+    "viewsCount": 85,
+    "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+    "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
+    "priority": 2,
+    "slug": "professional-audio-equipment",
+    
+    "location": {
+      "locationIds": [1, 15, 150],
+      "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+      "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+      "street": "شارع الجمهورية 123"
+    },
+  
+    "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
+
+    
+    "specs": {
+      "electronics": {
+        "isNew": false, // bool
+        "warrantyMonths": 12 // sbyte
+      }
+    }
+  }
+
+// Reference Values for electronics fields:
+// isNew: جديد أم مستعمل (0=مستعمل، 1=جديد)
+// warrantyMonths: مدة الضمان بالأشهر (1-60)

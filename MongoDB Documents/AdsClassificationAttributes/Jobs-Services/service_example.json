@@ -1,0 +1,100 @@
+// Hierarchy: ads -> service_attrs -> service_daily_availability -> service_time_slots
+{
+  "_id": "60a6e5e889e7c55e25b14b54", // string
+  "title": "Worker", // string
+  "description": "Full-stack web development services including frontend, backend, and database development. Specializing in modern frameworks and responsive design.", // string
+  "price": {
+    "value": 50.00, // Price per -> combine with paymentPeriod
+    "isDollar": false, // bool (always false for service)
+    "showingPrice": "50,000 الف دينار عراقي/ساعة"
+  },
+  "isActive": true, // bool
+  "createdAt": "2024-05-14T16:00:00Z", // DateTime
+  "updatedAt": "2024-05-14T16:00:00Z", // DateTime
+  "imageCount": 3, // sbyte
+  "viewsCount": 45, // ushort
+  "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
+  "priority": 2, // sbyte
+  "slug": "worker-33f3f", // string
+  
+  
+  "location": {
+    "locationIds": [1, 15, 150],
+    "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+    "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+    "street": "شارع الجمهورية 123"
+  },
+
+  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
+  
+  "specs": {
+    "service": {
+      "paymentPeriod": 3, // sbyte
+      "dailyAvailability": [
+        {
+          "dayOfWeek": 1, // sbyte
+          "isAvailable": true, // bool
+          "is24Hours": false, // bool
+          "timeSlots": [
+            {
+              "openingTime": "09:00", // string
+              "closingTime": "17:00" // string
+            }
+          ]
+        },
+        {
+          "dayOfWeek": 2, // sbyte
+          "isAvailable": true, // bool
+          "is24Hours": false, // bool
+          "timeSlots": [
+            {
+              "openingTime": "09:00", // string
+              "closingTime": "17:00" // string
+            }
+          ]
+        },
+        {
+          "dayOfWeek": 3, // sbyte
+          "isAvailable": true, // bool
+          "is24Hours": false, // bool
+          "timeSlots": [
+            {
+              "openingTime": "09:00", // string
+              "closingTime": "17:00" // string
+            }
+          ]
+        },
+        {
+          "dayOfWeek": 4, // sbyte
+          "isAvailable": true, // bool
+          "is24Hours": false, // bool
+          "timeSlots": [
+            {
+              "openingTime": "09:00", // string
+              "closingTime": "17:00" // string
+            }
+          ]
+        },
+        {
+          "dayOfWeek": 6, // sbyte
+          "isAvailable": true, // bool
+          "is24Hours": true // bool
+          // don't have timeslots? so is null
+        }
+      ]
+    }
+  }
+} 
+
+// Reference Values for service fields:
+// paymentPeriod: نوع السعر (0=للخدمة، 1=للمتر، 2=للقطعة، 3=للساعة، 4=لليوم، 5=للدقيقة) - sbyte
+
+// dailyAvailability:
+// dayOfWeek: يوم الأسبوع (0=الأحد، 1=الإثنين، 2=الثلاثاء، 3=الأربعاء، 4=الخميس، 5=الجمعة، 6=السبت) - sbyte
+// isAvailable: هل الخدمة متاحة في هذا اليوم - bool
+// is24Hours: هل الخدمة متاحة على مدار 24 ساعة - bool
+
+// timeSlots:
+// openingTime: وقت بدء الخدمة (HH:MM) - string
+// closingTime: وقت انتهاء الخدمة (HH:MM) - string

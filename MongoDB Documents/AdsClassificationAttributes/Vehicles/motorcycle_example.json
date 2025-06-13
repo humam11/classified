@@ -1,0 +1,54 @@
+// Hierarchy: ads → transport_attrs → motorcycle_attrs
+{
+  "_id": ObjectId("60a6e5e889e7c55e25b14b2f"),
+  "title": "2023 Ducati Panigale V4 - Sport Bike",
+  "description": "Like-new Ducati Panigale V4 with only 1,200 miles. Perfect condition with all original parts.",
+  "price": {
+    "value": 22500.00,
+    "isDollar": true, // bool (could be true or false for anything related to general transport)
+    "showingPrice": "22,500 دولار"
+  },
+  "isActive": true,
+  "createdAt": ISODate("2024-05-10T15:30:00Z"),
+  "updatedAt": ISODate("2024-05-10T15:30:00Z"),
+  "imageCount": 6,
+  "viewsCount": 142,
+  "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
+  "priority": 2,
+  "slug": "2023-ducati-panigale-v4-sport-bike",
+  
+  "location": {
+    "locationIds": [1, 15, 150],
+    "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+    "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+    "street": "شارع الجمهورية 123"
+  },
+
+  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
+
+  
+  "specs": {
+    "transport": {
+      "fuelType": 1,          // sbyte (0-5)
+      "enginePower": 304,    // short (1-9999)
+      "fuelTankCapacity": 138 // short (1-1000)
+    },
+    
+    "motorcycle": {
+      "driveType": 1,        // sbyte (1-3)
+      "gearCount": 6,        // sbyte (1-10)
+      "modelId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a72dc",
+    }
+  }
+}
+
+// Reference Values for transport fields:
+// fuelType: نوع الوقود: 0=بنزين، 1=ديزل (كاز)، 2=كهرباء، 3=هجين، 4=غاز، 5=أخرى
+// enginePower: قوة المحرك بالحصان (1-2000)
+// fuelTankCapacity: سعة خزان الوقود باللتر (1-1000)
+
+// Reference Values for motorcycle fields:
+// driveType: نوع النقل (1=سلسلة، 2=حزام، 3=عمود، 4=محور)
+// gearCount: عدد التروس (1-8)
+// modelId: معرف الموديل (مرتبط بجدول brands_models) 

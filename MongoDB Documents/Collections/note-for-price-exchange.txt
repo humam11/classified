@@ -1,0 +1,15 @@
+
+/* Price Structure Explanation:
+ * - value: The actual price value (in IQD if isDollar=false, in USD if isDollar=true)
+ * - isDollar: false=price in IQD (default), true=price in USD
+ * - exchangeRate: Current USD to IQD rate (e.g., 1300 means 1 USD = 1300 IQD)
+ * - lastRateUpdate: When the exchange rate was last updated
+ * - showingPrice: 
+ *   If isDollar=false: "X,XXX الف دينار عراقي" (e.g., "500,000 الف دينار عراقي")
+ *   If isDollar=true: "X دولار" (e.g., "384.62 دولار")
+ * 
+ * Sorting Example:
+ * Ad 1: value=2, isDollar=true, exchangeRate=1300  (2 USD = 2,600 IQD)
+ * Ad 2: value=1500, isDollar=false                 (1,500 IQD)
+ * When sorted by price_asc: Ad 2 (1,500 IQD) comes before Ad 1 (2,600 IQD)
+ */

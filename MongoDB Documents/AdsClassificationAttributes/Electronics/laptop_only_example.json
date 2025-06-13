@@ -1,0 +1,85 @@
+// Hierarchy: ads  -> electronic_attrs -> laptop_attrs -> brands_models
+{
+  "_id": "60a6e5e889e7c55e25b14b37",
+  "title": "MacBook Pro M3 Pro 16-inch 1TB SSD",
+  "description": "Brand new MacBook Pro with M3 Pro chip, 16GB RAM, 1TB SSD. Perfect for professional work and creative tasks.",
+  "price": {
+    "value": 2500.00,
+    "isDollar": true,
+    "showingPrice": "2,500 دولار"
+  },
+  "isActive": true,
+  "createdAt": "2024-05-14T12:00:00Z",
+  "updatedAt": "2024-05-14T12:00:00Z",
+  "imageCount": 8,
+  "viewsCount": 120,
+  "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
+  "priority": 2,
+  "slug": "macbook-pro-m3-pro-16-inch-1tb-ssd",
+  
+  "location": {
+    "locationIds": [1, 15, 150],
+    "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+    "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+    "street": "شارع الجمهورية 123"
+  },
+
+  
+  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
+
+  
+  "specs": {
+    "electronics": {
+      "isNew": true, // جديد أم مستعمل - خيارات: جديد، مستعمل، مجدد
+      "warrantyMonths": 12 // مدة الضمان بالأشهر - رقم
+    },
+    "components": {
+      "cpu": "Apple M3 Pro", // string
+      "ramSize": 16, // sbyte
+      "isSSD": true, // bool
+      "storageSize": 1024, // short
+      "graphicsCard": "Apple M3 Pro GPU", // string
+      "usbPorts": 3, // sbyte
+      "hdmiPorts": 1 // sbyte
+    },
+    "laptop": {
+      "screenSize": 16.0, // float
+      "isTouchscreen": false, // bool
+      "resolution": "3456x2234", // string
+      "isBacklitKeyboard": true, // bool
+      "hasWebcam": true, // bool
+      "webcamResolution": 2, // sbyte
+      "hasFingerprintReader": true, // bool
+      "color": 3, //sbyte  
+      "modelId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a72dc" // موديل الجهاز - قائمة منسدلة من قاعدة البيانات
+    }
+  
+  }
+}
+
+// Reference Values for electronics fields:
+// isNew: جديد أم مستعمل (0=مستعمل، 1=جديد)
+// warrantyMonths: مدة الضمان بالأشهر (0-60)
+
+
+// Reference Values for components fields:
+// cpu: نوع المعالج (نص حر)
+// ramSize: حجم الذاكرة العشوائية (4، 8، 16، 32، 64 جيجابايت)
+// isSSD: نوع التخزين (0=HDD، 1=SSD)
+// storageSize: حجم التخزين (128، 256، 512، 1024، 2048 جيجابايت)
+// graphicsCard: نوع كارت الشاشة (نص حر)
+// usbPorts: عدد منافذ USB (0-10)
+// hdmiPorts: عدد منافذ HDMI (0-4)
+
+
+// Reference Values for Laptops fields:
+// screenSize: حجم الشاشة بالإنش (11.0-32.0)
+// isTouchscreen: شاشة لمس (0=لا، 1=نعم)
+// resolution: دقة الشاشة (نص)
+// isBacklitKeyboard: لوحة مفاتيح مضيئة (0=لا، 1=نعم)
+// hasWebcam: كاميرا ويب (0=لا، 1=نعم)
+// webcamResolution: دقة الكاميرا (0=480p، 1=720p، 2=1080p، 3=1440p، 4=4K، 5=8K، 6=اخرى)
+// hasFingerprintReader: قارئ بصمة الإصبع (0=لا، 1=نعم)
+// color: اللون (0=اسود، 1=ابيض، 2=ذهبي، 3=فضي، 4اأزرق، احمر، 6=اخضر، 7=وردي، 8=بنفسجي، 9=اخر)
+// modelId: موديل الجهاز (معرف من قاعدة البيانات)

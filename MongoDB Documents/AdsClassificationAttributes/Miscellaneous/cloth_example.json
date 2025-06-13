@@ -1,0 +1,43 @@
+// Hierarchy: ads -> cloth_attrs
+{
+  "_id": "60a6e5e889e7c55e25b14b43",
+  "title": "Summer T-Shirt - Size M - New",
+  "description": "Brand new cotton t-shirt, size M, perfect for summer.",
+  "price": {
+    "value": 25.00,
+    "isDollar": false, // bool (always false for clothing)
+    "showingPrice": "25,000 الف دينار عراقي"
+  },
+  "isActive": true,
+  "createdAt": "2024-05-14T13:25:00Z",
+  "updatedAt": "2024-05-14T13:25:00Z",
+  "imageCount": 2,
+  "viewsCount": 45,
+  "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
+  "priority": 3,
+  "slug": "summer-t-shirt-size-m-new",
+  
+  "location": {
+    "locationIds": [1, 15, 150],
+    "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+    "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+    "street": "شارع الجمهورية 123"
+  },
+
+  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
+
+  
+  "specs": {
+    "clothing": {
+      "size": 3, // sbyte
+      "isNew": true, // bool
+      "isSummer": true // bool
+    }
+  }
+} 
+
+// Reference Values for clothing fields:
+// size: المقاس (0=XS، 1=S، 2=M، 3=L، 4=XL، 5=XXL، 6=XXXL، 7=أخرى) - Size (0=XS, 1=S, 2=M, 3=L, 4=XL, 5=XXL, 6=XXXL, 7=Other)
+// isNew: جديد أم مستعمل (1=جديد، 0=مستعمل) - New or Used (1=New, 0=Used)
+// isSummer: الموسم (1=صيف، 0=شتاء) - Season (1=Summer, 0=Winter) 

@@ -1,0 +1,37 @@
+// Hierarchy: conversations -> messages
+{
+  "_id": ObjectId("..."),
+  "participants": ["publisherId", "interestedUserId"],
+  "participantInfo": {
+    "publisherId": {
+      "firstName": "John",
+      "profilePictureUrl": "...",
+      "lastSeen": ISODate("...")
+    },
+    "interestedUserId": {
+      "firstName": "Jane", 
+      "profilePictureUrl": "...",
+      "lastSeen": ISODate("...")
+    }
+  },
+  "relatedAd": {
+    "id": "60a6e5e889e7c55e25b14b43",
+    "title": "Summer T-Shirt - Size M - New",
+    "price": "$25",
+    "mainImage": "https://example.com/images/webdev1.jpg"
+  },
+  "lastMessage": {
+    "content": "Is this still available?",
+    "senderId": "interestedUserId",
+    "timestamp": ISODate("2024-05-15T10:30:00Z")
+  },
+  "unreadCounts": {
+    "publisherId": 1,
+    "interestedUserId": 0
+  },
+  "createdAt": ISODate("2024-05-15T09:00:00Z"),
+  "updatedAt": ISODate("2024-05-15T10:30:00Z"),
+  "metadata": {
+    "isArchivedBy": ["interestedUserId"]
+  }
+}

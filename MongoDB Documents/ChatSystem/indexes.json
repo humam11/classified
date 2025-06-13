@@ -1,0 +1,16 @@
+// For user's chat list (both publisher and interested user)
+db.conversations.createIndex({ 
+  "participants": 1, 
+  "lastMessage.timestamp": -1 
+});
+
+// For message queries
+db.messages.createIndex({ 
+  "conversationId": 1, 
+  "timestamp": -1 
+});
+
+// For ad-related conversations
+db.conversations.createIndex({ 
+  "relatedAd.id": 1 
+});

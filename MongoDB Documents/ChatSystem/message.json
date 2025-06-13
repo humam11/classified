@@ -1,0 +1,17 @@
+// Hierarchy: conversations -> messages
+{
+    "_id": ObjectId("..."),
+    "conversationId": ObjectId("60c72b2f9b1d8eac1f000001"),
+    "senderId": "interestedUserId", // or "publisherId"
+    "contentType": 0, // 0=text, 1=image, 2=file, 3=voice, 4=video
+    "content": "Is this still available?",
+    "timestamp": ISODate("2024-05-15T10:30:00Z"),
+    "readStatus": {
+      "publisherId": 1, // 0=sent, 1=delivered, 2=read
+      "interestedUserId": 2 // 0=sent, 1=delivered, 2=read
+    }
+  }
+  
+  // Reference Values for message fields:
+  // contentType: نوع المحتوى (0=نص، 1=صورة، 2=صوت) - Content type (0=text, 1=image, 2=file, 3=voice, 4=video)
+  // readStatus: حالة القراءة (0=مرسل، 1=تم التسليم، 2=تمت القراءة) - Read status (0=sent, 1=delivered, 2=read)

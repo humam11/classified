@@ -1,0 +1,117 @@
+{
+    "queries": {
+        "sort_by_price_asc": {
+            "description": "Sort ads by price in ascending order, converting USD to IQD using current exchange rate",
+            "query": {
+                "$sort": {
+                    "$expr": {
+                        "$cond": {
+                            "if": { "$eq": ["$price.isDollar", true] },
+                            "then": { "$multiply": ["$price.value", "$exchangeRate"] },
+                            "else": "$price.value"
+                        }
+                    }
+                }
+            },
+            "example": {
+                "input": [
+                    { "price": { "value": 2, "isDollar": true } },      // 2 USD = 2,600 IQD
+                    { "price": { "value": 1500, "isDollar": false } },  // 1,500 IQD
+                    { "price": { "value": 3, "isDollar": true } }       // 3 USD = 3,900 IQD
+                ],
+                "output_order": [
+                    { "price": { "value": 1500, "isDollar": false } },  // 1,500 IQD (1st)
+                    { "price": { "value": 2, "isDollar": true } },      // 2,600 IQD (2nd)
+                    { "price": { "value": 3, "isDollar": true } }       // 3,900 IQD (3rd)
+                ]
+            }
+        },
+        "sort_by_price_desc": {
+            "description": "Sort ads by price in descending order, converting USD to IQD using current exchange rate",
+            "query": {
+                "$sort": {
+                    "$expr": {
+                        "$cond": {
+                            "if": { "$eq": ["$price.isDollar", true] },
+                            "then": { "$multiply": ["$price.value", "$exchangeRate"] },
+                            "else": "$price.value"
+                        }
+                    }
+                }
+            },
+            "example": {
+                "input": [
+                    { "price": { "value": 2, "isDollar": true } },      // 2 USD = 2,600 IQD
+                    { "price": { "value": 1500, "isDollar": false } },  // 1,500 IQD
+                    { "price": { "value": 3, "isDollar": true } }       // 3 USD = 3,900 IQD
+                ],
+                "output_order": [
+                    { "price": { "value": 3, "isDollar": true } },      // 3,900 IQD (1st)
+                    { "price": { "value": 2, "isDollar": true } },      // 2,600 IQD (2nd)
+                    { "price": { "value": 1500, "isDollar": false } }   // 1,500 IQD (3rd)
+                ]
+            }
+        },
+        "sort_with_exchange_rate_lookup": {
+            "description": "Sort ads by price with exchange rate lookup from exchange_rates collection",
+            "query": [
+                {
+                    "$lookup": {
+                        "from": "exchange_rates",
+                        "let": { "isDollar": "$price.isDollar" },
+                        "pipeline": [
+                            {
+                                "$match": {
+                                    "$expr": {
+                                        "$and": [
+                                            { "$eq": ["$_id", "exchange_rate_usd_iqd"] },
+                                            { "$eq": ["$isActive", true] }
+                                        ]
+                                    }
+                                }
+                            }
+                        ],
+                        "as": "exchangeRate"
+                    }
+                },
+                {
+                    "$addFields": {
+                        "convertedPrice": {
+                            "$cond": {
+                                "if": { "$eq": ["$price.isDollar", true] },
+                                "then": {
+                                    "$multiply": [
+                                        "$price.value",
+                                        { "$arrayElemAt": ["$exchangeRate.rate", 0] }
+                                    ]
+                                },
+                                "else": "$price.value"
+                            }
+                        }
+                    }
+                },
+                {
+                    "$sort": { "convertedPrice": 1 }
+                }
+            ],
+            "example": {
+                "input": [
+                    { "price": { "value": 2, "isDollar": true } },      // 2 USD = 2,600 IQD (rate: 1300)
+                    { "price": { "value": 1500, "isDollar": false } },  // 1,500 IQD
+                    { "price": { "value": 3, "isDollar": true } }       // 3 USD = 3,900 IQD (rate: 1300)
+                ],
+                "output_order": [
+                    { "price": { "value": 1500, "isDollar": false } },  // 1,500 IQD (1st)
+                    { "price": { "value": 2, "isDollar": true } },      // 2,600 IQD (2nd)
+                    { "price": { "value": 3, "isDollar": true } }       // 3,900 IQD (3rd)
+                ]
+            }
+        }
+    },
+    "notes": {
+        "exchange_rate": "Current exchange rate is fetched from exchange_rates collection where _id='exchange_rate_usd_iqd'",
+        "price_conversion": "USD prices are converted to IQD using the current exchange rate for comparison",
+        "sorting_logic": "All prices are compared in IQD, regardless of their original currency",
+        "performance": "The sort_with_exchange_rate_lookup query is more accurate but may be slower due to the lookup operation. Use sort_by_price_asc/desc if performance is critical and exchange rate is relatively stable."
+    }
+} 

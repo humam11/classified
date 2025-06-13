@@ -59,42 +59,51 @@ CREATE TABLE "User" (
     )
 );
 
--- User Report Table  جدول بلاغات المستخدمين
+-- User Report Table جدول بلاغات المستخدمين
 CREATE TABLE "UserReport" (
     -- Primary Key
     "UserReportID" UUID PRIMARY KEY DEFAULT uuid_generate_v7(),
-    
+
     -- Core Report Data
-    "ReasonType" SMALLINT CHECK ("ReasonType" BETWEEN 1 AND 6), -- نوع البلاغ: 1=محتوى مسيء، 2=سلوك مزعج، 3=احتيال، 4=انتحال شخصية، 5=محتوى غير لائق، 6=أخرى
+    -- نوع البلاغ: 1=محتوى مسيء، 2=سلوك مزعج، 3=احتيال، 4=انتحال شخصية، 5=محتوى غير لائق، 6=أخرى
+    "ReasonType" SMALLINT CHECK ("ReasonType" BETWEEN 1 AND 6),
     "Description" VARCHAR(500),                              -- تفاصيل إضافية للبلاغ
-    
+
+    -- Moderation Status
+    -- حالة البلاغ: 1=قيد المراجعة, 2=تم اتخاذ إجراء, 3=مرفوض
+    "Status" SMALLINT DEFAULT 1 CHECK ("Status" BETWEEN 1 AND 3),
+
     -- Metadata
     "ReportedAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- تاريخ البلاغ
-    
+
     -- Foreign Keys - Relationships
     "ReporterID" UUID NOT NULL,  -- معرف المبلغ
     "ReportedID" UUID NOT NULL,  -- معرف المبلغ عنه
-    
+
     -- Constraints
     FOREIGN KEY ("ReporterID") REFERENCES "User"("UserID"),
     FOREIGN KEY ("ReportedID") REFERENCES "User"("UserID")
 );
 
--- Site Feedback Table جدول تعليقات الموقع
-CREATE TABLE "SiteFeedback" (
+-- Bug Report Table جدول بلاغات الأخطاء التقنية
+CREATE TABLE "BugReport" (
     -- Primary Key
-    "FeedbackID" UUID PRIMARY KEY DEFAULT uuid_generate_v7(),
-    
-    -- Core Feedback Data
-    "FeedbackText" VARCHAR(512),        -- التعليق
-    "ScreenshotUrl" VARCHAR(512),         -- رابط الصورة
+    "BugReportID" UUID PRIMARY KEY DEFAULT uuid_generate_v7(),
+
+    -- Core Report Data
+    "Description" VARCHAR(1000),      -- وصف الخطأ
+    "ScreenshotUrl" VARCHAR(512),       -- رابط الصورة
+
+    -- Status Tracking
+    -- حالة البلاغ: 1=جديد, 2=قيد المراجعة, 3=تم الإصلاح, 4=مرفوض
+    "Status" SMALLINT DEFAULT 1 CHECK ("Status" BETWEEN 1 AND 4),
 
     -- Metadata
-    "SubmittedAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- تاريخ التقديم (بدقة ثانية واحدة)
-    
+    "SubmittedAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- تاريخ التقديم
+
     -- Foreign Keys - Relationships
-    "UserID" UUID NOT NULL,   -- معرف المستخدم
-    
+    "UserID" UUID NOT NULL,   -- معرف المستخدم الذي أبلغ عن الخطأ
+
     -- Constraints
     FOREIGN KEY ("UserID") REFERENCES "User"("UserID")
 );

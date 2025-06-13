@@ -1,0 +1,53 @@
+// Hierarchy: ads -> real_estate_attrs -> house_attrs
+{
+  "_id": ObjectId("507f1f77bcf86cd799439021"),
+  "title": "Modern 4-Bedroom Villa with Garden in Al-Mansour",
+  "description": "Beautiful modern villa with spacious rooms, private garden, and 2-car garage. Recently renovated with high-quality finishes.",
+  "price": {
+    "value": 350000.00,
+    "isDollar": true, // bool (could be true or false for anything related to general real estate)
+    "showingPrice": "350,000 دولار"
+  },
+  "isActive": true,
+  "createdAt": "2024-05-14T10:30:00Z",
+  "updatedAt": "2024-05-14T10:30:00Z",
+  "imageCount": 12,
+  "viewsCount": 210,
+  "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
+  "priority": 1,
+  "slug": "modern-4-bedroom-villa-with-garden-al-mansour",
+  
+  "location": {
+    "locationIds": [1, 15, 150],
+    "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+    "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+    "street": "شارع الجمهورية 123"
+  },
+
+  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
+
+  
+  "specs": {
+    "realEstate": {
+      "area": 450.00 // float
+    },
+    "house": {
+      "floors": 2,           // sbyte - Example: 2 floors
+      "bedrooms": 4,         // sbyte - Example: 4 bedrooms
+      "bathrooms": 3,        // sbyte - Example: 3 bathrooms
+      "garage": true,        // bool - Example: true for has garage
+      "garden": true        // bool - Example: true for has garden
+    }
+  }
+}
+
+// Reference Values for realEstate fields:
+// area: المساحة بالمتر المربع (1-10000)
+
+// Reference Values for house fields:
+// floors: عدد الطوابق (1-10)
+// bedrooms: عدد غرف النوم (1-20)
+// bathrooms: عدد الحمامات (1-10)
+// garage: وجود كراج (0=لا، 1=نعم)
+// garden: وجود حديقة (0=لا، 1=نعم) 

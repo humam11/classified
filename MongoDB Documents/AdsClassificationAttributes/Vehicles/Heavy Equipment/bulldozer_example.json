@@ -1,0 +1,62 @@
+// Hierarchy: ads → transport_attrs → heavy_equipment_attrs → bulldozer_attrs
+{
+  "_id": "60a6e5e889e7c55e25b14b31",
+  "title": "2019 Caterpillar D9T Bulldozer - Low Hours",
+  "description": "Caterpillar D9T bulldozer with only 3,500 hours. Well maintained and ready to work.",
+  "price": {
+    "value": 425000.00,
+    "isDollar": true, // bool (could be true or false for anything related to general transport)
+    "showingPrice": "425,000 دولار"
+  },
+  "isActive": true,
+  "createdAt": "2024-05-11T09:45:00Z",
+  "updatedAt": "2024-05-11T09:45:00Z",
+  "imageCount": 8,
+  "viewsCount": 65,
+  "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
+  "priority": 2,
+  "slug": "2019-caterpillar-d9t-bulldozer-low-hours",
+  
+  "location": {
+    "locationIds": [1, 15, 150],
+    "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+    "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+    "street": "شارع الجمهورية 123"
+  },
+  
+
+  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
+
+  
+  "specs": {
+    "transport": {
+      "fuelType": 2, // sbyte (0-5)
+      "enginePower": 500, // short
+      "fuelTankCapacity": 200 // short
+    },
+    "heavyEquipment": {
+      "operatingMass": 2500.00, // float
+      "weight": 2.50 // float
+    },
+    "bulldozer": {
+      "bladeWidth": 4.65,      // float
+      "maxPushingCapacity": 68.50, // float
+      "trackWidth": 2.15       // float
+    }
+  }
+}
+
+// Reference Values for transport fields:
+// fuelType: نوع الوقود: 0=بنزين، 1=ديزل (كاز)، 2=كهرباء، 3=هجين، 4=غاز، 5=أخرى
+// enginePower: قوة المحرك بالحصان (1-2000)
+// fuelTankCapacity: سعة خزان الوقود باللتر (1-1000)
+
+// Reference Values for heavy equipment fields:
+// operatingMass: الوزن التشغيلي (كغ) - Operating Mass (kg)
+// weight: الوزن الاساسي (طن) - Base Weight (tons)
+
+// Reference Values for bulldozer fields:
+// bladeWidth: عرض الشفرة (م) - Blade Width (m)
+// maxPushingCapacity: أقصى قدرة دفع (طن) - Maximum Pushing Capacity (tons)
+// trackWidth: عرض المسار (م) - Track Width (m)
