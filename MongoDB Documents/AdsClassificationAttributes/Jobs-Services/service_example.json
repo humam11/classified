@@ -8,9 +8,9 @@
     "isDollar": false, // bool (always false for service)
     "showingPrice": "50,000 الف دينار عراقي/ساعة"
   },
-  "isActive": true, // bool
-  "createdAt": "2024-05-14T16:00:00Z", // DateTime
-  "updatedAt": "2024-05-14T16:00:00Z", // DateTime
+  "status": "active", // string (could be "active", "deleted", or "archived")
+  "createdAt": "2024-05-14T16:00:00Z",
+  "updatedAt": "2024-05-14T16:00:00Z",
   "imageCount": 3, // sbyte
   "viewsCount": 45, // ushort
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",

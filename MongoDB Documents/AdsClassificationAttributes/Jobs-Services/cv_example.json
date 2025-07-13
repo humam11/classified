@@ -8,8 +8,9 @@
     "isDollar": true, // bool (could be true or false for anything related to cv)
     "showingPrice": "300 دولار"
   },
-  "createdAt": "2024-05-14T15:00:00Z", // DateTime
-  "updatedAt": "2024-05-14T15:00:00Z", // DateTime
+  "status": "active", // string (could be "active", "deleted", or "archived") // Auto-managed based on job_search_status read Vacancy & CV Posting Workflow.md file!
+  "createdAt": "2024-05-14T15:00:00Z",
+  "updatedAt": "2024-05-14T15:00:00Z",
   "imageCount": 1, // sbyte
   "viewsCount": 45, // ushort
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",

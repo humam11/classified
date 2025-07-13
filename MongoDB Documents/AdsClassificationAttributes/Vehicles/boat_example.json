@@ -8,9 +8,9 @@
     "isDollar": true, // bool (could be true or false for anything related to general transport)
     "showingPrice": "250,000 دولار"
   },
-  "isActive": true,
-  "createdAt": ISODate("2024-05-11T09:45:00Z"),
-  "updatedAt": ISODate("2024-05-11T09:45:00Z"),
+  "status": "active", // string (could be "active", "deleted", or "archived")
+  "createdAt": "2024-05-09T11:15:00Z",
+  "updatedAt": "2024-05-09T11:15:00Z",
   "imageCount": 8,
   "viewsCount": 65,
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",

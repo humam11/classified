@@ -11,10 +11,14 @@ DROP DATABASE IF EXISTS "Classfied";
 -- Create the database
 CREATE DATABASE "Classfied";
 
--- Connect to the newly created database
--- In psql, you would use: \connect Classfied
--- This line is a comment for script runners; it's not executable SQL by itself in a single script pass
--- unless the tool specifically supports it.
+-- Connect to the new database first
+\c "Classfied";
+
+-- Now set timezone for this specific database
+ALTER DATABASE "Classfied" SET timezone = 'Asia/Baghdad';
+
+-- Reconnect to apply the timezone setting
+\c "Classfied";
 
 -- Enable extensions if they are not already enabled
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; -- For uuid_generate_v4() if preferred, gen_random_uuid() is built-in
@@ -38,19 +42,22 @@ CREATE TABLE "User" (
     "PasswordHash" BYTEA NOT NULL,        -- تشفير كلمة المرور
     "EmailConfirmed" BOOLEAN NOT NULL,    -- تأكيد البريد الإلكتروني
     "PhoneNumberConfirmed" BOOLEAN NOT NULL, -- تأكيد رقم الهاتف
-    "LockoutEnd" TIMESTAMPTZ NULL,        -- وقت انتهاء القفل
-    "LockoutEnabled" BOOLEAN NOT NULL,    -- تفعيل القفل
-    
+
     -- Profile Data
     "ProfilePictureUrl" VARCHAR(255) NULL, -- صورة الملف الشخصي
     "AverageRating" DECIMAL(2,1) NULL,
     "ReviewCount" INTEGER DEFAULT 0,
-    
+
+    -- Location Data (Flexible: GPS, IP, or Manual)
+    "Latitude" DECIMAL(9,6) NULL,         -- GPS or IP latitude; NULL if manual only
+    "Longitude" DECIMAL(9,6) NULL,        -- GPS or IP longitude; NULL if manual only
+    "LocationSource" VARCHAR(10) NOT NULL,    -- 'GPS', 'IP', or 'Manual';
+    "LocationID" SMALLINT NULL,     -- FK to Location(LocationID); set if user selects manually, NULL otherwise
+
+    "CreatedAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(), -- تاريخ الانشاء
+
 
     -- Foreign Keys - Relationships
-    "LocationID" UUID NULL,  -- معرف المكان (سيحمل معرف المدينة فقط التي ينتمي اليها المستخدم) لاظهار الاعلانات المناسبة فقط
-
-
     FOREIGN KEY ("LocationID") REFERENCES "Location"("LocationID"),
 
     -- Constraints
@@ -74,7 +81,7 @@ CREATE TABLE "UserReport" (
     "Status" SMALLINT DEFAULT 1 CHECK ("Status" BETWEEN 1 AND 3),
 
     -- Metadata
-    "ReportedAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- تاريخ البلاغ
+    "CreatedAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(), -- تاريخ البلاغ
 
     -- Foreign Keys - Relationships
     "ReporterID" UUID NOT NULL,  -- معرف المبلغ
@@ -99,7 +106,7 @@ CREATE TABLE "BugReport" (
     "Status" SMALLINT DEFAULT 1 CHECK ("Status" BETWEEN 1 AND 4),
 
     -- Metadata
-    "SubmittedAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- تاريخ التقديم
+    "CreatedAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(), -- تاريخ التقديم
 
     -- Foreign Keys - Relationships
     "UserID" UUID NOT NULL,   -- معرف المستخدم الذي أبلغ عن الخطأ
@@ -118,7 +125,7 @@ CREATE TABLE "UserReview" (
     "Comment" VARCHAR(1000),                        -- التعليق (محدود ب 1000 حرف)
     
     -- Metadata
-    "ReviewedAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- تاريخ المراجعة
+    "CreatedAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(), -- تاريخ المراجعة
     
     -- Foreign Keys - Relationships
     "ReviewerID" UUID NOT NULL,  -- معرف المراجع
@@ -148,19 +155,14 @@ CREATE TABLE "Location" (
             
     -- Foreign Keys - Relationships
     "ParentID" SMALLINT NULL,
-    
-    -- Constraints
-    UNIQUE ("NameEnglish", "hierarchy_path"),
-    UNIQUE ("NameArabic", "hierarchy_path"),
-    UNIQUE ("NameKurdish", "hierarchy_path"),
-
 
 
     -- For mongodb ids recieving ... (ParentID = (select id from Location where ArabicName = OR KurdishName = etc..)) 
         --        "locationIds": [1, 15, 150], // [cityId, districtId, neighborhoodId]
-    UNIQUE("NameEnglish", "ParentID"),
-    UNIQUE("NameArabic", "ParentID"),
-    UNIQUE("NameKurdish", "ParentID"),
+    -- Constraints
+    UNIQUE ("NameEnglish", "hierarchy_path"),
+    UNIQUE ("NameArabic", "hierarchy_path"),
+    UNIQUE ("NameKurdish", "hierarchy_path"),
 
 
     FOREIGN KEY ("ParentID") REFERENCES "Location"("LocationID")

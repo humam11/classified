@@ -8,7 +8,7 @@
         "isDollar": true, // bool (could be true or false for anything related to general electronics)
         "showingPrice": "1,500 دولار"
     },
-    "isActive": true,
+    "status": "active", // string (could be "active", "deleted", or "archived")
     "createdAt": "2024-05-14T18:00:00Z",
     "updatedAt": "2024-05-14T18:00:00Z",
     "imageCount": 4,

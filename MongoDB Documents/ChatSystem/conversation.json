@@ -1,37 +1,63 @@
-// Hierarchy: conversations -> messages
 {
-  "_id": ObjectId("..."),
-  "participants": ["publisherId", "interestedUserId"],
+  "_id": ObjectId("60c72b2f9b1d8eac1f000001"),
+
+  "participants": ["ownerId", "interpreterId"],
+
   "participantInfo": {
-    "publisherId": {
+    "ownerId": {
       "firstName": "John",
       "profilePictureUrl": "...",
-      "lastSeen": ISODate("...")
+      "lastSeen": "2024-05-15T09:00:00Z" // Date - Handled at application level: Baghdad timezone
     },
-    "interestedUserId": {
+    "interpreterId": {
       "firstName": "Jane", 
       "profilePictureUrl": "...",
-      "lastSeen": ISODate("...")
+      "lastSeen": "2024-05-15T09:00:00Z" // Date - Handled at application level: Baghdad timezone
     }
   },
+
   "relatedAd": {
     "id": "60a6e5e889e7c55e25b14b43",
     "title": "Summer T-Shirt - Size M - New",
     "price": "$25",
     "mainImage": "https://example.com/images/webdev1.jpg"
   },
+
   "lastMessage": {
     "content": "Is this still available?",
-    "senderId": "interestedUserId",
-    "timestamp": ISODate("2024-05-15T10:30:00Z")
+    "senderId": "interpreterId",
+    "timestamp": "2024-05-15T10:30:00Z" // Date - Handled at application level: Baghdad timezone
   },
+
   "unreadCounts": {
-    "publisherId": 1,
-    "interestedUserId": 0
+    "ownerId": 1,
+    "interpreterId": 0
   },
-  "createdAt": ISODate("2024-05-15T09:00:00Z"),
-  "updatedAt": ISODate("2024-05-15T10:30:00Z"),
-  "metadata": {
-    "isArchivedBy": ["interestedUserId"]
-  }
+
+  "readCursors": {
+    "ownerId": "2024-05-15T10:00:00Z",         // Last read time of ownerId
+    "interpreterId": "2024-05-15T10:30:00Z"    // Last read time of interpreterId
+  },
+
+  "status": "active", // string (could be "active", "deleted", or "archived")
+  "createdAt": "2024-05-15T09:00:00Z" // Date - Handled at application level: auto-set to Baghdad timezone on document creation
 }
+
+
+/*
+📘 readCursors Usage:
+
+- readCursors tracks the last-read timestamp for each participant.
+- Update it when the user opens the chat or scrolls to view messages.
+- A message is unread if: message.createdAt > readCursors[userId]
+- If readCursors[userId] is not yet set, treat all messages as unread.
+- Set initial readCursor to conversation.createdAt or null.
+- After updating readCursor, recalculate unreadCounts for the other user.
+
+🔍 Example to check if a message is unread:
+if (!conversation.readCursors[receiverId] || message.createdAt > conversation.readCursors[receiverId]) {
+  // 🔴 Still unread
+} else {
+  // ✅ Already read
+}
+*/

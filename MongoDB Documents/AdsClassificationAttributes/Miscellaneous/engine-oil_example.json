@@ -8,7 +8,7 @@
     "isDollar": false, // bool (always false for engine oil)
     "showingPrice": "35,000 الف دينار عراقي"
   },
-  "isActive": true,
+  "status": "active", // string (could be "active", "deleted", or "archived")
   "createdAt": "2024-05-14T14:10:00Z",
   "updatedAt": "2024-05-14T14:10:00Z",
   "imageCount": 1,

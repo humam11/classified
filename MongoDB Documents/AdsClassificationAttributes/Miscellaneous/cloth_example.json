@@ -8,7 +8,7 @@
     "isDollar": false, // bool (always false for clothing)
     "showingPrice": "25,000 الف دينار عراقي"
   },
-  "isActive": true,
+  "status": "active", // string (could be "active", "deleted", or "archived")
   "createdAt": "2024-05-14T13:25:00Z",
   "updatedAt": "2024-05-14T13:25:00Z",
   "imageCount": 2,

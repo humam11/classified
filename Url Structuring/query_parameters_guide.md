@@ -1,13 +1,12 @@
 # Query Parameters Guide
 
-## Common Parameters (All Categories)
+## Common Parameters (Electronics Category)
 ```
 ?is_new=true|false                    // Filter by new/used items
 ?warranty_months=1-60                 // Filter by warranty duration
 ?currency=usd|iqd                     // Filter by currency type (USD/IQD)
 ?min_price=100                        // Minimum price (in selected currency)
 ?max_price=1000                       // Maximum price (in selected currency)
-?sort=price_asc|price_desc|date_desc  // Sort by price (unified across currencies) or date
 ?page=1                               // Pagination page number
 ?limit=20                             // Items per page
 ```

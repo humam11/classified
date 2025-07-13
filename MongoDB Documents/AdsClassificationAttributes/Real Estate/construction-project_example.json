@@ -4,11 +4,11 @@
   "title": "Luxury Residential Complex Under Construction in Al-Mansour",
   "description": "Modern residential complex with premium finishes, smart home features, and comprehensive amenities. Expected completion in 2025.",
   "price": {
-    "value": 200000.00,
-    "isDollar": true, // bool (could be true or false for anything related to general real estate)
-    "showingPrice": "200,000 دولار"
+    "value": 100000000.00,
+    "isDollar": false, // bool (always false for anything related to real estate)
+    "showingPrice": "100,000,000 مليون دينار عراقي"
   },
-  "isActive": true,
+  "status": "active", // string (could be "active", "deleted", or "archived")
   "createdAt": "2024-05-14T11:45:00Z",
   "updatedAt": "2024-05-14T11:45:00Z",
   "imageCount": 15,

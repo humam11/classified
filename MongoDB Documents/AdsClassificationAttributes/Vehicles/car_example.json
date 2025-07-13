@@ -10,9 +10,9 @@
     "isDollar": true, // bool (could be true or false for anything related to general transport)
     "showingPrice": "65,000 دولار"
   },
-  "isActive": true,
-  "createdAt": ISODate("2024-05-08T10:00:00Z"),
-  "updatedAt": ISODate("2024-05-10T14:30:00Z"),
+  "status": "active", // string (could be "active", "deleted", or "archived")
+  "createdAt": "2024-05-09T11:15:00Z",
+  "updatedAt": "2024-05-09T11:15:00Z",
   "imageCount": 5,
   "viewsCount": 235,
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
@@ -67,4 +67,5 @@
 // transmission: ناقل الحركة:0=يدوي، 1=أوتوماتيك، 2=مزوج (أوتوماتيك وعادي)
 // driveType: نوع الدفع: 0=أمامي، 1=خلفي، 2=رباعي
 // modelId: معرف الموديل من قاعدة البيانات 
-// subModelReleaseId: معرف اصدار الموديل من قاعدة البيانات 
+// subModelReleaseId: معرف اصدار الموديل من قاعدة البيانات
+

@@ -1,11 +1,12 @@
-{"_id": ObjectId,       // ObjectId
+{
+"_id": ObjectId,       // ObjectId
 "title": "string",     // string
 "description": "string", // string
 "price": 65000.00,     // float
 "showingPrice": "string", // string
-"isActive": true,      // bool
-"createdAt": DateTime, // DateTime
-"updatedAt": DateTime, // DateTime
+"status": "active", // string
+"createdAt": "2024-05-10T15:30:00Z", // Date - Auto-set to Baghdad time (Asia/Baghdad) via application-level schema default
+"updatedAt": "2024-05-10T15:30:00Z", // Date - Auto-updated to Baghdad time via application-level pre-save middleware
 "imageCount": 5,       // sbyte
 "viewsCount": 235,     // ushort
 "isDollar": true,      // bool

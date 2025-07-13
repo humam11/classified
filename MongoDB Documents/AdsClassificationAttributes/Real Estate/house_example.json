@@ -4,11 +4,11 @@
   "title": "Modern 4-Bedroom Villa with Garden in Al-Mansour",
   "description": "Beautiful modern villa with spacious rooms, private garden, and 2-car garage. Recently renovated with high-quality finishes.",
   "price": {
-    "value": 350000.00,
-    "isDollar": true, // bool (could be true or false for anything related to general real estate)
-    "showingPrice": "350,000 دولار"
+    "value": 100000000.00,
+    "isDollar": false, // bool (always false for anything related to real estate)
+    "showingPrice": "100,000,000 مليون دينار عراقي"
   },
-  "isActive": true,
+  "status": "active", // string (could be "active", "deleted", or "archived")
   "createdAt": "2024-05-14T10:30:00Z",
   "updatedAt": "2024-05-14T10:30:00Z",
   "imageCount": 12,
