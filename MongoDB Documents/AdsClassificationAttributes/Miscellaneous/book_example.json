@@ -30,12 +30,50 @@
   
   "specs": {
     "book": {
-      "bookLanguage": 3, // sbyte
+      // ✅ INCLUDE IN QUERY PARAMS - Generate C# Enum for this field
+      "BookLanguage": 3, // sbyte - لغة الكتاب / زمانی کتێب
+
       "pages": 320 // short
     }
   }
 }
 
 // Reference Values for book fields:
-// bookLanguage: لغة الكتاب (0=عربي، 1=كردي، 2=إنجليزي، 3=فرنسي، 4=ألماني، 5=آخر) - Book Language (0=Arabic, 1=Kurdish, 2=English, 3=French, 4=German, 5=Other)
+// BookLanguage: لغة الكتاب (0=عربي، 1=كردي، 2=انجليزي، 3=فرنسي، 4=الماني، 5=اخر) - Book Language (0=Arabic, 1=Kurdish, 2=English, 3=French, 4=German, 5=Other)
 // pages: عدد الصفحات (1-2000) 
+
+
+
+/*
+IMPLEMENTATION NOTES:
+
+C# Enum Name: BookLanguage
+
+Parameter Names:
+- Arabic: "لغة-الكتاب"
+- Kurdish: "زمانی-کتێب"
+
+Enum Values with Attributes:
+[LanguageDisplay(English = "Arabic", Arabic = "عربي", Kurdish = "عەرەبی")]
+Arabic = 0,
+
+[LanguageDisplay(English = "Kurdish", Arabic = "كردي", Kurdish = "کوردی")]
+Kurdish = 1,
+
+[LanguageDisplay(English = "English", Arabic = "انجليزي", Kurdish = "ئینگلیزی")]
+English = 2,
+
+[LanguageDisplay(English = "French", Arabic = "فرنسي", Kurdish = "فەرەنسی")]
+French = 3,
+
+[LanguageDisplay(English = "German", Arabic = "الماني", Kurdish = "ئاڵمانی")]
+German = 4,
+
+[LanguageDisplay(English = "Other", Arabic = "اخر", Kurdish = "ئەویتر")]
+Other = 5
+
+
+URL STRUCTURE EXAMPLE:
+   /ar/بغداد/الكرخ/الكتب-والمجلات/كتب-تعليمية?لغة-الكتاب=انجليزي
+   /kr/بەغدا/کەرەخ/کتێب-و-گۆڤار/کتێبی-فێرکاری?زمانی-کتێب=ئینگلیزی
+ */

@@ -54,7 +54,7 @@ CREATE TABLE "User" (
     "LocationSource" VARCHAR(10) NOT NULL,    -- 'GPS', 'IP', or 'Manual';
     "LocationID" SMALLINT NULL,     -- FK to Location(LocationID); set if user selects manually, NULL otherwise
 
-    "CreatedAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(), -- تاريخ الانشاء
+    "CreatedAt" TIMESTAMPTZ NOT NULL DEFAULT TIMEZONE('UTC', NOW()), -- تاريخ الانشاء
 
 
     -- Foreign Keys - Relationships
@@ -81,7 +81,7 @@ CREATE TABLE "UserReport" (
     "Status" SMALLINT DEFAULT 1 CHECK ("Status" BETWEEN 1 AND 3),
 
     -- Metadata
-    "CreatedAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(), -- تاريخ البلاغ
+    "CreatedAt" TIMESTAMPTZ NOT NULL DEFAULT TIMEZONE('UTC', NOW()), -- تاريخ البلاغ
 
     -- Foreign Keys - Relationships
     "ReporterID" UUID NOT NULL,  -- معرف المبلغ
@@ -106,7 +106,7 @@ CREATE TABLE "BugReport" (
     "Status" SMALLINT DEFAULT 1 CHECK ("Status" BETWEEN 1 AND 4),
 
     -- Metadata
-    "CreatedAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(), -- تاريخ التقديم
+    "CreatedAt" TIMESTAMPTZ NOT NULL DEFAULT TIMEZONE('UTC', NOW()), -- تاريخ التقديم
 
     -- Foreign Keys - Relationships
     "UserID" UUID NOT NULL,   -- معرف المستخدم الذي أبلغ عن الخطأ
@@ -125,7 +125,7 @@ CREATE TABLE "UserReview" (
     "Comment" VARCHAR(1000),                        -- التعليق (محدود ب 1000 حرف)
     
     -- Metadata
-    "CreatedAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(), -- تاريخ المراجعة
+    "CreatedAt" TIMESTAMPTZ NOT NULL DEFAULT TIMEZONE('UTC', NOW()), -- تاريخ المراجعة
     
     -- Foreign Keys - Relationships
     "ReviewerID" UUID NOT NULL,  -- معرف المراجع

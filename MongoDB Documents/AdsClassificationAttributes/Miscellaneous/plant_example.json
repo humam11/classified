@@ -31,11 +31,37 @@
   "specs": {
     "plant": {
       "height": 120, // short
-      "isIndoor": 0 // bool
+      
+      // ✅ INCLUDE IN QUERY PARAMS - Generate C# Enum for this field
+      "PlantType": 0 // sbyte - نوع النبات / جۆری ڕووەک
     }
   }
-} 
+}
 
 // Reference Values for garden and plant fields:
 // height: الارتفاع (سم) - Height (cm)
-// isIndoor: نوع النبات (1 = ظل، 0 = شمسي) - Plant Type (1 = Indoor/Shade, 0 = Outdoor/Sunny) 
+// PlantType: نوع النبات (1 = ظل، 0 = شمسي) - Plant Type (1 = Indoor/Shade, 0 = Outdoor/Sunny)
+
+
+
+/*
+IMPLEMENTATION NOTES:
+
+C# Enum Name: PlantType
+
+Parameter Names:
+- Arabic: "نوع-النبات"
+- Kurdish: "جۆری-ڕووەک"
+
+Enum Values with Attributes:
+[LanguageDisplay(English = "Outdoor", Arabic = "شمسي", Kurdish = "دەرەوە")]
+Outdoor = 0,
+
+[LanguageDisplay(English = "Indoor", Arabic = "ظل", Kurdish = "ناوەوە")]
+Indoor = 1
+
+
+URL STRUCTURE EXAMPLE:
+/ar/بغداد/الكرخ/الحدائق-والنباتات/نباتات-منزلية?نوع-النبات=ظل
+/kr/بەغدا/کەرەخ/باخ-و-ڕووەک/ڕووەکی-ماڵەوە?جۆری-ڕووەک=ناوەوە
+*/

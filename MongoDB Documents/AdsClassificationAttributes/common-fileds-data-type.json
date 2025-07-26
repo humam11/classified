@@ -5,8 +5,8 @@
 "price": 65000.00,     // float
 "showingPrice": "string", // string
 "status": "active", // string
-"createdAt": "2024-05-10T15:30:00Z", // Date - Auto-set to Baghdad time (Asia/Baghdad) via application-level schema default
-"updatedAt": "2024-05-10T15:30:00Z", // Date - Auto-updated to Baghdad time via application-level pre-save middleware
+"createdAt": "2024-05-10T15:30:00Z", // Date - Stored in UTC, convert to user's timezone for display via application-level (Asia/Baghdad)
+"updatedAt": "2024-05-10T15:30:00Z", // Date - Stored in UTC, convert to user's timezone for display via application-level (Asia/Baghdad)
 "imageCount": 5,       // sbyte
 "viewsCount": 235,     // ushort
 "isDollar": true,      // bool
