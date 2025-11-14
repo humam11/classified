@@ -5,39 +5,101 @@
   "description": "Brand new cotton t-shirt, size M, perfect for summer.",
   "price": {
     "value": 25.00,
-    "isDollar": false, // bool (always false for clothing)
+    "isDollar": false, // (always false for clothing)
     "showingPrice": "25,000 الف دينار عراقي"
   },
-  "status": "active", // string (could be "active", "deleted", or "archived")
+  "status": "active",
   "createdAt": "2024-05-14T13:25:00Z",
   "updatedAt": "2024-05-14T13:25:00Z",
   "imageCount": 2,
   "viewsCount": 45,
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
-  "priority": 3,
+  "priority": 2,
+  "category": {
+    "categoryJoins": "2",
+    "categoryIds": [
+      1,
+      2,
+      3
+    ]
+  },
   "slug": "summer-t-shirt-size-m-new",
-  
   "location": {
-    "locationIds": [1, 15, 150],
+    "locationIds": [
+      1,
+      15,
+      150
+    ],
     "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
     "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
     "street": "شارع الجمهورية 123"
   },
-
-  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
-
-  
+  "images": [
+    "https://example.com/images/webdev1.jpg",
+    "https://example.com/images/webdev2.jpg"
+  ],
   "specs": {
     "clothing": {
-      "size": 3, // sbyte
-      "isNew": true, // bool
-      "isSummer": true // bool
+      "isNew": 0, // enum:byte
+      "size": 3, // enum:byte
+      "isSummer": 1 // enum:byte
     }
   }
-} 
-
+}
 // Reference Values for clothing fields:
-// size: المقاس (0=XS، 1=S، 2=M، 3=L، 4=XL، 5=XXL، 6=XXXL، 7=أخرى) - Size (0=XS, 1=S, 2=M, 3=L, 4=XL, 5=XXL, 6=XXXL, 7=Other)
-// isNew: جديد أم مستعمل (1=جديد، 0=مستعمل) - New or Used (1=New, 0=Used)
-// isSummer: الموسم (1=صيف، 0=شتاء) - Season (1=Summer, 0=Winter) 
+// clothCondition (queryParam): حالة اللبس (1=جديد، 0=مستعمل) 
+// size (queryParam): المقاس (0=XS، 1=S، 2=M، 3=L، 4=XL، 5=XXL، 6=XXXL، 7=اخرى) - Size (0=XS, 1=S, 2=M, 3=L, 4=XL, 5=XXL, 6=XXXL, 7=Other)
+// isSummer (queryParam): الموسم (0=شتاء، 1=صيف) - Season (0=Winter, 1=Summer)
+/*
+
+[LocalizedEnumName(Arabic = "حالة-اللبس", Kurdish = "دۆخی-پۆشاک")]
+[EnumConverter]
+public enum ClothCondition : byte
+{
+    [LanguageDisplay(Arabic = "مستعمل", Kurdish = "بەکارهاتوو")]
+    Used = 0,
+    
+    [LanguageDisplay(Arabic = "جديد", Kurdish = "نوێ")]
+    New = 1
+}
+
+[LocalizedEnumName(Arabic = "المقاس", Kurdish = "قەبارە")]
+[EnumConverter]
+public enum ClothingSize : byte
+{
+    [LanguageDisplay(Arabic = "XS", Kurdish = "XS")]
+    XS,
+    
+    [LanguageDisplay(Arabic = "S", Kurdish = "S")]
+    S,
+    
+    [LanguageDisplay(Arabic = "M", Kurdish = "M")]
+    M,
+    
+    [LanguageDisplay(Arabic = "L", Kurdish = "L")]
+    L,
+    
+    [LanguageDisplay(Arabic = "XL", Kurdish = "XL")]
+    XL,
+    
+    [LanguageDisplay(Arabic = "XXL", Kurdish = "XXL")]
+    XXL,
+    
+    [LanguageDisplay(Arabic = "XXXL", Kurdish = "XXXL")]
+    XXXL,
+    
+    [LanguageDisplay(Arabic = "اخرى", Kurdish = "ئەویتر")]
+    Other
+}
+
+[LocalizedEnumName(Arabic = "الموسم", Kurdish = "وەرز")]
+[EnumConverter]
+public enum Season : byte
+{
+    [LanguageDisplay(Arabic = "شتاء", Kurdish = "زستان")]
+    Winter,
+    
+    [LanguageDisplay(Arabic = "صيف", Kurdish = "هاوین")]
+    Summer
+}
+*/

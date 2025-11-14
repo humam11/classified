@@ -5,17 +5,20 @@
     "description": "Brand new PS5 Digital Edition console with an extra DualSense controller. Includes 2 games and 1 year warranty.",
     "price": {
         "value": 500000,
-        "isDollar": false, // bool (could be true or false for anything related to general electronics)
+        "isDollar": false, // (could be true or false for anything related to general electronics)
         "showingPrice": "500,000 الف دينار عراقي"
     },
-    "status": "active", // string (could be "active", "deleted", or "archived")
+    "status": "active",
     "createdAt": "2024-05-14T12:30:00Z",
     "updatedAt": "2024-05-14T12:30:00Z",
     "imageCount": 5,
     "viewsCount": 150,
     "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-    "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
     "priority": 2,
+    "category" : {
+      "categoryJoins": "2",
+      "categoryIds": [1, 2, 3]
+    },
     "slug": "playstation-5-digital-edition-with-extra-controller",
     
     "location": {
@@ -30,22 +33,44 @@
     
     "specs": {
       "electronics": {
-        "isNew": true, // bool
-        "warrantyMonths": 12 // sbyte
+        "isNew": false, // enum:bool
+        "warrantyMonths": 12 // byte
       },
       "console": {
         "storageCapacity": 825, // short
-        "region": 4, // sbyte
+        "region": 4, // enum:byte
         "modelId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a72dc"
       }
     }
 }
 
 // Reference Values for electronics fields:
-// isNew: جديد أم مستعمل (0=مستعمل، 1=جديد)
+// isNew (queryParams): جديد أم مستعمل (0=مستعمل، 1=جديد)
 // warrantyMonths: مدة الضمان بالأشهر (0-60)
 
 // Reference Values for console fields:
 // storageCapacity: سعة التخزين بالجيجابايت (1-4000)
-// region: 0=أمريكا، 1=أوروبا، 2=اليابان، 3=جميع المناطق، 4=أخرى
+// region (queryParam): 0=امريكي، 1=اوربي، 2=ياباني، 3=عام، 4=اخرى
 // modelId: معرف الموديل (مرتبط بجدول brands_models)
+
+/*
+[LocalizedEnumName(Arabic = "ريجن", Kurdish = "ڕێجین")]
+[EnumConverter]
+public enum VideoGameRegion : byte
+{
+    [LanguageDisplay(Arabic = "امريكي", Kurdish = "ئەمریکی")]
+    American,
+    
+    [LanguageDisplay(Arabic = "اوربي", Kurdish = "ئەورووپی")]
+    European,
+    
+    [LanguageDisplay(Arabic = "ياباني", Kurdish = "ژاپۆنی")]
+    Japanese,
+    
+    [LanguageDisplay(Arabic = "عام", Kurdish = "گشتی")]
+    RegionFree,
+    
+    [LanguageDisplay(Arabic = "اخرى", Kurdish = "ئەویتر")]
+    Other
+}
+*/

@@ -1,73 +1,187 @@
 // Hierarchy: ads -> electronic_attrs -> smart_phone_and_tablet_attrs -> brands_models
 {
-    "_id": ObjectId("507f1f77bcf86cd799439011"),
-    "title": "Samsung Galaxy S24 Ultra 512GB - Phantom Black",
-    "description": "Brand new Galaxy S24 Ultra, 512GB storage, 12GB RAM, 200MP camera, dual SIM, factory warranty.",
-    "price": {
-        "value": 1100.00,
-        "isDollar": true, // bool (could be true or false for anything related to general electronics)
-        "showingPrice": "1,100 دولار"
+  "_id": ObjectId("507f1f77bcf86cd799439011"),
+  "title": "Samsung Galaxy S24 Ultra 512GB - Phantom Black",
+  "description": "Brand new Galaxy S24 Ultra, 512GB storage, 12GB RAM, 200MP camera, dual SIM, factory warranty.",
+  "price": {
+    "value": 1100.00,
+    "isDollar": true, // (could be true or false for anything related to general electronics)
+    "showingPrice": "1,100 دولار"
+  },
+  "status": "active",
+  "createdAt": "2024-05-14T13:00:00Z",
+  "updatedAt": "2024-05-14T13:00:00Z",
+  "imageCount": 7,
+  "viewsCount": 200,
+  "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+  "priority": 2,
+  "category": {
+    "categoryJoins": "2",
+    "categoryIds": [
+      1,
+      2,
+      3
+    ]
+  },
+  "slug": "samsung-galaxy-s24-ultra-512gb-phantom-black",
+  "location": {
+    "locationIds": [
+      1,
+      15,
+      150
+    ],
+    "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+    "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+    "street": "شارع الجمهورية 123"
+  },
+  "images": [
+    "https://example.com/images/webdev1.jpg",
+    "https://example.com/images/webdev2.jpg"
+  ],
+  "specs": {
+    "electronics": {
+      "isNew": false, // enum:bool
+      "warrantyMonths": 24 // byte
     },
-    "status": "active", // string (could be "active", "deleted", or "archived")
-    "createdAt": "2024-05-14T13:00:00Z",
-    "updatedAt": "2024-05-14T13:00:00Z",
-    "imageCount": 7,
-    "viewsCount": 200,
-    "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-    "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
-    "priority": 2,
-    "slug": "samsung-galaxy-s24-ultra-512gb-phantom-black",
-    
-    "location": {
-        "locationIds": [1, 15, 150],
-        "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
-        "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
-        "street": "شارع الجمهورية 123"
-    },
-  
-    "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
-
-    
-    "specs": {
-      "electronics": {
-        "isNew": true, // bool
-        "warrantyMonths": 24 // sbyte
-      },
-      "smartphone": {
-        "storageCapacity": 3, // sbyte
-        "ram": 5, // sbyte
-        "color": 1, // sbyte
-        "mainCamera": true, // bool
-        "frontCamera": true, // bool
-        "mainCameraResolution": 200.0, // float
-        "frontCameraResolution": 12.0, // float
-        "batteryCapacity": 5000, // short
-        "screenSize": 6.8, // float
-        "processor": "Exynos", // string
-        "dualSim": true, // bool
-        "waterproofSupport": true, // bool
-        "stylusSupport": true, // bool
-        "modelId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a72dc"
-      }
+    "smartphone": {
+      "storageCapacity": 3, // enum:byte with Enum of units
+      "ram": 5, // enum:byte with Enum of units
+      "color": 1, // byte
+      "mainCamera": true, // bool
+      "frontCamera": true, // bool
+      "mainCameraResolution": 200.0, // float
+      "frontCameraResolution": 12.0, // float
+      "batteryCapacity": 5000, // short
+      "screenSize": 6.8, // float
+      "processor": "Exynos", // string
+      "dualSim": true, // enum:bool
+      "waterproofSupport": true, // bool
+      "stylusSupport": true, // bool
+      "modelId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a72dc"
     }
   }
+}
 
-// Reference Values for electronics fields:
-// isNew: جديد أم مستعمل (0=مستعمل، 1=جديد)
-// warrantyMonths: مدة الضمان بالأشهر (0-60)
 
 // Reference Values for smartphone fields:
-// storageCapacity: سعة التخزين بالجيجابايت (0=16، 1=32، 2=64، 3=128، 4=256، 5=512، 6=1024)
-// ram: الذاكرة العشوائية بالجيجابايت (0=1، 1=2، 2=3، 3=4، 4=6، 5=8، 6=12، 7=16، 8=32)
-// color: 0=اسود، 1=ابيض، 2=ذهبي، 3=فضي، 4=ازرق، 5=احمر، 6=اخضر، 7=وردي، 8=بنفسجي، 9=اخر
+// storageCapacity (queryParam): سعة التخزين بالجيجابايت (0=16، 1=32، 2=64، 3=128، 4=256، 5=512، 6=1024)
+// ram (queryParam): الذاكرة العشوائية بالجيجابايت (0=1، 1=2، 2=3، 3=4، 4=6، 5=8، 6=12، 7=16، 8=32)
+// color (queryParam): اللون (0=اسود، 1=ابيض، 2=ذهبي، 3=فضي، 4=ازرق، 5=احمر، 6=اخضر، 7=وردي، 8=بنفسجي، 9=اخر)
 // mainCamera: دعم الكاميرا الرئيسية (0=لا، 1=نعم)
 // frontCamera: دعم الكاميرا الأمامية (0=لا، 1=نعم)
 // mainCameraResolution: دقة الكاميرا الرئيسية بالميجابكسل (0-200)
 // frontCameraResolution: دقة الكاميرا الأمامية بالميجابكسل (0-50)
 // batteryCapacity: سعة البطارية بالمللي أمبير (1000-15000)
 // screenSize: حجم الشاشة بالبوصة (3.0-14.0)
-// processor: Snapdragon,  MediaTek, Apple, Exynos, Kirin, ,Dimensity, Bionic
-// dualSim: دعم الشريحتين (0=لا، 1=نعم)
+// processor: Snapdragon, MediaTek, Apple, Exynos, Kirin, Dimensity, Bionic
+// dualSim (queryParam): دعم الشريحتين (0=لا، 1=نعم)
 // waterproofSupport: مقاومة الماء (0=لا، 1=نعم)
 // stylusSupport: دعم القلم (0=لا، 1=نعم)
 // modelId: معرف الموديل (مرتبط بجدول brands_models)
+/*
+[LocalizedEnumName(Arabic = "سعة-التخزين", Kurdish = "قەبارەی-هەڵگرتن")]
+[GetUnits("GB")]
+[EnumConverter]
+public enum StorageCapacity : byte
+{
+    [LanguageDisplay(Arabic = "16", Kurdish = "16")]
+    GB_16,
+    
+    [LanguageDisplay(Arabic = "32", Kurdish = "32")]
+    GB_32,
+    
+    [LanguageDisplay(Arabic = "64", Kurdish = "64")]
+    GB_64,
+    
+    [LanguageDisplay(Arabic = "128", Kurdish = "128")]
+    GB_128,
+    
+    [LanguageDisplay(Arabic = "256", Kurdish = "256")]
+    GB_256,
+    
+    [LanguageDisplay(Arabic = "512", Kurdish = "512")]
+    GB_512,
+    
+    [LanguageDisplay(Arabic = "1024", Kurdish = "1024")]
+    GB_1024
+}
+
+[LocalizedEnumName(Arabic = "الذاكرة-العشوائية", Kurdish = "بیرگەی-ڕاستەوخۆ")]
+[GetUnits("GB")]
+[EnumConverter]
+public enum RAM : byte
+{
+    [LanguageDisplay(Arabic = "1", Kurdish = "1")]
+    GB_1,
+    
+    [LanguageDisplay(Arabic = "2", Kurdish = "2")]
+    GB_2,
+    
+    [LanguageDisplay(Arabic = "3", Kurdish = "3")]
+    GB_3,
+    
+    [LanguageDisplay(Arabic = "4", Kurdish = "4")]
+    GB_4,
+    
+    [LanguageDisplay(Arabic = "6", Kurdish = "6")]
+    GB_6,
+    
+    [LanguageDisplay(Arabic = "8", Kurdish = "8")]
+    GB_8,
+    
+    [LanguageDisplay(Arabic = "12", Kurdish = "12")]
+    GB_12,
+    
+    [LanguageDisplay(Arabic = "16", Kurdish = "16")]
+    GB_16,
+    
+    [LanguageDisplay(Arabic = "32", Kurdish = "32")]
+    GB_32
+}
+
+[LocalizedEnumName(Arabic = "اللون", Kurdish = "ڕەنگ")]
+[EnumConverter]
+public enum Color : byte
+{
+    [LanguageDisplay(Arabic = "اسود", Kurdish = "ڕەش")]
+    Black,
+    
+    [LanguageDisplay(Arabic = "ابيض", Kurdish = "سپی")]
+    White,
+    
+    [LanguageDisplay(Arabic = "ذهبي", Kurdish = "زێڕین")]
+    Gold,
+    
+    [LanguageDisplay(Arabic = "فضي", Kurdish = "زیوی")]
+    Silver,
+    
+    [LanguageDisplay(Arabic = "ازرق", Kurdish = "شین")]
+    Blue,
+    
+    [LanguageDisplay(Arabic = "احمر", Kurdish = "سوور")]
+    Red,
+    
+    [LanguageDisplay(Arabic = "اخضر", Kurdish = "سەوز")]
+    Green,
+    
+    [LanguageDisplay(Arabic = "وردي", Kurdish = "پەمەیی")]
+    Pink,
+    
+    [LanguageDisplay(Arabic = "بنفسجي", Kurdish = "مۆر")]
+    Purple,
+    
+    [LanguageDisplay(Arabic = "اخر", Kurdish = "ئەویتر")]
+    Other
+}
+
+[LocalizedEnumName(Arabic = "دعم-الشريحتين", Kurdish = "پشتگیری-دوو-سیمکارت")]
+[EnumConverter]
+public enum DualSim : byte
+{
+    [LanguageDisplay(Arabic = "لا", Kurdish = "نەخێر")]
+    No,
+    
+    [LanguageDisplay(Arabic = "نعم", Kurdish = "بەڵێ")]
+    Yes
+}
+*/

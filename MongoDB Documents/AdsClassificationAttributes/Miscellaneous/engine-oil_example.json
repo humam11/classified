@@ -5,48 +5,147 @@
   "description": "Premium full synthetic motor oil, 4 liters, suitable for modern engines.",
   "price": {
     "value": 35.00,
-    "isDollar": false, // bool (always false for engine oil)
+    "isDollar": false, // (always false for engine oil)
     "showingPrice": "35,000 الف دينار عراقي"
   },
-  "status": "active", // string (could be "active", "deleted", or "archived")
+  "status": "active",
   "createdAt": "2024-05-14T14:10:00Z",
   "updatedAt": "2024-05-14T14:10:00Z",
   "imageCount": 1,
   "viewsCount": 12,
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
-  "priority": 4,
+  "priority": 2,
+  "category": {
+    "categoryJoins": "2",
+    "categoryIds": [
+      1,
+      2,
+      3
+    ]
+  },
   "slug": "castrol-edge-5w30-4l",
-  
   "location": {
-    "locationIds": [1, 15, 150],
+    "locationIds": [
+      1,
+      15,
+      150
+    ],
     "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
     "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
     "street": "شارع الجمهورية 123"
   },
-
-  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
-
-  
+  "images": [
+    "https://example.com/images/webdev1.jpg",
+    "https://example.com/images/webdev2.jpg"
+  ],
   "specs": {
-    "specs": {
     "engineOil": {
-      "volume": 4, // int
-      "oilType": 1, // sbyte
-      "viscosity": 4, // sbyte
-      "engineType": 1, // sbyte
-      "syntheticType": 1, // sbyte
-      "modelId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a72dc"
+      "volume": 4, // ushort
+      "oilType": 1, // enum:byte
+      "viscosity": 4, // enum:byte
     }
   }
+  // Reference Values for engineOil fields:
+  // volume: الحجم (لتر) - Volume (liters) - Range: 1 to 99999 liters 
+  // oilType: نوع الزيت (0=زيت محرك، 1=زيت ناقل الحركة، 2=زيت هيدروليكي، 3=زيت التروس، 4=زيت الفرق، 5=شحم (جريس)، 6=زيت توجيه القوة، 7=زيت الفرامل، 8=زيت التبريد، 9=أخرى) - Oil Type (0=Engine Oil, 1=Transmission Oil, 2=Hydraulic Oil, 3=Gear Oil, 4=Differential Oil, 5=Grease, 6=Power Steering Oil, 7=Brake Oil, 8=Coolant Oil, 9=Other)
+  // viscosity: اللزوجة (0=0W-20، 1=0W-30، 2=5W-20، 3=5W-30، 4=5W-40، 5=10W-30، 6=10W-40، 7=15W-40، 8=20W-50، 9=SAE 30، 10=SAE 40، 11=SAE 50، 12=75W-80، 13=75W-90، 14=80W-90، 15=85W-140، 16=ATF، 17=DOT 3، 18=DOT 4، 19=أخرى) - Viscosity (0=0W-20, 1=0W-30, 2=5W-20, 3=5W-30, 4=5W-40, 5=10W-30, 6=10W-40, 7=15W-40, 8=20W-50, 9=SAE 30, 10=SAE 40, 11=SAE 50, 12=75W-80, 13=75W-90, 14=80W-90, 15=85W-140, 16=ATF, 17=DOT 3, 18=DOT 4, 19=Other)
+  /*
+[LocalizedEnumName(Arabic = "نوع-الزيت", Kurdish = "جۆری-ڕۆن")]
+[EnumConverter]
+public enum OilType : byte
+{
+    [LanguageDisplay(Arabic = "زيت محرك", Kurdish = "ڕۆنی بزوێنەر")]
+    EngineOil,
+    
+    [LanguageDisplay(Arabic = "زيت ناقل الحركة", Kurdish = "ڕۆنی گێربۆکس")]
+    TransmissionOil,
+    
+    [LanguageDisplay(Arabic = "زيت هيدروليكي", Kurdish = "ڕۆنی هایدرۆلیک")]
+    HydraulicOil,
+    
+    [LanguageDisplay(Arabic = "زيت التروس", Kurdish = "ڕۆنی گیر")]
+    GearOil,
+    
+    [LanguageDisplay(Arabic = "زيت الفرق", Kurdish = "ڕۆنی دیفرانسیەل")]
+    DifferentialOil,
+    
+    [LanguageDisplay(Arabic = "شحم", Kurdish = "چەوری")]
+    Grease,
+    
+    [LanguageDisplay(Arabic = "زيت توجيه القوة", Kurdish = "ڕۆنی پاوەر")]
+    PowerSteeringOil,
+    
+    [LanguageDisplay(Arabic = "زيت الفرامل", Kurdish = "ڕۆنی فرێن")]
+    BrakeOil,
+    
+    [LanguageDisplay(Arabic = "زيت التبريد", Kurdish = "ڕۆنی سارکەرەوە")]
+    CoolantOil,
+    
+    [LanguageDisplay(Arabic = "اخرى", Kurdish = "ئەویتر")]
+    Other
 }
 
-
-
-// Reference Values for engineOil fields:
-// volume: الحجم (لتر) - Volume (liters) - Range: 1 to 99999 liters 
-// oilType: نوع الزيت (0=زيت محرك، 1=زيت ناقل الحركة، 2=زيت هيدروليكي، 3=زيت التروس، 4=زيت الفرق، 5=شحم (جريس)، 6=زيت توجيه القوة، 7=زيت الفرامل، 8=زيت التبريد، 9=أخرى) - Oil Type (0=Engine Oil, 1=Transmission Oil, 2=Hydraulic Oil, 3=Gear Oil, 4=Differential Oil, 5=Grease, 6=Power Steering Oil, 7=Brake Oil, 8=Coolant Oil, 9=Other)
-// viscosity: اللزوجة (0=0W-20، 1=0W-30، 2=5W-20، 3=5W-30، 4=5W-40، 5=10W-30، 6=10W-40، 7=15W-40، 8=20W-50، 9=SAE 30، 10=SAE 40، 11=SAE 50، 12=75W-80، 13=75W-90، 14=80W-90، 15=85W-140، 16=ATF، 17=DOT 3، 18=DOT 4، 19=أخرى) - Viscosity (0=0W-20, 1=0W-30, 2=5W-20, 3=5W-30, 4=5W-40, 5=10W-30, 6=10W-40, 7=15W-40, 8=20W-50, 9=SAE 30, 10=SAE 40, 11=SAE 50, 12=75W-80, 13=75W-90, 14=80W-90, 15=85W-140, 16=ATF, 17=DOT 3, 18=DOT 4, 19=Other)
-// engineType: نوع المحرك (0=بنزين، 1=ديزل، 2=هجين، 3=كهربائي، 4=جميع الأنواع) - Engine Type (0=Petrol, 1=Diesel, 2=Hybrid, 3=Electric, 4=All Types)
-// syntheticType: نوع الزيت الصناعي (0=صناعي بالكامل، 1=شبه صناعي، 2=تقليدي، 3=مخلوط) - Synthetic Type (0=Fully Synthetic, 1=Semi Synthetic, 2=Conventional, 3=Blended)
-// modelId: معرف الموديل (مرتبط بجدول brands_models)
+[LocalizedEnumName(Arabic = "اللزوجة", Kurdish = "لەسکی")]
+[EnumConverter]
+public enum Viscosity : byte
+{
+    [LanguageDisplay(Arabic = "0W-20", Kurdish = "0W-20")]
+    W0_20,
+    
+    [LanguageDisplay(Arabic = "0W-30", Kurdish = "0W-30")]
+    W0_30,
+    
+    [LanguageDisplay(Arabic = "5W-20", Kurdish = "5W-20")]
+    W5_20,
+    
+    [LanguageDisplay(Arabic = "5W-30", Kurdish = "5W-30")]
+    W5_30,
+    
+    [LanguageDisplay(Arabic = "5W-40", Kurdish = "5W-40")]
+    W5_40,
+    
+    [LanguageDisplay(Arabic = "10W-30", Kurdish = "10W-30")]
+    W10_30,
+    
+    [LanguageDisplay(Arabic = "10W-40", Kurdish = "10W-40")]
+    W10_40,
+    
+    [LanguageDisplay(Arabic = "15W-40", Kurdish = "15W-40")]
+    W15_40,
+    
+    [LanguageDisplay(Arabic = "20W-50", Kurdish = "20W-50")]
+    W20_50,
+    
+    [LanguageDisplay(Arabic = "SAE 30", Kurdish = "SAE 30")]
+    SAE_30,
+    
+    [LanguageDisplay(Arabic = "SAE 40", Kurdish = "SAE 40")]
+    SAE_40,
+    
+    [LanguageDisplay(Arabic = "SAE 50", Kurdish = "SAE 50")]
+    SAE_50,
+    
+    [LanguageDisplay(Arabic = "75W-80", Kurdish = "75W-80")]
+    W75_80,
+    
+    [LanguageDisplay(Arabic = "75W-90", Kurdish = "75W-90")]
+    W75_90,
+    
+    [LanguageDisplay(Arabic = "80W-90", Kurdish = "80W-90")]
+    W80_90,
+    
+    [LanguageDisplay(Arabic = "85W-140", Kurdish = "85W-140")]
+    W85_140,
+    
+    [LanguageDisplay(Arabic = "ATF", Kurdish = "ATF")]
+    ATF,
+    
+    [LanguageDisplay(Arabic = "DOT 3", Kurdish = "DOT 3")]
+    DOT_3,
+    
+    [LanguageDisplay(Arabic = "DOT 4", Kurdish = "DOT 4")]
+    DOT_4,
+    
+    [LanguageDisplay(Arabic = "أخرى", Kurdish = "ئەویتر")]
+    Other
+}

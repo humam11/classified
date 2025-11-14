@@ -5,17 +5,20 @@
     "description": "High-quality audio equipment for professional use, including mixers and amplifiers.",
     "price": {
         "value": 1500.00,
-        "isDollar": true, // bool (could be true or false for anything related to general electronics)
+        "isDollar": true, // (could be true or false for anything related to general electronics)
         "showingPrice": "1,500 دولار"
     },
-    "status": "active", // string (could be "active", "deleted", or "archived")
+    "status": "active",
     "createdAt": "2024-05-14T18:00:00Z",
     "updatedAt": "2024-05-14T18:00:00Z",
     "imageCount": 4,
     "viewsCount": 85,
     "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-    "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
     "priority": 2,
+    "category" : {
+      "categoryJoins": "2",
+      "categoryIds": [1, 2, 3]
+    },
     "slug": "professional-audio-equipment",
     
     "location": {
@@ -30,12 +33,12 @@
     
     "specs": {
       "electronics": {
-        "isNew": false, // bool
-        "warrantyMonths": 12 // sbyte
+        "isNew": false, // enum:bool
+        "warrantyMonths": 12 // byte
       }
     }
   }
 
 // Reference Values for electronics fields:
-// isNew: جديد أم مستعمل (0=مستعمل، 1=جديد)
+// isNew (queryParams): جديد أم مستعمل (0=مستعمل، 1=جديد)
 // warrantyMonths: مدة الضمان بالأشهر (1-60)

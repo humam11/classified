@@ -5,17 +5,20 @@
   "description": "Brand new Nike Air Max 270, size 42 EU, original box included.",
   "price": {
     "value": 120.00,
-    "isDollar": false, // bool (always false for shoes)
+    "isDollar": false, // (always false for shoes)
     "showingPrice": "120,000 الف دينار عراقي"
   },
-  "status": "active", // string (could be "active", "deleted", or "archived")
+  "status": "active",
   "createdAt": "2024-05-14T13:20:00Z",
   "updatedAt": "2024-05-14T13:20:00Z",
   "imageCount": 3,
   "viewsCount": 60,
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
-  "priority": 4,
+    "priority": 2,
+    "category" : {
+      "categoryJoins": "2",
+      "categoryIds": [1, 2, 3]
+    },
   "slug": "nike-air-max-270-size-42-new",
   
   "location": {
@@ -30,12 +33,12 @@
   
   "specs": {
     "shoe": {
-      "size": 42, // sbyte
-      "isNew": true // bool
+      "isNew": true, // enum:bool
+      "size": 42, // byte
     }
   }
 } 
 
 // Reference Values for shoe fields:
+// isNew (queryParam): جديد أم مستعمل (1=جديد، 0=مستعمل) - New or Used (1=New, 0=Used) 
 // size: المقاس (20-60) - Size (20-60)
-// isNew: جديد أم مستعمل (1=جديد، 0=مستعمل) - New or Used (1=New, 0=Used) 

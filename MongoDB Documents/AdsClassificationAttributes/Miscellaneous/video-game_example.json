@@ -5,17 +5,20 @@
   "description": "Brand new, sealed. Region-free. Works on all Nintendo Switch consoles.",
   "price": {
     "value": 60.00,
-    "isDollar": true, // bool (could be true or false for anything related to video games)
+    "isDollar": true, // (could be true or false for anything related to video games)
     "showingPrice": "60 دولار"
   },
-  "status": "active", // string (could be "active", "deleted", or "archived")
+  "status": "active",
   "createdAt": "2024-05-14T13:10:00Z",
   "updatedAt": "2024-05-14T13:10:00Z",
   "imageCount": 2,
   "viewsCount": 45,
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
-  "priority": 3,
+    "priority": 2,
+    "category" : {
+      "categoryJoins": "2",
+      "categoryIds": [1, 2, 3]
+    },
   "slug": "zelda-tears-of-the-kingdom-switch",
   
   "location": {
@@ -30,12 +33,34 @@
   
   "specs": {
     "videoGame": {
-      "region": 1, // sbyte
+      "region": 1, // enum:byte
       "modelId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a72dc"
     }
   }
 } 
 
 // Reference Values for video game fields:
-// region: المنطقة (0=امريكي، 1=اوربي، 2=ياباني، 3=شامل، 4=اخرى) - Region (0=American, 1=European, 2=Japanese, 3=Region-free, 4=Other)
+// region (queryParams): المنطقة (0=امريكي، 1=اوربي، 2=ياباني، 3=شامل، 4=اخرى) - Region (0=American, 1=European, 2=Japanese, 3=Region-free, 4=Other)
 // modelId: معرف العلامة التجارية - Brand Model ID (references brands_models table)
+
+/*
+[LocalizedEnumName(Arabic = "ريجن", Kurdish = "ڕێجین")]
+[EnumConverter]
+public enum VideoGameRegion : byte
+{
+    [LanguageDisplay(Arabic = "امريكي", Kurdish = "ئەمریکی")]
+    American,
+    
+    [LanguageDisplay(Arabic = "اوربي", Kurdish = "ئەورووپی")]
+    European,
+    
+    [LanguageDisplay(Arabic = "ياباني", Kurdish = "ژاپۆنی")]
+    Japanese,
+    
+    [LanguageDisplay(Arabic = "شامل", Kurdish = "گشتی")]
+    RegionFree,
+    
+    [LanguageDisplay(Arabic = "اخرى", Kurdish = "ئەویتر")]
+    Other
+}
+*/

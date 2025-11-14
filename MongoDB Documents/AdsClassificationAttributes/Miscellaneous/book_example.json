@@ -5,75 +5,71 @@
   "description": "Bestselling self-help book, English edition, 320 pages, new condition.",
   "price": {
     "value": 18.00,
-    "isDollar": false, // bool (always false for books)
+    "isDollar": false, // (always false for books)
     "showingPrice": "18,000 الف دينار عراقي"
   },
-  "status": "active", // string (could be "active", "deleted", or "archived")
+  "status": "active",
   "createdAt": "2024-05-14T14:20:00Z",
   "updatedAt": "2024-05-14T14:20:00Z",
   "imageCount": 1,
   "viewsCount": 30,
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
-  "priority": 4,
+  "priority": 2,
+  "category": {
+    "categoryJoins": "2",
+    "categoryIds": [
+      1,
+      2,
+      3
+    ]
+  },
   "slug": "atomic-habits-english-edition",
-  
   "location": {
-    "locationIds": [1, 15, 150],
+    "locationIds": [
+      1,
+      15,
+      150
+    ],
     "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
     "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
     "street": "شارع الجمهورية 123"
   },
-
-  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
-
-  
+  "images": [
+    "https://example.com/images/webdev1.jpg",
+    "https://example.com/images/webdev2.jpg"
+  ],
   "specs": {
     "book": {
-      // ✅ INCLUDE IN QUERY PARAMS - Generate C# Enum for this field
-      "BookLanguage": 3, // sbyte - لغة الكتاب / زمانی کتێب
-
-      "pages": 320 // short
+      // Filed below included in query params✅
+      "BookLanguage": 3, // enum: byte
+      "pages": 320 // ushort
     }
   }
 }
-
 // Reference Values for book fields:
-// BookLanguage: لغة الكتاب (0=عربي، 1=كردي، 2=انجليزي، 3=فرنسي، 4=الماني، 5=اخر) - Book Language (0=Arabic, 1=Kurdish, 2=English, 3=French, 4=German, 5=Other)
+// BookLanguage (queryParam): لغة الكتاب (0=عربي، 1=كردي، 2=انجليزي، 3=فرنسي، 4=الماني، 5=اخر) - Book Language (0=Arabic, 1=Kurdish, 2=English, 3=French, 4=German, 5=Other)
 // pages: عدد الصفحات (1-2000) 
-
-
-
 /*
-IMPLEMENTATION NOTES:
-
-C# Enum Name: BookLanguage
-
-Parameter Names:
-- Arabic: "لغة-الكتاب"
-- Kurdish: "زمانی-کتێب"
-
-Enum Values with Attributes:
-[LanguageDisplay(English = "Arabic", Arabic = "عربي", Kurdish = "عەرەبی")]
-Arabic = 0,
-
-[LanguageDisplay(English = "Kurdish", Arabic = "كردي", Kurdish = "کوردی")]
-Kurdish = 1,
-
-[LanguageDisplay(English = "English", Arabic = "انجليزي", Kurdish = "ئینگلیزی")]
-English = 2,
-
-[LanguageDisplay(English = "French", Arabic = "فرنسي", Kurdish = "فەرەنسی")]
-French = 3,
-
-[LanguageDisplay(English = "German", Arabic = "الماني", Kurdish = "ئاڵمانی")]
-German = 4,
-
-[LanguageDisplay(English = "Other", Arabic = "اخر", Kurdish = "ئەویتر")]
-Other = 5
-
-
-URL STRUCTURE EXAMPLE:
-   /ar/بغداد/الكرخ/الكتب-والمجلات/كتب-تعليمية?لغة-الكتاب=انجليزي
-   /kr/بەغدا/کەرەخ/کتێب-و-گۆڤار/کتێبی-فێرکاری?زمانی-کتێب=ئینگلیزی
- */
+[LocalizedEnumName(Arabic = "لغة الكتاب", Kurdish = "زمانی کتێب")]
+[EnumConverter]
+public enum BookLanguage : byte
+{
+    [LanguageDisplay(Arabic = "عربي", Kurdish = "عەرەبی")]
+    Arabic,
+    
+    [LanguageDisplay(Arabic = "كردي", Kurdish = "کوردی")]
+    Kurdish,
+    
+    [LanguageDisplay(Arabic = "انجليزي", Kurdish = "ئینگلیزی")]
+    English,
+    
+    [LanguageDisplay(Arabic = "فرنسي", Kurdish = "فەرەنسی")]
+    French,
+    
+    [LanguageDisplay(Arabic = "الماني", Kurdish = "ئاڵمانی")]
+    German,
+    
+    [LanguageDisplay(Arabic = "اخر", Kurdish = "ئەویتر")]
+    Other
+}
+*/

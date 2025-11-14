@@ -1,0 +1,86 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\services\\categorydtomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\services\\categorydtomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\jobs\\createcvaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\jobs\\createcvaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\createaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\createaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\common\\locationaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\common\\locationaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 242,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CategoryDtoMapper.cs",
+              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Services\\CategoryDtoMapper.cs",
+              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Services\\CategoryDtoMapper.cs",
+              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Services\\CategoryDtoMapper.cs",
+              "RelativeToolTip": "src\\ClassifiedAds.Application\\Services\\CategoryDtoMapper.cs",
+              "ViewState": "AgIAAIoEAAAAAAAAAAAgwJUEAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T00:13:51.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CreateAdDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\CreateAdDtoValidator.cs",
+              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\CreateAdDtoValidator.cs",
+              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\CreateAdDtoValidator.cs",
+              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\CreateAdDtoValidator.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAuwGYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T02:44:44.306Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LocationAdDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Common\\LocationAdDtoValidator.cs",
+              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Common\\LocationAdDtoValidator.cs",
+              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Common\\LocationAdDtoValidator.cs",
+              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Common\\LocationAdDtoValidator.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAcwDEAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T02:34:00.445Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CreateCvAdDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Jobs\\CreateCvAdDtoValidator.cs",
+              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Jobs\\CreateCvAdDtoValidator.cs",
+              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Jobs\\CreateCvAdDtoValidator.cs",
+              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Jobs\\CreateCvAdDtoValidator.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAcwFUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T02:33:09.994Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

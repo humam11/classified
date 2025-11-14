@@ -1,0 +1,109 @@
+// Hierarchy: ads -> electronic_attrs -> computer_attrs -> brands_models
+{
+  "_id": "60a6e5e889e7c55e25b14b37",
+  "title": "MacBook Pro M3 Pro 16-inch 1TB SSD",
+  "description": "Brand new MacBook Pro with M3 Pro chip, 16GB RAM, 1TB SSD. Perfect for professional work and creative tasks.",
+  "price": {
+    "value": 2500.00,
+    "isDollar": true, // (could be true or false for anything related to general electronics)
+    "showingPrice": "2,500 دولار"
+  },
+  "status": "active",
+  "createdAt": "2024-05-14T12:00:00Z",
+  "updatedAt": "2024-05-14T12:00:00Z",
+  "imageCount": 8,
+  "viewsCount": 120,
+  "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+  "priority": 2,
+  "category": {
+    "categoryJoins": "2",
+    "categoryIds": [
+      1,
+      2,
+      3
+    ]
+  },
+  "slug": "macbook-pro-m3-pro-16-inch-1tb-ssd",
+  "location": {
+    "locationIds": [
+      1,
+      15,
+      150
+    ],
+    "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+    "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+    "street": "شارع الجمهورية 123"
+  },
+  "images": [
+    "https://example.com/images/webdev1.jpg",
+    "https://example.com/images/webdev2.jpg"
+  ],
+  "specs": {
+    "electronics": {
+      "isNew": false, // enum:bool
+      "warrantyMonths": 12 // byte
+    },
+    "components": {
+      "cpu": "Apple M3 Pro", // string
+      "ramSize": 16, // enum:byte with Enum of units
+      "isSSD": true, // bool
+      "storageSize": 2, // enum:byte with Enum of units
+      "graphicsCard": "Apple M3 Pro GPU", // string
+      "usbPorts": 3, // byte
+      "hdmiPorts": 1 // byte
+    }
+  }
+}
+
+
+// Reference Values for Pc builds and Laptops fields:
+// cpu: نوع المعالج (نص حر)
+// ramSize (queryParam): حجم الذاكرة العشوائية (0=4، 1=8، 2=16، 3=32، 4=64 جيجابايت)
+// isSSD: نوع التخزين (0=HDD، 1=SSD)
+// storageSize (queryParam): حجم التخزين (0=128، 1=256، 2=512، 3=1024، 4=2048 جيجابايت)
+// graphicsCard: نوع كارت الشاشة (نص حر)
+// usbPorts: عدد منافذ USB (0-10)
+// hdmiPorts: عدد منافذ HDMI (0-4)
+/*
+[LocalizedEnumName(Arabic = "حجم-الذاكرة-العشوائية", Kurdish = "قەبارەی-یادی-کاتی")]
+[GetUnits("GB")]
+[EnumConverter]
+public enum RamSize : byte
+{
+    [LanguageDisplay(Arabic = "4", Kurdish = "4")]
+    GB_4,
+    
+    [LanguageDisplay(Arabic = "8", Kurdish = "8")]
+    GB_8,
+    
+    [LanguageDisplay(Arabic = "16", Kurdish = "16")]
+    GB_16,
+    
+    [LanguageDisplay(Arabic = "32", Kurdish = "32")]
+    GB_32,
+    
+    [LanguageDisplay(Arabic = "64", Kurdish = "64")]
+    GB_64
+}
+
+[LocalizedEnumName(Arabic = "حجم-التخزين", Kurdish = "قەبارەی-کۆگا")]
+[GetUnits("GB")]
+[EnumConverter]
+public enum StorageSize : byte
+{
+    [LanguageDisplay(Arabic = "128", Kurdish = "128")]
+    GB_128,
+    
+    [LanguageDisplay(Arabic = "256", Kurdish = "256")]
+    GB_256,
+    
+    [LanguageDisplay(Arabic = "512", Kurdish = "512")]
+    GB_512,
+    
+    [LanguageDisplay(Arabic = "1024", Kurdish = "1024")]
+    GB_1024,
+    
+    [LanguageDisplay(Arabic = "2048", Kurdish = "2048")]
+    GB_2048
+}
+*/

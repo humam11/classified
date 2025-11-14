@@ -5,17 +5,20 @@
   "description": "Brand new Michelin Pilot Sport 4S, 19 inch, high performance summer tire.",
   "price": {
     "value": 180.00,
-    "isDollar": false, // bool (always false for tires and wheels)
+    "isDollar": false, // (always false for tires and wheels)
     "showingPrice": "180,000 الف دينار عراقي"
   },
-  "status": "active", // string (could be "active", "deleted", or "archived")
+  "status": "active",
   "createdAt": "2024-05-14T13:50:00Z",
   "updatedAt": "2024-05-14T13:50:00Z",
   "imageCount": 2,
   "viewsCount": 18,
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
-  "priority": 4,
+    "priority": 2,
+    "category" : {
+      "categoryJoins": "2",
+      "categoryIds": [1, 2, 3]
+    },
   "slug": "michelin-pilot-sport-4s-19-inch-tire",
   
   "location": {
@@ -29,13 +32,17 @@
 
   
 "specs": {
-    "tireWheel": {
-      "length": 245, // int
-      "height": 24 // int
-    }
+  "tireWheel": {
+    "width": 215,         // ushort
+    "aspectRatio": 60,    // byte
+    "rimDiameter": 16     // byte
   }
 }
+}
 
-// Reference Values for tire and wheel fields:
-// length: طول الإطار (13.5 سم - 100 سم) - Tire Length (13.5 cm - 100 cm)
-// height: الارتفاع الفعلي (سم) - Actual Height (cm)
+/*
+Reference Values for tire and wheel fields:
+width: عرض الإطار Width (80–445)  mm
+aspectRatio: نسبة الارتفاع إلى العرض Aspect Ratio (20–95) %
+rimDiameter: قطر الجنط Rim Diameter  (8–30) inches
+*/ 

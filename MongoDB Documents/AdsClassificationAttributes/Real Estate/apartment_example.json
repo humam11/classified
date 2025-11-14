@@ -5,17 +5,20 @@
   "description": "Spacious 3-bedroom apartment with modern amenities, security, and parking. Located in a prime area.",
   "price": {
     "value": 100000000.00,
-    "isDollar": false, // bool (always false for anything related to real estate)
+    "isDollar": false, // (always false for anything related to real estate)
     "showingPrice": "100,000,000 مليون دينار عراقي"
   },
-  "status": "active", // string (could be "active", "deleted", or "archived")
+  "status": "active",
   "createdAt": "2024-05-12T10:00:00Z",
   "updatedAt": "2024-05-12T10:00:00Z",
   "imageCount": 8,
   "viewsCount": 120,
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
-  "priority": 2,
+    "priority": 2,
+    "category" : {
+      "categoryJoins": "2",
+      "categoryIds": [1, 2, 3]
+    },
   "slug": "modern-3-bedroom-apartment-al-mansour",
   
   "location": {
@@ -30,22 +33,33 @@
   
   "specs": {
     "realEstate": {
-      "area": 150.5 // float
+      "area": 250.50 // float with Enum of units
     },
     "apartment": {
-      "bedrooms": 3,         // sbyte - Example: 3 bedrooms
-      "bathrooms": 2,        // sbyte - Example: 2 bathrooms
-      "elevator": true,      // bool - Example: true for has elevator
-      "furnished": true,     // bool - Example: true for furnished
-      "floorNumber": 5       // sbyte - Example: 5th floor
+      "bedrooms": 3,         // byte
+      "bathrooms": 2,        // byte
+      "elevator": true,      // bool
+      "furnished": true,     // enum:bool
+      "floorNumber": 5       // byte
   }
 }
-// Reference Values for realEstate fields:
-// area: المساحة بالمتر المربع (1-10000)
 
 // Reference Values for apartment fields:
 // bedrooms: عدد غرف النوم (0-10)
 // bathrooms: عدد الحمامات (0-10)
-// elevator: وجود مصعد (0=لا، 1=نعم)
-// furnished: مفروش (0=لا، 1=نعم)
-// floorNumber: رقم الطابق (0-99) 
+// elevator: وجود مصعد (bool)
+// furnished (queryParam): مفروشة (enum:byte)
+// floorNumber: رقم الطابق (0-99)
+
+/*
+[LocalizedEnumName(Arabic = "مفروشة", Kurdish = "مۆبیلیاتدار")]
+[EnumConverter]
+public enum IsFurnished : byte
+{
+    [LanguageDisplay(Arabic = "لا", Kurdish = "نەخێر")]
+    No,
+    
+    [LanguageDisplay(Arabic = "نعم", Kurdish = "بەڵێ")]
+    Yes
+}
+*/ 

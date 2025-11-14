@@ -1,0 +1,16 @@
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\bin\Debug\net9.0\ClassifiedAds.Application.deps.json
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\bin\Debug\net9.0\ClassifiedAds.Application.dll
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\bin\Debug\net9.0\ClassifiedAds.Application.pdb
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\bin\Debug\net9.0\ClassifiedAds.Domain.dll
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\bin\Debug\net9.0\ClassifiedAds.Domain.pdb
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Debug\net9.0\ClassifiedAds.Application.csproj.AssemblyReference.cache
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Debug\net9.0\ClassifiedAds.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Debug\net9.0\ClassifiedAds.Application.AssemblyInfoInputs.cache
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Debug\net9.0\ClassifiedAds.Application.AssemblyInfo.cs
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Debug\net9.0\ClassifiedAds.Application.csproj.CoreCompileInputs.cache
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Debug\net9.0\ClassifiedAds.Application.sourcelink.json
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Debug\net9.0\Classifi.5528657E.Up2Date
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Debug\net9.0\ClassifiedAds.Application.dll
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Debug\net9.0\refint\ClassifiedAds.Application.dll
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Debug\net9.0\ClassifiedAds.Application.pdb
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Debug\net9.0\ref\ClassifiedAds.Application.dll

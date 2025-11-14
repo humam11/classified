@@ -5,49 +5,80 @@
   "description": "Beautiful modern villa with spacious rooms, private garden, and 2-car garage. Recently renovated with high-quality finishes.",
   "price": {
     "value": 100000000.00,
-    "isDollar": false, // bool (always false for anything related to real estate)
+    "isDollar": false, // (always false for anything related to real estate)
     "showingPrice": "100,000,000 مليون دينار عراقي"
   },
-  "status": "active", // string (could be "active", "deleted", or "archived")
+  "status": "active",
   "createdAt": "2024-05-14T10:30:00Z",
   "updatedAt": "2024-05-14T10:30:00Z",
   "imageCount": 12,
   "viewsCount": 210,
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
-  "priority": 1,
+  "priority": 2,
+  "category": {
+    "categoryJoins": "2",
+    "categoryIds": [
+      1,
+      2,
+      3
+    ]
+  },
   "slug": "modern-4-bedroom-villa-with-garden-al-mansour",
-  
   "location": {
-    "locationIds": [1, 15, 150],
+    "locationIds": [
+      1,
+      15,
+      150
+    ],
     "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
     "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
     "street": "شارع الجمهورية 123"
   },
-
-  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
-
-  
+  "images": [
+    "https://example.com/images/webdev1.jpg",
+    "https://example.com/images/webdev2.jpg"
+  ],
   "specs": {
     "realEstate": {
-      "area": 450.00 // float
+      "area": 250.50 // float with Enum of units
     },
     "house": {
-      "floors": 2,           // sbyte - Example: 2 floors
-      "bedrooms": 4,         // sbyte - Example: 4 bedrooms
-      "bathrooms": 3,        // sbyte - Example: 3 bathrooms
-      "garage": true,        // bool - Example: true for has garage
-      "garden": true        // bool - Example: true for has garden
+      "floors": 2, // byte
+      "bedrooms": 4, // byte
+      "bathrooms": 3, // byte
+      "garage": true, // enum:bool
+      "garden": true // enum:bool
     }
   }
 }
-
-// Reference Values for realEstate fields:
-// area: المساحة بالمتر المربع (1-10000)
 
 // Reference Values for house fields:
 // floors: عدد الطوابق (1-10)
 // bedrooms: عدد غرف النوم (1-20)
 // bathrooms: عدد الحمامات (1-10)
-// garage: وجود كراج (0=لا، 1=نعم)
-// garden: وجود حديقة (0=لا، 1=نعم) 
+// garage (queryParam): وجود كراج (enum:byte)
+// garden (queryParam): وجود حديقة (enum:byte)
+
+/*
+[LocalizedEnumName(Arabic = "وجود-كراج", Kurdish = "گەراجی-هەیە")]
+[EnumConverter]
+public enum HasGarage : byte
+{
+    [LanguageDisplay(Arabic = "لا", Kurdish = "نەخێر")]
+    No,
+    
+    [LanguageDisplay(Arabic = "نعم", Kurdish = "بەڵێ")]
+    Yes
+}
+
+[LocalizedEnumName(Arabic = "وجود-حديقة", Kurdish = "باخچەی-هەیە")]
+[EnumConverter]
+public enum HasGarden : byte
+{
+    [LanguageDisplay(Arabic = "لا", Kurdish = "نەخێر")]
+    No,
+    
+    [LanguageDisplay(Arabic = "نعم", Kurdish = "بەڵ)]
+    Yes
+}
+*/

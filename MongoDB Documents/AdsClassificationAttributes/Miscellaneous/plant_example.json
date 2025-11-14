@@ -5,63 +5,59 @@
   "description": "Healthy Fiddle Leaf Fig, 120cm tall, perfect for indoor spaces. Pot included.",
   "price": {
     "value": 35.00,
-    "isDollar": false, // bool (always false for plants)
+    "isDollar": false, // (always false for plants)
     "showingPrice": "35,000 الف دينار عراقي"
   },
-  "status": "active", // string (could be "active", "deleted", or "archived")
+  "status": "active",
   "createdAt": "2024-05-14T13:40:00Z",
   "updatedAt": "2024-05-14T13:40:00Z",
   "imageCount": 2,
   "viewsCount": 22,
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
-  "priority": 4,
+  "priority": 2,
+  "category": {
+    "categoryJoins": "2",
+    "categoryIds": [
+      1,
+      2,
+      3
+    ]
+  },
   "slug": "fiddle-leaf-fig-indoor-plant-120cm",
-  
   "location": {
-    "locationIds": [1, 15, 150],
+    "locationIds": [
+      1,
+      15,
+      150
+    ],
     "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
     "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
     "street": "شارع الجمهورية 123"
   },
-
-  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
-
-  
+  "images": [
+    "https://example.com/images/webdev1.jpg",
+    "https://example.com/images/webdev2.jpg"
+  ],
   "specs": {
     "plant": {
-      "height": 120, // short
-      
-      // ✅ INCLUDE IN QUERY PARAMS - Generate C# Enum for this field
-      "PlantType": 0 // sbyte - نوع النبات / جۆری ڕووەک
+      "height": 120, // ushort
+      // Filed below included in query params✅
+      "PlantType": 0 // enum: byte
     }
   }
 }
-
 // Reference Values for garden and plant fields:
 // height: الارتفاع (سم) - Height (cm)
-// PlantType: نوع النبات (1 = ظل، 0 = شمسي) - Plant Type (1 = Indoor/Shade, 0 = Outdoor/Sunny)
-
-
-
+// PlantType (queryParam): نوع النبات (1 = ظل، 0 = شمسي) - Plant Type (1 = Shade, 0 = Sunny)
 /*
-IMPLEMENTATION NOTES:
-
-C# Enum Name: PlantType
-
-Parameter Names:
-- Arabic: "نوع-النبات"
-- Kurdish: "جۆری-ڕووەک"
-
-Enum Values with Attributes:
-[LanguageDisplay(English = "Outdoor", Arabic = "شمسي", Kurdish = "دەرەوە")]
-Outdoor = 0,
-
-[LanguageDisplay(English = "Indoor", Arabic = "ظل", Kurdish = "ناوەوە")]
-Indoor = 1
-
-
-URL STRUCTURE EXAMPLE:
-/ar/بغداد/الكرخ/الحدائق-والنباتات/نباتات-منزلية?نوع-النبات=ظل
-/kr/بەغدا/کەرەخ/باخ-و-ڕووەک/ڕووەکی-ماڵەوە?جۆری-ڕووەک=ناوەوە
+[LocalizedEnumName(Arabic = "نوع-النبات", Kurdish = "جۆری-ڕووەک")]
+[EnumConverter]
+public enum PlantType : byte
+{
+    [LanguageDisplay(Arabic = "شمسي", Kurdish = "دەرەوە")]
+    Sunny,
+    
+    [LanguageDisplay(Arabic = "ظل", Kurdish = "ناوەوە")]
+    Shade
+}
 */

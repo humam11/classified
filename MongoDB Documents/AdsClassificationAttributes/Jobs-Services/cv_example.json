@@ -1,54 +1,61 @@
 // Hierarchy: ads -> cv_attrs -> educations & experiences & languages
 {
-  "_id": "60a6e5e889e7c55e25b14b52", // string
-  "title": "Senior Software Engineer CV", // string
-  "description": "Experienced software engineer with 8 years of experience in full-stack development.", // string
+  "_id": "60a6e5e889e7c55e25b14b52",
+  "title": "Senior Software Engineer CV",
+  "description": "Experienced software engineer with 8 years of experience in full-stack development.",
   "price": {
-    "value": 300.00, // float (expected Salary)
-    "isDollar": true, // bool (could be true or false for anything related to cv)
+    "value": 300.00, // (expected Salary)
+    "isDollar": true, // (could be true or false for anything related to cv)
     "showingPrice": "300 دولار"
   },
-  "status": "active", // string (could be "active", "deleted", or "archived") // Auto-managed based on job_search_status read Vacancy & CV Posting Workflow.md file!
+  "status": "active", // (Auto-managed based on job_search_status read Vacancy & CV Posting Workflow.md file!)
   "createdAt": "2024-05-14T15:00:00Z",
   "updatedAt": "2024-05-14T15:00:00Z",
-  "imageCount": 1, // sbyte
-  "viewsCount": 45, // ushort
+  "imageCount": 1, // (always one photo)
+  "viewsCount": 45,
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
-  "priority": 2, // sbyte
-  "slug": "senior-software-engineer-cv", // string
-  
+  "priority": 2,
+  "category": {
+    "categoryJoins": "2",
+    "categoryIds": [
+      1,
+      2,
+      3
+    ]
+  },
+  "slug": "senior-software-engineer-cv",
   "location": {
-    "locationIds": [1], // Only city ID for CVs
+    "locationIds": [
+      1
+    ], // (Only city ID for CVs)
     "fullAddressArabic": "بغداد",
     "fullAddressKurdish": "بەغدا"
     // No street address needed for CVs
   },
-
-  "images":  ["https://example.com/images/profile-photo.jpg"], // Only 1 image for cvs
-  
+  "images": [
+    "https://example.com/images/profile-photo.jpg"
+  ], // Only 1 image for cvs
   "specs": {
     "cv": {
       "firstName": "Ahmed", // string
       "lastName": "Mohammed", // string
-      "gender": 0, // sbyte
+      "gender": 0, // byte
       "dateOfBirth": "1990-05-15", // DateTime
       "phoneNumber": "+9647501234567", // string
       "contactEmail": "ahmed.mohammed@example.com", // string
-      "job_search_status": 1, // sbyte - حالة البحث عن عمل: 0=يبحث عن عمل؛ 1=موظف ويبحث عن عمل جديد؛ 2=غير يبحث عن عمل 
-      
+      "job_search_status": 1, // byte - حالة البحث عن عمل: 0=يبحث عن عمل؛ 1=موظف ويبحث عن عمل جديد؛ 2=لا يبحث عن عمل 
       "education": [
         {
           "institutionName": "University of Baghdad", // string
-          "degree": 2, // sbyte
-          "fieldStudy": 1, // sbyte
+          "degree": 2, // byte
+          "specialization": "Infromation system and technolgy", // string
           "startDate": "2008-09-01", // DateTime
           "endDate": "2012-06-30" // DateTime
         },
         {
           "institutionName": "Technical University of Berlin", // string
-          "degree": 3, // sbyte
-          "fieldStudy": 1, // sbyte
+          "degree": 3, // byte
+          "specialization": "Infromation system and technolgy", // string
           "startDate": "2013-09-01", // DateTime
           "endDate": "2015-06-30" // DateTime
         }
@@ -70,42 +77,130 @@
       "languages": [
         {
           "name": "Arabic", // string
-          "proficiency": 3 // sbyte
+          "proficiency": 3 // byte
         },
         {
           "name": "English", // string
-          "proficiency": 2 // sbyte
+          "proficiency": 2 // byte
         },
         {
           "name": "German", // string
-          "proficiency": 2 // sbyte
+          "proficiency": 2 // byte
         }
       ]
     }
   }
 }
-
 // Reference Values for cv fields:
-// firstName: الاسم الأول (نص) - string
-// lastName: الاسم الأخير (نص) - string
-// gender: الجنس (0=ذكر، 1=أنثى) - sbyte
-// dateOfBirth: تاريخ الميلاد (YYYY-MM-DD) - DateTime
-// phoneNumber: رقم الهاتف (نص) - string
-// contactEmail: البريد الإلكتروني (نص) - string
-
+// firstName: الاسم الأول (نص)
+// lastName: الاسم الأخير (نص)
+// gender: الجنس (0=ذكر، 1=أنثى)
+// dateOfBirth: تاريخ الميلاد (YYYY-MM-DD)
+// phoneNumber: رقم الهاتف (نص) 
+// contactEmail: البريد الإلكتروني (نص)
 // Reference Values for education fields:
-// institutionName: اسم المؤسسة التعليمية (نص) - string
-// degree: الدرجة العلمية (0=ثانوي، 1=دبلوم، 2=بكالوريوس، 3=ماجستير، 4=دكتوراه، 5=أخرى) - sbyte
-// fieldStudy: مجال الدراسة (0=هندسة، 1=طب، 2=علوم، 3=تجارة، 4=تعليم، 5=أخرى) - sbyte
-// startDate: تاريخ البدء (YYYY-MM-DD) - DateTime
-// endDate: تاريخ الانتهاء (YYYY-MM-DD) - DateTime
-
+// institutionName: اسم المؤسسة التعليمية (نص)
+// degree: الدرجة العلمية (0=ثانوي، 1=دبلوم، 2=بكالوريوس، 3=ماجستير، 4=دكتوراه، 5=أخرى)
+// specialization: التخصص (نص)
+// startDate: تاريخ البدء (YYYY-MM-DD)
+// endDate: تاريخ الانتهاء (YYYY-MM-DD)
 // Reference Values for experience fields:
-// companyName: اسم الشركة (نص) - string
-// position: المنصب (نص) - string
-// startDate: تاريخ البدء (YYYY-MM-DD) - DateTime
-// endDate: تاريخ الانتهاء (YYYY-MM-DD) - DateTime
-
+// companyName: اسم الشركة (نص)
+// position: المنصب (نص)
+// startDate: تاريخ البدء (YYYY-MM-DD)
+// endDate: تاريخ الانتهاء (YYYY-MM-DD)
 // Reference Values for languages fields:
-// name: اسم اللغة (نص) - string
-// proficiency: مستوى الإتقان (0=أساسي، 1=متوسط، 2=طليق، 3=لغة أم، 4=آخر) - sbyte
+// name: اسم اللغة (نص)
+// proficiency: مستوى الإتقان (0=أساسي، 1=متوسط، 2=طليق، 3=لغة أم، 4=آخر)
+/*
+[LocalizedEnumName(Arabic = "الجنس", Kurdish = "ڕەگەز")]
+[EnumConverter]
+public enum Gender : byte
+{
+    [LanguageDisplay(Arabic = "ذكر", Kurdish = "نێر")]
+    Male,
+    
+    [LanguageDisplay(Arabic = "أنثى", Kurdish = "مێ")]
+    Female
+}
+
+[LocalizedEnumName(Arabic = "حالة-البحث-عن-عمل", Kurdish = "دۆخی-گەڕان-بەدوای-کار")]
+[EnumConverter]
+public enum JobSearchStatus : byte
+{
+    [LanguageDisplay(Arabic = "يبحث عن عمل", Kurdish = "بەدوای کاردا دەگەڕێت")]
+    LookingForWork,
+    
+    [LanguageDisplay(Arabic = "موظف ويبحث عن عمل جديد", Kurdish = "کارمەندە و بەدوای کاری نوێدا دەگەڕێت")]
+    EmployedAndLooking,
+    
+    [LanguageDisplay(Arabic = "لا يبحث عن عمل", Kurdish = "بەدوای کاردا ناگەڕێت")]
+    NotLooking
+}
+
+[LocalizedEnumName(Arabic = "الدرجة-العلمية", Kurdish = "بڕوانامەی-زانستی")]
+[EnumConverter]
+public enum EducationDegree : byte
+{
+    [LanguageDisplay(Arabic = "ثانوي", Kurdish = "ئامادەیی")]
+    HighSchool,
+    
+    [LanguageDisplay(Arabic = "دبلوم", Kurdish = "دبلۆم")]
+    Diploma,
+    
+    [LanguageDisplay(Arabic = "بكالوريوس", Kurdish = "بەکالۆریۆس")]
+    Bachelor,
+    
+    [LanguageDisplay(Arabic = "ماجستير", Kurdish = "ماستەر")]
+    Master,
+    
+    [LanguageDisplay(Arabic = "دكتوراه", Kurdish = "دکتۆرا")]
+    PhD,
+    
+    [LanguageDisplay(Arabic = "أخرى", Kurdish = "ئەویتر")]
+    Other
+}
+
+[LocalizedEnumName(Arabic = "مجال-الدراسة", Kurdish = "بواری-خوێندن")]
+[EnumConverter]
+public enum FieldOfStudy : byte
+{
+    [LanguageDisplay(Arabic = "هندسة", Kurdish = "ئەندازیاری")]
+    Engineering,
+    
+    [LanguageDisplay(Arabic = "طب", Kurdish = "پزیشکی")]
+    Medicine,
+    
+    [LanguageDisplay(Arabic = "علوم", Kurdish = "زانست")]
+    Science,
+    
+    [LanguageDisplay(Arabic = "تجارة", Kurdish = "بازرگانی")]
+    Business,
+    
+    [LanguageDisplay(Arabic = "تعليم", Kurdish = "پەروەردە")]
+    Education,
+    
+    [LanguageDisplay(Arabic = "أخرى", Kurdish = "ئەویتر")]
+    Other
+}
+
+[LocalizedEnumName(Arabic = "مستوى-الإتقان", Kurdish = "ئاستی-شارەزایی")]
+[EnumConverter]
+public enum LanguageProficiency : byte
+{
+    [LanguageDisplay(Arabic = "أساسي", Kurdish = "بنەڕەتی")]
+    Basic,
+    
+    [LanguageDisplay(Arabic = "متوسط", Kurdish = "ناوەند")]
+    Intermediate,
+    
+    [LanguageDisplay(Arabic = "طليق", Kurdish = "ڕەوان")]
+    Fluent,
+    
+    [LanguageDisplay(Arabic = "لغة أم", Kurdish = "زمانی دایک")]
+    Native,
+    
+    [LanguageDisplay(Arabic = "آخر", Kurdish = "ئەویتر")]
+    Other
+}
+*/

@@ -5,17 +5,20 @@
   "description": "Commercial truck with excellent maintenance history, ready for long-haul transport.",
   "price": {
     "value": 85000.00,
-    "isDollar": true, // bool (could be true or false for anything related to general transport)
+    "isDollar": true, // (could be true or false for anything related to general transport)
     "showingPrice": "85,000 دولار"
   },
-  "status": "active", // string (could be "active", "deleted", or "archived")
+  "status": "active",
   "createdAt": "2024-05-09T11:15:00Z",
   "updatedAt": "2024-05-09T11:15:00Z",
   "imageCount": 5,
   "viewsCount": 87,
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
-  "priority": 3,
+    "priority": 2,
+    "category" : {
+      "categoryJoins": "2",
+      "categoryIds": [1, 2, 3]
+    },
   "slug": "2021-volvo-fh16-heavy-duty-commercial-truck",
   
   "location": {
@@ -30,25 +33,23 @@
   
   "specs": {
     "transport": {
-      "fuelType": 1,          // sbyte (0-5)
-      "enginePower": 304,    // short (1-9999)
-      "fuelTankCapacity": 138 // short (1-1000)
+      "fuelType": 1,          // enum:byte
+      "enginePower": 304,    // ushort
+      "fuelTankCapacity": 138 // ushort
     },
     
     "truck": {
-      "loadCapacity": 25.5,  // float (0.5-100)
-      "axleCount": 6,        // sbyte (2-12)
+      "distanceKm": 40000,   // int
+      "loadCapacity": 25.5,  // double
+      "axleCount": 6,        // byte
       "modelId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c"
     }
   }
 }
 
-// Reference Values for transport fields:
-// fuelType: نوع الوقود: 0=بنزين، 1=ديزل (كاز)، 2=كهرباء، 3=هجين، 4=غاز، 5=أخرى
-// enginePower: قوة المحرك بالحصان (1-2000)
-// fuelTankCapacity: سعة خزان الوقود باللتر (1-1000)
 
 // Reference Values for truck fields:
+// distanceKm (queryParams): المسافة المقطوعة بالكيلومترات
 // loadCapacity: سعة التحميل بالطن (1-100)
 // axleCount: عدد المحاور (2-10)
 // modelId: معرف الموديل (مرتبط بجدول brands_models) 

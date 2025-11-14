@@ -1,265 +1,237 @@
--- PostgreSQL equivalent of ClassifiedTables.sql
-
+-- PostgreSQL Tables with snake_case naming convention
 -- Drop the database if it exists
--- Note: You typically run this command from another database (e.g., 'postgres')
--- or use a tool that handles this. For a script, this is how you'd do it.
--- You might need to terminate active connections first if any exist.
--- Example:
--- SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = 'Classfied';
-DROP DATABASE IF EXISTS "Classfied";
+DROP DATABASE IF EXISTS "classified";
 
 -- Create the database
-CREATE DATABASE "Classfied";
+CREATE DATABASE "classified";
 
--- Connect to the new database first
-\c "Classfied";
+-- Connect to the new database
+\c "classified";
 
--- Now set timezone for this specific database
-ALTER DATABASE "Classfied" SET timezone = 'Asia/Baghdad';
+-- Set timezone for this database
+ALTER DATABASE "classified" SET timezone = 'Asia/Baghdad';
 
 -- Reconnect to apply the timezone setting
-\c "Classfied";
+\c "classified";
 
--- Enable extensions if they are not already enabled
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; -- For uuid_generate_v4() if preferred, gen_random_uuid() is built-in
+-- Enable extensions
 CREATE EXTENSION IF NOT EXISTS ltree;     -- For hierarchy_path
 
--- User Table
-CREATE TABLE "User" (
+-- Locations Table
+CREATE TABLE locations (
     -- Primary Key
-    "UserID" UUID PRIMARY KEY DEFAULT uuid_generate_v7(),
-    
-    -- Core IDentifying Information
-    "FirstName" VARCHAR(50) NOT NULL,
-    "LastName" VARCHAR(50),
-    
-    -- Contact Information
-    "Email" VARCHAR(100) NULL,            -- Made NULL since users can sign up with phone
-    "NormalizedEmail" VARCHAR(256) NULL, -- converting all emails to the same format to make them easier to search and compare
-    "PhoneNumber" VARCHAR(20) NULL,       -- رقم الهاتف
-    
-    -- Authentication & Security
-    "PasswordHash" BYTEA NOT NULL,        -- تشفير كلمة المرور
-    "EmailConfirmed" BOOLEAN NOT NULL,    -- تأكيد البريد الإلكتروني
-    "PhoneNumberConfirmed" BOOLEAN NOT NULL, -- تأكيد رقم الهاتف
-
-    -- Profile Data
-    "ProfilePictureUrl" VARCHAR(255) NULL, -- صورة الملف الشخصي
-    "AverageRating" DECIMAL(2,1) NULL,
-    "ReviewCount" INTEGER DEFAULT 0,
-
-    -- Location Data (Flexible: GPS, IP, or Manual)
-    "Latitude" DECIMAL(9,6) NULL,         -- GPS or IP latitude; NULL if manual only
-    "Longitude" DECIMAL(9,6) NULL,        -- GPS or IP longitude; NULL if manual only
-    "LocationSource" VARCHAR(10) NOT NULL,    -- 'GPS', 'IP', or 'Manual';
-    "LocationID" SMALLINT NULL,     -- FK to Location(LocationID); set if user selects manually, NULL otherwise
-
-    "CreatedAt" TIMESTAMPTZ NOT NULL DEFAULT TIMEZONE('UTC', NOW()), -- تاريخ الانشاء
-
-
-    -- Foreign Keys - Relationships
-    FOREIGN KEY ("LocationID") REFERENCES "Location"("LocationID"),
-
-    -- Constraints
-    CONSTRAINT "CHK_ContactInfo" CHECK (
-        ("PhoneNumber" IS NOT NULL OR "Email" IS NOT NULL)
-    )
-);
-
--- User Report Table جدول بلاغات المستخدمين
-CREATE TABLE "UserReport" (
-    -- Primary Key
-    "UserReportID" UUID PRIMARY KEY DEFAULT uuid_generate_v7(),
-
-    -- Core Report Data
-    -- نوع البلاغ: 1=محتوى مسيء، 2=سلوك مزعج، 3=احتيال، 4=انتحال شخصية، 5=محتوى غير لائق، 6=أخرى
-    "ReasonType" SMALLINT CHECK ("ReasonType" BETWEEN 1 AND 6),
-    "Description" VARCHAR(500),                              -- تفاصيل إضافية للبلاغ
-
-    -- Moderation Status
-    -- حالة البلاغ: 1=قيد المراجعة, 2=تم اتخاذ إجراء, 3=مرفوض
-    "Status" SMALLINT DEFAULT 1 CHECK ("Status" BETWEEN 1 AND 3),
-
-    -- Metadata
-    "CreatedAt" TIMESTAMPTZ NOT NULL DEFAULT TIMEZONE('UTC', NOW()), -- تاريخ البلاغ
-
-    -- Foreign Keys - Relationships
-    "ReporterID" UUID NOT NULL,  -- معرف المبلغ
-    "ReportedID" UUID NOT NULL,  -- معرف المبلغ عنه
-
-    -- Constraints
-    FOREIGN KEY ("ReporterID") REFERENCES "User"("UserID"),
-    FOREIGN KEY ("ReportedID") REFERENCES "User"("UserID")
-);
-
--- Bug Report Table جدول بلاغات الأخطاء التقنية
-CREATE TABLE "BugReport" (
-    -- Primary Key
-    "BugReportID" UUID PRIMARY KEY DEFAULT uuid_generate_v7(),
-
-    -- Core Report Data
-    "Description" VARCHAR(1000),      -- وصف الخطأ
-    "ScreenshotUrl" VARCHAR(512),       -- رابط الصورة
-
-    -- Status Tracking
-    -- حالة البلاغ: 1=جديد, 2=قيد المراجعة, 3=تم الإصلاح, 4=مرفوض
-    "Status" SMALLINT DEFAULT 1 CHECK ("Status" BETWEEN 1 AND 4),
-
-    -- Metadata
-    "CreatedAt" TIMESTAMPTZ NOT NULL DEFAULT TIMEZONE('UTC', NOW()), -- تاريخ التقديم
-
-    -- Foreign Keys - Relationships
-    "UserID" UUID NOT NULL,   -- معرف المستخدم الذي أبلغ عن الخطأ
-
-    -- Constraints
-    FOREIGN KEY ("UserID") REFERENCES "User"("UserID")
-);
-
--- User Review Table جدول تقييمات المستخدمين
-CREATE TABLE "UserReview" (
-    -- Primary Key
-    "UserReviewID" UUID PRIMARY KEY DEFAULT uuid_generate_v7(),
-
-    -- Core Review Data
-    "Rating" SMALLINT CHECK ("Rating" BETWEEN 1 AND 5), -- التقييم (1-5 نجوم)
-    "Comment" VARCHAR(1000),                        -- التعليق (محدود ب 1000 حرف)
-    
-    -- Metadata
-    "CreatedAt" TIMESTAMPTZ NOT NULL DEFAULT TIMEZONE('UTC', NOW()), -- تاريخ المراجعة
-    
-    -- Foreign Keys - Relationships
-    "ReviewerID" UUID NOT NULL,  -- معرف المراجع
-    "ReviewedID" UUID NOT NULL,  -- معرف الشخص المراجع
-
-    -- Constraints
-    FOREIGN KEY ("ReviewerID") REFERENCES "User"("UserID"),
-    FOREIGN KEY ("ReviewedID") REFERENCES "User"("UserID"),
-    CONSTRAINT "UQ_Review" UNIQUE ("ReviewerID", "ReviewedID") -- لمنع تكرار التقييم لنفس المستخدم
-);
-
-
--- Location Table
--- 0 = City, 1 = District, 2 = Neighborhood
-CREATE TABLE "Location" (
-    -- Primary Key
-    "LocationID" SMALLSERIAL PRIMARY KEY,
+    location_id SMALLSERIAL PRIMARY KEY,
 
     -- Core Location Data
-    "NameEnglish" VARCHAR(50) NOT NULL,
-    "NameArabic" VARCHAR(50) NOT NULL,
-    "NameKurdish" VARCHAR(50) NOT NULL,
-    
+    name_english VARCHAR(50) NOT NULL,
+    name_arabic VARCHAR(50) NOT NULL,
+    name_kurdish VARCHAR(50) NOT NULL,
+
     -- Hierarchical Data
-    "hierarchy_path" LTREE NOT NULL,           -- Hierarchy position using ltree
-    "Level" INTEGER GENERATED ALWAYS AS (nlevel("hierarchy_path")) STORED, -- Computed level
-            
-    -- Foreign Keys - Relationships
-    "ParentID" SMALLINT NULL,
+    hierarchy_path LTREE NOT NULL,
+    level INTEGER GENERATED ALWAYS AS (nlevel(hierarchy_path)) STORED,
 
+    -- Foreign Keys
+    parent_id SMALLINT NULL REFERENCES locations(location_id),
 
-    -- For mongodb ids recieving ... (ParentID = (select id from Location where ArabicName = OR KurdishName = etc..)) 
-        --        "locationIds": [1, 15, 150], // [cityId, districtId, neighborhoodId]
     -- Constraints
-    UNIQUE ("NameEnglish", "hierarchy_path"),
-    UNIQUE ("NameArabic", "hierarchy_path"),
-    UNIQUE ("NameKurdish", "hierarchy_path"),
-
-
-    FOREIGN KEY ("ParentID") REFERENCES "Location"("LocationID")
+    UNIQUE (name_english, hierarchy_path),
+    UNIQUE (name_arabic, hierarchy_path),
+    UNIQUE (name_kurdish, hierarchy_path)
 );
 
-CREATE INDEX "IX_Location_HierarchyPath" ON "Location" USING GIST ("hierarchy_path");
+CREATE INDEX ix_locations_hierarchy_path ON locations USING GIST (hierarchy_path);
 
--- Enhanced Categories Table
-CREATE TABLE "Category" (
+
+-- Users Table
+CREATE TABLE users (
     -- Primary Key
-    "CategoryID" SMALLSERIAL PRIMARY KEY,
+    user_id UUID DEFAULT gen_random_uuid() PRIMARY KEY, -- Use uuidv7() if available
     
-    -- Core Descriptive Fields
-    "NameArabic" VARCHAR(120) NOT NULL, -- could be duplcated
-    "NameKurdish" VARCHAR(120) NOT NULL, -- could be duplcated
+    -- Core Identifying Information
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50),
     
-    -- Metadata Fields
-    "UrlSlugArabic" VARCHAR(255) NOT NULL UNIQUE,
-    "UrlSlugKurdish" VARCHAR(255) NOT NULL UNIQUE,
-    "ImageUrl" VARCHAR(255),
+    -- Contact Information
+    email VARCHAR(100) NULL,
+    normalized_email VARCHAR(256) NULL,
+    phone_number VARCHAR(20) NULL,
+    
+    -- Authentication & Security
+    password_hash BYTEA NOT NULL,
+    email_confirmed BOOLEAN NOT NULL DEFAULT FALSE,
+    phone_number_confirmed BOOLEAN NOT NULL DEFAULT FALSE,
 
-    -- Hierarchical Data
-    "hierarchy_path" LTREE NULL,
-    "Level" INTEGER GENERATED ALWAYS AS (nlevel("hierarchy_path")) STORED, -- Computed level field
-    
-    -- Foreign Key Fields
-    "ParentID" SMALLINT NULL,
-    
+    -- Profile Data
+    profile_picture_url VARCHAR(255) NULL,
+    average_rating DECIMAL(2,1) NULL,
+    review_count INTEGER DEFAULT 0,
+
+    -- Location Data
+    latitude DECIMAL(9,6) NULL,
+    longitude DECIMAL(9,6) NULL,
+    location_source SMALLINT CHECK (location_source BETWEEN 0 AND 2) NOT NULL,
+
+    created_at TIMESTAMPTZ NOT NULL DEFAULT TIMEZONE('UTC', NOW()),
+
+    -- Foreign Keys
+    location_id SMALLINT NULL REFERENCES locations(location_id),
+
     -- Constraints
-    FOREIGN KEY ("ParentID") REFERENCES "Category"("CategoryID")
-);
-
-CREATE INDEX "IX_Category_HierarchyPath" ON "Category" USING GIST ("hierarchy_path");
--- The original SQL Server script had a UNIQUE index on a non-existent "UrlSlug" column.
--- "UrlSlugArabic" and "UrlSlugKurdish" are already marked UNIQUE above.
-
--- Brands & Models Table جدول العلامات التجارية والموديلات
-CREATE TABLE "BrandModel" (
-    -- Primary Key
-    "BrandModelID" SMALLSERIAL PRIMARY KEY,         -- Auto-incremented ID
-    
-    -- Core Descriptive Fields
-    "Name" VARCHAR(50) NOT NULL,                               -- English name
-    "NameArabic" VARCHAR(50),                                 -- Arabic name
-    "NameKurdish" VARCHAR(50),                                -- Kurdish name
-    "IsBrand" BOOLEAN NOT NULL,                                    -- TRUE = Brand, FALSE = Model
-
-    -- Metadata Fields
-    "UrlSlugArabic" VARCHAR(255) NOT NULL UNIQUE,             -- Arabic URL slug
-    "UrlSlugKurdish" VARCHAR(255) NOT NULL UNIQUE,            -- Kurdish URL slug
-    "ImageUrl" VARCHAR(255) NOT NULL,                          -- Image URL
-    
-
-
-    "AutomationKeyword" VARCHAR(255) NULL UNIQUE,
-    
-    -- Hierarchical Data
-    "hierarchy_path" LTREE NULL,                          -- LTREE for hierarchy
-    "Level" INTEGER GENERATED ALWAYS AS (nlevel("hierarchy_path")) STORED, -- Optional computed level
-
-    -- Foreign Keys - Relationships
-    "ParentID" SMALLINT,                                       -- Brand ID (for models)
-    "CategoryID" SMALLINT NOT NULL,                            -- Linked category
-    
-    -- Constraints
-    UNIQUE ("Name", "ParentID", "CategoryID"),
-    CONSTRAINT "FK_BrandModel_Category" FOREIGN KEY ("CategoryID") REFERENCES "Category"("CategoryID"),
-    CONSTRAINT "FK_BrandModel_Parent" FOREIGN KEY ("ParentID") REFERENCES "BrandModel"("BrandModelID"),
-    CONSTRAINT "CHK_BrandModel_Hierarchy" CHECK (
-        ("IsBrand" = TRUE AND "ParentID" IS NULL) OR
-        ("IsBrand" = FALSE AND "ParentID" IS NOT NULL)
+    CONSTRAINT chk_contact_info CHECK (
+        (phone_number IS NOT NULL OR email IS NOT NULL)
     )
 );
 
-CREATE INDEX "IX_BrandModel_HierarchyPath" ON "BrandModel" USING GIST ("hierarchy_path");
--- The original SQL Server script had a UNIQUE index on a non-existent "UrlSlug" column.
--- "UrlSlugArabic" and "UrlSlugKurdish" are already marked UNIQUE above.
-
-
--- Sub Models Table (Model Release Year)
-CREATE TABLE "ModelRelease" (
+-- User Reports Table
+CREATE TABLE user_reports (
     -- Primary Key
-    "ModelReleaseID" SMALLSERIAL PRIMARY KEY,       -- Unique ID
-    
-    -- Core Data Fields
-    "ReleaseYear" SMALLINT NOT NULL CHECK ("ReleaseYear" BETWEEN 1900 AND 2100),
-    
-    -- Metadata Fields
-    "UrlSlug" VARCHAR(20) NOT NULL,                            -- For URL (e.g., '2020')
-    "ImageUrl" VARCHAR(255) NOT NULL,                          -- Optional image (e.g., car photo)
+    user_report_id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
 
-    -- Foreign Keys - Relationships
-    "ModelID" SMALLINT NOT NULL,                               -- FK to brands_models (must be a model)
-    
-    -- Constraints
-    UNIQUE ("ModelID", "ReleaseYear"),                           -- No duplicate releases per model
-    FOREIGN KEY ("ModelID") REFERENCES "BrandModel"("BrandModelID")
+    -- Core Report Data
+    reason_type SMALLINT CHECK (reason_type BETWEEN 0 AND 5) NOT NULL,
+    description VARCHAR(500),
+
+    -- Moderation Status
+    status SMALLINT CHECK (status BETWEEN 0 AND 2) NOT NULL DEFAULT 0,
+
+    -- Metadata
+    created_at TIMESTAMPTZ NOT NULL DEFAULT TIMEZONE('UTC', NOW()),
+
+    -- Foreign Keys
+    reporter_id UUID NOT NULL REFERENCES users(user_id),
+    reported_id UUID NOT NULL REFERENCES users(user_id)
 );
 
-CREATE INDEX "IX_ModelRelease_ModelID_UrlSlug" ON "ModelRelease"("ModelID", "UrlSlug");
+-- Bug Reports Table
+CREATE TABLE bug_reports (
+    -- Primary Key
+    bug_report_id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+
+    -- Core Report Data
+    description VARCHAR(1000),
+    screenshot_url VARCHAR(512),
+
+    -- Status Tracking
+    status SMALLINT CHECK (status BETWEEN 0 AND 3) NOT NULL DEFAULT 0,
+
+    -- Metadata
+    created_at TIMESTAMPTZ NOT NULL DEFAULT TIMEZONE('UTC', NOW()),
+
+    -- Foreign Keys
+    user_id UUID NOT NULL REFERENCES users(user_id)
+);
+
+-- User Reviews Table
+CREATE TABLE user_reviews (
+    -- Primary Key
+    user_review_id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+
+    -- Core Review Data
+    rating SMALLINT CHECK (rating BETWEEN 1 AND 5) NOT NULL,
+    comment VARCHAR(1000),
+    
+    -- Metadata
+    created_at TIMESTAMPTZ NOT NULL DEFAULT TIMEZONE('UTC', NOW()),
+    
+    -- Foreign Keys
+    reviewer_id UUID NOT NULL REFERENCES users(user_id),
+    reviewed_id UUID NOT NULL REFERENCES users(user_id),
+
+    -- Constraints
+    CONSTRAINT uq_review UNIQUE (reviewer_id, reviewed_id)
+);
+
+
+
+-- Categories Table
+CREATE TABLE categories (
+    -- Primary Key
+    category_id SMALLSERIAL PRIMARY KEY,
+    
+    -- Core Descriptive Fields
+    name_arabic VARCHAR(120) NOT NULL,
+    name_kurdish VARCHAR(120) NOT NULL,
+    
+    -- Metadata Fields
+    url_slug_arabic VARCHAR(255) NOT NULL UNIQUE,
+    url_slug_kurdish VARCHAR(255) NOT NULL UNIQUE,
+    image_url VARCHAR(255),
+
+    -- Hierarchical Data
+    hierarchy_path LTREE NULL,
+    level INTEGER GENERATED ALWAYS AS (nlevel(hierarchy_path)) STORED,
+    is_leaf BOOLEAN NOT NULL DEFAULT FALSE,
+    
+    -- Foreign Keys
+    parent_id SMALLINT NULL REFERENCES categories(category_id)
+);
+
+CREATE INDEX ix_categories_hierarchy_path ON categories USING GIST (hierarchy_path);
+
+-- Brand Models Table
+CREATE TABLE brands_models (
+    -- Primary Key
+    brand_model_id SMALLSERIAL PRIMARY KEY,
+    
+    -- Core Descriptive Fields
+    name_english VARCHAR(50) NOT NULL,
+    name_arabic VARCHAR(50),
+    name_kurdish VARCHAR(50),
+    is_brand BOOLEAN NOT NULL,
+
+    -- Metadata Fields
+    url_slug_arabic VARCHAR(255) NOT NULL UNIQUE,
+    url_slug_kurdish VARCHAR(255) NOT NULL UNIQUE,
+    image_url VARCHAR(255) NOT NULL,
+    automation_keyword VARCHAR(255) NULL UNIQUE,
+    
+    -- Hierarchical Data
+    hierarchy_path LTREE NULL,
+    level INTEGER GENERATED ALWAYS AS (nlevel(hierarchy_path)) STORED,
+
+    -- Foreign Keys
+    parent_id SMALLINT REFERENCES brands_models(brand_model_id),
+    category_id SMALLINT NOT NULL REFERENCES categories(category_id),
+    
+    -- Constraints
+    UNIQUE (name, parent_id, category_id),
+    CONSTRAINT chk_brands_models_hierarchy CHECK (
+        (is_brand = TRUE AND parent_id IS NULL) OR
+        (is_brand = FALSE AND parent_id IS NOT NULL)
+    )
+);
+
+CREATE INDEX ix_brands_models_hierarchy_path ON brands_models USING GIST (hierarchy_path);
+
+
+-- Model Releases Table
+CREATE TABLE model_releases (
+    -- Primary Key
+    model_release_id SMALLSERIAL PRIMARY KEY,
+    
+    -- Core Data Fields
+    release_year SMALLINT NOT NULL CHECK (release_year BETWEEN 1900 AND 2100),
+    
+    -- Metadata Fields
+    url_slug VARCHAR(20) NOT NULL,
+    image_url VARCHAR(255) NOT NULL,
+
+    -- Foreign Keys
+    model_id SMALLINT NOT NULL REFERENCES brands_models(brand_model_id),
+    
+    -- Constraints
+    UNIQUE (model_id, release_year)
+);
+
+CREATE INDEX ix_model_releases_model_id_url_slug ON model_releases(model_id, url_slug);
+
+-- Comments for documentation
+COMMENT ON TABLE locations IS 'Hierarchical location data: City (0) → District (1) → Neighborhood (2)';
+COMMENT ON TABLE users IS 'User accounts and profiles';
+COMMENT ON TABLE user_reports IS 'User-to-user reports for moderation';
+COMMENT ON TABLE bug_reports IS 'Technical bug reports from users';
+COMMENT ON TABLE user_reviews IS 'User ratings and reviews (1-5 stars)';
+COMMENT ON TABLE categories IS 'Hierarchical category structure for ads';
+COMMENT ON TABLE brands_models IS 'Brand and model hierarchy (Brand → Model)';
+COMMENT ON TABLE model_releases IS 'Model release years (sub-models)';

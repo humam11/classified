@@ -5,34 +5,44 @@
   "description": "Komatsu PC300LC-8 excavator with 4,200 hours. Excellent condition, all maintenance records available.",
   "price": {
     "value": 285000.00,
-    "isDollar": true, // bool (could be true or false for anything related to general transport)
+    "isDollar": true, // (could be true or false for anything related to general transport)
     "showingPrice": "285,000 دولار"
   },
-  "status": "active", // string (could be "active", "deleted", or "archived")
+  "status": "active",
   "createdAt": "2024-05-09T11:15:00Z",
   "updatedAt": "2024-05-09T11:15:00Z",
   "imageCount": 5,
   "viewsCount": 33,
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
   "priority": 2,
+  "category": {
+    "categoryJoins": "2",
+    "categoryIds": [
+      1,
+      2,
+      3
+    ]
+  },
   "slug": "2020-komatsu-pc300lc-8-hydraulic-excavator",
-  
   "location": {
-    "locationIds": [1, 15, 150],
+    "locationIds": [
+      1,
+      15,
+      150
+    ],
     "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
     "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
     "street": "شارع الجمهورية 123"
   },
-
-  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
-
-  
+  "images": [
+    "https://example.com/images/webdev1.jpg",
+    "https://example.com/images/webdev2.jpg"
+  ],
   "specs": {
     "transport": {
-      "fuelType": 2, // sbyte (0-5)
-      "enginePower": 500, // short
-      "fuelTankCapacity": 200 // short
+      "fuelType": 2, // enum:byte
+      "enginePower": 500, // ushort
+      "fuelTankCapacity": 200 // ushort
     },
     "heavyEquipment": {
       "operatingMass": 2500.00, // float
@@ -40,20 +50,11 @@
     }
     "excavator": {
       "bucketCapacity": 1.2, // float
-      "maxDiggingDepth": 6.62 // float
+      "maxDiggingDepth": 6.62 // float with Enum of units
     }
   }
 }
 
-// Reference Values for transport fields:
-// fuelType: نوع الوقود: 0=بنزين، 1=ديزل (كاز)، 2=كهرباء، 3=هجين، 4=غاز، 5=أخرى
-// enginePower: قوة المحرك بالحصان (1-2000)
-// fuelTankCapacity: سعة خزان الوقود باللتر (1-1000)
-
-// Reference Values for heavy equipment fields:
-// operatingMass: الوزن التشغيلي (كغ) - Operating Mass (kg)
-// weight: الوزن الاساسي (طن) - Base Weight (tons)
-
 // Reference Values for excavator fields:
-// bucketCapacity: سعة الدلو (م مكعب) - Bucket Capacity (m³)
-// maxDiggingDepth: أقصى عمق للحفر (م) - Maximum Digging Depth (m)
+// bucketCapacity: سعة الدلو (م مكعب) - Bucket Capacity (m³) (0.1-10)
+// maxDiggingDepth (queryParams): أقصى عمق للحفر (متر) - Maximum Digging Depth (m) (1-30)

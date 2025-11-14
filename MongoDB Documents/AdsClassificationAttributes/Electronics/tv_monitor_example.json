@@ -1,59 +1,142 @@
 // Hierarchy: ads -> electronic_attrs -> monitor_and_television_attrs -> brands_models
 {
-    "_id": "60a6e5e889e7c55e25b14b38",
-    "title": "Samsung QN90C Neo QLED 65-inch 4K Smart TV",
-    "description": "Brand new Samsung QN90C Neo QLED TV with Quantum HDR 32x, Object Tracking Sound, and Smart TV features.",
-    "price": {
-        "value": 1800.00,
-        "isDollar": true, // bool (could be true or false for anything related to general electronics)
-        "showingPrice": "1,800 دولار"
+  "_id": "60a6e5e889e7c55e25b14b38",
+  "title": "Samsung QN90C Neo QLED 65-inch 4K Smart TV",
+  "description": "Brand new Samsung QN90C Neo QLED TV with Quantum HDR 32x, Object Tracking Sound, and Smart TV features.",
+  "price": {
+    "value": 1800.00,
+    "isDollar": true, // (could be true or false for anything related to general electronics)
+    "showingPrice": "1,800 دولار"
+  },
+  "status": "active",
+  "createdAt": "2024-05-14T12:15:00Z",
+  "updatedAt": "2024-05-14T12:15:00Z",
+  "imageCount": 6,
+  "viewsCount": 95,
+  "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
+  "priority": 2,
+  "category": {
+    "categoryJoins": "2",
+    "categoryIds": [
+      1,
+      2,
+      3
+    ]
+  },
+  "slug": "samsung-qn90c-neo-qled-65-inch-4k-smart-tv",
+  "location": {
+    "locationIds": [
+      1,
+      15,
+      150
+    ],
+    "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
+    "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
+    "street": "شارع الجمهورية 123"
+  },
+  "images": [
+    "https://example.com/images/webdev1.jpg",
+    "https://example.com/images/webdev2.jpg"
+  ],
+  "specs": {
+    "electronics": {
+      "isNew": false, // enum:byte
+      "warrantyMonths": 24 // byte
     },
-    "status": "active", // string (could be "active", "deleted", or "archived")
-    "createdAt": "2024-05-14T12:15:00Z",
-    "updatedAt": "2024-05-14T12:15:00Z",
-    "imageCount": 6,
-    "viewsCount": 95,
-    "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-    "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
-    "priority": 2,
-    "slug": "samsung-qn90c-neo-qled-65-inch-4k-smart-tv",
-    
-    "location": {
-      "locationIds": [1, 15, 150],
-      "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
-      "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
-      "street": "شارع الجمهورية 123"
-    },
-  
-    "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
-
-    
-    "specs": {
-      "electronics": {
-        "isNew": true, // bool
-        "warrantyMonths": 24 // sbyte
-      },
-      "tvMonitor": {
-        "screenSize": 65.0, // float
-        "resolution": 3, // sbyte
-        "smartTv": true, // bool
-        "refreshRate": 3, // sbyte
-        "hdmiPorts": 4, // sbyte
-        "usbPorts": 2, // sbyte
-        "modelId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a72dc"
-      }
+    "tvMonitor": {
+      "screenSize": 65.0, // float
+      "resolution": 3, // byte
+      "smartTv": 1, // enum:byte
+      "refreshRate": 3, // enum:byte
+      "hdmiPorts": 4, // byte
+      "usbPorts": 2, // byte
+      "modelId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a72dc"
     }
   }
-
-// Reference Values for electronics fields:
-// isNew: جديد أم مستعمل (0=مستعمل، 1=جديد)
-// warrantyMonths: مدة الضمان بالأشهر (0-60)
+}
 
 // Reference Values for tvMonitor fields:
 // screenSize: حجم الشاشة بالبوصة (20-100)
-// resolution: الدقة (0=HD، 1=FHD، 2=2K، 3=4K، 4=8K)
-// smartTv: تلفزيون ذكي (0=لا، 1=نعم)
-// refreshRate: معدل التحديث بالهرتز (1=30، 2=50، 3=60، 4=75، 5=90، 6=100، 7=120، 8=144، 9=165، 10=200، 11=240، 12=360، 13=أخرى)
+// resolution (queryParam): الدقة (0=HD، 1=FHD، 2=2K، 3=4K، 4=8K)
+// smartTv (queryParam): تلفزيون ذكي (0=لا، 1=نعم)
+// refreshRate (queryParam) with units: معدل التحديث بالهرتز (0=30، 1=50، 2=60، 3=75، 4=90، 5=100، 6=120، 7=144، 8=165، 9=200، 10=240، 11=360، 12=أخرى)
 // hdmiPorts: عدد منافذ HDMI (1-8)
 // usbPorts: عدد منافذ USB (0-8)
 // modelId: معرف الموديل (مرتبط بجدول brands_models)
+/*
+[LocalizedEnumName(Arabic = "الدقة", Kurdish = "وردی")]
+[EnumConverter]
+public enum ScreenResolution : byte
+{
+    [LanguageDisplay(Arabic = "HD", Kurdish = "HD")]
+    HD,
+    
+    [LanguageDisplay(Arabic = "FHD", Kurdish = "FHD")]
+    FHD,
+    
+    [LanguageDisplay(Arabic = "2K", Kurdish = "2K")]
+    K2,
+    
+    [LanguageDisplay(Arabic = "4K", Kurdish = "4K")]
+    K4,
+    
+    [LanguageDisplay(Arabic = "8K", Kurdish = "8K")]
+    K8
+}
+
+[LocalizedEnumName(Arabic = "تلفزيون-ذكي", Kurdish = "تەلەفزیۆنی-زیرەک")]
+[EnumConverter]
+public enum SmartTV : byte
+{
+    [LanguageDisplay(Arabic = "لا", Kurdish = "نەخێر")]
+    No,
+    
+    [LanguageDisplay(Arabic = "نعم", Kurdish = "بەڵێ")]
+    Yes
+}
+
+[LocalizedEnumName(Arabic = "معدل-التحديث", Kurdish = "ڕێژەی-نوێکردنەوە")]
+[GetUnits("Hertz")]
+[EnumConverter]
+public enum RefreshRate : byte
+{
+    [LanguageDisplay(Arabic = "30", Kurdish = "30")]
+    Hz_30,
+    
+    [LanguageDisplay(Arabic = "50", Kurdish = "50")]
+    Hz_50,
+    
+    [LanguageDisplay(Arabic = "60", Kurdish = "60")]
+    Hz_60,
+    
+    [LanguageDisplay(Arabic = "75", Kurdish = "75")]
+    Hz_75,
+    
+    [LanguageDisplay(Arabic = "90", Kurdish = "90")]
+    Hz_90,
+    
+    [LanguageDisplay(Arabic = "100", Kurdish = "100")]
+    Hz_100,
+    
+    [LanguageDisplay(Arabic = "120", Kurdish = "120")]
+    Hz_120,
+    
+    [LanguageDisplay(Arabic = "144", Kurdish = "144")]
+    Hz_144,
+    
+    [LanguageDisplay(Arabic = "165", Kurdish = "165")]
+    Hz_165,
+    
+    [LanguageDisplay(Arabic = "200", Kurdish = "200")]
+    Hz_200,
+    
+    [LanguageDisplay(Arabic = "240", Kurdish = "240")]
+    Hz_240,
+    
+    [LanguageDisplay(Arabic = "360", Kurdish = "360")]
+    Hz_360,
+    
+    [LanguageDisplay(Arabic = "أخرى", Kurdish = "ئەویتر")]
+    Other
+}
+*/

@@ -1,39 +1,49 @@
 // Hierarchy: ads -> service_attrs -> service_daily_availability -> service_time_slots
 {
-  "_id": "60a6e5e889e7c55e25b14b54", // string
-  "title": "Worker", // string
+  "_id": "60a6e5e889e7c55e25b14b54",
+  "title": "Worker",
   "description": "Full-stack web development services including frontend, backend, and database development. Specializing in modern frameworks and responsive design.", // string
   "price": {
-    "value": 50.00, // Price per -> combine with paymentPeriod
-    "isDollar": false, // bool (always false for service)
+    "value": 50.00, // (Price per -> combine with paymentPeriod)
+    "isDollar": false, // (always false for service)
     "showingPrice": "50,000 الف دينار عراقي/ساعة"
   },
-  "status": "active", // string (could be "active", "deleted", or "archived")
+  "status": "active",
   "createdAt": "2024-05-14T16:00:00Z",
   "updatedAt": "2024-05-14T16:00:00Z",
-  "imageCount": 3, // sbyte
-  "viewsCount": 45, // ushort
+  "imageCount": 3,
+  "viewsCount": 45,
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
-  "priority": 2, // sbyte
-  "slug": "worker-33f3f", // string
-  
-  
+  "priority": 2,
+  "category": {
+    "categoryJoins": "2",
+    "categoryIds": [
+      1,
+      2,
+      3
+    ]
+  },
+  "slug": "worker-33f3f",
   "location": {
-    "locationIds": [1, 15, 150],
+    "locationIds": [
+      1,
+      15,
+      150
+    ],
     "fullAddressArabic": "شارع الجمهورية 123، المنصور، الكرخ، بغداد",
     "fullAddressKurdish": "شارع الجمهورية 123، مەنسوور، کەرەخ، بەغدا",
     "street": "شارع الجمهورية 123"
   },
-
-  "images": [ "https://example.com/images/webdev1.jpg", "https://example.com/images/webdev2.jpg"],
-  
+  "images": [
+    "https://example.com/images/webdev1.jpg",
+    "https://example.com/images/webdev2.jpg"
+  ],
   "specs": {
     "service": {
-      "paymentPeriod": 3, // sbyte
+      "paymentPeriod": 3, // byte
       "dailyAvailability": [
         {
-          "dayOfWeek": 1, // sbyte
+          "dayOfWeek": 1, // byte
           "isAvailable": true, // bool
           "is24Hours": false, // bool
           "timeSlots": [
@@ -44,7 +54,7 @@
           ]
         },
         {
-          "dayOfWeek": 2, // sbyte
+          "dayOfWeek": 2, // byte
           "isAvailable": true, // bool
           "is24Hours": false, // bool
           "timeSlots": [
@@ -55,7 +65,7 @@
           ]
         },
         {
-          "dayOfWeek": 3, // sbyte
+          "dayOfWeek": 3, // byte
           "isAvailable": true, // bool
           "is24Hours": false, // bool
           "timeSlots": [
@@ -66,7 +76,7 @@
           ]
         },
         {
-          "dayOfWeek": 4, // sbyte
+          "dayOfWeek": 4, // byte
           "isAvailable": true, // bool
           "is24Hours": false, // bool
           "timeSlots": [
@@ -77,24 +87,76 @@
           ]
         },
         {
-          "dayOfWeek": 6, // sbyte
+          "dayOfWeek": 6, // byte
           "isAvailable": true, // bool
           "is24Hours": true // bool
-          // don't have timeslots? so is null
+          // always open? so should be null
         }
       ]
     }
   }
-} 
-
+}
 // Reference Values for service fields:
-// paymentPeriod: نوع السعر (0=للخدمة، 1=للمتر، 2=للقطعة، 3=للساعة، 4=لليوم، 5=للدقيقة) - sbyte
-
-// dailyAvailability:
-// dayOfWeek: يوم الأسبوع (0=الأحد، 1=الإثنين، 2=الثلاثاء، 3=الأربعاء، 4=الخميس، 5=الجمعة، 6=السبت) - sbyte
-// isAvailable: هل الخدمة متاحة في هذا اليوم - bool
-// is24Hours: هل الخدمة متاحة على مدار 24 ساعة - bool
-
+// paymentPeriod (queryParam): نوع السعر (0=للخدمة، 1=للمتر، 2=للقطعة، 3=للساعة، 4=لليوم، 5=للدقيقة)
+// dayOfWeek: يوم الاسبوع (0=كل يوم، 1=يعتمد، 2=الاحد، 3=الاثنين، 4=الثلاثاء، 5=الاربعاء، 6=الخميس، 7=الجمعة، 8=السبت)
+// isAvailable: هل الخدمة متاحة في هذا اليوم 
+// is24Hours: هل الخدمة متاحة على مدار 24 ساعة
 // timeSlots:
-// openingTime: وقت بدء الخدمة (HH:MM) - string
-// closingTime: وقت انتهاء الخدمة (HH:MM) - string
+// openingTime: وقت بدء الخدمة (HH:MM)
+// closingTime: وقت انتهاء الخدمة (HH:MM)
+/*
+[LocalizedEnumName(Arabic = "نوع السعر", Kurdish = "جۆری نرخ")]
+[EnumConverter]
+public enum PaymentPeriod : byte
+{
+    [LanguageDisplay(Arabic = "للخدمة", Kurdish = "بۆ خزمەتگوزاری")]
+    PerService,
+    
+    [LanguageDisplay(Arabic = "للمتر", Kurdish = "بۆ مەتر")]
+    PerMeter,
+    
+    [LanguageDisplay(Arabic = "للقطعة", Kurdish = "بۆ پارچە")]
+    PerPiece,
+    
+    [LanguageDisplay(Arabic = "للساعة", Kurdish = "بۆ کاتژمێر")]
+    PerHour,
+    
+    [LanguageDisplay(Arabic = "لليوم", Kurdish = "بۆ ڕۆژ")]
+    PerDay,
+    
+    [LanguageDisplay(Arabic = "للدقيقة", Kurdish = "بۆ خولەک")]
+    PerMinute
+}
+
+[LocalizedEnumName(Arabic = "يوم الاسبوع", Kurdish = "ڕۆژی هەفتە")]
+[EnumConverter]
+public enum DayOfWeek : byte
+{
+    [LanguageDisplay(Arabic = "كل يوم", Kurdish = "هەموو ڕۆژێک")]
+    Everyday,
+    
+    [LanguageDisplay(Arabic = "يعتمد", Kurdish = "پشت بە")]
+    Depend,
+    
+    [LanguageDisplay(Arabic = "الاحد", Kurdish = "یەکشەممە")]
+    Sunday,
+    
+    [LanguageDisplay(Arabic = "الاثنين", Kurdish = "دووشەممە")]
+    Monday,
+    
+    [LanguageDisplay(Arabic = "الثلاثاء", Kurdish = "سێشەممە")]
+    Tuesday,
+    
+    [LanguageDisplay(Arabic = "الاربعاء", Kurdish = "چوارشەممە")]
+    Wednesday,
+    
+    [LanguageDisplay(Arabic = "الخميس", Kurdish = "پێنجشەممە")]
+    Thursday,
+    
+    [LanguageDisplay(Arabic = "الجمعة", Kurdish = "هەینی")]
+    Friday,
+    
+    [LanguageDisplay(Arabic = "السبت", Kurdish = "شەممە")]
+    Saturday
+}
+*/

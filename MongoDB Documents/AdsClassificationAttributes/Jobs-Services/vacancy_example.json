@@ -4,18 +4,21 @@
   "title": "Senior Software Engineer Position",
   "description": "Looking for an experienced software engineer to join our growing team. Must have strong experience in full-stack development.",
   "price": {
-    "value": 1000.00, // min of salary range
-    "isDollar": true, // bool (could be true or false for anything related to vacancy for determine the salary range)
+    "value": 1000.00, // (min of salary range)
+    "isDollar": true, // (could be true or false for anything related to vacancy for determine the salary range)
     "showingPrice": "1,000 دولار"
   },
-  "status": "active", // string (could be "active", "deleted", or "archived")
+  "status": "active",
   "createdAt": "2024-05-14T15:30:00Z",
   "updatedAt": "2024-05-14T15:30:00Z",
   "imageCount": 1,
   "viewsCount": 78,
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
-  "priority": 1,
+    "priority": 2,
+    "category" : {
+      "categoryJoins": "2",
+      "categoryIds": [1, 2, 3]
+    },
   "slug": "senior-software-engineer-position",
   
   "location": {
@@ -30,20 +33,98 @@
   
   "specs": {
     "vacancy": {
-      "jobType": 1, // sbyte
-      "experienceYears": 5, // sbyte
-      "educationLevel": 3, // sbyte
-      "workingHours": 1, // sbyte
+      "jobType": 1, // byte
+      "experienceYears": 5, // byte
+      "educationLevel": 3, // byte
+      "workingHours": 1, // byte
       "max" : 2000.00, // max of salary range
-      "paymentPeriod": 0 //sbyte
+      "paymentPeriod": 0 //byte
 
     }
   }
 } 
 
 // Reference Values for vacancy fields:
-// jobType: نوع الوظيفة (0=دوام كامل، 1=دوام جزئي، 2=عن بعد، 3=مؤقت، 4=تدريب) - Job Type (0=Full-time, 1=Part-time, 2=Remote, 3=Temporary, 4=Internship)
+// jobType (queryParam): نوع الوظيفة (0=دوام كامل، 1=دوام جزئي، 2=عن بعد، 3=مؤقت، 4=تدريب) - Job Type (0=Full-time, 1=Part-time, 2=Remote, 3=Temporary, 4=Internship)
 // experienceYears: سنوات الخبرة المطلوبة (0-50)
-// educationLevel: المستوى التعليمي (0=ثانوي، 1=دبلوم، 2=بكالوريوس، 3=ماجستير، 4=دكتوراه، 5=غير مطلوب) - Education Level (0=High School, 1=Diploma, 2=Bachelor, 3=Master, 4=PhD, 5=Not Required)
-// workingHours: ساعات العمل (0=صباحي، 1=مسائي، 2=نوبات، 3=مرن) - Working Hours (0=Morning, 1=Evening, 2=Shifts, 3=Flexible)
-// paymentPeriod: طريقة الدفع  (0=شهريًا، 1=لكل وردية، 2=لكل ساعة، 3=لكل خدمة) - Payment Method (0=Per Month, 1=Per Shift, 2=Per Hour, 3=Per Service)
+// educationLevel (queryParam): المستوى التعليمي (0=ثانوي، 1=دبلوم، 2=بكالوريوس، 3=ماجستير، 4=دكتوراه، 5=غير مطلوب) - Education Level (0=High School, 1=Diploma, 2=Bachelor, 3=Master, 4=PhD, 5=Not Required)
+// workingHours (queryParam): ساعات العمل (0=صباحي، 1=مسائي، 2=نوبات، 3=مرن) - Working Hours (0=Morning, 1=Evening, 2=Shifts, 3=Flexible)
+// paymentPeriod (queryParam): طريقة الدفع (0=شهريًا، 1=لكل وردية، 2=لكل ساعة، 3=لكل خدمة) - Payment Method (0=Per Month, 1=Per Shift, 2=Per Hour, 3=Per Service)
+/*
+[LocalizedEnumName(Arabic = "نوع-الوظيفة", Kurdish = "جۆری-کار")]
+[EnumConverter]
+public enum JobType : byte
+{
+    [LanguageDisplay(Arabic = "دوام كامل", Kurdish = "کاری تەواو")]
+    FullTime,
+    
+    [LanguageDisplay(Arabic = "دوام جزئي", Kurdish = "کاری بەشێک لە کات")]
+    PartTime,
+    
+    [LanguageDisplay(Arabic = "عن بعد", Kurdish = "دوور")]
+    Remote,
+    
+    [LanguageDisplay(Arabic = "مؤقت", Kurdish = "کاتی")]
+    Temporary,
+    
+    [LanguageDisplay(Arabic = "تدريب", Kurdish = "ڕاهێنان")]
+    Internship
+}
+
+[LocalizedEnumName(Arabic = "المستوى-التعليمي", Kurdish = "ئاستی-پەروەردە")]
+[EnumConverter]
+public enum EducationLevel : byte
+{
+    [LanguageDisplay(Arabic = "ثانوي", Kurdish = "ئامادەیی")]
+    HighSchool,
+    
+    [LanguageDisplay(Arabic = "دبلوم", Kurdish = "دبلۆم")]
+    Diploma,
+    
+    [LanguageDisplay(Arabic = "بكالوريوس", Kurdish = "بەکالۆریۆس")]
+    Bachelor,
+    
+    [LanguageDisplay(Arabic = "ماجستير", Kurdish = "ماستەر")]
+    Master,
+    
+    [LanguageDisplay(Arabic = "دكتوراه", Kurdish = "دکتۆرا")]
+    PhD,
+    
+    [LanguageDisplay(Arabic = "غير-مطلوب", Kurdish = "پێویست-نییە")]
+    NotRequired
+}
+
+[LocalizedEnumName(Arabic = "ساعات-العمل", Kurdish = "کاتژمێرەکانی-کار")]
+[EnumConverter]
+public enum WorkingHours : byte
+{
+    [LanguageDisplay(Arabic = "صباحي", Kurdish = "بەیانی")]
+    Morning,
+    
+    [LanguageDisplay(Arabic = "مسائي", Kurdish = "ئێوارە")]
+    Evening,
+    
+    [LanguageDisplay(Arabic = "نوبات", Kurdish = "شیفت")]
+    Shifts,
+    
+    [LanguageDisplay(Arabic = "مرن", Kurdish = "نەرم")]
+    Flexible
+}
+
+[LocalizedEnumName(Arabic = "طريقة-الدفع", Kurdish = "شێوازی-پارەدان")]
+[EnumConverter]
+public enum PaymentPeriod : byte
+{
+    [LanguageDisplay(Arabic = "شهريًا", Kurdish = "مانگانە")]
+    PerMonth,
+    
+    [LanguageDisplay(Arabic = "لكل وردية", Kurdish = "بۆ هەر شیفتێک")]
+    PerShift,
+    
+    [LanguageDisplay(Arabic = "لكل ساعة", Kurdish = "بۆ هەر کاتژمێرێک")]
+    PerHour,
+    
+    [LanguageDisplay(Arabic = "لكل خدمة", Kurdish = "بۆ هەر خزمەتگوزارییەک")]
+    PerService
+}
+*/

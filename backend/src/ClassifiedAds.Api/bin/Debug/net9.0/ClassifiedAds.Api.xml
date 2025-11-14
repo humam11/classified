@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ClassifiedAds.Api</name>
+    </assembly>
+    <members>
+        <member name="T:ClassifiedAds.Api.Controllers.DynamicAdsController">
+            <summary>
+            Dynamic controller that handles all category slugs
+            </summary>
+        </member>
+        <member name="M:ClassifiedAds.Api.Controllers.DynamicAdsController.CreateAd(System.String,System.String,System.Text.Json.JsonElement)">
+            <summary>
+            Create an ad for any category
+            </summary>
+            <param name="lang">Language code (ar or kr)</param>
+            <param name="categorySlug">Full category path slug</param>
+            <param name="dto">Ad data as JSON - structure depends on category</param>
+            <returns>Created ad ID</returns>
+            <remarks>
+            Example: POST /api/ar/categories/مركبات-ونقل/سيارات/ads
+            </remarks>
+        </member>
+        <member name="M:ClassifiedAds.Api.Controllers.DynamicAdsController.GetAdById(System.String,System.String,System.String)">
+            <summary>
+            Get ad by ID
+            </summary>
+            <remarks>
+            Example: GET /api/ar/بغداد/ads/507f1f77bcf86cd799439011
+            </remarks>
+        </member>
+        <member name="M:ClassifiedAds.Api.Controllers.DynamicAdsController.UpdateAd(System.String,System.String,System.Text.Json.JsonElement)">
+            <summary>
+            Update ad by ID
+            </summary>
+            <remarks>
+            Example: PUT /api/ar/ads/507f1f77bcf86cd799439011
+            </remarks>
+        </member>
+        <member name="M:ClassifiedAds.Api.Controllers.DynamicAdsController.DeleteAd(System.String,System.String)">
+            <summary>
+            Delete ad by ID
+            </summary>
+            <remarks>
+            Example: DELETE /api/ar/ads/507f1f77bcf86cd799439011
+            </remarks>
+        </member>
+    </members>
+</doc>

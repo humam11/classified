@@ -5,17 +5,20 @@
   "description": "Luxury Mercedes-Benz Tourismo, 2017, 50 seats, air conditioning, excellent condition.",
   "price": {
     "value": 95000.00,
-    "isDollar": true, // bool (could be true or false for anything related to general transport)
+    "isDollar": true, // (could be true or false for anything related to general transport)
     "showingPrice": "95,000 دولار"
   },
-  "status": "active", // string (could be "active", "deleted", or "archived")
+  "status": "active",
   "createdAt": "2024-05-09T11:15:00Z",
   "updatedAt": "2024-05-09T11:15:00Z",
   "imageCount": 4,
   "viewsCount": 27,
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
-  "priority": 3,
+    "priority": 2,
+    "category" : {
+      "categoryJoins": "2",
+      "categoryIds": [1, 2, 3]
+    },
   "slug": "2017-mercedes-benz-tourismo-bus-50-seats",
   
   "location": {
@@ -29,28 +32,19 @@
 
   "specs": {
     "transport": {
-      "fuelType": 2, // sbyte (0-5)
-      "enginePower": 500, // short
-      "fuelTankCapacity": 200 // short
+      "fuelType": 2, // enum:byte
+      "enginePower": 500, // ushort
+      "fuelTankCapacity": 200 // ushort
     },
     "heavyEquipment": {
       "operatingMass": 2500.00, // float
       "weight": 2.50 // float
     },
     "bus": {
-      "seatingCapacity": 50 // sbyte
+      "seatingCapacity": 50 // byte
     }
   }
 }
 
-// Reference Values for transport fields:
-// fuelType: نوع الوقود: 0=بنزين، 1=ديزل (كاز)، 2=كهرباء، 3=هجين، 4=غاز، 5=أخرى
-// enginePower: قوة المحرك بالحصان (1-2000)
-// fuelTankCapacity: سعة خزان الوقود باللتر (1-1000)
-
-// Reference Values for heavy equipment fields:
-// operatingMass: الوزن التشغيلي (كغ) - Operating Mass (kg)
-// weight: الوزن الاساسي (طن) - Base Weight (tons)
-
 // Reference Values for bus fields:
-// seatingCapacity: عدد المقاعد (1-100) - Seating Capacity (1-100)
+// seatingCapacity (queryParams): عدد المقاعد (1-100) - Seating Capacity (1-100)

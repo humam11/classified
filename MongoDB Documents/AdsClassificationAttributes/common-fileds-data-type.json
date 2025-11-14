@@ -2,42 +2,51 @@
 "_id": ObjectId,       // ObjectId
 "title": "string",     // string
 "description": "string", // string
-"price": 65000.00,     // float
-"showingPrice": "string", // string
-"status": "active", // string
-"createdAt": "2024-05-10T15:30:00Z", // Date - Stored in UTC, convert to user's timezone for display via application-level (Asia/Baghdad)
-"updatedAt": "2024-05-10T15:30:00Z", // Date - Stored in UTC, convert to user's timezone for display via application-level (Asia/Baghdad)
-"imageCount": 5,       // sbyte
+"price": {
+        "value": 65000.00,
+        "isDollar": true, // (could be true or false for anything related to general transport)
+        "showingPrice": "65,000 دولار"
+    },
+"status": 1, // enum:byte
+"createdAt": "2024-05-10T18:30:00+03:00", // Date - Stored in UTC+3 (Asia/Baghdad) as main timezone
+"updatedAt": "2024-05-10T18:30:00+03:00", // Date - Stored in UTC+3 (Asia/Baghdad) as main timezone
+"imageCount": 5,       // byte
 "viewsCount": 235,     // ushort
 "isDollar": true,      // bool
 "userId": ObjectId,    // ObjectId
-"categoryId": ObjectId, // ObjectId
-"priority": 2,         // sbyte (1-4)
+"priority": 2,         // byte (1-4)
+"category": Object
+{
+          "categoryJoins"://byte,
+      "categoryIds"://ushort[]
+},
+
 "slug": "string"       // string
 
 
     "location": {
-        "cityId": 1,       // short
-        "locationIds": [], // short[]
+        "cityId": 1,       // ushort
+        "locationIds": [], // ushort[]
         "fullAddressArabic": "string", // string
         "fullAddressKurdish": "string", // string
-        "street": "string", // string
-        "hierarchy": {
-            "city": {
-                "id": 1,   // short
-                "nameEnglish": "string", // string
-                "nameArabic": "string",  // string
-                "nameKurdish": "string"  // string
-            },
-            // district and neighborhood follow same structure
-        }
+        "street": "string"
     }
 
 
     "images": [{
         "imageId": "Guid", // Guid
         "imageUrl": "string", // string
-        "order": 1        // sbyte (1-5)
+        "order": 1        // byte (1-5)
     }]
 
 }
+
+
+
+
+// public enum Status : byte
+// {
+//     Deleted,
+//     Active,
+//     Archived
+// }

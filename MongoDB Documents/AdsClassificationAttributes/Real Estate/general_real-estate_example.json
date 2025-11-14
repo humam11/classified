@@ -5,17 +5,20 @@
   "description": "Prime commercial property in a strategic location, suitable for various business purposes.",
   "price": {
     "value": 100000000.00,
-    "isDollar": false, // bool (always false for anything related to real estate)
+    "isDollar": false, // (always false for anything related to real estate)
     "showingPrice": "100,000,000 مليون دينار عراقي"
   },
-  "status": "active", // string (could be "active", "deleted", or "archived")
+  "status": "active",
   "createdAt": "2024-05-14T17:00:00Z",
   "updatedAt": "2024-05-14T17:00:00Z",
   "imageCount": 5,
   "viewsCount": 120,
   "userId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1b",
-  "categoryId": "018e9c9c-7c1a-7c1a-7c1a-7c1a7c1a7c1c",
-  "priority": 2,
+    "priority": 2,
+    "category" : {
+      "categoryJoins": "2",
+      "categoryIds": [1, 2, 3]
+    },
   "slug": "commercial-property-for-sale",
   
   "location": {
@@ -30,10 +33,10 @@
   
   "specs": {
     "realEstate": {
-      "area": 250.50 // float
+      "area": 250.50 // float with Enum of units
     }
   }
 } 
 
 // Reference Values for realEstate fields:
-// area: المساحة بالمتر المربع (1-10000)
+// area (queryParam): المساحة بالمتر المربع (1-10000)
