@@ -23,20 +23,25 @@ public class DynamicAdsController : ControllerBase
     }
 
     /// <summary>
-    /// Create an ad for any category
+    /// Create an ad for any category using multipart/form-data with file uploads
     /// </summary>
     /// <param name="lang">Language code (ar or kr)</param>
     /// <param name="categorySlug">Full category path slug</param>
-    /// <param name="dto">Ad data as JSON - structure depends on category</param>
+    /// <param name="formDto">Ad data from form fields</param>
     /// <returns>Created ad ID</returns>
     /// <remarks>
     /// Example: POST /api/ar/categories/مركبات-ونقل/سيارات/ads
+    /// Content-Type: multipart/form-data
+    /// Form Fields: Title, Description, PriceValue, PriceIsDollar, City, Region, Neighborhood, Street, ImageFiles (files)
     /// </remarks>
     [HttpPost("{lang}/categories/{**categorySlug}")]
-    public async Task<ActionResult<string>> CreateAd(
+    [Consumes("multipart/form-data")]
+    [DisableRequestSizeLimit]
+    [RequestFormLimits(MultipartBodyLengthLimit = 52428800)] // 50MB
+    public async Task<ActionResult<string>> CreateAdMultipart(
         [FromRoute] string lang,
         [FromRoute] string categorySlug,
-        [FromBody] JsonElement dto)
+        [FromForm] CreateAdDto formDto)
     {
         try
         {
@@ -52,49 +57,41 @@ public class DynamicAdsController : ControllerBase
                 categorySlug = categorySlug.Substring(0, categorySlug.Length - 4);
             }
 
-            // Get DTO type for category
-            var dtoType = CategoryDtoMapper.GetDtoType(categorySlug, lang);
-            if (dtoType == null)
-            {
-                return BadRequest(new 
-                { 
-                    error = "Category not supported",
-                    categorySlug,
-                    language = lang,
-                    message = $"The category '{categorySlug}' is not supported for language '{lang}'"
-                });
-            }
-
-            // Deserialize JSON to the appropriate DTO type
-            var adDto = JsonSerializer.Deserialize(dto.GetRawText(), dtoType, new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            });
-
-            if (adDto == null)
-            {
-                return BadRequest(new { error = "Failed to deserialize ad data" });
-            }
-
-            // Cast to CreateAdDto (all DTOs inherit from this)
-            if (adDto is not CreateAdDto createAdDto)
-            {
-                return BadRequest(new { error = "Invalid DTO type" });
-            }
+            // Get DTO type for category (throws if not supported)
+            var dtoType = CategoryDtoMapper.GetDtoTypeOrThrow(categorySlug, lang);
 
             _logger.LogInformation(
-                "Creating ad for category: {CategorySlug}, language: {Language}, DTO: {DtoType}",
-                categorySlug, lang, dtoType.Name);
+                "Creating ad (multipart) for category: {CategorySlug}, language: {Language}, Images: {ImageCount}",
+                categorySlug, lang, formDto.ImageFiles.Count);
 
-            // Create the ad
-            var adId = await _adService.CreateAdAsync(createAdDto, categorySlug, string.Empty);
+            // Convert IFormFile to ImageUpload abstraction
+            var imageUploads = formDto.ImageFiles.Select(img => new Application.Interfaces.ImageUpload
+            {
+                Stream = img.OpenReadStream(),
+                FileName = img.FileName,
+                Length = img.Length
+            }).ToList();
+
+            // Create the ad with images (mapper will handle conversion)
+            var adId = await _adService.CreateAdWithImagesAsync(formDto, categorySlug, imageUploads);
             
             return CreatedAtAction(nameof(GetAdById), new { id = adId, lang, locationSlug = "ads" }, new { id = adId });
         }
-        catch (JsonException ex)
+        catch (CategoryDtoMapper.CategoryNotSupportedException ex)
         {
-            _logger.LogError(ex, "JSON deserialization error");
-            return BadRequest(new { error = "Invalid JSON format", details = ex.Message });
+            _logger.LogWarning(ex, "Category not supported: {CategorySlug}, Language: {Language}", ex.CategorySlug, ex.Language);
+            return BadRequest(new 
+            { 
+                error = "Category not supported",
+                categorySlug = ex.CategorySlug,
+                language = ex.Language,
+                message = ex.Message
+            });
+        }
+        catch (FormatException ex)
+        {
+            _logger.LogError(ex, "Invalid format in form data");
+            return BadRequest(new { error = "Invalid format in form data", details = ex.Message });
         }
         catch (Exception ex)
         {
@@ -102,6 +99,8 @@ public class DynamicAdsController : ControllerBase
             return BadRequest(new { error = ex.Message });
         }
     }
+
+
 
     /// <summary>
     /// Get ad by ID

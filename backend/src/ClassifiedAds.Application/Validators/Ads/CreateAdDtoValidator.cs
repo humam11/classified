@@ -29,45 +29,35 @@ public class CreateAdDtoValidator : AbstractValidator<CreateAdDto>
                 "وەسف نابێت لە 1000 پیت زیاتر بێت"))
             .When(x => !string.IsNullOrEmpty(x.Description));
 
-        RuleFor(x => x.Price)
-            .NotNull().WithMessage(GetMessage(
-                // Price is required
-                "السعر مطلوب",
-                "نرخ پێویستە"))
-            .SetValidator(new PriceDtoValidator());
+        // Price validation (flat fields)
+        RuleFor(x => x.PriceValue)
+            .GreaterThan(0).WithMessage(GetMessage(
+                // Price must be greater than zero
+                "يجب أن يكون السعر أكبر من الصفر",
+                "نرخ دەبێت لە سفر زیاتر بێت"));
 
-        //RuleFor(x => x.Status)
-        //    .IsValidEnum();
+        // Location validation (flat fields)
+        RuleFor(x => x.City)
+            .NotEmpty().WithMessage(GetMessage(
+                // City is required
+                "المدينة مطلوبة",
+                "شار پێویستە"))
+            .MaximumLength(100).WithMessage(GetMessage(
+                // City must not exceed 100 characters
+                "يجب ألا تتجاوز المدينة 100 حرفًا",
+                "شار نابێت لە 100 پیت زیاتر بێت"));
 
-        RuleFor(x => x.Category)
-            .NotNull().WithMessage("Category is required")
-            .SetValidator(new CategoryDtoValidator());
-
-        RuleFor(x => x.LocationAd)
-            .NotNull().WithMessage(GetMessage(
-                // Location is required
-                "الموقع مطلوب",
-                "شوێن پێویستە"))
-            .SetValidator(new LocationAdDtoValidator());
-
-        RuleFor(x => x.Images)
-            .NotNull().WithMessage(GetMessage(
-                // Images are required
-                "الصور مطلوبة",
-                "وێنەکان پێویستە"))
-            .Must(images => images != null && images.Count > 0)
-            .WithMessage(GetMessage(
+        // Images validation (for multipart uploads)
+        RuleFor(x => x.ImageFiles)
+            .NotEmpty().WithMessage(GetMessage(
                 // At least one image is required
-                "مطلوب صورة واحدة على الأقل",
+                "صورة واحدة على الأقل مطلوبة",
                 "لانیکەم یەک وێنە پێویستە"))
-            .Must(images => images == null || images.Count <= 5)
+            .Must(images => images != null && images.Count >= 1 && images.Count <= 5)
             .WithMessage(GetMessage(
-                // Maximum 5 images allowed
-                "الحد الأقصى 5 صور مسموح",
-                "زۆرترین 5 وێنە ڕێگەپێدراوە"));
-
-        RuleForEach(x => x.Images)
-            .SetValidator(new AdImageDtoValidator());
+                // Between 1 and 5 images are required
+                "يجب تحميل من 1 إلى 5 صور",
+                "دەبێت لە 1 بۆ 5 وێنە بار بکرێت"));
     }
 
     private static string GetMessage(string ar, string kr)
@@ -87,12 +77,11 @@ public class CreateAdLocalPriceOnlyValidator : AbstractValidator<CreateAdDto>
         Include(new CreateAdDtoValidator());
 
         // Override price validator to enforce local currency only
-        RuleFor(x => x.Price)
-            .NotNull().WithMessage(GetMessage(
-                // Price is required
-                "السعر مطلوب",
-                "نرخ پێویستە"))
-            .SetValidator(new PriceLocalOnlyValidator());
+        RuleFor(x => x.PriceIsDollar)
+            .Equal(false).WithMessage(GetMessage(
+                // Price must be in local currency (IQD) only
+                "يجب أن يكون السعر بالعملة المحلية (دينار عراقي) فقط",
+                "نرخ دەبێت بە دراوی ناوخۆیی (دیناری عێراقی) بێت تەنها"));
     }
 
     private static string GetMessage(string ar, string kr)

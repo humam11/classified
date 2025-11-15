@@ -9,16 +9,18 @@
             Dynamic controller that handles all category slugs
             </summary>
         </member>
-        <member name="M:ClassifiedAds.Api.Controllers.DynamicAdsController.CreateAd(System.String,System.String,System.Text.Json.JsonElement)">
+        <member name="M:ClassifiedAds.Api.Controllers.DynamicAdsController.CreateAdMultipart(System.String,System.String,ClassifiedAds.Application.DTOs.Ads.CreateAdDto)">
             <summary>
-            Create an ad for any category
+            Create an ad for any category using multipart/form-data with file uploads
             </summary>
             <param name="lang">Language code (ar or kr)</param>
             <param name="categorySlug">Full category path slug</param>
-            <param name="dto">Ad data as JSON - structure depends on category</param>
+            <param name="formDto">Ad data from form fields</param>
             <returns>Created ad ID</returns>
             <remarks>
             Example: POST /api/ar/categories/مركبات-ونقل/سيارات/ads
+            Content-Type: multipart/form-data
+            Form Fields: Title, Description, PriceValue, PriceIsDollar, City, Region, Neighborhood, Street, ImageFiles (files)
             </remarks>
         </member>
         <member name="M:ClassifiedAds.Api.Controllers.DynamicAdsController.GetAdById(System.String,System.String,System.String)">

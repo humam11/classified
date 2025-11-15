@@ -4,35 +4,42 @@ using FluentValidation;
 
 namespace ClassifiedAds.Application.Validators.Common;
 
-/// <summary>
-/// Base validator for LocationDto - validates common location properties
-/// </summary>
 public class LocationAdDtoValidator : AbstractValidator<LocationAdDto>
 {
     public LocationAdDtoValidator()
     {
+        // City is required
+        RuleFor(x => x.City)
+            .NotEmpty()
+            .WithMessage(GetMessage(
+                "المدينة مطلوبة",
+                "شار پێویستە"))
+            .MaximumLength(50)
+            .WithMessage(GetMessage(
+                "يجب ألا تتجاوز المدينة 50 حرفًا",
+                "شار نابێت لە 50 پیت زیاتر بێت"));
 
-        RuleFor(x => x.LocationIds)
-            .NotNull()
-            .WithMessage("Location IDs are required")
-            .Must(ids => ids != null && ids.Count > 0)
-            .WithMessage("At least one location ID is required");
+        // Region is optional
+        RuleFor(x => x.Region)
+            .MaximumLength(50)
+            .When(x => !string.IsNullOrEmpty(x.Region))
+            .WithMessage(GetMessage(
+                "يجب ألا تتجاوز المنطقة 50 حرفًا",
+                "ناوچە نابێت لە 50 پیت زیاتر بێت"));
 
-        //RuleFor(x => x.FullAddressArabic)
-        //    .MaximumLength(200)
-        //    .When(x => !string.IsNullOrEmpty(x.FullAddressArabic))
-        //    .WithMessage("Full address (Arabic) must not exceed 200 characters");
+        // Neighborhood is optional
+        RuleFor(x => x.Neighborhood)
+            .MaximumLength(50)
+            .When(x => !string.IsNullOrEmpty(x.Neighborhood))
+            .WithMessage(GetMessage(
+                "يجب ألا يتجاوز الحي 50 حرفًا",
+                "گەڕەک نابێت لە 50 پیت زیاتر بێت"));
 
-        //RuleFor(x => x.FullAddressKurdish)
-        //    .MaximumLength(200)
-        //    .When(x => !string.IsNullOrEmpty(x.FullAddressKurdish))
-        //    .WithMessage("Full address (Kurdish) must not exceed 200 characters");
-
+        // Street is optional
         RuleFor(x => x.Street)
             .MaximumLength(100)
             .When(x => !string.IsNullOrEmpty(x.Street))
             .WithMessage(GetMessage(
-                // Street must not exceed 100 characters
                 "يجب ألا يتجاوز الشارع 100 حرفًا",
                 "شەقام نابێت لە 100 پیت زیاتر بێت"));
     }
@@ -43,10 +50,6 @@ public class LocationAdDtoValidator : AbstractValidator<LocationAdDto>
     }
 }
 
-/// <summary>
-/// Validator for locations where Street must be null
-/// Used for: CV
-/// </summary>
 public class LocationAdNoStreetValidator : AbstractValidator<LocationAdDto>
 {
     public LocationAdNoStreetValidator()
@@ -54,9 +57,9 @@ public class LocationAdNoStreetValidator : AbstractValidator<LocationAdDto>
         Include(new LocationAdDtoValidator());
 
         RuleFor(x => x.Street)
-            .Null()
+            .Empty()
             .WithMessage(GetMessage(
-                // Street must be null for CV
+                // Street must be empty for CV
                 "يجب أن يكون الشارع فارغًا للسيرة الذاتية",
                 "شەقام دەبێت بەتاڵ بێت بۆ سی ڤی"));
     }

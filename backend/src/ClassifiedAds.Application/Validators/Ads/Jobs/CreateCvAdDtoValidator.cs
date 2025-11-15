@@ -15,10 +15,13 @@ public class CreateCvAdDtoValidator : AbstractValidator<CreateCvAdDto>
     {
         Include(new CreateAdDtoValidator()); // Can be IQD or USD
 
-        // Override LocationAd validator to enforce no street for CV
-        RuleFor(x => x.LocationAd)
-            .NotNull().WithMessage("Location is required")
-            .SetValidator(new LocationAdNoStreetValidator());
+        // Street should not be provided for CV ads
+        RuleFor(x => x.Street)
+            .Empty().WithMessage(GetMessage(
+                // Street should not be provided for CV
+                "يجب أن يكون الشارع فارغًا للسيرة الذاتية",
+                "شەقام دەبێت بەتاڵ بێت بۆ سی ڤی"))
+            .When(x => !string.IsNullOrEmpty(x.Street));
 
         RuleFor(x => x.FirstName)
             .NotEmpty().WithMessage(GetMessage(

@@ -64,3 +64,5 @@ C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api
 C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\bin\Debug\net9.0\ZstdSharp.dll
 C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Debug\net9.0\ClassifiedAds.Api.xml
 C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\bin\Debug\net9.0\ClassifiedAds.Api.xml
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\bin\Debug\net9.0\SixLabors.ImageSharp.dll
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\bin\Debug\net9.0\ClassifiedAds.Api.staticwebassets.runtime.json

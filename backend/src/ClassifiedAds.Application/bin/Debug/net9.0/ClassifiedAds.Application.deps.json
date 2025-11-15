@@ -10,6 +10,7 @@
         "dependencies": {
           "ClassifiedAds.Domain": "1.0.0",
           "FluentValidation": "11.9.0",
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
           "MongoDB.Driver": "2.24.0"
         },
         "runtime": {
@@ -52,6 +53,11 @@
             "assemblyVersion": "11.0.0.0",
             "fileVersion": "11.9.0.0"
           }
+        }
+      },
+      "Microsoft.AspNetCore.Http.Features/2.2.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "9.0.10"
         }
       },
       "Microsoft.EntityFrameworkCore/9.0.10": {
@@ -324,6 +330,13 @@
       "sha512": "sha512-VneVlTvwYDkfHV5av3QrQ0amALgrLX6LV94wlYyEsh0B/klJBW7C8y2eAtj5tOZ3jH6CAVpr4s1ZGgew/QWyig==",
       "path": "fluentvalidation/11.9.0",
       "hashPath": "fluentvalidation.11.9.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Features/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ziFz5zH8f33En4dX81LW84I6XrYXKf9jg6aM39cM+LffN9KJahViKZ61dGMSO2gd3e+qe5yBRwsesvyqlZaSMg==",
+      "path": "microsoft.aspnetcore.http.features/2.2.0",
+      "hashPath": "microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore/9.0.10": {
       "type": "package",

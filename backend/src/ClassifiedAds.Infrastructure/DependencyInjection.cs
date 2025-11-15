@@ -48,6 +48,9 @@ public static class DependencyInjection
 
         // Register Application Services
         services.AddScoped<IAdService, AdService>();
+        services.AddScoped<ILocationService, Infrastructure.Services.LocationService>();
+        services.AddScoped<ICategoryService, Infrastructure.Services.CategoryService>();
+        services.AddScoped<IImageService, Infrastructure.Services.ImageService>();
 
         return services;
     }

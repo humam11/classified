@@ -1,51 +1,26 @@
-using ClassifiedAds.Application.DTOs.Common;
-using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace ClassifiedAds.Application.DTOs.Ads;
 
 /// <summary>
-/// Base DTO for creating any type of classified ad
+/// Base DTO for creating any type of classified ad.
+/// Uses flat fields for multipart/form-data compatibility.
 /// </summary>
 public class CreateAdDto
 {
-    /// <summary>
-    /// Ad title (max 100 characters)
-    /// </summary>
-    /// <example>تويوتا كامري 2023 نظيفة جداً</example>
-    [Required]
-    [MaxLength(100)]
-    public string Title { get; set; }
-
-    /// <summary>
-    /// Ad description (max 1000 characters)
-    /// </summary>
-    /// <example>سيارة نظيفة جداً، استعمال شخصي، صيانة دورية منتظمة</example>
-    [MaxLength(1000)]
-    public string Description { get; set; }
-
-    /// <summary>
-    /// Price information
-    /// </summary>
-    [Required]
-    public PriceDto Price { get; set; }
-
-    /// <summary>
-    /// Category information
-    /// </summary>
-    [Required]
-    public CategoryDto Category { get; set; }
-
-    /// <summary>
-    /// Location information
-    /// </summary>
-    [Required]
-    public LocationAdDto LocationAd { get; set; }
-
-    /// <summary>
-    /// Ad images (1-5 images required)
-    /// </summary>
-    [Required]
-    [MinLength(1)]
-    [MaxLength(5)]
-    public List<AdImageDto> Images { get; set; }
+    public string Title { get; set; } = string.Empty;
+    public string Description { get; set; } = string.Empty;
+    
+    // Flat price fields
+    public decimal PriceValue { get; set; }
+    public bool PriceIsDollar { get; set; }
+    
+    // Flat location fields
+    public string City { get; set; } = string.Empty;
+    public string? Region { get; set; }
+    public string? Neighborhood { get; set; }
+    public string? Street { get; set; }
+    
+    // File uploads (for multipart/form-data)
+    public List<IFormFile>? ImageFiles { get; set; }
 }

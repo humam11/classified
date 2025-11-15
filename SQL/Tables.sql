@@ -23,7 +23,7 @@ CREATE TABLE locations (
     location_id SMALLSERIAL PRIMARY KEY,
 
     -- Core Location Data
-    name_english VARCHAR(50) NOT NULL,
+    name_english VARCHAR(50) NULL,
     name_arabic VARCHAR(50) NOT NULL,
     name_kurdish VARCHAR(50) NOT NULL,
 
@@ -195,7 +195,7 @@ CREATE TABLE brands_models (
     category_id SMALLINT NOT NULL REFERENCES categories(category_id),
     
     -- Constraints
-    UNIQUE (name, parent_id, category_id),
+    UNIQUE (name_english, parent_id, category_id),
     CONSTRAINT chk_brands_models_hierarchy CHECK (
         (is_brand = TRUE AND parent_id IS NULL) OR
         (is_brand = FALSE AND parent_id IS NOT NULL)
