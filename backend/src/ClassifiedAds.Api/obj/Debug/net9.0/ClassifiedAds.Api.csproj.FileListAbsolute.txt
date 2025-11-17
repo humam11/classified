@@ -66,3 +66,5 @@ C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api
 C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\bin\Debug\net9.0\ClassifiedAds.Api.xml
 C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\bin\Debug\net9.0\SixLabors.ImageSharp.dll
 C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\bin\Debug\net9.0\ClassifiedAds.Api.staticwebassets.runtime.json
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll

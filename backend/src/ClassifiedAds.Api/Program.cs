@@ -2,6 +2,8 @@ using ClassifiedAds.Api.Middleware;
 using ClassifiedAds.Infrastructure;
 using MongoDB.Bson.Serialization.Conventions;
 using Microsoft.OpenApi.Models;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,10 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
         options.JsonSerializerOptions.WriteIndented = true;
     });
+
+// Add FluentValidation
+builder.Services.AddValidatorsFromAssemblyContaining<ClassifiedAds.Application.Validators.Ads.CreateAdDtoValidator>();
+builder.Services.AddFluentValidationAutoValidation();
 
 // Configure form options for multipart requests
 builder.Services.Configure<Microsoft.AspNetCore.Http.Features.FormOptions>(options =>

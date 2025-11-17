@@ -22,18 +22,7 @@ public class DynamicAdsController : ControllerBase
         _logger = logger;
     }
 
-    /// <summary>
-    /// Create an ad for any category using multipart/form-data with file uploads
-    /// </summary>
-    /// <param name="lang">Language code (ar or kr)</param>
-    /// <param name="categorySlug">Full category path slug</param>
-    /// <param name="formDto">Ad data from form fields</param>
-    /// <returns>Created ad ID</returns>
-    /// <remarks>
-    /// Example: POST /api/ar/categories/مركبات-ونقل/سيارات/ads
-    /// Content-Type: multipart/form-data
-    /// Form Fields: Title, Description, PriceValue, PriceIsDollar, City, Region, Neighborhood, Street, ImageFiles (files)
-    /// </remarks>
+
     [HttpPost("{lang}/categories/{**categorySlug}")]
     [Consumes("multipart/form-data")]
     [DisableRequestSizeLimit]
@@ -54,7 +43,16 @@ public class DynamicAdsController : ControllerBase
             // Remove /ads suffix from categorySlug if present
             if (categorySlug.EndsWith("/ads", StringComparison.OrdinalIgnoreCase))
             {
-                categorySlug = categorySlug.Substring(0, categorySlug.Length - 4);
+                categorySlug = categorySlug[..^4]; // Remove last 4 characters ("/ads")
+            }
+            else
+            {
+                return BadRequest(new 
+                { 
+                    error = "Invalid URL format",
+                    message = "URL must end with /ads",
+                    example = "ar/categories/مركبات-ونقل/سيارات/ads"
+                });
             }
 
             // Get DTO type for category (throws if not supported)
@@ -62,7 +60,7 @@ public class DynamicAdsController : ControllerBase
 
             _logger.LogInformation(
                 "Creating ad (multipart) for category: {CategorySlug}, language: {Language}, Images: {ImageCount}",
-                categorySlug, lang, formDto.ImageFiles.Count);
+                categorySlug, lang, formDto.ImageFiles?.Count ?? 0);
 
             // Convert IFormFile to ImageUpload abstraction
             var imageUploads = formDto.ImageFiles.Select(img => new Application.Interfaces.ImageUpload
@@ -73,7 +71,7 @@ public class DynamicAdsController : ControllerBase
             }).ToList();
 
             // Create the ad with images (mapper will handle conversion)
-            var adId = await _adService.CreateAdWithImagesAsync(formDto, categorySlug, imageUploads);
+            var adId = await _adService.CreateAdAsync(formDto, categorySlug, imageUploads);
             
             return CreatedAtAction(nameof(GetAdById), new { id = adId, lang, locationSlug = "ads" }, new { id = adId });
         }
@@ -99,15 +97,8 @@ public class DynamicAdsController : ControllerBase
             return BadRequest(new { error = ex.Message });
         }
     }
+    
 
-
-
-    /// <summary>
-    /// Get ad by ID
-    /// </summary>
-    /// <remarks>
-    /// Example: GET /api/ar/بغداد/ads/507f1f77bcf86cd799439011
-    /// </remarks>
     [HttpGet("{lang}/{locationSlug}/ads/{id}")]
     public async Task<ActionResult<CreateAdDto>> GetAdById(
         [FromRoute] string lang,
@@ -130,22 +121,59 @@ public class DynamicAdsController : ControllerBase
         }
     }
 
+
     /// <summary>
-    /// Update ad by ID
+    /// Update an ad by ID (PATCH - partial update)
     /// </summary>
+    /// <param name="lang">Language code (ar or kr)</param>
+    /// <param name="id">Ad ID</param>
+    /// <param name="formDto">Ad data to update (all fields optional)</param>
+    /// <returns>No content on success</returns>
     /// <remarks>
-    /// Example: PUT /api/ar/ads/507f1f77bcf86cd799439011
+    /// Example: PATCH /api/ar/ads/507f1f77bcf86cd799439011
+    /// Content-Type: multipart/form-data
+    /// 
+    /// All fields are optional. Only provided fields will be updated.
+    /// 
+    /// Special rules:
+    /// - If City is updated, Region and Neighborhood must be re-specified or will be cleared
+    /// - If PriceIsDollar is updated, PriceValue must also be provided
+    /// - If ImageFiles are provided, all old images will be replaced
     /// </remarks>
-    [HttpPut("{lang}/ads/{id}")]
+    [HttpPatch("{lang}/ads/{id}")]
+    [Consumes("multipart/form-data")]
+    [DisableRequestSizeLimit]
+    [RequestFormLimits(MultipartBodyLengthLimit = 52428800)] // 50MB
     public async Task<ActionResult> UpdateAd(
         [FromRoute] string lang,
         [FromRoute] string id,
-        [FromBody] JsonElement dto)
+        [FromForm] AdDto formDto)
     {
         try
         {
-            // TODO: Implement update logic
-            return BadRequest(new { error = "Update not yet implemented" });
+            // Validate language
+            if (lang != "ar" && lang != "kr")
+            {
+                return BadRequest(new { error = "Language must be 'ar' or 'kr'" });
+            }
+
+            _logger.LogInformation(
+                "Updating ad: {AdId}, language: {Language}",
+                id, lang);
+
+            var result = await _adService.UpdateAdAsync(id, formDto);
+            
+            if (!result)
+            {
+                return NotFound(new { error = "Ad not found" });
+            }
+
+            return NoContent();
+        }
+        catch (ArgumentException ex)
+        {
+            _logger.LogWarning(ex, "Invalid argument while updating ad: {Id}", id);
+            return BadRequest(new { error = ex.Message });
         }
         catch (Exception ex)
         {

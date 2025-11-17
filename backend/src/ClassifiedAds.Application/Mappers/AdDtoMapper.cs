@@ -5,24 +5,12 @@ using ClassifiedAds.Domain.Common.ValueObjects;
 
 namespace ClassifiedAds.Application.Mappers;
 
-/// <summary>
-/// Maps CreateAdDto to Ad entity (general ad without category-specific attributes)
-/// </summary>
+
 public static class AdDtoMapper
 {
-    /// <summary>
-    /// Maps a CreateAdDto to an Ad entity
-    /// </summary>
-    /// <param name="dto">The DTO containing user-provided data (flat fields)</param>
-    /// <param name="slug">Generated slug for the ad</param>
-    /// <param name="userId">Authenticated user's ID (from JWT token or auth context)</param>
-    /// <param name="categoryIds">Resolved category IDs from PostgreSQL</param>
-    /// <param name="categoryJoins">Number of category levels</param>
-    /// <param name="locationIds">Resolved location IDs from PostgreSQL</param>
-    /// <param name="fullAddressArabic">Full address in Arabic</param>
-    /// <param name="fullAddressKurdish">Full address in Kurdish</param>
+    // Maps a CreateAdDto to an Ad entity
     public static Ad MapToEntity(
-        CreateAdDto dto,
+        AdDto dto,
         string slug,
         Guid userId,
         List<ushort> categoryIds,
@@ -31,18 +19,24 @@ public static class AdDtoMapper
         string fullAddressArabic,
         string fullAddressKurdish)
     {
+        // Ensure required values are present (validation should have caught this)
+        if (string.IsNullOrEmpty(dto.Title) || !dto.IsDollar.HasValue || !dto.PriceValue.HasValue)
+        {
+            throw new ArgumentException("Required fields are missing");
+        }
+
         // Format showing price based on user's choice
-        string showingPrice = FormatShowingPrice(dto.PriceValue, dto.PriceIsDollar);
+        string showingPrice = FormatShowingPrice(dto.IsDollar.Value, dto.PriceValue.Value);
 
         return new Ad
         {
             // User-provided fields
             Title = dto.Title,
-            Description = dto.Description,
+            Description = dto.Description ?? string.Empty,
             Price = new Price
             {
-                Value = dto.PriceValue,
-                IsDollar = dto.PriceIsDollar,
+                IsDollar = dto.IsDollar.Value,
+                Value = dto.PriceValue.Value,
                 ShowingPrice = showingPrice
             },
             Category = new Category
@@ -71,17 +65,15 @@ public static class AdDtoMapper
         };
     }
 
-    /// <summary>
-    /// Maps an Ad entity to CreateAdDto (for GET operations)
-    /// </summary>
-    public static CreateAdDto MapToDto(Ad entity)
+    // Maps an Ad entity to AdDto (for GET operations)
+    public static AdDto MapToDto(Ad entity)
     {
-        return new CreateAdDto
+        return new AdDto
         {
             Title = entity.Title,
             Description = entity.Description,
+            IsDollar = entity.Price.IsDollar,
             PriceValue = entity.Price.Value,
-            PriceIsDollar = entity.Price.IsDollar,
             City = string.Empty, // TODO: Extract from FullAddressArabic/Kurdish
             Region = string.Empty,
             Neighborhood = string.Empty,
@@ -89,10 +81,8 @@ public static class AdDtoMapper
         };
     }
 
-    /// <summary>
-    /// Formats the showing price based on value and currency
-    /// </summary>
-    private static string FormatShowingPrice(decimal value, bool isDollar)
+    // Formats the showing price based on currency and value
+    public static string FormatShowingPrice(bool isDollar, decimal value)
     {
         string currency = isDollar ? "USD" : "IQD";
         return $"{value:N0} {currency}";

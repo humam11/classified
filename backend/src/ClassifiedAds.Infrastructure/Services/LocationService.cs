@@ -44,7 +44,7 @@ public class LocationService : ILocationService
             throw new ArgumentException($"City '{locationDto.City}' not found in database");
         }
 
-        // Add city to IDs (no country level in your data)
+        // Add city to IDs
         locationIds.Add(city.LocationID);
         addressPartsArabic.Add(city.NameArabic);
         addressPartsKurdish.Add(city.NameKurdish);

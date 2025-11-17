@@ -25,40 +25,6 @@ public class AdService : IAdService
         _imageService = imageService;
     }
 
-    public async Task<string> CreateAdAsync<TDto>(TDto dto, string categorySlug, string locationSlug) where TDto : CreateAdDto
-    {
-        // Generate slug first
-        var slug = GenerateSlug(dto.Title);
-
-        // TODO: Get userId from authentication context (JWT token)
-        var userId = Guid.Empty;
-
-        // Get language from LanguageContext (set by LanguageMiddleware)
-        var language = LanguageContext.Current ?? "ar";
-
-        // Resolve category from PostgreSQL
-        var (categoryIds, categoryJoins) =
-            await _categoryService.ResolveCategoryAsync(categorySlug, language);
-
-        // Resolve location from PostgreSQL (convert flat fields to LocationAdDto)
-        var locationDto = new DTOs.Common.LocationAdDto
-        {
-            City = dto.City,
-            Region = dto.Region,
-            Neighborhood = dto.Neighborhood,
-            Street = dto.Street
-        };
-        var (locationIds, fullAddressArabic, fullAddressKurdish) =
-            await _locationService.ResolveLocationAsync(locationDto, language);
-
-        // Use AdDtoMapper to create entity
-        var ad = AdDtoMapper.MapToEntity(dto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
-
-        // Insert into MongoDB
-        await _adsCollection.InsertOneAsync(ad);
-
-        return ad.Id!;
-    }
 
     public async Task<TDto?> GetAdByIdAsync<TDto>(string id) where TDto : class
     {
@@ -71,22 +37,16 @@ public class AdService : IAdService
     }
 
 
-    public async Task<string> CreateAdWithImagesAsync<TDto>(TDto dto, string categorySlug, List<ImageUpload> images) where TDto : CreateAdDto
+    public async Task<string> CreateAdAsync<TDto>(TDto dto, string categorySlug, List<ImageUpload> images) where TDto : CreateAdDto
     {
-        // Generate slug first
         var slug = GenerateSlug(dto.Title);
-
-        // TODO: Get userId from authentication context (JWT token)
-        var userId = Guid.Empty;
-
-        // Get language from LanguageContext (set by LanguageMiddleware)
+        var userId = Guid.Empty; // TODO: Get from JWT token
         var language = LanguageContext.Current ?? "ar";
 
         // Resolve category from PostgreSQL
-        var (categoryIds, categoryJoins) =
-            await _categoryService.ResolveCategoryAsync(categorySlug, language);
+        var (categoryIds, categoryJoins) = await _categoryService.ResolveCategoryAsync(categorySlug, language);
 
-        // Resolve location from PostgreSQL (convert flat fields to LocationAdDto)
+        // Resolve location from PostgreSQL
         var locationDto = new DTOs.Common.LocationAdDto
         {
             City = dto.City,
@@ -97,16 +57,23 @@ public class AdService : IAdService
         var (locationIds, fullAddressArabic, fullAddressKurdish) =
             await _locationService.ResolveLocationAsync(locationDto, language);
 
-        // Create ad entity (without images initially)
-        var ad = AdDtoMapper.MapToEntity(dto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        // Map DTO to entity using appropriate mapper based on DTO type
+        Ad ad;
+        if (dto is DTOs.Ads.Miscellaneous.CreateBookAdDto bookDto)
+        {
+            ad = Mappers.BookAdDtoMapper.MapToEntity(bookDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else
+        {
+            ad = Mappers.AdDtoMapper.MapToEntity(dto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
 
-        // Insert into MongoDB to get the ID
+        // Insert into MongoDB
         await _adsCollection.InsertOneAsync(ad);
 
         // Process and save images
         var processedImages = await _imageService.ProcessAndSaveImagesAsync(images, ad.Id!);
 
-        // Update ad with processed images
         ad.Images = processedImages.Select(img => new AdImage
         {
             ImageUrl = img.ImageUrl,
@@ -116,10 +83,157 @@ public class AdService : IAdService
         ad.ImageCount = (byte)ad.Images.Count;
         ad.UpdatedAt = DateTime.UtcNow;
 
-        // Update the ad in MongoDB with images
         await _adsCollection.ReplaceOneAsync(a => a.Id == ad.Id, ad);
 
         return ad.Id!;
+    }
+
+    public async Task<bool> UpdateAdAsync(string id, AdDto dto)
+    {
+        var existingAd = await _adsCollection.Find(a => a.Id == id).FirstOrDefaultAsync();
+        if (existingAd == null) return false;
+
+        var language = LanguageContext.Current ?? "ar";
+
+        // Update title if provided
+        if (!string.IsNullOrEmpty(dto.Title))
+        {
+            existingAd.Title = dto.Title;
+            existingAd.Slug = GenerateSlug(dto.Title);
+        }
+
+        // Update description if provided
+        if (dto.Description != null)
+        {
+            existingAd.Description = dto.Description;
+        }
+
+        // Update price if provided (validator ensures PriceValue is provided when IsDollar changes)
+        if (dto.IsDollar.HasValue || dto.PriceValue.HasValue)
+        {
+            // Update currency type first
+            if (dto.IsDollar.HasValue)
+            {
+                existingAd.Price.IsDollar = dto.IsDollar.Value;
+            }
+            
+            // Then update value
+            if (dto.PriceValue.HasValue)
+            {
+                existingAd.Price.Value = dto.PriceValue.Value;
+            }
+
+            // Recalculate ShowingPrice after price update
+            existingAd.Price.ShowingPrice = AdDtoMapper.FormatShowingPrice(
+                existingAd.Price.IsDollar,
+                existingAd.Price.Value);
+        }
+
+        // Update location if any location field is provided
+        if (!string.IsNullOrEmpty(dto.City) || !string.IsNullOrEmpty(dto.Region) || 
+            !string.IsNullOrEmpty(dto.Neighborhood) || !string.IsNullOrEmpty(dto.Street))
+        {
+            // Extract existing location parts
+            var existingAddressParts = existingAd.LocationAd.FullAddressArabic.Split('،');
+            var existingCity = existingAddressParts.Length > 0 ? existingAddressParts[0].Trim() : null;
+            var existingRegion = existingAddressParts.Length > 1 ? existingAddressParts[1].Trim() : null;
+            var existingNeighborhood = existingAddressParts.Length > 2 ? existingAddressParts[2].Trim() : null;
+
+            // Determine final location values
+            // If user provides a location field, use ONLY what they provide (auto-clear children)
+            string? finalCity;
+            string? finalRegion;
+            string? finalNeighborhood;
+            string? finalStreet;
+
+            // If City is provided (whether same or different), use only provided values
+            if (!string.IsNullOrEmpty(dto.City))
+            {
+                finalCity = dto.City;
+                finalRegion = dto.Region; // null if not provided
+                finalNeighborhood = dto.Neighborhood; // null if not provided
+                finalStreet = dto.Street; // null if not provided
+            }
+            // If Region is provided (and City is not), use existing City + provided Region
+            else if (!string.IsNullOrEmpty(dto.Region))
+            {
+                finalCity = existingCity;
+                finalRegion = dto.Region;
+                finalNeighborhood = dto.Neighborhood; // null if not provided
+                finalStreet = dto.Street; // null if not provided
+            }
+            // If Neighborhood is provided (and City/Region are not), use existing City/Region + provided Neighborhood
+            else if (!string.IsNullOrEmpty(dto.Neighborhood))
+            {
+                finalCity = existingCity;
+                finalRegion = existingRegion;
+                finalNeighborhood = dto.Neighborhood;
+                finalStreet = dto.Street; // null if not provided
+            }
+            // If only Street is provided, keep all existing location data
+            else
+            {
+                finalCity = existingCity;
+                finalRegion = existingRegion;
+                finalNeighborhood = existingNeighborhood;
+                finalStreet = dto.Street ?? existingAd.LocationAd.Street;
+            }
+
+            // Build location DTO
+            var locationDto = new DTOs.Common.LocationAdDto
+            {
+                City = finalCity,
+                Region = finalRegion,
+                Neighborhood = finalNeighborhood,
+                Street = finalStreet
+            };
+
+            // Resolve new location from PostgreSQL
+            var (locationIds, fullAddressArabic, fullAddressKurdish) =
+                await _locationService.ResolveLocationAsync(locationDto, language);
+
+            // Create new LocationAd object (same as CreateAdAsync)
+            existingAd.LocationAd = new LocationAd
+            {
+                LocationIds = locationIds,
+                FullAddressArabic = fullAddressArabic,
+                FullAddressKurdish = fullAddressKurdish,
+                Street = locationDto.Street
+            };
+        }
+
+        // Update category-specific attributes
+        if (dto is DTOs.Ads.Miscellaneous.BookAdDto bookDto)
+        {
+            Mappers.BookAdDtoMapper.UpdateAttributes(existingAd, bookDto);
+        }
+
+        // Update images if provided
+        if (dto.ImageFiles != null && dto.ImageFiles.Count > 0)
+        {
+            await _imageService.DeleteAdImagesAsync(id);
+
+            var imageUploads = dto.ImageFiles.Select(img => new ImageUpload
+            {
+                Stream = img.OpenReadStream(),
+                FileName = img.FileName,
+                Length = img.Length
+            }).ToList();
+
+            var processedImages = await _imageService.ProcessAndSaveImagesAsync(imageUploads, id);
+
+            existingAd.Images = processedImages.Select(img => new AdImage
+            {
+                ImageUrl = img.ImageUrl,
+                Order = img.Order
+            }).ToList();
+
+            existingAd.ImageCount = (byte)existingAd.Images.Count;
+        }
+
+        existingAd.UpdatedAt = DateTime.UtcNow;
+        await _adsCollection.ReplaceOneAsync(a => a.Id == id, existingAd);
+        return true;
     }
 
     public async Task<bool> DeleteAdAsync(string id)

@@ -36,59 +36,46 @@ public class CategoryService : ICategoryService
 
         ushort? currentParentId = null;
 
+        // Build the full slug path progressively to match against url_slug columns
+        string currentSlugPath = "";
+        
         // Traverse the hierarchy level by level
         for (int i = 0; i < slugParts.Length; i++)
         {
             var slugPart = slugParts[i];
             
-            // Convert URL slug back to original category name
-            // Reverse the transformation done in transform-categories.ps1:
-            // Original: $_ -replace '\([^)]*\)', '' -replace '،', '' -replace ',', '' -replace '\s+', '-' -replace '-+', '-' -replace '^-|-$', ''
-            // Reverse: Replace hyphens with spaces
-            var categoryName = slugPart.Replace("-", " ");
+            // Build progressive slug path (e.g., "مركبات-ونقل", then "مركبات-ونقل/سيارات")
+            currentSlugPath = i == 0 ? slugPart : $"{currentSlugPath}/{slugPart}";
 
-            // Build query based on language and parent
+            // Build query based on language - match against url_slug columns
             var query = _context.Categories.AsQueryable();
 
             if (language == "ar")
             {
-                query = query.Where(c => c.NameArabic == categoryName);
+                query = query.Where(c => c.UrlSlugArabic == currentSlugPath);
             }
             else if (language == "kr")
             {
-                query = query.Where(c => c.NameKurdish == categoryName);
+                query = query.Where(c => c.UrlSlugKurdish == currentSlugPath);
             }
             else
             {
                 throw new ArgumentException($"Invalid language: {language}. Must be 'ar' or 'kr'");
             }
 
-            // Filter by parent (null for root level, specific ID for children)
-            if (currentParentId == null)
-            {
-                // Root level category
-                query = query.Where(c => c.ParentID == null);
-            }
-            else
-            {
-                // Child category
-                query = query.Where(c => c.ParentID == currentParentId.Value);
-            }
-
             var category = await query.FirstOrDefaultAsync();
 
             if (category == null)
             {
-                var parentInfo = currentParentId == null ? "root level" : $"parent ID {currentParentId}";
                 throw new ArgumentException(
-                    $"Category slug '{slugPart}' not found at {parentInfo} for language '{language}'. " +
-                    $"Full path: '{categorySlug}'");
+                    $"Category not found for slug path '{currentSlugPath}' in language '{language}'. " +
+                    $"Full requested path: '{categorySlug}'");
             }
 
             // Add category ID to the list
             categoryIds.Add((ushort)category.CategoryID);
 
-            // Set current category as parent for next iteration
+            // Set current category as parent for next iteration (for validation purposes)
             currentParentId = (ushort)category.CategoryID;
         }
 
