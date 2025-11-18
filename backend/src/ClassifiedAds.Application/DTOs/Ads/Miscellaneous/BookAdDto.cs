@@ -10,5 +10,5 @@ public class BookAdDto : AdDto
 
 public class CreateBookAdDto : BookAdDto
 {
-    // Empty class same pattern as CreateAdDto
+        // EMPTY — inherits everything
 }

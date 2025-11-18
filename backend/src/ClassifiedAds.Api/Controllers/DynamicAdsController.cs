@@ -3,6 +3,7 @@ using ClassifiedAds.Application.Interfaces;
 using ClassifiedAds.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using FluentValidation;
 
 namespace ClassifiedAds.Api.Controllers;
 
@@ -55,12 +56,32 @@ public class DynamicAdsController : ControllerBase
                 });
             }
 
-            // Get DTO type for category (throws if not supported)
-            var dtoType = CategoryDtoMapper.GetDtoTypeOrThrow(categorySlug, lang);
+            // Map form data to appropriate DTO type based on category
+            var dto = CategoryDtoMapper.MapFormToDto(formDto, categorySlug, lang, Request.Form);
+
+            // Manually validate the mapped DTO (since it might be a different type than formDto)
+            var validatorType = typeof(FluentValidation.IValidator<>).MakeGenericType(dto.GetType());
+            var validator = HttpContext.RequestServices.GetService(validatorType) as FluentValidation.IValidator;
+            if (validator != null)
+            {
+                var validationContext = new FluentValidation.ValidationContext<object>(dto);
+                var validationResult = await validator.ValidateAsync(validationContext);
+                if (!validationResult.IsValid)
+                {
+                    return BadRequest(new 
+                    { 
+                        errors = validationResult.Errors.Select(e => new 
+                        { 
+                            field = e.PropertyName, 
+                            message = e.ErrorMessage 
+                        })
+                    });
+                }
+            }
 
             _logger.LogInformation(
-                "Creating ad (multipart) for category: {CategorySlug}, language: {Language}, Images: {ImageCount}",
-                categorySlug, lang, formDto.ImageFiles?.Count ?? 0);
+                "Creating ad (multipart) for category: {CategorySlug}, language: {Language}, DTO Type: {DtoType}, Images: {ImageCount}",
+                categorySlug, lang, dto.GetType().Name, formDto.ImageFiles?.Count ?? 0);
 
             // Convert IFormFile to ImageUpload abstraction
             var imageUploads = formDto.ImageFiles.Select(img => new Application.Interfaces.ImageUpload
@@ -70,8 +91,8 @@ public class DynamicAdsController : ControllerBase
                 Length = img.Length
             }).ToList();
 
-            // Create the ad with images (mapper will handle conversion)
-            var adId = await _adService.CreateAdAsync(formDto, categorySlug, imageUploads);
+            // Create the ad with images
+            var adId = await _adService.CreateAdAsync(dto, categorySlug, imageUploads);
             
             return CreatedAtAction(nameof(GetAdById), new { id = adId, lang, locationSlug = "ads" }, new { id = adId });
         }
@@ -161,7 +182,7 @@ public class DynamicAdsController : ControllerBase
                 "Updating ad: {AdId}, language: {Language}",
                 id, lang);
 
-            var result = await _adService.UpdateAdAsync(id, formDto);
+            var result = await _adService.UpdateAdAsync(id, formDto, Request.Form);
             
             if (!result)
             {

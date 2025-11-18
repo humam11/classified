@@ -6,6 +6,6 @@ namespace ClassifiedAds.Domain.Entities.Ads.Miscellaneous;
 [BsonDiscriminator("Book")]
 public class Book : Ad
 {
-        public BookLanguage BookLanguage { get; set; }
-        public ushort Pages { get; set; }
+        public BookLanguage? BookLanguage { get; set; }
+        public ushort? Pages { get; set; }
 }

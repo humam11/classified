@@ -6,7 +6,7 @@ namespace ClassifiedAds.Domain.Entities.Ads.Miscellaneous;
 [BsonDiscriminator("Cloth")]
 public class Cloth : Ad
 {
-        public ClothCondition ClothCondition { get; set; }
-        public ClothingSize ClothingSize { get; set; }
-        public Season Season { get; set; }
+        public ClothCondition? ClothCondition { get; set; }
+        public ClothingSize? ClothingSize { get; set; }
+        public Season? Season { get; set; }
 }

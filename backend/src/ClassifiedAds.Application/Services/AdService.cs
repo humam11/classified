@@ -3,6 +3,7 @@ using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.Interfaces;
 using ClassifiedAds.Application.Mappers;
 using ClassifiedAds.Domain.Entities.Ads;
+using ClassifiedAds.Domain.Entities.Ads.Miscellaneous;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
 using MongoDB.Driver;
@@ -37,7 +38,7 @@ public class AdService : IAdService
     }
 
 
-    public async Task<string> CreateAdAsync<TDto>(TDto dto, string categorySlug, List<ImageUpload> images) where TDto : CreateAdDto
+    public async Task<string> CreateAdAsync<TDto>(TDto dto, string categorySlug, List<ImageUpload> images) where TDto : AdDto
     {
         var slug = GenerateSlug(dto.Title);
         var userId = Guid.Empty; // TODO: Get from JWT token
@@ -88,39 +89,42 @@ public class AdService : IAdService
         return ad.Id!;
     }
 
-    public async Task<bool> UpdateAdAsync(string id, AdDto dto)
+    public async Task<bool> UpdateAdAsync(string id, AdDto dto, Microsoft.AspNetCore.Http.IFormCollection form)
     {
         var existingAd = await _adsCollection.Find(a => a.Id == id).FirstOrDefaultAsync();
         if (existingAd == null) return false;
 
         var language = LanguageContext.Current ?? "ar";
+        
+        // Map form data to appropriate DTO type based on existing ad type
+        var mappedDto = MapUpdateDtoByAdType(dto, existingAd, form);
 
         // Update title if provided
-        if (!string.IsNullOrEmpty(dto.Title))
+        if (!string.IsNullOrEmpty(mappedDto.Title))
         {
-            existingAd.Title = dto.Title;
-            existingAd.Slug = GenerateSlug(dto.Title);
+            existingAd.Title = mappedDto.Title;
+            existingAd.Slug = GenerateSlug(mappedDto.Title);
         }
 
         // Update description if provided
-        if (dto.Description != null)
+        if (mappedDto.Description != null)
         {
-            existingAd.Description = dto.Description;
+            existingAd.Description = mappedDto.Description;
         }
 
         // Update price if provided (validator ensures PriceValue is provided when IsDollar changes)
-        if (dto.IsDollar.HasValue || dto.PriceValue.HasValue)
+        if (mappedDto.IsDollar.HasValue || mappedDto.PriceValue.HasValue)
         {
             // Update currency type first
-            if (dto.IsDollar.HasValue)
+            if (mappedDto.IsDollar.HasValue)
             {
-                existingAd.Price.IsDollar = dto.IsDollar.Value;
+                existingAd.Price.IsDollar = mappedDto.IsDollar.Value;
             }
             
             // Then update value
-            if (dto.PriceValue.HasValue)
+            if (mappedDto.PriceValue.HasValue)
             {
-                existingAd.Price.Value = dto.PriceValue.Value;
+                existingAd.Price.Value = mappedDto.PriceValue.Value;
             }
 
             // Recalculate ShowingPrice after price update
@@ -130,8 +134,8 @@ public class AdService : IAdService
         }
 
         // Update location if any location field is provided
-        if (!string.IsNullOrEmpty(dto.City) || !string.IsNullOrEmpty(dto.Region) || 
-            !string.IsNullOrEmpty(dto.Neighborhood) || !string.IsNullOrEmpty(dto.Street))
+        if (!string.IsNullOrEmpty(mappedDto.City) || !string.IsNullOrEmpty(mappedDto.Region) || 
+            !string.IsNullOrEmpty(mappedDto.Neighborhood) || !string.IsNullOrEmpty(mappedDto.Street))
         {
             // Extract existing location parts
             var existingAddressParts = existingAd.LocationAd.FullAddressArabic.Split('،');
@@ -147,28 +151,28 @@ public class AdService : IAdService
             string? finalStreet;
 
             // If City is provided (whether same or different), use only provided values
-            if (!string.IsNullOrEmpty(dto.City))
+            if (!string.IsNullOrEmpty(mappedDto.City))
             {
-                finalCity = dto.City;
-                finalRegion = dto.Region; // null if not provided
-                finalNeighborhood = dto.Neighborhood; // null if not provided
-                finalStreet = dto.Street; // null if not provided
+                finalCity = mappedDto.City;
+                finalRegion = mappedDto.Region; // null if not provided
+                finalNeighborhood = mappedDto.Neighborhood; // null if not provided
+                finalStreet = mappedDto.Street; // null if not provided
             }
             // If Region is provided (and City is not), use existing City + provided Region
-            else if (!string.IsNullOrEmpty(dto.Region))
+            else if (!string.IsNullOrEmpty(mappedDto.Region))
             {
                 finalCity = existingCity;
-                finalRegion = dto.Region;
-                finalNeighborhood = dto.Neighborhood; // null if not provided
-                finalStreet = dto.Street; // null if not provided
+                finalRegion = mappedDto.Region;
+                finalNeighborhood = mappedDto.Neighborhood; // null if not provided
+                finalStreet = mappedDto.Street; // null if not provided
             }
             // If Neighborhood is provided (and City/Region are not), use existing City/Region + provided Neighborhood
-            else if (!string.IsNullOrEmpty(dto.Neighborhood))
+            else if (!string.IsNullOrEmpty(mappedDto.Neighborhood))
             {
                 finalCity = existingCity;
                 finalRegion = existingRegion;
-                finalNeighborhood = dto.Neighborhood;
-                finalStreet = dto.Street; // null if not provided
+                finalNeighborhood = mappedDto.Neighborhood;
+                finalStreet = mappedDto.Street; // null if not provided
             }
             // If only Street is provided, keep all existing location data
             else
@@ -176,7 +180,7 @@ public class AdService : IAdService
                 finalCity = existingCity;
                 finalRegion = existingRegion;
                 finalNeighborhood = existingNeighborhood;
-                finalStreet = dto.Street ?? existingAd.LocationAd.Street;
+                finalStreet = mappedDto.Street ?? existingAd.LocationAd.Street;
             }
 
             // Build location DTO
@@ -203,13 +207,13 @@ public class AdService : IAdService
         }
 
         // Update category-specific attributes
-        if (dto is DTOs.Ads.Miscellaneous.BookAdDto bookDto)
+        if (mappedDto is DTOs.Ads.Miscellaneous.BookAdDto bookDto)
         {
             Mappers.BookAdDtoMapper.UpdateAttributes(existingAd, bookDto);
         }
 
         // Update images if provided
-        if (dto.ImageFiles != null && dto.ImageFiles.Count > 0)
+        if (mappedDto.ImageFiles != null && mappedDto.ImageFiles.Count > 0)
         {
             await _imageService.DeleteAdImagesAsync(id);
 
@@ -259,5 +263,47 @@ public class AdService : IAdService
         slug += "-" + Guid.NewGuid().ToString("N").Substring(0, 8);
         
         return slug;
+    }
+
+    private AdDto MapUpdateDtoByAdType(AdDto baseDto, Ad existingAd, Microsoft.AspNetCore.Http.IFormCollection form)
+    {
+        // Check the actual type of the existing ad
+        if (existingAd is Book)
+        {
+            // Parse book-specific fields from form
+            Domain.Entities.Ads.Miscellaneous.Enums.BookLanguage? bookLanguage = null;
+            if (form.TryGetValue("BookLanguage", out var bookLangValue) && 
+                !string.IsNullOrWhiteSpace(bookLangValue) &&
+                Enum.TryParse<Domain.Entities.Ads.Miscellaneous.Enums.BookLanguage>(bookLangValue, out var parsedLang))
+            {
+                bookLanguage = parsedLang;
+            }
+
+            ushort? pages = null;
+            if (form.TryGetValue("Pages", out var pagesValue) && 
+                !string.IsNullOrWhiteSpace(pagesValue) &&
+                ushort.TryParse(pagesValue, out var parsedPages))
+            {
+                pages = parsedPages;
+            }
+
+            return new DTOs.Ads.Miscellaneous.BookAdDto
+            {
+                Title = baseDto.Title,
+                Description = baseDto.Description,
+                IsDollar = baseDto.IsDollar,
+                PriceValue = baseDto.PriceValue,
+                City = baseDto.City,
+                Region = baseDto.Region,
+                Neighborhood = baseDto.Neighborhood,
+                Street = baseDto.Street,
+                ImageFiles = baseDto.ImageFiles,
+                BookLanguage = bookLanguage,
+                Pages = pages
+            };
+        }
+
+        // Default to base AdDto for general ads
+        return baseDto;
     }
 }

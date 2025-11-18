@@ -10,7 +10,7 @@ namespace ClassifiedAds.Application.Mappers;
 public static class BookAdDtoMapper
 {
     public static Book MapToEntity(
-        BookAdDto dto,
+        CreateBookAdDto dto,
         string slug,
         Guid userId,
         List<ushort> categoryIds,
@@ -60,9 +60,9 @@ public static class BookAdDtoMapper
             Priority = 0,
             Slug = slug,
 
-            // Book-specific fields
-            BookLanguage = dto.BookLanguage ?? BookLanguage.Arabic,
-            Pages = dto.Pages ?? 0
+            // Book-specific fields (keep as null if not provided)
+            BookLanguage = dto.BookLanguage,
+            Pages = dto.Pages
         };
     }
 

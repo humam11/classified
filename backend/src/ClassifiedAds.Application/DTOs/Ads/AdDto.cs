@@ -2,9 +2,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace ClassifiedAds.Application.DTOs.Ads;
 
-/// <summary>
-/// Base DTO for ad operations (Create and Update)
-/// </summary>
+// Base DTO for ad operations (Create and Update)
 public class AdDto
 {
     public string? Title { get; set; }
@@ -24,9 +22,7 @@ public class AdDto
     public List<IFormFile>? ImageFiles { get; set; }
 }
 
-/// <summary>
-/// DTO for creating ads - all required fields must be provided
-/// </summary>
+// DTO for creating ads - all required fields must be provided
 public class CreateAdDto : AdDto
 {
     // Inherits all properties from AdDto
