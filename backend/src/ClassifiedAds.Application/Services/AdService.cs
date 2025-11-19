@@ -1,13 +1,17 @@
+using System.Text.RegularExpressions;
 using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.Interfaces;
 using ClassifiedAds.Application.Mappers;
-using ClassifiedAds.Domain.Entities.Ads;
-using ClassifiedAds.Domain.Entities.Ads.Miscellaneous;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using ClassifiedAds.Domain.Entities.Ads;
+using ClassifiedAds.Domain.Entities.Ads.Electronics;
+using ClassifiedAds.Domain.Entities.Ads.Miscellaneous;
+using ClassifiedAds.Domain.Entities.Ads.RealEstate;
+using ClassifiedAds.Domain.Entities.Ads.Vehicles;
+using ClassifiedAds.Domain.Entities.Ads.Vehicles.HeavyEquipment;
 using MongoDB.Driver;
-using System.Text.RegularExpressions;
 
 namespace ClassifiedAds.Application.Services;
 
@@ -63,6 +67,114 @@ public class AdService : IAdService
         if (dto is DTOs.Ads.Miscellaneous.CreateBookAdDto bookDto)
         {
             ad = Mappers.BookAdDtoMapper.MapToEntity(bookDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Miscellaneous.CreateClothAdDto clothDto)
+        {
+            ad = Mappers.ClothAdDtoMapper.MapToEntity(clothDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Miscellaneous.CreateEngineOilAdDto oilDto)
+        {
+            ad = Mappers.EngineOilAdDtoMapper.MapToEntity(oilDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Miscellaneous.CreateFurnitureAdDto furnitureDto)
+        {
+            ad = Mappers.FurnitureAdDtoMapper.MapToEntity(furnitureDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Miscellaneous.CreatePlantAdDto plantDto)
+        {
+            ad = Mappers.PlantAdDtoMapper.MapToEntity(plantDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Miscellaneous.CreateShoeAdDto shoeDto)
+        {
+            ad = Mappers.ShoeAdDtoMapper.MapToEntity(shoeDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Miscellaneous.CreateTireWheelAdDto tireDto)
+        {
+            ad = Mappers.TireWheelAdDtoMapper.MapToEntity(tireDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Miscellaneous.CreateVideoGameAdDto gameDto)
+        {
+            ad = Mappers.VideoGameAdDtoMapper.MapToEntity(gameDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Electronics.CreateComputerAdDto computerDto)
+        {
+            ad = Mappers.ComputerAdDtoMapper.MapToEntity(computerDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Electronics.CreateVideoConsoleAdDto consoleDto)
+        {
+            ad = Mappers.VideoConsoleAdDtoMapper.MapToEntity(consoleDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Electronics.CreateHandheldDeviceAdDto handheldDto)
+        {
+            ad = Mappers.HandheldDeviceAdDtoMapper.MapToEntity(handheldDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Electronics.CreateLaptopAdDto laptopDto)
+        {
+            ad = Mappers.LaptopAdDtoMapper.MapToEntity(laptopDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Electronics.CreateTvMonitorAdDto tvDto)
+        {
+            ad = Mappers.TvMonitorAdDtoMapper.MapToEntity(tvDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Electronics.CreateElectronicAdDto electronicDto)
+        {
+            ad = Mappers.ElectronicAdDtoMapper.MapToEntity(electronicDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.RealEstate.CreateApartmentAdDto apartmentDto)
+        {
+            ad = Mappers.ApartmentAdDtoMapper.MapToEntity(apartmentDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.RealEstate.CreateHouseAdDto houseDto)
+        {
+            ad = Mappers.HouseAdDtoMapper.MapToEntity(houseDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.RealEstate.CreateConstructionProjectAdDto projectDto)
+        {
+            ad = Mappers.ConstructionProjectAdDtoMapper.MapToEntity(projectDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.RealEstate.CreateRealEstateAdDto realEstateDto)
+        {
+            ad = Mappers.RealEstateAdDtoMapper.MapToEntity(realEstateDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+                else if (dto is DTOs.Ads.Vehicles.HeavyEquipment.CreateBulldozerAdDto bulldozerDto)
+        {
+            ad = Mappers.Vehicles.HeavyEquipment.BulldozerAdDtoMapper.MapToEntity(bulldozerDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Vehicles.HeavyEquipment.CreateBusAdDto busDto)
+        {
+            ad = Mappers.Vehicles.HeavyEquipment.BusAdDtoMapper.MapToEntity(busDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Vehicles.HeavyEquipment.CreateCraneAdDto craneDto)
+        {
+            ad = Mappers.Vehicles.HeavyEquipment.CraneAdDtoMapper.MapToEntity(craneDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Vehicles.HeavyEquipment.CreateExcavatorAdDto excavatorDto)
+        {
+            ad = Mappers.Vehicles.HeavyEquipment.ExcavatorAdDtoMapper.MapToEntity(excavatorDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Vehicles.HeavyEquipment.CreateHeavyEquipmentAdDto heavyEquipmentDto)
+        {
+            ad = Mappers.Vehicles.HeavyEquipment.HeavyEquipmentAdDtoMapper.MapToEntity(heavyEquipmentDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Vehicles.CreateCarAdDto carDto)
+        {
+            ad = Mappers.Vehicles.CarAdDtoMapper.MapToEntity(carDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Vehicles.CreateMotorcycleAdDto motorcycleDto)
+        {
+            ad = Mappers.Vehicles.MotorcycleAdDtoMapper.MapToEntity(motorcycleDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Vehicles.CreateTruckAdDto truckDto)
+        {
+            ad = Mappers.Vehicles.TruckAdDtoMapper.MapToEntity(truckDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Vehicles.CreateBoatAdDto boatDto)
+        {
+            ad = Mappers.Vehicles.BoatAdDtoMapper.MapToEntity(boatDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Vehicles.CreateTransportAdDto transportDto)
+        {
+            ad = Mappers.Vehicles.TransportAdDtoMapper.MapToEntity(transportDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
         }
         else
         {
@@ -211,6 +323,114 @@ public class AdService : IAdService
         {
             Mappers.BookAdDtoMapper.UpdateAttributes(existingAd, bookDto);
         }
+        else if (mappedDto is DTOs.Ads.Miscellaneous.ClothAdDto clothDto)
+        {
+            Mappers.ClothAdDtoMapper.UpdateAttributes(existingAd, clothDto);
+        }
+        else if (mappedDto is DTOs.Ads.Miscellaneous.EngineOilAdDto oilDto)
+        {
+            Mappers.EngineOilAdDtoMapper.UpdateAttributes(existingAd, oilDto);
+        }
+        else if (mappedDto is DTOs.Ads.Miscellaneous.FurnitureAdDto furnitureDto)
+        {
+            Mappers.FurnitureAdDtoMapper.UpdateAttributes(existingAd, furnitureDto);
+        }
+        else if (mappedDto is DTOs.Ads.Miscellaneous.PlantAdDto plantDto)
+        {
+            Mappers.PlantAdDtoMapper.UpdateAttributes(existingAd, plantDto);
+        }
+        else if (mappedDto is DTOs.Ads.Miscellaneous.ShoeAdDto shoeDto)
+        {
+            Mappers.ShoeAdDtoMapper.UpdateAttributes(existingAd, shoeDto);
+        }
+        else if (mappedDto is DTOs.Ads.Miscellaneous.TireWheelAdDto tireDto)
+        {
+            Mappers.TireWheelAdDtoMapper.UpdateAttributes(existingAd, tireDto);
+        }
+        else if (mappedDto is DTOs.Ads.Miscellaneous.VideoGameAdDto gameDto)
+        {
+            Mappers.VideoGameAdDtoMapper.UpdateAttributes(existingAd, gameDto);
+        }
+        else if (mappedDto is DTOs.Ads.Electronics.ComputerAdDto computerDto)
+        {
+            Mappers.ComputerAdDtoMapper.UpdateAttributes(existingAd, computerDto);
+        }
+        else if (mappedDto is DTOs.Ads.Electronics.VideoConsoleAdDto consoleDto)
+        {
+            Mappers.VideoConsoleAdDtoMapper.UpdateAttributes(existingAd, consoleDto);
+        }
+        else if (mappedDto is DTOs.Ads.Electronics.HandheldDeviceAdDto handheldDto)
+        {
+            Mappers.HandheldDeviceAdDtoMapper.UpdateAttributes(existingAd, handheldDto);
+        }
+        else if (mappedDto is DTOs.Ads.Electronics.LaptopAdDto laptopDto)
+        {
+            Mappers.LaptopAdDtoMapper.UpdateAttributes(existingAd, laptopDto);
+        }
+        else if (mappedDto is DTOs.Ads.Electronics.TvMonitorAdDto tvDto)
+        {
+            Mappers.TvMonitorAdDtoMapper.UpdateAttributes(existingAd, tvDto);
+        }
+        else if (mappedDto is DTOs.Ads.Electronics.ElectronicAdDto electronicDto)
+        {
+            Mappers.ElectronicAdDtoMapper.UpdateAttributes(existingAd, electronicDto);
+        }
+        else if (mappedDto is DTOs.Ads.RealEstate.ApartmentAdDto apartmentDto)
+        {
+            Mappers.ApartmentAdDtoMapper.UpdateAttributes(existingAd, apartmentDto);
+        }
+        else if (mappedDto is DTOs.Ads.RealEstate.HouseAdDto houseDto)
+        {
+            Mappers.HouseAdDtoMapper.UpdateAttributes(existingAd, houseDto);
+        }
+        else if (mappedDto is DTOs.Ads.RealEstate.ConstructionProjectAdDto projectDto)
+        {
+            Mappers.ConstructionProjectAdDtoMapper.UpdateAttributes(existingAd, projectDto);
+        }
+        else if (mappedDto is DTOs.Ads.RealEstate.RealEstateAdDto realEstateDto)
+        {
+            Mappers.RealEstateAdDtoMapper.UpdateAttributes(existingAd, realEstateDto);
+        }
+        else if (mappedDto is DTOs.Ads.Vehicles.HeavyEquipment.BulldozerAdDto bulldozerDto)
+        {
+            Mappers.Vehicles.HeavyEquipment.BulldozerAdDtoMapper.UpdateAttributes(existingAd, bulldozerDto);
+        }
+        else if (mappedDto is DTOs.Ads.Vehicles.HeavyEquipment.BusAdDto busDto)
+        {
+            Mappers.Vehicles.HeavyEquipment.BusAdDtoMapper.UpdateAttributes(existingAd, busDto);
+        }
+        else if (mappedDto is DTOs.Ads.Vehicles.HeavyEquipment.CraneAdDto craneDto)
+        {
+            Mappers.Vehicles.HeavyEquipment.CraneAdDtoMapper.UpdateAttributes(existingAd, craneDto);
+        }
+        else if (mappedDto is DTOs.Ads.Vehicles.HeavyEquipment.ExcavatorAdDto excavatorDto)
+        {
+            Mappers.Vehicles.HeavyEquipment.ExcavatorAdDtoMapper.UpdateAttributes(existingAd, excavatorDto);
+        }
+        else if (mappedDto is DTOs.Ads.Vehicles.HeavyEquipment.HeavyEquipmentAdDto heavyEquipmentDto)
+        {
+            Mappers.Vehicles.HeavyEquipment.HeavyEquipmentAdDtoMapper.UpdateAttributes(existingAd, heavyEquipmentDto);
+        }
+        else if (mappedDto is DTOs.Ads.Vehicles.CarAdDto carDto)
+        {
+            Mappers.Vehicles.CarAdDtoMapper.UpdateAttributes(existingAd, carDto);
+        }
+        else if (mappedDto is DTOs.Ads.Vehicles.MotorcycleAdDto motorcycleDto)
+        {
+            Mappers.Vehicles.MotorcycleAdDtoMapper.UpdateAttributes(existingAd, motorcycleDto);
+        }
+        else if (mappedDto is DTOs.Ads.Vehicles.TruckAdDto truckDto)
+        {
+            Mappers.Vehicles.TruckAdDtoMapper.UpdateAttributes(existingAd, truckDto);
+        }
+        else if (mappedDto is DTOs.Ads.Vehicles.BoatAdDto boatDto)
+        {
+            Mappers.Vehicles.BoatAdDtoMapper.UpdateAttributes(existingAd, boatDto);
+        }
+        else if (mappedDto is DTOs.Ads.Vehicles.TransportAdDto transportDto)
+        {
+            Mappers.Vehicles.TransportAdDtoMapper.UpdateAttributes(existingAd, transportDto);
+        }
 
         // Update images if provided
         if (mappedDto.ImageFiles != null && mappedDto.ImageFiles.Count > 0)
@@ -267,43 +487,38 @@ public class AdService : IAdService
 
     private AdDto MapUpdateDtoByAdType(AdDto baseDto, Ad existingAd, Microsoft.AspNetCore.Http.IFormCollection form)
     {
-        // Check the actual type of the existing ad
-        if (existingAd is Book)
+        // Delegate to appropriate mapper based on existing ad type
+        return existingAd switch
         {
-            // Parse book-specific fields from form
-            Domain.Entities.Ads.Miscellaneous.Enums.BookLanguage? bookLanguage = null;
-            if (form.TryGetValue("BookLanguage", out var bookLangValue) && 
-                !string.IsNullOrWhiteSpace(bookLangValue) &&
-                Enum.TryParse<Domain.Entities.Ads.Miscellaneous.Enums.BookLanguage>(bookLangValue, out var parsedLang))
-            {
-                bookLanguage = parsedLang;
-            }
-
-            ushort? pages = null;
-            if (form.TryGetValue("Pages", out var pagesValue) && 
-                !string.IsNullOrWhiteSpace(pagesValue) &&
-                ushort.TryParse(pagesValue, out var parsedPages))
-            {
-                pages = parsedPages;
-            }
-
-            return new DTOs.Ads.Miscellaneous.BookAdDto
-            {
-                Title = baseDto.Title,
-                Description = baseDto.Description,
-                IsDollar = baseDto.IsDollar,
-                PriceValue = baseDto.PriceValue,
-                City = baseDto.City,
-                Region = baseDto.Region,
-                Neighborhood = baseDto.Neighborhood,
-                Street = baseDto.Street,
-                ImageFiles = baseDto.ImageFiles,
-                BookLanguage = bookLanguage,
-                Pages = pages
-            };
-        }
-
-        // Default to base AdDto for general ads
-        return baseDto;
+            Book => Mappers.BookAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Cloth => Mappers.ClothAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            EngineOil => Mappers.EngineOilAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Furniture => Mappers.FurnitureAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Plant => Mappers.PlantAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Shoe => Mappers.ShoeAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            TireWheel => Mappers.TireWheelAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            VideoGame => Mappers.VideoGameAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Computer => Mappers.ComputerAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            VideoConsole => Mappers.VideoConsoleAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            HandheldDevice => Mappers.HandheldDeviceAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Laptop => Mappers.LaptopAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            TvMonitor => Mappers.TvMonitorAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Electronic => Mappers.ElectronicAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Apartment => Mappers.ApartmentAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            House => Mappers.HouseAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            ConstructionProject => Mappers.ConstructionProjectAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Domain.Entities.Ads.RealEstate.RealEstate => Mappers.RealEstateAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Bulldozer => Mappers.Vehicles.HeavyEquipment.BulldozerAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Bus => Mappers.Vehicles.HeavyEquipment.BusAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Crane => Mappers.Vehicles.HeavyEquipment.CraneAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Excavator => Mappers.Vehicles.HeavyEquipment.ExcavatorAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            HeavyEquipment => Mappers.Vehicles.HeavyEquipment.HeavyEquipmentAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Car => Mappers.Vehicles.CarAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Motorcycle => Mappers.Vehicles.MotorcycleAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Truck => Mappers.Vehicles.TruckAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Boat => Mappers.Vehicles.BoatAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Transport => Mappers.Vehicles.TransportAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            _ => baseDto
+        };
     }
 }

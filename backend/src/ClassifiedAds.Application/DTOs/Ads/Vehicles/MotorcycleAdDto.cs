@@ -4,7 +4,12 @@ namespace ClassifiedAds.Application.DTOs.Ads.Vehicles;
 
 public class MotorcycleAdDto : TransportAdDto
 {
-    public MotorcycleDriveType MotorcycleDriveType { get; set; }
-    public byte GearCount { get; set; }
-    public Guid ModelId { get; set; }
+    public MotorcycleDriveType? MotorcycleDriveType { get; set; }
+    public byte? GearCount { get; set; }
+    public Guid? ModelId { get; set; }
+}
+
+public class CreateMotorcycleAdDto : MotorcycleAdDto
+{
+    // EMPTY — inherits everything
 }

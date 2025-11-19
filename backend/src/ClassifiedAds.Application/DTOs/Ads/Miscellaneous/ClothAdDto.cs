@@ -4,7 +4,12 @@ namespace ClassifiedAds.Application.DTOs.Ads.Miscellaneous;
 
 public class ClothAdDto : AdDto
 {
-    public ClothCondition ClothCondition { get; set; }
-    public ClothingSize ClothingSize { get; set; }
-    public Season Season { get; set; }
+    public ClothCondition? ClothCondition { get; set; }
+    public ClothingSize? ClothingSize { get; set; }
+    public Season? Season { get; set; }
+}
+
+public class CreateClothAdDto : ClothAdDto
+{
+    // EMPTY — inherits everything
 }

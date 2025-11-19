@@ -6,6 +6,6 @@ namespace ClassifiedAds.Domain.Entities.Ads.Electronics;
 [BsonDiscriminator("Electronic")]
 public class Electronic : Ad
 {
-        public YesNo IsNew { get; set; }
-        public byte WarrantyMonths { get; set; }
+        public YesNo? IsNew { get; set; }
+        public byte? WarrantyMonths { get; set; }
 }

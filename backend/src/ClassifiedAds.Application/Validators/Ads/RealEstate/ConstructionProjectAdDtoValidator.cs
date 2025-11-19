@@ -1,4 +1,6 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads.RealEstate;
+using ClassifiedAds.Application.Validators.Ads;
 using ClassifiedAds.Application.Validators.Common;
 using FluentValidation;
 
@@ -8,9 +10,33 @@ public class ConstructionProjectAdDtoValidator : AbstractValidator<ConstructionP
 {
     public ConstructionProjectAdDtoValidator()
     {
-        // Include(new RealEstateAdDtoValidator());
+        Include(new AdDtoBaseValidator());
+        Include(new RealEstateAdDtoValidator());
 
+        RuleFor(x => x.CompletionStatus!.Value)
+            .IsValidEnum()
+            .WithMessage(ValidationMessages.GetMessage(
+                "حالة الإنجاز غير صالحة",
+                "باری تەواوکردن نادروستە"))
+            .When(x => x.CompletionStatus.HasValue);
+    }
+}
+
+public class CreateConstructionProjectAdDtoValidator : AbstractValidator<CreateConstructionProjectAdDto>
+{
+    public CreateConstructionProjectAdDtoValidator()
+    {
+        Include(new AdDtoBaseValidator());
+        Include(new RealEstateAdDtoValidator());
+        Include(new ConstructionProjectAdDtoValidator());
+
+        // CompletionStatus is required for creation
         RuleFor(x => x.CompletionStatus)
-            .IsValidEnum();
+            .NotNull()
+            .WithMessage(ValidationMessages.GetMessage(
+                "حالة الإنجاز مطلوبة",
+                "باری تەواوکردن پێویستە"));
+
+        this.ApplyCreateLocalPriceRules();
     }
 }

@@ -4,6 +4,11 @@ namespace ClassifiedAds.Application.DTOs.Ads.Miscellaneous;
 
 public class ShoeAdDto : AdDto
 {
-    public YesNo IsNew { get; set; }
-    public byte Size { get; set; }
+    public YesNo? IsNew { get; set; }
+    public byte? Size { get; set; }
+}
+
+public class CreateShoeAdDto : ShoeAdDto
+{
+    // EMPTY — inherits everything
 }

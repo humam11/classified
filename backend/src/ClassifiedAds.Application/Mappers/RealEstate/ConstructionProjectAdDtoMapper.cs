@@ -1,0 +1,119 @@
+using ClassifiedAds.Application.DTOs.Ads;
+using ClassifiedAds.Application.DTOs.Ads.RealEstate;
+using ClassifiedAds.Domain.Entities.Ads;
+using ClassifiedAds.Domain.Entities.Ads.RealEstate;
+using ClassifiedAds.Domain.Common.Enums;
+using ClassifiedAds.Domain.Common.ValueObjects;
+
+namespace ClassifiedAds.Application.Mappers;
+
+public static class ConstructionProjectAdDtoMapper
+{
+    public static ConstructionProject MapToEntity(
+        CreateConstructionProjectAdDto dto,
+        string slug,
+        Guid userId,
+        List<ushort> categoryIds,
+        byte categoryJoins,
+        List<ushort> locationIds,
+        string fullAddressArabic,
+        string fullAddressKurdish)
+    {
+        if (string.IsNullOrEmpty(dto.Title) || !dto.IsDollar.HasValue || !dto.PriceValue.HasValue)
+        {
+            throw new ArgumentException("Required fields are missing");
+        }
+
+        string showingPrice = AdDtoMapper.FormatShowingPrice(dto.IsDollar.Value, dto.PriceValue.Value);
+
+        return new ConstructionProject
+        {
+            Title = dto.Title,
+            Description = dto.Description ?? string.Empty,
+            Price = new Price
+            {
+                IsDollar = dto.IsDollar.Value,
+                Value = dto.PriceValue.Value,
+                ShowingPrice = showingPrice
+            },
+            Category = new Category
+            {
+                CategoryJoins = categoryJoins,
+                CategoryIds = categoryIds
+            },
+            LocationAd = new LocationAd
+            {
+                LocationIds = locationIds,
+                Street = dto.Street,
+                FullAddressArabic = fullAddressArabic,
+                FullAddressKurdish = fullAddressKurdish
+            },
+            Images = new List<AdImage>(),
+            Status = Status.Active,
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow,
+            ImageCount = 0,
+            ViewsCount = 0,
+            UserId = userId,
+            Priority = 0,
+            Slug = slug,
+            Area = dto.Area,
+            CompletionStatus = dto.CompletionStatus
+        };
+    }
+
+    public static CreateConstructionProjectAdDto MapFormToDto(CreateAdDto baseDto, Microsoft.AspNetCore.Http.IFormCollection form)
+    {
+        return new CreateConstructionProjectAdDto
+        {
+            Title = baseDto.Title,
+            Description = baseDto.Description,
+            IsDollar = baseDto.IsDollar,
+            PriceValue = baseDto.PriceValue,
+            City = baseDto.City,
+            Region = baseDto.Region,
+            Neighborhood = baseDto.Neighborhood,
+            Street = baseDto.Street,
+            ImageFiles = baseDto.ImageFiles,
+            Area = form.TryGetValue("Area", out var area) &&
+                  !string.IsNullOrWhiteSpace(area) &&
+                  float.TryParse(area, out var a) ? a : null,
+            CompletionStatus = form.TryGetValue("CompletionStatus", out var status) &&
+                              !string.IsNullOrWhiteSpace(status) &&
+                              Enum.TryParse<Domain.Entities.Ads.RealEstate.Enums.CompletionStatus>(status, out var cs) ? cs : null
+        };
+    }
+
+    public static ConstructionProjectAdDto MapFormToUpdateDto(AdDto baseDto, Microsoft.AspNetCore.Http.IFormCollection form)
+    {
+        return new ConstructionProjectAdDto
+        {
+            Title = baseDto.Title,
+            Description = baseDto.Description,
+            IsDollar = baseDto.IsDollar,
+            PriceValue = baseDto.PriceValue,
+            City = baseDto.City,
+            Region = baseDto.Region,
+            Neighborhood = baseDto.Neighborhood,
+            Street = baseDto.Street,
+            ImageFiles = baseDto.ImageFiles,
+            Area = form.TryGetValue("Area", out var area) &&
+                  !string.IsNullOrWhiteSpace(area) &&
+                  float.TryParse(area, out var a) ? a : null,
+            CompletionStatus = form.TryGetValue("CompletionStatus", out var status) &&
+                              !string.IsNullOrWhiteSpace(status) &&
+                              Enum.TryParse<Domain.Entities.Ads.RealEstate.Enums.CompletionStatus>(status, out var cs) ? cs : null
+        };
+    }
+
+    public static void UpdateAttributes(Ad ad, ConstructionProjectAdDto dto)
+    {
+        if (ad is ConstructionProject project)
+        {
+            if (dto.Area.HasValue)
+                project.Area = dto.Area;
+            if (dto.CompletionStatus.HasValue)
+                project.CompletionStatus = dto.CompletionStatus;
+        }
+    }
+}

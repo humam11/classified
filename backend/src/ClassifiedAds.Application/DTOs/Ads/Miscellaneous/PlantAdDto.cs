@@ -4,6 +4,11 @@ namespace ClassifiedAds.Application.DTOs.Ads.Miscellaneous;
 
 public class PlantAdDto : AdDto
 {
-    public ushort Height { get; set; }
-    public PlantType PlantType { get; set; }
+    public ushort? Height { get; set; }
+    public PlantType? PlantType { get; set; }
+}
+
+public class CreatePlantAdDto : PlantAdDto
+{
+    // EMPTY — inherits everything
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClassifiedAds.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dc302696bc5fa5a43649aa9960900d014d040c10")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6038afa499ea7942b079fddf536cd3369d7f32fa")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClassifiedAds.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClassifiedAds.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

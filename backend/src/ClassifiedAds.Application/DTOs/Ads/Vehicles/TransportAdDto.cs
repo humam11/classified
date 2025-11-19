@@ -4,7 +4,12 @@ namespace ClassifiedAds.Application.DTOs.Ads.Vehicles;
 
 public class TransportAdDto : AdDto
 {
-    public FuelType FuelType { get; set; }
-    public ushort EnginePower { get; set; }
-    public ushort FuelTankCapacity { get; set; }
+    public FuelType? FuelType { get; set; }
+    public ushort? EnginePower { get; set; }
+    public ushort? FuelTankCapacity { get; set; }
+}
+
+public class CreateTransportAdDto : TransportAdDto
+{
+    // EMPTY — inherits everything
 }

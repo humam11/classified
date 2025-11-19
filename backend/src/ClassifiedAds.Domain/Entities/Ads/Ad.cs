@@ -26,7 +26,7 @@ namespace ClassifiedAds.Domain.Entities.Ads;
     typeof(Electronics.Computer),
     typeof(Electronics.TvMonitor),
     typeof(Electronics.HandheldDevice),
-    typeof(Electronics.Console),
+    typeof(Electronics.VideoConsole),
     typeof(JobsServices.Cv),
     typeof(JobsServices.Service),
     typeof(JobsServices.Vacancy),

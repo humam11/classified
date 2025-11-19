@@ -33,7 +33,11 @@ public static class CategoryDtoMapper
         ["الاعمال-والمعدات-التجارية-والصناعية/فرص-تجارية-ومشاريع-وشراكات/فرص-شراكة-واستثمار-في-مشاريع"] = typeof(CreateAdDto),
         ["الاعمال-والمعدات-التجارية-والصناعية/فرص-تجارية-ومشاريع-وشراكات/مشاريع-جاهزة-للبيع"] = typeof(CreateAdDto),
         ["الاعمال-والمعدات-التجارية-والصناعية/فرص-تجارية-ومشاريع-وشراكات/وكالات-تجارية"] = typeof(CreateAdDto),
+        ["الالكترونيات-والاجهزة-الرقمية/اجهزة-العاب-الكترونية/اجهزة-العاب-منزلية-ومحمولة"] = typeof(CreateVideoConsoleAdDto),
+        ["مركبات-ونقل/معدات-ثقيلة-واليات/رافعات"] = typeof(CreateCraneAdDto),
+
         ["الاعمال-والمعدات-التجارية-والصناعية/معدات-والات-للاعمال/اثاث-ولوازم-مكتبية-وتجارية"] = typeof(CreateAdDto),
+                ["الالكترونيات-والاجهزة-الرقمية/اجهزة-العاب-الكترونية/اكسسوارات-قيمنق"] = typeof(CreateElectronicAdDto),
         ["الاعمال-والمعدات-التجارية-والصناعية/معدات-والات-للاعمال/اجهزة-ومعدات-طبية-ومختبرات"] = typeof(CreateAdDto),
         ["الاعمال-والمعدات-التجارية-والصناعية/معدات-والات-للاعمال/تجهيزات-مطاعم-ومحلات-وفنادق"] = typeof(CreateAdDto),
         ["الاعمال-والمعدات-التجارية-والصناعية/معدات-والات-للاعمال/معدات-زراعية-كبيرة"] = typeof(CreateAdDto),
@@ -116,6 +120,60 @@ public static class CategoryDtoMapper
     {
         if (dtoType == typeof(CreateBookAdDto) || dtoType == typeof(BookAdDto))
             return typeof(Mappers.BookAdDtoMapper);
+        if (dtoType == typeof(CreateClothAdDto) || dtoType == typeof(ClothAdDto))
+            return typeof(Mappers.ClothAdDtoMapper);
+        if (dtoType == typeof(CreateEngineOilAdDto) || dtoType == typeof(EngineOilAdDto))
+            return typeof(Mappers.EngineOilAdDtoMapper);
+        if (dtoType == typeof(CreateFurnitureAdDto) || dtoType == typeof(FurnitureAdDto))
+            return typeof(Mappers.FurnitureAdDtoMapper);
+        if (dtoType == typeof(CreatePlantAdDto) || dtoType == typeof(PlantAdDto))
+            return typeof(Mappers.PlantAdDtoMapper);
+        if (dtoType == typeof(CreateShoeAdDto) || dtoType == typeof(ShoeAdDto))
+            return typeof(Mappers.ShoeAdDtoMapper);
+        if (dtoType == typeof(CreateTireWheelAdDto) || dtoType == typeof(TireWheelAdDto))
+            return typeof(Mappers.TireWheelAdDtoMapper);
+        if (dtoType == typeof(CreateVideoGameAdDto) || dtoType == typeof(VideoGameAdDto))
+            return typeof(Mappers.VideoGameAdDtoMapper);
+        if (dtoType == typeof(CreateComputerAdDto) || dtoType == typeof(ComputerAdDto))
+            return typeof(Mappers.ComputerAdDtoMapper);
+        if (dtoType == typeof(CreateVideoConsoleAdDto) || dtoType == typeof(VideoConsoleAdDto))
+            return typeof(Mappers.VideoConsoleAdDtoMapper);
+        if (dtoType == typeof(CreateHandheldDeviceAdDto) || dtoType == typeof(HandheldDeviceAdDto))
+            return typeof(Mappers.HandheldDeviceAdDtoMapper);
+        if (dtoType == typeof(CreateLaptopAdDto) || dtoType == typeof(LaptopAdDto))
+            return typeof(Mappers.LaptopAdDtoMapper);
+        if (dtoType == typeof(CreateTvMonitorAdDto) || dtoType == typeof(TvMonitorAdDto))
+            return typeof(Mappers.TvMonitorAdDtoMapper);
+        if (dtoType == typeof(CreateElectronicAdDto) || dtoType == typeof(ElectronicAdDto))
+            return typeof(Mappers.ElectronicAdDtoMapper);
+        if (dtoType == typeof(CreateApartmentAdDto) || dtoType == typeof(ApartmentAdDto))
+            return typeof(Mappers.ApartmentAdDtoMapper);
+        if (dtoType == typeof(CreateHouseAdDto) || dtoType == typeof(HouseAdDto))
+            return typeof(Mappers.HouseAdDtoMapper);
+        if (dtoType == typeof(CreateConstructionProjectAdDto) || dtoType == typeof(ConstructionProjectAdDto))
+            return typeof(Mappers.ConstructionProjectAdDtoMapper);
+        if (dtoType == typeof(CreateRealEstateAdDto) || dtoType == typeof(RealEstateAdDto))
+            return typeof(Mappers.RealEstateAdDtoMapper);
+        if (dtoType == typeof(CreateCarAdDto) || dtoType == typeof(CarAdDto))
+            return typeof(Mappers.Vehicles.CarAdDtoMapper);
+        if (dtoType == typeof(CreateMotorcycleAdDto) || dtoType == typeof(MotorcycleAdDto))
+            return typeof(Mappers.Vehicles.MotorcycleAdDtoMapper);
+        if (dtoType == typeof(CreateTruckAdDto) || dtoType == typeof(TruckAdDto))
+            return typeof(Mappers.Vehicles.TruckAdDtoMapper);
+        if (dtoType == typeof(CreateBoatAdDto) || dtoType == typeof(BoatAdDto))
+            return typeof(Mappers.Vehicles.BoatAdDtoMapper);
+        if (dtoType == typeof(CreateBulldozerAdDto) || dtoType == typeof(BulldozerAdDto))
+            return typeof(Mappers.Vehicles.HeavyEquipment.BulldozerAdDtoMapper);
+        if (dtoType == typeof(CreateBusAdDto) || dtoType == typeof(BusAdDto))
+            return typeof(Mappers.Vehicles.HeavyEquipment.BusAdDtoMapper);
+        if (dtoType == typeof(CreateCraneAdDto) || dtoType == typeof(CraneAdDto))
+            return typeof(Mappers.Vehicles.HeavyEquipment.CraneAdDtoMapper);
+        if (dtoType == typeof(CreateExcavatorAdDto) || dtoType == typeof(ExcavatorAdDto))
+            return typeof(Mappers.Vehicles.HeavyEquipment.ExcavatorAdDtoMapper);
+        if (dtoType == typeof(CreateHeavyEquipmentAdDto) || dtoType == typeof(HeavyEquipmentAdDto))
+            return typeof(Mappers.Vehicles.HeavyEquipment.HeavyEquipmentAdDtoMapper);
+        if (dtoType == typeof(CreateTransportAdDto) || dtoType == typeof(TransportAdDto))
+            return typeof(Mappers.Vehicles.TransportAdDtoMapper);
         
         // Default to AdDtoMapper
         return typeof(Mappers.AdDtoMapper);
@@ -126,30 +184,121 @@ public static class CategoryDtoMapper
     {
         var dtoType = GetDtoType(categorySlug, language);
         
-        // Map to CreateBookAdDto for book categories
+        // Delegate to appropriate mapper based on DTO type
         if (dtoType == typeof(CreateBookAdDto))
         {
-            
-
-            return new CreateBookAdDto
-            {
-                Title = baseDto.Title,
-                Description = baseDto.Description,
-                IsDollar = baseDto.IsDollar,
-                PriceValue = baseDto.PriceValue,
-                City = baseDto.City,
-                Region = baseDto.Region,
-                Neighborhood = baseDto.Neighborhood,
-                Street = baseDto.Street,
-                ImageFiles = baseDto.ImageFiles,
-                BookLanguage = form.TryGetValue("BookLanguage", out var bookLang) &&
-                              Enum.TryParse<Domain.Entities.Ads.Miscellaneous.Enums.BookLanguage>(bookLang, out var lang)
-                              ? lang : null,
-                Pages = form.TryGetValue("Pages", out var pages) && ushort.TryParse(pages, out var p) ? p : null
-            };
+            return Mappers.BookAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateClothAdDto))
+        {
+            return Mappers.ClothAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateEngineOilAdDto))
+        {
+            return Mappers.EngineOilAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateFurnitureAdDto))
+        {
+            return Mappers.FurnitureAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreatePlantAdDto))
+        {
+            return Mappers.PlantAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateShoeAdDto))
+        {
+            return Mappers.ShoeAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateTireWheelAdDto))
+        {
+            return Mappers.TireWheelAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateVideoGameAdDto))
+        {
+            return Mappers.VideoGameAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateComputerAdDto))
+        {
+            return Mappers.ComputerAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateVideoConsoleAdDto))
+        {
+            return Mappers.VideoConsoleAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateHandheldDeviceAdDto))
+        {
+            return Mappers.HandheldDeviceAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateLaptopAdDto))
+        {
+            return Mappers.LaptopAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateTvMonitorAdDto))
+        {
+            return Mappers.TvMonitorAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateElectronicAdDto))
+        {
+            return Mappers.ElectronicAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateApartmentAdDto))
+        {
+            return Mappers.ApartmentAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateHouseAdDto))
+        {
+            return Mappers.HouseAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateConstructionProjectAdDto))
+        {
+            return Mappers.ConstructionProjectAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateRealEstateAdDto))
+        {
+            return Mappers.RealEstateAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateCarAdDto))
+        {
+            return Mappers.Vehicles.CarAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateMotorcycleAdDto))
+        {
+            return Mappers.Vehicles.MotorcycleAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateTruckAdDto))
+        {
+            return Mappers.Vehicles.TruckAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateBoatAdDto))
+        {
+            return Mappers.Vehicles.BoatAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateBulldozerAdDto))
+        {
+            return Mappers.Vehicles.HeavyEquipment.BulldozerAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateBusAdDto))
+        {
+            return Mappers.Vehicles.HeavyEquipment.BusAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateCraneAdDto))
+        {
+            return Mappers.Vehicles.HeavyEquipment.CraneAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateExcavatorAdDto))
+        {
+            return Mappers.Vehicles.HeavyEquipment.ExcavatorAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateHeavyEquipmentAdDto))
+        {
+            return Mappers.Vehicles.HeavyEquipment.HeavyEquipmentAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateTransportAdDto))
+        {
+            return Mappers.Vehicles.TransportAdDtoMapper.MapFormToDto(baseDto, form);
         }
 
-        // Default to CreateAdDto for general categories
+        // Default to base DTO for general categories
         return baseDto;
     }
 

@@ -4,5 +4,10 @@ namespace ClassifiedAds.Application.DTOs.Ads.RealEstate;
 
 public class ConstructionProjectAdDto : RealEstateAdDto
 {
-    public CompletionStatus CompletionStatus { get; set; }
+    public CompletionStatus? CompletionStatus { get; set; }
+}
+
+public class CreateConstructionProjectAdDto : ConstructionProjectAdDto
+{
+    // EMPTY — inherits everything
 }

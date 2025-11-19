@@ -1,3 +1,4 @@
+using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Miscellaneous;
 using ClassifiedAds.Domain.Entities.Ads;
 using ClassifiedAds.Domain.Entities.Ads.Miscellaneous;
@@ -9,6 +10,7 @@ namespace ClassifiedAds.Application.Mappers;
 
 public static class BookAdDtoMapper
 {
+    // Maps CreateBookAdDto to Book entity - Used by: AdService.CreateAdAsync
     public static Book MapToEntity(
         CreateBookAdDto dto,
         string slug,
@@ -66,6 +68,7 @@ public static class BookAdDtoMapper
         };
     }
 
+    // Maps Book entity to BookAdDto - Used by: AdService.GetAdByIdAsync
     public static BookAdDto MapToDto(Book entity)
     {
         return new BookAdDto
@@ -83,7 +86,54 @@ public static class BookAdDtoMapper
         };
     }
 
-    // Update book-specific fields on existing Book entity
+    // Maps form data to CreateBookAdDto (parses book-specific fields) - Used by: CategoryDtoMapper.MapFormToDto
+    public static CreateBookAdDto MapFormToDto(CreateAdDto baseDto, Microsoft.AspNetCore.Http.IFormCollection form)
+    {
+        return new CreateBookAdDto
+        {
+            Title = baseDto.Title,
+            Description = baseDto.Description,
+            IsDollar = baseDto.IsDollar,
+            PriceValue = baseDto.PriceValue,
+            City = baseDto.City,
+            Region = baseDto.Region,
+            Neighborhood = baseDto.Neighborhood,
+            Street = baseDto.Street,
+            ImageFiles = baseDto.ImageFiles,
+            BookLanguage = form.TryGetValue("BookLanguage", out var bookLang) &&
+                          !string.IsNullOrWhiteSpace(bookLang) &&
+                          Enum.TryParse<BookLanguage>(bookLang, out var lang)
+                          ? lang : null,
+            Pages = form.TryGetValue("Pages", out var pages) &&
+                   !string.IsNullOrWhiteSpace(pages) &&
+                   ushort.TryParse(pages, out var p) ? p : null
+        };
+    }
+
+    // Maps form data to BookAdDto for updates - Used by: AdService.UpdateAdAsync
+    public static BookAdDto MapFormToUpdateDto(AdDto baseDto, Microsoft.AspNetCore.Http.IFormCollection form)
+    {
+        return new BookAdDto
+        {
+            Title = baseDto.Title,
+            Description = baseDto.Description,
+            IsDollar = baseDto.IsDollar,
+            PriceValue = baseDto.PriceValue,
+            City = baseDto.City,
+            Region = baseDto.Region,
+            Neighborhood = baseDto.Neighborhood,
+            Street = baseDto.Street,
+            ImageFiles = baseDto.ImageFiles,
+            BookLanguage = form.TryGetValue("BookLanguage", out var bookLang) &&
+                          !string.IsNullOrWhiteSpace(bookLang) &&
+                          Enum.TryParse<BookLanguage>(bookLang, out var bl) ? bl : null,
+            Pages = form.TryGetValue("Pages", out var pages) &&
+                   !string.IsNullOrWhiteSpace(pages) &&
+                   ushort.TryParse(pages, out var p) ? p : null
+        };
+    }
+
+    // Updates book-specific fields on existing Book entity - Used by: AdService.UpdateAdAsync
     public static void UpdateAttributes(Ad ad, BookAdDto dto)
     {
         if (ad is Book book)

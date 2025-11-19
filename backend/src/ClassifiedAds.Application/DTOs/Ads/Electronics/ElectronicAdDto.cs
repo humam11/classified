@@ -4,6 +4,11 @@ namespace ClassifiedAds.Application.DTOs.Ads.Electronics;
 
 public class ElectronicAdDto : AdDto
 {
-    public YesNo IsNew { get; set; }
-    public byte WarrantyMonths { get; set; }
+    public YesNo? IsNew { get; set; }
+    public byte? WarrantyMonths { get; set; }
+}
+
+public class CreateElectronicAdDto : ElectronicAdDto
+{
+    // EMPTY — inherits everything
 }

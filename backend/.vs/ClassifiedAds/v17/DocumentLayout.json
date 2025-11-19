@@ -3,280 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\miscellaneous\\bookaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\miscellaneous\\bookaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\services\\categorydtomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\services\\categorydtomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\miscellaneous\\bookaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\miscellaneous\\bookaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\addtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\addtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\addto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\addto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\vehicles\\transportaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\vehicles\\transportaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\miscellaneous\\tirewheeladdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\miscellaneous\\tirewheeladdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\electronics\\electronicaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\electronics\\electronicaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\miscellaneous\\engineoiladdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\miscellaneous\\engineoiladdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{23CEA822-BBF8-4924-B168-16346CE2EAAB}|src\\ClassifiedAds.Api\\ClassifiedAds.Api.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.api\\controllers\\dynamicadscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23CEA822-BBF8-4924-B168-16346CE2EAAB}|src\\ClassifiedAds.Api\\ClassifiedAds.Api.csproj|solutionrelative:src\\classifiedads.api\\controllers\\dynamicadscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\services\\adservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\services\\adservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\miscellaneous\\plantaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\miscellaneous\\plantaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{23CEA822-BBF8-4924-B168-16346CE2EAAB}|src\\ClassifiedAds.Api\\ClassifiedAds.Api.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.api\\controllers\\documenationcontroller.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{23CEA822-BBF8-4924-B168-16346CE2EAAB}|src\\ClassifiedAds.Api\\ClassifiedAds.Api.csproj|solutionrelative:src\\classifiedads.api\\controllers\\documenationcontroller.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\miscellaneous\\shoeaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\miscellaneous\\shoeaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\addtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\addtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\realestate\\realestateaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\realestate\\realestateaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\miscellaneous\\bookaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\miscellaneous\\bookaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\jobs\\cvaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\jobs\\cvaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\jobs\\serviceaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\jobs\\serviceaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\miscellaneous\\clothaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\miscellaneous\\clothaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\realestate\\realestateaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\realestate\\realestateaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\miscellaneous\\clothaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\miscellaneous\\clothaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\miscellaneous\\videogameaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\miscellaneous\\videogameaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\miscellaneous\\tirewheeladdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\miscellaneous\\tirewheeladdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\miscellaneous\\furnitureaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\miscellaneous\\furnitureaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\miscellaneous\\engineoiladdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\miscellaneous\\engineoiladdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\jobs\\service\\serviceaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\jobs\\service\\serviceaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\realestate\\houseaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\realestate\\houseaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\services\\categorydtomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\services\\categorydtomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\users\\createuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\users\\createuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\common\\pricedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\common\\pricedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\common\\locationaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\common\\locationaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\vehicles\\truckaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\vehicles\\truckaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\vehicles\\transportaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\vehicles\\transportaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\vehicles\\caraddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\vehicles\\caraddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\vehicles\\heavyequipment\\heavyequipmentaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\vehicles\\heavyequipment\\heavyequipmentaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\realestate\\constructionprojectaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\realestate\\constructionprojectaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\realestate\\apartmentaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\realestate\\apartmentaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\electronics\\electronicaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\electronics\\electronicaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\electronics\\handhelddeviceaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\electronics\\handhelddeviceaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\electronics\\tvmonitoraddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\electronics\\tvmonitoraddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\electronics\\laptopaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\electronics\\laptopaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\electronics\\consoleaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\electronics\\consoleaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\electronics\\computeraddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\electronics\\computeraddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\jobs\\cv\\cvaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\jobs\\cv\\cvaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\jobs\\vacancyaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\jobs\\vacancyaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\miscellaneous\\plantaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\miscellaneous\\plantaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\miscellaneous\\shoeaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\miscellaneous\\shoeaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\jobs\\service\\dailyavailabilitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\jobs\\service\\dailyavailabilitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\vehicles\\heavyequipment\\heavyequipmentaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\vehicles\\heavyequipment\\heavyequipmentaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\vehicles\\heavyequipment\\excavatoraddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\vehicles\\heavyequipment\\excavatoraddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\realestate\\constructionprojectaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\realestate\\constructionprojectaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\vehicles\\caraddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\vehicles\\caraddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\vehicles\\motorcycleaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\vehicles\\motorcycleaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\realestate\\houseaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\realestate\\houseaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\miscellaneous\\furnitureaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\miscellaneous\\furnitureaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\miscellaneous\\videogameaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\miscellaneous\\videogameaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\electronics\\laptopaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\electronics\\laptopaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\electronics\\tvmonitoraddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\electronics\\tvmonitoraddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\electronics\\consoleaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\electronics\\consoleaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\electronics\\computeraddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\electronics\\computeraddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\vehicles\\heavyequipment\\busaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\vehicles\\heavyequipment\\busaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\vehicles\\heavyequipment\\craneaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\vehicles\\heavyequipment\\craneaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\vehicles\\motorcycleaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\vehicles\\motorcycleaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\vehicles\\boataddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\vehicles\\boataddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\vehicles\\heavyequipment\\busaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\vehicles\\heavyequipment\\busaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\vehicles\\heavyequipment\\craneaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\vehicles\\heavyequipment\\craneaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FEBFF193-AC92-40F7-A05B-9D56A6C3BE5D}|src\\ClassifiedAds.Infrastructure\\ClassifiedAds.Infrastructure.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.infrastructure\\services\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FEBFF193-AC92-40F7-A05B-9D56A6C3BE5D}|src\\ClassifiedAds.Infrastructure\\ClassifiedAds.Infrastructure.csproj|solutionrelative:src\\classifiedads.infrastructure\\services\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\jobs\\service\\timeslotdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\jobs\\service\\timeslotdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\jobs\\cv\\educationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\jobs\\cv\\educationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\jobs\\cv\\languagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\jobs\\cv\\languagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\jobs\\cv\\experiencedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\jobs\\cv\\experiencedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\jobs\\vacancyaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\jobs\\vacancyaddtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{23CEA822-BBF8-4924-B168-16346CE2EAAB}|src\\ClassifiedAds.Api\\ClassifiedAds.Api.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.api\\controllers\\dynamicadscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{23CEA822-BBF8-4924-B168-16346CE2EAAB}|src\\ClassifiedAds.Api\\ClassifiedAds.Api.csproj|solutionrelative:src\\classifiedads.api\\controllers\\dynamicadscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\dtos\\ads\\miscellaneous\\bookaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\dtos\\ads\\miscellaneous\\bookaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -286,903 +38,99 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 30,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "CategoryDtoMapper.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Services\\CategoryDtoMapper.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Services\\CategoryDtoMapper.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Services\\CategoryDtoMapper.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Services\\CategoryDtoMapper.cs",
-              "ViewState": "AgIAAKABAAAAAAAAAAAuwK8BAABpAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:12:31.259Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "CreateUserDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Users\\CreateUserDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Users\\CreateUserDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Users\\CreateUserDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Users\\CreateUserDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:12:24.505Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "TruckAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\TruckAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\TruckAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\TruckAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\TruckAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:12:12.577Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "CarAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\CarAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\CarAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\CarAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\CarAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:12:04.306Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "HeavyEquipmentAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\HeavyEquipment\\HeavyEquipmentAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\HeavyEquipment\\HeavyEquipmentAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\HeavyEquipment\\HeavyEquipmentAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\HeavyEquipment\\HeavyEquipmentAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:12:01.274Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "ConstructionProjectAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\RealEstate\\ConstructionProjectAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\RealEstate\\ConstructionProjectAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\RealEstate\\ConstructionProjectAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\RealEstate\\ConstructionProjectAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:11:52.025Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "HouseAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\RealEstate\\HouseAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\RealEstate\\HouseAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\RealEstate\\HouseAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\RealEstate\\HouseAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:11:49.634Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "RealEstateAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\RealEstate\\RealEstateAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\RealEstate\\RealEstateAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\RealEstate\\RealEstateAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\RealEstate\\RealEstateAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:11:40.641Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "VacancyAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\VacancyAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\VacancyAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\VacancyAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\VacancyAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:11:09.424Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "ApartmentAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\RealEstate\\ApartmentAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\RealEstate\\ApartmentAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\RealEstate\\ApartmentAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\RealEstate\\ApartmentAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:10:47.765Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "VideoGameAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\VideoGameAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\VideoGameAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\VideoGameAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\VideoGameAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:10:45.262Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "TireWheelAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\TireWheelAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\TireWheelAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\TireWheelAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\TireWheelAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:10:41.879Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "ShoeAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\ShoeAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\ShoeAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\ShoeAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\ShoeAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:10:36.781Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "PlantAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\PlantAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\PlantAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\PlantAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\PlantAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:10:34.142Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "FurnitureAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\FurnitureAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\FurnitureAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\FurnitureAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\FurnitureAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:10:31.542Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "EngineOilAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\EngineOilAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\EngineOilAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\EngineOilAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\EngineOilAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:10:28.583Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "LaptopAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\LaptopAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\LaptopAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\LaptopAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\LaptopAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:08:32.306Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "TvMonitorAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\TvMonitorAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\TvMonitorAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\TvMonitorAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\TvMonitorAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:08:30.842Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "HandheldDeviceAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\HandheldDeviceAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\HandheldDeviceAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\HandheldDeviceAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\HandheldDeviceAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:08:29.809Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\AdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\AdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\AdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\AdDtoValidator.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAswJwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:07:51.472Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\AdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\AdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\AdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\AdDto.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:07:34.992Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AdService.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Services\\AdService.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Services\\AdService.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Services\\AdService.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Services\\AdService.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAADgvyoAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:07:25.568Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 62,
-              "Title": "ImageService.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Infrastructure\\Services\\ImageService.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Infrastructure\\Services\\ImageService.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Infrastructure\\Services\\ImageService.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Infrastructure\\Services\\ImageService.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAADwv1UAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:06:31.413Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "PriceDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Common\\PriceDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Common\\PriceDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Common\\PriceDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Common\\PriceDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:06:09.365Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "LocationAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Common\\LocationAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Common\\LocationAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Common\\LocationAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Common\\LocationAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:02:57.047Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
-              "Title": "BusAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\HeavyEquipment\\BusAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\HeavyEquipment\\BusAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\HeavyEquipment\\BusAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\HeavyEquipment\\BusAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:02:23.045Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "CraneAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\HeavyEquipment\\CraneAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\HeavyEquipment\\CraneAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\HeavyEquipment\\CraneAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\HeavyEquipment\\CraneAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:02:22.525Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 58,
-              "Title": "MotorcycleAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\MotorcycleAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\MotorcycleAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\MotorcycleAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\MotorcycleAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:02:00.339Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "TransportAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\TransportAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\TransportAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\TransportAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Vehicles\\TransportAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T02:01:59.261Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ClothAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\ClothAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\ClothAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\ClothAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\ClothAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:59:29.239Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BookAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\BookAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\BookAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\BookAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\BookAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:59:24.303Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "DailyAvailabilityDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Service\\DailyAvailabilityDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Service\\DailyAvailabilityDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Service\\DailyAvailabilityDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Service\\DailyAvailabilityDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:58:55.301Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 63,
-              "Title": "TimeSlotDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Service\\TimeSlotDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Service\\TimeSlotDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Service\\TimeSlotDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Service\\TimeSlotDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:59:13.206Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "ServiceAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Service\\ServiceAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Service\\ServiceAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Service\\ServiceAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Service\\ServiceAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:59:01.397Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "CvAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Cv\\CvAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Cv\\CvAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Cv\\CvAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Cv\\CvAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:58:43.653Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 65,
-              "Title": "LanguageDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Cv\\LanguageDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Cv\\LanguageDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Cv\\LanguageDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Cv\\LanguageDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:58:42.853Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 66,
-              "Title": "ExperienceDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Cv\\ExperienceDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Cv\\ExperienceDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Cv\\ExperienceDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Cv\\ExperienceDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:58:42.333Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 64,
-              "Title": "EducationDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Cv\\EducationDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Cv\\EducationDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Cv\\EducationDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Jobs\\Cv\\EducationDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:58:41.543Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "ElectronicAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\ElectronicAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\ElectronicAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\ElectronicAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\ElectronicAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:58:01.774Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "ConsoleAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\ConsoleAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\ConsoleAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\ConsoleAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\ConsoleAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:57:42.177Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "ComputerAdDto.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\ComputerAdDto.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\ComputerAdDto.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\ComputerAdDto.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Electronics\\ComputerAdDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:57:38.883Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "HeavyEquipmentAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\HeavyEquipment\\HeavyEquipmentAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\HeavyEquipment\\HeavyEquipmentAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\HeavyEquipment\\HeavyEquipmentAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\HeavyEquipment\\HeavyEquipmentAdDtoValidator.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAswBkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:46:48.706Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "ExcavatorAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\HeavyEquipment\\ExcavatorAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\HeavyEquipment\\ExcavatorAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\HeavyEquipment\\ExcavatorAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\HeavyEquipment\\ExcavatorAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:46:43.519Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 61,
-              "Title": "CraneAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\HeavyEquipment\\CraneAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\HeavyEquipment\\CraneAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\HeavyEquipment\\CraneAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\HeavyEquipment\\CraneAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:46:38.886Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 60,
-              "Title": "BusAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\HeavyEquipment\\BusAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\HeavyEquipment\\BusAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\HeavyEquipment\\BusAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\HeavyEquipment\\BusAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:46:27.809Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 59,
-              "Title": "BoatAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\BoatAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\BoatAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\BoatAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\BoatAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:46:17.988Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "CarAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\CarAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\CarAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\CarAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\CarAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:46:12.761Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "MotorcycleAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\MotorcycleAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\MotorcycleAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\MotorcycleAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\MotorcycleAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:46:07.539Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TransportAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\TransportAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\TransportAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\TransportAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Vehicles\\TransportAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:46:02.511Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "RealEstateAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\RealEstate\\RealEstateAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\RealEstate\\RealEstateAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\RealEstate\\RealEstateAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\RealEstate\\RealEstateAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:45:45.052Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "HouseAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\RealEstate\\HouseAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\RealEstate\\HouseAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\RealEstate\\HouseAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\RealEstate\\HouseAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:45:39.674Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "ConstructionProjectAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\RealEstate\\ConstructionProjectAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\RealEstate\\ConstructionProjectAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\RealEstate\\ConstructionProjectAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\RealEstate\\ConstructionProjectAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:45:35.192Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 52,
-              "Title": "LaptopAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\LaptopAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\LaptopAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\LaptopAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\LaptopAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:45:06.153Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "TvMonitorAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\TvMonitorAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\TvMonitorAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\TvMonitorAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\TvMonitorAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:44:58.057Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ElectronicAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\ElectronicAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\ElectronicAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\ElectronicAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\ElectronicAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:44:52.078Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "ConsoleAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\ConsoleAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\ConsoleAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\ConsoleAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\ConsoleAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:44:46.103Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "ComputerAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\ComputerAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\ComputerAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\ComputerAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Electronics\\ComputerAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:44:39.336Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ServiceAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Jobs\\ServiceAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Jobs\\ServiceAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Jobs\\ServiceAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Jobs\\ServiceAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:44:29.963Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 67,
-              "Title": "VacancyAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Jobs\\VacancyAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Jobs\\VacancyAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Jobs\\VacancyAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Jobs\\VacancyAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:44:21.591Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "CvAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Jobs\\CvAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Jobs\\CvAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Jobs\\CvAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Jobs\\CvAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:44:20.144Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ShoeAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\ShoeAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\ShoeAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\ShoeAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\ShoeAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:43:43.211Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "TireWheelAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\TireWheelAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\TireWheelAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\TireWheelAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\TireWheelAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:43:36.062Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
-              "Title": "VideoGameAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\VideoGameAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\VideoGameAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\VideoGameAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\VideoGameAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:43:11.427Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "PlantAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\PlantAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\PlantAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\PlantAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\PlantAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:43:21.612Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "FurnitureAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\FurnitureAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\FurnitureAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\FurnitureAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\FurnitureAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:42:44.012Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EngineOilAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\EngineOilAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\EngineOilAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\EngineOilAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\EngineOilAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:42:44.245Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ClothAdDtoValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\ClothAdDtoValidator.cs",
-              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\ClothAdDtoValidator.cs",
-              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\ClothAdDtoValidator.cs",
-              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\ClothAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:42:31.395Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "BookAdDtoValidator.cs",
               "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\BookAdDtoValidator.cs",
               "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\BookAdDtoValidator.cs",
               "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\BookAdDtoValidator.cs",
               "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\Miscellaneous\\BookAdDtoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAswB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:42:23.044Z",
+              "WhenOpened": "2025-11-17T20:16:42.151Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 4,
+              "Title": "AdDtoValidator.cs",
+              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\AdDtoValidator.cs",
+              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\AdDtoValidator.cs",
+              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\AdDtoValidator.cs",
+              "RelativeToolTip": "src\\ClassifiedAds.Application\\Validators\\Ads\\AdDtoValidator.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T20:16:46.719Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "DynamicAdsController.cs",
               "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Api\\Controllers\\DynamicAdsController.cs",
               "RelativeDocumentMoniker": "src\\ClassifiedAds.Api\\Controllers\\DynamicAdsController.cs",
               "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Api\\Controllers\\DynamicAdsController.cs",
               "RelativeToolTip": "src\\ClassifiedAds.Api\\Controllers\\DynamicAdsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAADwv2oAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T01:42:05.336Z",
+              "WhenOpened": "2025-11-17T21:58:10.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "documenationcontroller.txt",
+              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Api\\Controllers\\documenationcontroller.txt",
+              "RelativeDocumentMoniker": "src\\ClassifiedAds.Api\\Controllers\\documenationcontroller.txt",
+              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Api\\Controllers\\documenationcontroller.txt",
+              "RelativeToolTip": "src\\ClassifiedAds.Api\\Controllers\\documenationcontroller.txt",
+              "ViewState": "AgIAADoAAAAAAAAAAAAuwE4AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-11-17T21:58:07.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdService.cs",
+              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Services\\AdService.cs",
+              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Services\\AdService.cs",
+              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Services\\AdService.cs",
+              "RelativeToolTip": "src\\ClassifiedAds.Application\\Services\\AdService.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAADwvzcAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T21:56:10.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CategoryDtoMapper.cs",
+              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Services\\CategoryDtoMapper.cs",
+              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Services\\CategoryDtoMapper.cs",
+              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Services\\CategoryDtoMapper.cs",
+              "RelativeToolTip": "src\\ClassifiedAds.Application\\Services\\CategoryDtoMapper.cs",
+              "ViewState": "AgIAAHYAAAAAAAAAAAAxwIMAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T21:56:02.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BookAdDto.cs",
+              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\BookAdDto.cs",
+              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\BookAdDto.cs",
+              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\BookAdDto.cs",
+              "RelativeToolTip": "src\\ClassifiedAds.Application\\DTOs\\Ads\\Miscellaneous\\BookAdDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T20:58:21.853Z",
               "EditorCaption": ""
             }
           ]
