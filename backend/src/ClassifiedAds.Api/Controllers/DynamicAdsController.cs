@@ -121,14 +121,14 @@ public class DynamicAdsController : ControllerBase
     
 
     [HttpGet("{lang}/{locationSlug}/ads/{id}")]
-    public async Task<ActionResult<CreateAdDto>> GetAdById(
+    public async Task<ActionResult<object>> GetAdById(
         [FromRoute] string lang,
         [FromRoute] string locationSlug,
         [FromRoute] string id)
     {
         try
         {
-            var ad = await _adService.GetAdByIdAsync<CreateAdDto>(id);
+            var ad = await _adService.GetAdByIdAsync(id);
             if (ad == null)
             {
                 return NotFound(new { error = "Ad not found" });

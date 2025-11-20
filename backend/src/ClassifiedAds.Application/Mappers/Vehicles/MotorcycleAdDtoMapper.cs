@@ -66,25 +66,33 @@ public static class MotorcycleAdDtoMapper
         };
     }
 
-    // Maps Motorcycle entity to MotorcycleAdDto - Used by: AdService.GetAdByIdAsync
-    public static MotorcycleAdDto MapToDto(Motorcycle entity)
+    public static GetMotorcycleAdDto MapToDto(Motorcycle entity)
     {
-        return new MotorcycleAdDto
+        return new GetMotorcycleAdDto
         {
+            Id = entity.Id,
             Title = entity.Title,
             Description = entity.Description,
-            IsDollar = entity.Price.IsDollar,
-            PriceValue = entity.Price.Value,
-            City = string.Empty, // TODO: Extract from FullAddressArabic/Kurdish
-            Region = string.Empty,
-            Neighborhood = string.Empty,
-            Street = entity.LocationAd.Street,
-            FuelType = entity.FuelType,
-            EnginePower = entity.EnginePower,
-            FuelTankCapacity = entity.FuelTankCapacity,
-            MotorcycleDriveType = entity.MotorcycleDriveType,
-            GearCount = entity.GearCount,
-            ModelId = entity.ModelId
+            Price = new DTOs.Common.PriceResponseDto { Value = entity.Price.Value, IsDollar = entity.Price.IsDollar, ShowingPrice = entity.Price.ShowingPrice },
+            LocationAd = new DTOs.Common.LocationAdResponseDto { LocationIds = entity.LocationAd.LocationIds, FullAddressArabic = entity.LocationAd.FullAddressArabic, FullAddressKurdish = entity.LocationAd.FullAddressKurdish, Street = entity.LocationAd.Street },
+            Images = entity.Images.Select(img => new DTOs.Common.AdImageDto { ImageId = img.ImageId, ImageUrl = img.ImageUrl, Order = img.Order }).ToList(),
+            Status = (int)entity.Status,
+            CreatedAt = entity.CreatedAt,
+            UpdatedAt = entity.UpdatedAt,
+            ImageCount = entity.ImageCount,
+            ViewsCount = entity.ViewsCount,
+            Priority = entity.Priority,
+            Slug = entity.Slug,
+            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Specs = new MotorcycleSpecsDto
+            {
+                FuelType = entity.FuelType,
+                EnginePower = entity.EnginePower,
+                FuelTankCapacity = entity.FuelTankCapacity,
+                MotorcycleDriveType = entity.MotorcycleDriveType,
+                GearCount = entity.GearCount,
+                ModelId = entity.ModelId
+            }
         };
     }
 

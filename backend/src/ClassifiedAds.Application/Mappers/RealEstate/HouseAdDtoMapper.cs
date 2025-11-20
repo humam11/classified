@@ -66,6 +66,36 @@ public static class HouseAdDtoMapper
         };
     }
 
+    public static GetHouseAdDto MapToDto(House entity)
+    {
+        return new GetHouseAdDto
+        {
+            Id = entity.Id,
+            Title = entity.Title,
+            Description = entity.Description,
+            Price = new DTOs.Common.PriceResponseDto { Value = entity.Price.Value, IsDollar = entity.Price.IsDollar, ShowingPrice = entity.Price.ShowingPrice },
+            LocationAd = new DTOs.Common.LocationAdResponseDto { LocationIds = entity.LocationAd.LocationIds, FullAddressArabic = entity.LocationAd.FullAddressArabic, FullAddressKurdish = entity.LocationAd.FullAddressKurdish, Street = entity.LocationAd.Street },
+            Images = entity.Images.Select(img => new DTOs.Common.AdImageDto { ImageId = img.ImageId, ImageUrl = img.ImageUrl, Order = img.Order }).ToList(),
+            Status = (int)entity.Status,
+            CreatedAt = entity.CreatedAt,
+            UpdatedAt = entity.UpdatedAt,
+            ImageCount = entity.ImageCount,
+            ViewsCount = entity.ViewsCount,
+            Priority = entity.Priority,
+            Slug = entity.Slug,
+            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Specs = new HouseSpecsDto
+            {
+                Area = entity.Area,
+                Floors = entity.Floors,
+                Bedrooms = entity.Bedrooms,
+                Bathrooms = entity.Bathrooms,
+                Garage = entity.Garage,
+                Garden = entity.Garden
+            }
+        };
+    }
+
     public static CreateHouseAdDto MapFormToDto(CreateAdDto baseDto, Microsoft.AspNetCore.Http.IFormCollection form)
     {
         return new CreateHouseAdDto

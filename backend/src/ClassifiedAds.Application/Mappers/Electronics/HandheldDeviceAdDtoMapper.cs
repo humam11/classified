@@ -76,6 +76,46 @@ public static class HandheldDeviceAdDtoMapper
         };
     }
 
+    public static GetHandheldDeviceAdDto MapToDto(HandheldDevice entity)
+    {
+        return new GetHandheldDeviceAdDto
+        {
+            Id = entity.Id,
+            Title = entity.Title,
+            Description = entity.Description,
+            Price = new DTOs.Common.PriceResponseDto { Value = entity.Price.Value, IsDollar = entity.Price.IsDollar, ShowingPrice = entity.Price.ShowingPrice },
+            LocationAd = new DTOs.Common.LocationAdResponseDto { LocationIds = entity.LocationAd.LocationIds, FullAddressArabic = entity.LocationAd.FullAddressArabic, FullAddressKurdish = entity.LocationAd.FullAddressKurdish, Street = entity.LocationAd.Street },
+            Images = entity.Images.Select(img => new DTOs.Common.AdImageDto { ImageId = img.ImageId, ImageUrl = img.ImageUrl, Order = img.Order }).ToList(),
+            Status = (int)entity.Status,
+            CreatedAt = entity.CreatedAt,
+            UpdatedAt = entity.UpdatedAt,
+            ImageCount = entity.ImageCount,
+            ViewsCount = entity.ViewsCount,
+            Priority = entity.Priority,
+            Slug = entity.Slug,
+            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Specs = new HandheldDeviceSpecsDto
+            {
+                IsNew = entity.IsNew,
+                WarrantyMonths = entity.WarrantyMonths,
+                StorageCapacity = entity.StorageCapacity,
+                RamSize = entity.RamSize,
+                Color = entity.Color,
+                MainCamera = entity.MainCamera,
+                FrontCamera = entity.FrontCamera,
+                MainCameraResolution = entity.MainCameraResolution,
+                FrontCameraResolution = entity.FrontCameraResolution,
+                BatteryCapacity = entity.BatteryCapacity,
+                ScreenSize = entity.ScreenSize,
+                Processor = entity.Processor,
+                DualSim = entity.DualSim,
+                WaterproofSupport = entity.WaterproofSupport,
+                StylusSupport = entity.StylusSupport,
+                ModelId = entity.ModelId
+            }
+        };
+    }
+
     public static CreateHandheldDeviceAdDto MapFormToDto(CreateAdDto baseDto, Microsoft.AspNetCore.Http.IFormCollection form)
     {
         return new CreateHandheldDeviceAdDto

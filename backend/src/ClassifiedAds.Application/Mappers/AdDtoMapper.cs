@@ -65,19 +65,45 @@ public static class AdDtoMapper
         };
     }
 
-    // Maps an Ad entity to AdDto (for GET operations)
-    public static AdDto MapToDto(Ad entity)
+    // Maps an Ad entity to GetAdDto (for GET operations)
+    public static GetAdDto MapToDto(Ad entity)
     {
-        return new AdDto
+        return new GetAdDto
         {
+            Id = entity.Id,
             Title = entity.Title,
             Description = entity.Description,
-            IsDollar = entity.Price.IsDollar,
-            PriceValue = entity.Price.Value,
-            City = string.Empty, // TODO: Extract from FullAddressArabic/Kurdish
-            Region = string.Empty,
-            Neighborhood = string.Empty,
-            Street = entity.LocationAd.Street
+            Price = new DTOs.Common.PriceResponseDto
+            {
+                Value = entity.Price.Value,
+                IsDollar = entity.Price.IsDollar,
+                ShowingPrice = entity.Price.ShowingPrice
+            },
+            LocationAd = new DTOs.Common.LocationAdResponseDto
+            {
+                LocationIds = entity.LocationAd.LocationIds,
+                FullAddressArabic = entity.LocationAd.FullAddressArabic,
+                FullAddressKurdish = entity.LocationAd.FullAddressKurdish,
+                Street = entity.LocationAd.Street
+            },
+            Images = entity.Images.Select(img => new DTOs.Common.AdImageDto
+            {
+                ImageId = img.ImageId,
+                ImageUrl = img.ImageUrl,
+                Order = img.Order
+            }).ToList(),
+            Status = (int)entity.Status,
+            CreatedAt = entity.CreatedAt,
+            UpdatedAt = entity.UpdatedAt,
+            ImageCount = entity.ImageCount,
+            ViewsCount = entity.ViewsCount,
+            Priority = entity.Priority,
+            Slug = entity.Slug,
+            Category = new DTOs.Common.CategoryResponseDto
+            {
+                CategoryJoins = entity.Category.CategoryJoins,
+                CategoryIds = entity.Category.CategoryIds
+            }
         };
     }
 

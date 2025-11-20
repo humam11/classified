@@ -78,31 +78,60 @@ public static class ServiceAdDtoMapper
         };
     }
 
-    // Maps Service entity to ServiceAdDto - Used by: AdService.GetAdByIdAsync
-    public static ServiceAdDto MapToDto(Service entity)
+    // Maps Service entity to GetServiceAdDto - Used by: AdService.GetAdByIdAsync
+    public static GetServiceAdDto MapToDto(Service entity)
     {
-        return new ServiceAdDto
+        return new GetServiceAdDto
         {
+            Id = entity.Id,
             Title = entity.Title,
             Description = entity.Description,
-            IsDollar = entity.Price.IsDollar,
-            PriceValue = entity.Price.Value,
-            City = string.Empty, // TODO: Extract from FullAddressArabic/Kurdish
-            Region = string.Empty,
-            Neighborhood = string.Empty,
-            Street = entity.LocationAd.Street,
-            PaymentPeriod = entity.PaymentPeriod,
-            DailyAvailability = entity.DailyAvailability?.Select(da => new DailyAvailabilityDto
+            Price = new DTOs.Common.PriceResponseDto
             {
-                DayWeek = da.DayWeek,
-                IsAvailable = da.IsAvailable,
-                Is24Hours = da.Is24Hours,
-                TimeSlots = da.TimeSlots?.Select(ts => new TimeSlotDto
+                Value = entity.Price.Value,
+                IsDollar = entity.Price.IsDollar,
+                ShowingPrice = entity.Price.ShowingPrice
+            },
+            LocationAd = new DTOs.Common.LocationAdResponseDto
+            {
+                LocationIds = entity.LocationAd.LocationIds,
+                FullAddressArabic = entity.LocationAd.FullAddressArabic,
+                FullAddressKurdish = entity.LocationAd.FullAddressKurdish,
+                Street = entity.LocationAd.Street
+            },
+            Images = entity.Images.Select(img => new DTOs.Common.AdImageDto
+            {
+                ImageId = img.ImageId,
+                ImageUrl = img.ImageUrl,
+                Order = img.Order
+            }).ToList(),
+            Status = (int)entity.Status,
+            CreatedAt = entity.CreatedAt,
+            UpdatedAt = entity.UpdatedAt,
+            ImageCount = entity.ImageCount,
+            ViewsCount = entity.ViewsCount,
+            Priority = entity.Priority,
+            Slug = entity.Slug,
+            Category = new DTOs.Common.CategoryResponseDto
+            {
+                CategoryJoins = entity.Category.CategoryJoins,
+                CategoryIds = entity.Category.CategoryIds
+            },
+            Specs = new ServiceSpecsDto
+            {
+                PaymentPeriod = entity.PaymentPeriod,
+                DailyAvailability = entity.DailyAvailability?.Select(da => new DailyAvailabilityDto
                 {
-                    OpeningTime = ts.OpeningTime,
-                    ClosingTime = ts.ClosingTime
+                    DayWeek = da.DayWeek,
+                    IsAvailable = da.IsAvailable,
+                    Is24Hours = da.Is24Hours,
+                    TimeSlots = da.TimeSlots?.Select(ts => new TimeSlotDto
+                    {
+                        OpeningTime = ts.OpeningTime,
+                        ClosingTime = ts.ClosingTime
+                    }).ToList()
                 }).ToList()
-            }).ToList()
+            }
         };
     }
 

@@ -32,33 +32,63 @@ public class AdService : IAdService
     }
 
 
-    public async Task<TDto?> GetAdByIdAsync<TDto>(string id) where TDto : class
+    public async Task<object?> GetAdByIdAsync(string id)
     {
         var ad = await _adsCollection.Find(a => a.Id == id).FirstOrDefaultAsync();
         if (ad == null) return null;
 
         // Map entity to DTO using appropriate mapper based on ad type
-        // TODO: Add MapToDto methods to remaining mappers (Miscellaneous, Electronics, RealEstate)
-        AdDto dto = ad switch
+        // NOTE: Order matters! Derived types must come before base types
+        // Each mapper returns its specific GetXxxAdDto type with full MongoDB structure
+        object dto = ad switch
         {
-            Book book => Mappers.BookAdDtoMapper.MapToDto(book),
+            // Electronics (specific types before Electronic base)
+            Computer computer => ComputerAdDtoMapper.MapToDto(computer),
+            HandheldDevice handheld => HandheldDeviceAdDtoMapper.MapToDto(handheld),
+            Laptop laptop => LaptopAdDtoMapper.MapToDto(laptop),
+            TvMonitor tv => TvMonitorAdDtoMapper.MapToDto(tv),
+            VideoConsole console => VideoConsoleAdDtoMapper.MapToDto(console),
+            Electronic electronic => ElectronicAdDtoMapper.MapToDto(electronic),
+            
+            // Jobs/Services
+            Cv cv => Mappers.Jobs.CvAdDtoMapper.MapToDto(cv),
+            Service service => Mappers.Jobs.ServiceAdDtoMapper.MapToDto(service),
+            Vacancy vacancy => Mappers.Jobs.VacancyAdDtoMapper.MapToDto(vacancy),
+            
+            // Miscellaneous
+            Book book => BookAdDtoMapper.MapToDto(book),
+            Cloth cloth => ClothAdDtoMapper.MapToDto(cloth),
+            EngineOil oil => EngineOilAdDtoMapper.MapToDto(oil),
+            Furniture furniture => FurnitureAdDtoMapper.MapToDto(furniture),
+            Plant plant => PlantAdDtoMapper.MapToDto(plant),
+            Shoe shoe => ShoeAdDtoMapper.MapToDto(shoe),
+            TireWheel tire => TireWheelAdDtoMapper.MapToDto(tire),
+            VideoGame game => VideoGameAdDtoMapper.MapToDto(game),
+            
+            // RealEstate (specific types before RealEstate base)
+            Apartment apartment => ApartmentAdDtoMapper.MapToDto(apartment),
+            ConstructionProject project => ConstructionProjectAdDtoMapper.MapToDto(project),
+            House house => HouseAdDtoMapper.MapToDto(house),
+            RealEstate realEstate => RealEstateAdDtoMapper.MapToDto(realEstate),
+            
+            // Heavy Equipment (specific types before HeavyEquipment base)
             Bulldozer bulldozer => Mappers.Vehicles.HeavyEquipment.BulldozerAdDtoMapper.MapToDto(bulldozer),
             Bus bus => Mappers.Vehicles.HeavyEquipment.BusAdDtoMapper.MapToDto(bus),
             Crane crane => Mappers.Vehicles.HeavyEquipment.CraneAdDtoMapper.MapToDto(crane),
             Excavator excavator => Mappers.Vehicles.HeavyEquipment.ExcavatorAdDtoMapper.MapToDto(excavator),
             HeavyEquipment heavyEquipment => Mappers.Vehicles.HeavyEquipment.HeavyEquipmentAdDtoMapper.MapToDto(heavyEquipment),
+            
+            // Vehicles (specific types before Transport base)
             Car car => Mappers.Vehicles.CarAdDtoMapper.MapToDto(car),
             Motorcycle motorcycle => Mappers.Vehicles.MotorcycleAdDtoMapper.MapToDto(motorcycle),
             Truck truck => Mappers.Vehicles.TruckAdDtoMapper.MapToDto(truck),
             Boat boat => Mappers.Vehicles.BoatAdDtoMapper.MapToDto(boat),
             Transport transport => Mappers.Vehicles.TransportAdDtoMapper.MapToDto(transport),
-            Vacancy vacancy => Mappers.Jobs.VacancyAdDtoMapper.MapToDto(vacancy),
-            Cv cv => Mappers.Jobs.CvAdDtoMapper.MapToDto(cv),
-            Service service => Mappers.Jobs.ServiceAdDtoMapper.MapToDto(service),
+            
             _ => AdDtoMapper.MapToDto(ad)
         };
 
-        return dto as TDto;
+        return dto;
     }
 
 

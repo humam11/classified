@@ -94,46 +94,76 @@ public static class CvAdDtoMapper
         };
     }
 
-    // Maps Cv entity to CvAdDto - Used by: AdService.GetAdByIdAsync
-    public static CvAdDto MapToDto(Cv entity)
+    // Maps Cv entity to GetCvAdDto - Used by: AdService.GetAdByIdAsync
+    public static GetCvAdDto MapToDto(Cv entity)
     {
-        return new CvAdDto
+        return new GetCvAdDto
         {
+            Id = entity.Id,
             Title = entity.Title,
             Description = entity.Description,
-            IsDollar = entity.Price.IsDollar,
-            PriceValue = entity.Price.Value,
-            City = string.Empty, // TODO: Extract from FullAddressArabic/Kurdish
-            Region = string.Empty,
-            Neighborhood = string.Empty,
-            Street = entity.LocationAd.Street,
-            FirstName = entity.FirstName,
-            LastName = entity.LastName,
-            Gender = entity.Gender,
-            DateOfBirth = entity.DateOfBirth,
-            PhoneNumber = entity.PhoneNumber,
-            ContactEmail = entity.ContactEmail,
-            JobSearchStatus = entity.JobSearchStatus,
-            Education = entity.Education?.Select(e => new EducationDto
+            Price = new DTOs.Common.PriceResponseDto
             {
-                InstitutionName = e.InstitutionName,
-                EducationDegree = e.EducationDegree,
-                Specialization = e.Specialization,
-                StartDate = e.StartDate,
-                EndDate = e.EndDate
+                Value = entity.Price.Value,
+                IsDollar = entity.Price.IsDollar,
+                ShowingPrice = entity.Price.ShowingPrice
+            },
+            LocationAd = new DTOs.Common.LocationAdResponseDto
+            {
+                LocationIds = entity.LocationAd.LocationIds,
+                FullAddressArabic = entity.LocationAd.FullAddressArabic,
+                FullAddressKurdish = entity.LocationAd.FullAddressKurdish,
+                Street = entity.LocationAd.Street
+            },
+            Images = entity.Images.Select(img => new DTOs.Common.AdImageDto
+            {
+                ImageId = img.ImageId,
+                ImageUrl = img.ImageUrl,
+                Order = img.Order
             }).ToList(),
-            Experience = entity.Experience?.Select(e => new ExperienceDto
+            Status = (int)entity.Status,
+            CreatedAt = entity.CreatedAt,
+            UpdatedAt = entity.UpdatedAt,
+            ImageCount = entity.ImageCount,
+            ViewsCount = entity.ViewsCount,
+            Priority = entity.Priority,
+            Slug = entity.Slug,
+            Category = new DTOs.Common.CategoryResponseDto
             {
-                CompanyName = e.CompanyName,
-                Position = e.Position,
-                StartDate = e.StartDate,
-                EndDate = e.EndDate
-            }).ToList(),
-            Languages = entity.Languages?.Select(l => new LanguageDto
+                CategoryJoins = entity.Category.CategoryJoins,
+                CategoryIds = entity.Category.CategoryIds
+            },
+            // CV-specific fields grouped in Specs object
+            Specs = new CvSpecsDto
             {
-                Name = l.Name,
-                LanguageProficiency = l.LanguageProficiency
-            }).ToList()
+                FirstName = entity.FirstName,
+                LastName = entity.LastName,
+                Gender = entity.Gender,
+                DateOfBirth = entity.DateOfBirth,
+                PhoneNumber = entity.PhoneNumber,
+                ContactEmail = entity.ContactEmail,
+                JobSearchStatus = entity.JobSearchStatus,
+                Education = entity.Education?.Select(e => new EducationDto
+                {
+                    InstitutionName = e.InstitutionName,
+                    EducationDegree = e.EducationDegree,
+                    Specialization = e.Specialization,
+                    StartDate = e.StartDate,
+                    EndDate = e.EndDate
+                }).ToList(),
+                Experience = entity.Experience?.Select(e => new ExperienceDto
+                {
+                    CompanyName = e.CompanyName,
+                    Position = e.Position,
+                    StartDate = e.StartDate,
+                    EndDate = e.EndDate
+                }).ToList(),
+                Languages = entity.Languages?.Select(l => new LanguageDto
+                {
+                    Name = l.Name,
+                    LanguageProficiency = l.LanguageProficiency
+                }).ToList()
+            }
         };
     }
 

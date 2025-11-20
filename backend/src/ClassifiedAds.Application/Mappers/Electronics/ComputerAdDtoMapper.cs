@@ -69,6 +69,39 @@ public static class ComputerAdDtoMapper
         };
     }
 
+    public static GetComputerAdDto MapToDto(Computer entity)
+    {
+        return new GetComputerAdDto
+        {
+            Id = entity.Id,
+            Title = entity.Title,
+            Description = entity.Description,
+            Price = new DTOs.Common.PriceResponseDto { Value = entity.Price.Value, IsDollar = entity.Price.IsDollar, ShowingPrice = entity.Price.ShowingPrice },
+            LocationAd = new DTOs.Common.LocationAdResponseDto { LocationIds = entity.LocationAd.LocationIds, FullAddressArabic = entity.LocationAd.FullAddressArabic, FullAddressKurdish = entity.LocationAd.FullAddressKurdish, Street = entity.LocationAd.Street },
+            Images = entity.Images.Select(img => new DTOs.Common.AdImageDto { ImageId = img.ImageId, ImageUrl = img.ImageUrl, Order = img.Order }).ToList(),
+            Status = (int)entity.Status,
+            CreatedAt = entity.CreatedAt,
+            UpdatedAt = entity.UpdatedAt,
+            ImageCount = entity.ImageCount,
+            ViewsCount = entity.ViewsCount,
+            Priority = entity.Priority,
+            Slug = entity.Slug,
+            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Specs = new ComputerSpecsDto
+            {
+                IsNew = entity.IsNew,
+                WarrantyMonths = entity.WarrantyMonths,
+                CPU = entity.CPU,
+                RamSize = entity.RamSize,
+                IsSSD = entity.IsSSD,
+                StorageCapacity = entity.StorageCapacity,
+                GraphicsCard = entity.GraphicsCard,
+                UsbPorts = entity.UsbPorts,
+                HdmiPorts = entity.HdmiPorts
+            }
+        };
+    }
+
     public static CreateComputerAdDto MapFormToDto(CreateAdDto baseDto, Microsoft.AspNetCore.Http.IFormCollection form)
     {
         return new CreateComputerAdDto

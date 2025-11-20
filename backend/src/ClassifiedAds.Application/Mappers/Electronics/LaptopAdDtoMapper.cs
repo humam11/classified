@@ -78,6 +78,48 @@ public static class LaptopAdDtoMapper
         };
     }
 
+    public static GetLaptopAdDto MapToDto(Laptop entity)
+    {
+        return new GetLaptopAdDto
+        {
+            Id = entity.Id,
+            Title = entity.Title,
+            Description = entity.Description,
+            Price = new DTOs.Common.PriceResponseDto { Value = entity.Price.Value, IsDollar = entity.Price.IsDollar, ShowingPrice = entity.Price.ShowingPrice },
+            LocationAd = new DTOs.Common.LocationAdResponseDto { LocationIds = entity.LocationAd.LocationIds, FullAddressArabic = entity.LocationAd.FullAddressArabic, FullAddressKurdish = entity.LocationAd.FullAddressKurdish, Street = entity.LocationAd.Street },
+            Images = entity.Images.Select(img => new DTOs.Common.AdImageDto { ImageId = img.ImageId, ImageUrl = img.ImageUrl, Order = img.Order }).ToList(),
+            Status = (int)entity.Status,
+            CreatedAt = entity.CreatedAt,
+            UpdatedAt = entity.UpdatedAt,
+            ImageCount = entity.ImageCount,
+            ViewsCount = entity.ViewsCount,
+            Priority = entity.Priority,
+            Slug = entity.Slug,
+            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Specs = new LaptopSpecsDto
+            {
+                IsNew = entity.IsNew,
+                WarrantyMonths = entity.WarrantyMonths,
+                Cpu = entity.Cpu,
+                RamSize = entity.RamSize,
+                IsSSD = entity.IsSSD,
+                StorageCapacity = entity.StorageCapacity,
+                GraphicsCard = entity.GraphicsCard,
+                UsbPorts = entity.UsbPorts,
+                HdmiPorts = entity.HdmiPorts,
+                ScreenSize = entity.ScreenSize,
+                IsTouchscreen = entity.IsTouchscreen,
+                Resolution = entity.Resolution,
+                IsBacklitKeyboard = entity.IsBacklitKeyboard,
+                HasWebcam = entity.HasWebcam,
+                WebcamResolution = entity.WebcamResolution,
+                HasFingerprintReader = entity.HasFingerprintReader,
+                Color = entity.Color,
+                ModelId = entity.ModelId
+            }
+        };
+    }
+
     public static CreateLaptopAdDto MapFormToDto(CreateAdDto baseDto, Microsoft.AspNetCore.Http.IFormCollection form)
     {
         return new CreateLaptopAdDto

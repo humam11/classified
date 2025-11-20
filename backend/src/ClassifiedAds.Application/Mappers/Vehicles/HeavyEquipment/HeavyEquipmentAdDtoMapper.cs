@@ -65,24 +65,32 @@ public static class HeavyEquipmentAdDtoMapper
         };
     }
 
-    // Maps HeavyEquipment entity to HeavyEquipmentAdDto - Used by: AdService.GetAdByIdAsync
-    public static HeavyEquipmentAdDto MapToDto(Domain.Entities.Ads.Vehicles.HeavyEquipment.HeavyEquipment entity)
+    public static GetHeavyEquipmentAdDto MapToDto(Domain.Entities.Ads.Vehicles.HeavyEquipment.HeavyEquipment entity)
     {
-        return new HeavyEquipmentAdDto
+        return new GetHeavyEquipmentAdDto
         {
+            Id = entity.Id,
             Title = entity.Title,
             Description = entity.Description,
-            IsDollar = entity.Price.IsDollar,
-            PriceValue = entity.Price.Value,
-            City = string.Empty, // TODO: Extract from FullAddressArabic/Kurdish
-            Region = string.Empty,
-            Neighborhood = string.Empty,
-            Street = entity.LocationAd.Street,
-            FuelType = entity.FuelType,
-            EnginePower = entity.EnginePower,
-            FuelTankCapacity = entity.FuelTankCapacity,
-            OperatingMass = entity.OperatingMass,
-            Weight = entity.Weight
+            Price = new DTOs.Common.PriceResponseDto { Value = entity.Price.Value, IsDollar = entity.Price.IsDollar, ShowingPrice = entity.Price.ShowingPrice },
+            LocationAd = new DTOs.Common.LocationAdResponseDto { LocationIds = entity.LocationAd.LocationIds, FullAddressArabic = entity.LocationAd.FullAddressArabic, FullAddressKurdish = entity.LocationAd.FullAddressKurdish, Street = entity.LocationAd.Street },
+            Images = entity.Images.Select(img => new DTOs.Common.AdImageDto { ImageId = img.ImageId, ImageUrl = img.ImageUrl, Order = img.Order }).ToList(),
+            Status = (int)entity.Status,
+            CreatedAt = entity.CreatedAt,
+            UpdatedAt = entity.UpdatedAt,
+            ImageCount = entity.ImageCount,
+            ViewsCount = entity.ViewsCount,
+            Priority = entity.Priority,
+            Slug = entity.Slug,
+            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Specs = new HeavyEquipmentSpecsDto
+            {
+                FuelType = entity.FuelType,
+                EnginePower = entity.EnginePower,
+                FuelTankCapacity = entity.FuelTankCapacity,
+                OperatingMass = entity.OperatingMass,
+                Weight = entity.Weight
+            }
         };
     }
 

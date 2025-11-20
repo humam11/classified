@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\services\\adservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\services\\adservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|c:\\users\\humam\\onedrive\\documents\\classified-db-v2\\backend\\src\\classifiedads.application\\validators\\ads\\addtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E78429D-16CF-4ADD-9E1A-39E64FC5DEE4}|src\\ClassifiedAds.Application\\ClassifiedAds.Application.csproj|solutionrelative:src\\classifiedads.application\\validators\\ads\\addtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,6 +27,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AdService.cs",
+              "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Services\\AdService.cs",
+              "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Services\\AdService.cs",
+              "ToolTip": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Services\\AdService.cs",
+              "RelativeToolTip": "src\\ClassifiedAds.Application\\Services\\AdService.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAswDYAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T03:44:43.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "AdDtoValidator.cs",
               "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Validators\\Ads\\AdDtoValidator.cs",
               "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Validators\\Ads\\AdDtoValidator.cs",
@@ -35,7 +52,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "HandheldDeviceAdDtoMapper.cs",
               "DocumentMoniker": "C:\\Users\\Humam\\OneDrive\\Documents\\Classified-db-v2\\backend\\src\\ClassifiedAds.Application\\Mappers\\Electronics\\HandheldDeviceAdDtoMapper.cs",
               "RelativeDocumentMoniker": "src\\ClassifiedAds.Application\\Mappers\\Electronics\\HandheldDeviceAdDtoMapper.cs",
@@ -43,8 +60,7 @@
               "RelativeToolTip": "src\\ClassifiedAds.Application\\Mappers\\Electronics\\HandheldDeviceAdDtoMapper.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T03:38:43.531Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T03:38:43.531Z"
             }
           ]
         }
