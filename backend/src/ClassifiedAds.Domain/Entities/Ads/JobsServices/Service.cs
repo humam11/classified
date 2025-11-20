@@ -8,6 +8,6 @@ namespace ClassifiedAds.Domain.Entities.Ads.JobsServices;
 public class Service : Ad
 {
     
-        public PaymentPeriod PaymentPeriod { get; set; }
-        public List<DailyAvailability> DailyAvailability { get; set; }
+        public PaymentPeriod? PaymentPeriod { get; set; }
+        public List<DailyAvailability>? DailyAvailability { get; set; }
 }

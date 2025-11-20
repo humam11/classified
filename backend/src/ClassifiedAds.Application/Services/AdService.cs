@@ -11,6 +11,7 @@ using ClassifiedAds.Domain.Entities.Ads.Miscellaneous;
 using ClassifiedAds.Domain.Entities.Ads.RealEstate;
 using ClassifiedAds.Domain.Entities.Ads.Vehicles;
 using ClassifiedAds.Domain.Entities.Ads.Vehicles.HeavyEquipment;
+using ClassifiedAds.Domain.Entities.Ads.JobsServices;
 using MongoDB.Driver;
 
 namespace ClassifiedAds.Application.Services;
@@ -35,9 +36,28 @@ public class AdService : IAdService
     {
         var ad = await _adsCollection.Find(a => a.Id == id).FirstOrDefaultAsync();
         if (ad == null) return null;
-        
-        // Map entity to DTO
-        var dto = AdDtoMapper.MapToDto(ad);
+
+        // Map entity to DTO using appropriate mapper based on ad type
+        // TODO: Add MapToDto methods to remaining mappers (Miscellaneous, Electronics, RealEstate)
+        AdDto dto = ad switch
+        {
+            Book book => Mappers.BookAdDtoMapper.MapToDto(book),
+            Bulldozer bulldozer => Mappers.Vehicles.HeavyEquipment.BulldozerAdDtoMapper.MapToDto(bulldozer),
+            Bus bus => Mappers.Vehicles.HeavyEquipment.BusAdDtoMapper.MapToDto(bus),
+            Crane crane => Mappers.Vehicles.HeavyEquipment.CraneAdDtoMapper.MapToDto(crane),
+            Excavator excavator => Mappers.Vehicles.HeavyEquipment.ExcavatorAdDtoMapper.MapToDto(excavator),
+            HeavyEquipment heavyEquipment => Mappers.Vehicles.HeavyEquipment.HeavyEquipmentAdDtoMapper.MapToDto(heavyEquipment),
+            Car car => Mappers.Vehicles.CarAdDtoMapper.MapToDto(car),
+            Motorcycle motorcycle => Mappers.Vehicles.MotorcycleAdDtoMapper.MapToDto(motorcycle),
+            Truck truck => Mappers.Vehicles.TruckAdDtoMapper.MapToDto(truck),
+            Boat boat => Mappers.Vehicles.BoatAdDtoMapper.MapToDto(boat),
+            Transport transport => Mappers.Vehicles.TransportAdDtoMapper.MapToDto(transport),
+            Vacancy vacancy => Mappers.Jobs.VacancyAdDtoMapper.MapToDto(vacancy),
+            Cv cv => Mappers.Jobs.CvAdDtoMapper.MapToDto(cv),
+            Service service => Mappers.Jobs.ServiceAdDtoMapper.MapToDto(service),
+            _ => AdDtoMapper.MapToDto(ad)
+        };
+
         return dto as TDto;
     }
 
@@ -175,6 +195,18 @@ public class AdService : IAdService
         else if (dto is DTOs.Ads.Vehicles.CreateTransportAdDto transportDto)
         {
             ad = Mappers.Vehicles.TransportAdDtoMapper.MapToEntity(transportDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Jobs.CreateVacancyAdDto vacancyDto)
+        {
+            ad = Mappers.Jobs.VacancyAdDtoMapper.MapToEntity(vacancyDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Jobs.CreateCvAdDto cvDto)
+        {
+            ad = Mappers.Jobs.CvAdDtoMapper.MapToEntity(cvDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
+        }
+        else if (dto is DTOs.Ads.Jobs.CreateServiceAdDto serviceDto)
+        {
+            ad = Mappers.Jobs.ServiceAdDtoMapper.MapToEntity(serviceDto, slug, userId, categoryIds, categoryJoins, locationIds, fullAddressArabic, fullAddressKurdish);
         }
         else
         {
@@ -431,6 +463,18 @@ public class AdService : IAdService
         {
             Mappers.Vehicles.TransportAdDtoMapper.UpdateAttributes(existingAd, transportDto);
         }
+        else if (mappedDto is DTOs.Ads.Jobs.VacancyAdDto vacancyDto)
+        {
+            Mappers.Jobs.VacancyAdDtoMapper.UpdateAttributes(existingAd, vacancyDto);
+        }
+        else if (mappedDto is DTOs.Ads.Jobs.CvAdDto cvDto)
+        {
+            Mappers.Jobs.CvAdDtoMapper.UpdateAttributes(existingAd, cvDto);
+        }
+        else if (mappedDto is DTOs.Ads.Jobs.ServiceAdDto serviceDto)
+        {
+            Mappers.Jobs.ServiceAdDtoMapper.UpdateAttributes(existingAd, serviceDto);
+        }
 
         // Update images if provided
         if (mappedDto.ImageFiles != null && mappedDto.ImageFiles.Count > 0)
@@ -518,6 +562,9 @@ public class AdService : IAdService
             Truck => Mappers.Vehicles.TruckAdDtoMapper.MapFormToUpdateDto(baseDto, form),
             Boat => Mappers.Vehicles.BoatAdDtoMapper.MapFormToUpdateDto(baseDto, form),
             Transport => Mappers.Vehicles.TransportAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Vacancy => Mappers.Jobs.VacancyAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Cv => Mappers.Jobs.CvAdDtoMapper.MapFormToUpdateDto(baseDto, form),
+            Service => Mappers.Jobs.ServiceAdDtoMapper.MapFormToUpdateDto(baseDto, form),
             _ => baseDto
         };
     }

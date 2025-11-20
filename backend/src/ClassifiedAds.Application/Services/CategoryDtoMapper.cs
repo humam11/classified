@@ -35,6 +35,8 @@ public static class CategoryDtoMapper
         ["الاعمال-والمعدات-التجارية-والصناعية/فرص-تجارية-ومشاريع-وشراكات/وكالات-تجارية"] = typeof(CreateAdDto),
         ["الالكترونيات-والاجهزة-الرقمية/اجهزة-العاب-الكترونية/اجهزة-العاب-منزلية-ومحمولة"] = typeof(CreateVideoConsoleAdDto),
         ["مركبات-ونقل/معدات-ثقيلة-واليات/رافعات"] = typeof(CreateCraneAdDto),
+        ["الوظائف-وفرص-العمل/ابحث-عن-موظف/تكنولوجيا-المعلومات-والاتصالات/امن-معلومات"] = typeof(CreateCvAdDto),
+        ["الخدمات/خدمات-نقل-البضائع-والشحن/خدمات-الشحن-الثقيل-والتخليص-الكمركي"] = typeof(CreateServiceAdDto),
 
         ["الاعمال-والمعدات-التجارية-والصناعية/معدات-والات-للاعمال/اثاث-ولوازم-مكتبية-وتجارية"] = typeof(CreateAdDto),
                 ["الالكترونيات-والاجهزة-الرقمية/اجهزة-العاب-الكترونية/اكسسوارات-قيمنق"] = typeof(CreateElectronicAdDto),
@@ -174,6 +176,12 @@ public static class CategoryDtoMapper
             return typeof(Mappers.Vehicles.HeavyEquipment.HeavyEquipmentAdDtoMapper);
         if (dtoType == typeof(CreateTransportAdDto) || dtoType == typeof(TransportAdDto))
             return typeof(Mappers.Vehicles.TransportAdDtoMapper);
+        if (dtoType == typeof(CreateVacancyAdDto) || dtoType == typeof(VacancyAdDto))
+            return typeof(Mappers.Jobs.VacancyAdDtoMapper);
+        if (dtoType == typeof(CreateCvAdDto) || dtoType == typeof(CvAdDto))
+            return typeof(Mappers.Jobs.CvAdDtoMapper);
+        if (dtoType == typeof(CreateServiceAdDto) || dtoType == typeof(ServiceAdDto))
+            return typeof(Mappers.Jobs.ServiceAdDtoMapper);
         
         // Default to AdDtoMapper
         return typeof(Mappers.AdDtoMapper);
@@ -296,6 +304,18 @@ public static class CategoryDtoMapper
         else if (dtoType == typeof(CreateTransportAdDto))
         {
             return Mappers.Vehicles.TransportAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateVacancyAdDto))
+        {
+            return Mappers.Jobs.VacancyAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateCvAdDto))
+        {
+            return Mappers.Jobs.CvAdDtoMapper.MapFormToDto(baseDto, form);
+        }
+        else if (dtoType == typeof(CreateServiceAdDto))
+        {
+            return Mappers.Jobs.ServiceAdDtoMapper.MapFormToDto(baseDto, form);
         }
 
         // Default to base DTO for general categories

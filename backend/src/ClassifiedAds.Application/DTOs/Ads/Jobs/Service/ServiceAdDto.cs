@@ -4,6 +4,11 @@ namespace ClassifiedAds.Application.DTOs.Ads.Jobs;
 
 public class ServiceAdDto : AdDto
 {
-    public PaymentPeriod PaymentPeriod { get; set; }
-    public List<DailyAvailabilityDto> DailyAvailability { get; set; }
+    public PaymentPeriod? PaymentPeriod { get; set; }
+    public List<DailyAvailabilityDto>? DailyAvailability { get; set; }
+}
+
+public class CreateServiceAdDto : ServiceAdDto
+{
+    // EMPTY — inherits everything
 }

@@ -134,37 +134,3 @@ public class CreateAdDtoValidator : AbstractValidator<CreateAdDto>
         this.ApplyCreateRules();
     }
 }
-
-// For RealEstate, Service, and Miscellaneous (except VideoGame)
-public class CreateAdLocalPriceOnlyValidator : AbstractValidator<CreateAdDto>
-{
-    public CreateAdLocalPriceOnlyValidator()
-    {
-        Include(new AdDtoBaseValidator());
-        this.ApplyCreateLocalPriceRules();
-    }
-}
-
-
-
-///// need to be edit
-//public class LocationAdNoStreetValidator : AbstractValidator<LocationAdDto>
-//{
-//    public LocationAdNoStreetValidator()
-//    {
-//        Include(new LocationAdDtoValidator());
-
-//        RuleFor(x => x.Street)
-//            .Empty()
-//            .WithMessage(GetMessage(
-//                // Street must be empty for CV
-//                "يجب أن يكون الشارع فارغًا للسيرة الذاتية",
-//                "شەقام دەبێت بەتاڵ بێت بۆ سی ڤی"));
-//    }
-
-//    private static string GetMessage(string ar, string kr)
-//    {
-//        return LanguageContext.Current == "ar" ? ar : kr;
-//    }
-//}
-

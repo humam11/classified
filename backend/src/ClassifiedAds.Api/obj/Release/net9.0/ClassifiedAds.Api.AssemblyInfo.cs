@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClassifiedAds.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f4cdc3e796aa55c372bf6dab9ec7112b9d7f923e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+28c9d0f2b93a7a77d1893d14c4968438534b24ca")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClassifiedAds.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClassifiedAds.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
