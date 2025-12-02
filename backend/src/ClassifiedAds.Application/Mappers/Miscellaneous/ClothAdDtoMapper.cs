@@ -1,3 +1,4 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Miscellaneous;
 using ClassifiedAds.Domain.Entities.Ads;
@@ -5,6 +6,7 @@ using ClassifiedAds.Domain.Entities.Ads.Miscellaneous;
 using ClassifiedAds.Domain.Entities.Ads.Miscellaneous.Enums;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
 
 namespace ClassifiedAds.Application.Mappers;
 
@@ -15,8 +17,7 @@ public static class ClothAdDtoMapper
         CreateClothAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic, List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
         string fullAddressKurdish)
@@ -38,11 +39,7 @@ public static class ClothAdDtoMapper
                 Value = dto.PriceValue.Value,
                 ShowingPrice = showingPrice
             },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
             LocationAd = new LocationAd
             {
                 LocationIds = locationIds,
@@ -82,7 +79,7 @@ public static class ClothAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new ClothSpecsDto
             {
                 ClothCondition = entity.ClothCondition,
@@ -106,15 +103,9 @@ public static class ClothAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            ClothCondition = form.TryGetValue("ClothCondition", out var condition) &&
-                            !string.IsNullOrWhiteSpace(condition) &&
-                            Enum.TryParse<ClothCondition>(condition, out var c) ? c : null,
-            ClothingSize = form.TryGetValue("ClothingSize", out var size) &&
-                          !string.IsNullOrWhiteSpace(size) &&
-                          Enum.TryParse<ClothingSize>(size, out var s) ? s : null,
-            Season = form.TryGetValue("Season", out var season) &&
-                    !string.IsNullOrWhiteSpace(season) &&
-                    Enum.TryParse<Season>(season, out var se) ? se : null
+            ClothCondition = ParseEnum<ClothCondition>(form, "ClothCondition"),
+            ClothingSize = ParseEnum<ClothingSize>(form, "ClothingSize"),
+            Season = ParseEnum<Season>(form, "Season")
         };
     }
 
@@ -132,15 +123,9 @@ public static class ClothAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            ClothCondition = form.TryGetValue("ClothCondition", out var condition) &&
-                            !string.IsNullOrWhiteSpace(condition) &&
-                            Enum.TryParse<ClothCondition>(condition, out var cc) ? cc : null,
-            ClothingSize = form.TryGetValue("ClothingSize", out var size) &&
-                          !string.IsNullOrWhiteSpace(size) &&
-                          Enum.TryParse<ClothingSize>(size, out var cs) ? cs : null,
-            Season = form.TryGetValue("Season", out var season) &&
-                    !string.IsNullOrWhiteSpace(season) &&
-                    Enum.TryParse<Season>(season, out var s) ? s : null
+            ClothCondition = ParseEnum<ClothCondition>(form, "ClothCondition"),
+            ClothingSize = ParseEnum<ClothingSize>(form, "ClothingSize"),
+            Season = ParseEnum<Season>(form, "Season")
         };
     }
 

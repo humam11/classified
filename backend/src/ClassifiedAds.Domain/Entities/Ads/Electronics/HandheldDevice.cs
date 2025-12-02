@@ -20,5 +20,6 @@ public class HandheldDevice : Electronic
         public YesNo? DualSim { get; set; }
         public YesNo? WaterproofSupport { get; set; }
         public YesNo? StylusSupport { get; set; }
-        public Guid? ModelId { get; set; }
+        // Resolved brand/model slugs from PostgreSQL (brand + model)
+        public List<string>? ModelsSlugs { get; set; }
 }

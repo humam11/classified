@@ -5,7 +5,6 @@ using ClassifiedAds.Domain.Common.ValueObjects;
 
 namespace ClassifiedAds.Application.Mappers;
 
-
 public static class AdDtoMapper
 {
     // Maps a CreateAdDto to an Ad entity
@@ -13,8 +12,8 @@ public static class AdDtoMapper
         AdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic,
+        List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
         string fullAddressKurdish)
@@ -41,8 +40,8 @@ public static class AdDtoMapper
             },
             Category = new Category
             {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
+                CategoriesSlugsArabic = categoriesSlugsArabic,
+                CategoriesSlugsKurdish = categoriesSlugsKurdish
             },
             LocationAd = new LocationAd
             {
@@ -101,8 +100,8 @@ public static class AdDtoMapper
             Slug = entity.Slug,
             Category = new DTOs.Common.CategoryResponseDto
             {
-                CategoryJoins = entity.Category.CategoryJoins,
-                CategoryIds = entity.Category.CategoryIds
+                CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic,
+                CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish
             }
         };
     }

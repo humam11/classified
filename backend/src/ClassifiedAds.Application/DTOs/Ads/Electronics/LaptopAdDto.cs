@@ -21,7 +21,8 @@ public class LaptopAdDto : ElectronicAdDto
     public WebcamResolution? WebcamResolution { get; set; }
     public YesNo? HasFingerprintReader { get; set; }
     public Color? Color { get; set; }
-    public Guid? ModelId { get; set; }
+    // Brand resolution input (brand only for laptops)
+    public string? BrandName { get; set; }
 }
 
 public class CreateLaptopAdDto : LaptopAdDto
@@ -46,7 +47,8 @@ public class LaptopSpecsDto : ElectronicSpecsDto
     public WebcamResolution? WebcamResolution { get; set; }
     public YesNo? HasFingerprintReader { get; set; }
     public Color? Color { get; set; }
-    public Guid? ModelId { get; set; }
+    // Resolved brand slugs stored in MongoDB
+    public List<string>? ModelsSlugs { get; set; }
 }
 
 public class GetLaptopAdDto : GetElectronicAdDto

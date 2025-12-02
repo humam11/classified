@@ -22,5 +22,6 @@ public class Laptop : Electronic
         public WebcamResolution? WebcamResolution { get; set; }
         public YesNo? HasFingerprintReader { get; set; }
         public Color? Color { get; set; }
-        public Guid? ModelId { get; set; }
+        // Resolved brand slugs from PostgreSQL (brand only)
+        public List<string>? ModelsSlugs { get; set; }
 }

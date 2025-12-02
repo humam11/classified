@@ -14,8 +14,7 @@ public static class FurnitureAdDtoMapper
         CreateFurnitureAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic, List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
         string fullAddressKurdish)
@@ -37,11 +36,7 @@ public static class FurnitureAdDtoMapper
                 Value = dto.PriceValue.Value,
                 ShowingPrice = showingPrice
             },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
             LocationAd = new LocationAd
             {
                 LocationIds = locationIds,
@@ -82,7 +77,7 @@ public static class FurnitureAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new FurnitureSpecsDto
             {
                 FurnitureMaterial = entity.FurnitureMaterial,

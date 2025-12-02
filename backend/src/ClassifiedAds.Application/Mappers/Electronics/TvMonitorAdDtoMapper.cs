@@ -1,28 +1,40 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Electronics;
+using ClassifiedAds.Application.Interfaces;
 using ClassifiedAds.Domain.Entities.Ads;
 using ClassifiedAds.Domain.Entities.Ads.Electronics;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
 
 namespace ClassifiedAds.Application.Mappers;
 
 public static class TvMonitorAdDtoMapper
 {
-    public static TvMonitor MapToEntity(
+    // Async mapper that handles brand resolution internally (brand only)
+    public static async Task<TvMonitor> MapToEntityAsync(
         CreateTvMonitorAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic,
+        List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
-        string fullAddressKurdish)
+        string fullAddressKurdish,
+        string categorySlug,
+        string language,
+        IBrandModelReleaseService brandModelReleaseService)
     {
         if (string.IsNullOrEmpty(dto.Title) || !dto.IsDollar.HasValue || !dto.PriceValue.HasValue)
-        {
             throw new ArgumentException("Required fields are missing");
-        }
+
+        if (string.IsNullOrEmpty(dto.BrandName))
+            throw new ArgumentException("BrandName is required for TvMonitor ads");
+
+        // Resolve brand only
+        var (_, modelsSlugs) = await brandModelReleaseService.ResolveBrandAsync(
+            categorySlug, language, dto.BrandName);
 
         string showingPrice = AdDtoMapper.FormatShowingPrice(dto.IsDollar.Value, dto.PriceValue.Value);
 
@@ -30,24 +42,9 @@ public static class TvMonitorAdDtoMapper
         {
             Title = dto.Title,
             Description = dto.Description ?? string.Empty,
-            Price = new Price
-            {
-                IsDollar = dto.IsDollar.Value,
-                Value = dto.PriceValue.Value,
-                ShowingPrice = showingPrice
-            },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
-            LocationAd = new LocationAd
-            {
-                LocationIds = locationIds,
-                Street = dto.Street,
-                FullAddressArabic = fullAddressArabic,
-                FullAddressKurdish = fullAddressKurdish
-            },
+            Price = new Price { IsDollar = dto.IsDollar.Value, Value = dto.PriceValue.Value, ShowingPrice = showingPrice },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
+            LocationAd = new LocationAd { LocationIds = locationIds, Street = dto.Street, FullAddressArabic = fullAddressArabic, FullAddressKurdish = fullAddressKurdish },
             Images = new List<AdImage>(),
             Status = Status.Active,
             CreatedAt = DateTime.UtcNow,
@@ -65,7 +62,7 @@ public static class TvMonitorAdDtoMapper
             RefreshRate = dto.RefreshRate,
             HdmiPorts = dto.HdmiPorts,
             UsbPorts = dto.UsbPorts,
-            ModelId = dto.ModelId
+            ModelsSlugs = modelsSlugs
         };
     }
 
@@ -86,7 +83,7 @@ public static class TvMonitorAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new TvMonitorSpecsDto
             {
                 IsNew = entity.IsNew,
@@ -97,7 +94,7 @@ public static class TvMonitorAdDtoMapper
                 RefreshRate = entity.RefreshRate,
                 HdmiPorts = entity.HdmiPorts,
                 UsbPorts = entity.UsbPorts,
-                ModelId = entity.ModelId
+                ModelsSlugs = entity.ModelsSlugs
             }
         };
     }
@@ -115,33 +112,15 @@ public static class TvMonitorAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            IsNew = form.TryGetValue("IsNew", out var isNew) &&
-                   !string.IsNullOrWhiteSpace(isNew) &&
-                   Enum.TryParse<Domain.Common.Enums.YesNo>(isNew, out var yn) ? yn : null,
-            WarrantyMonths = form.TryGetValue("WarrantyMonths", out var warranty) &&
-                            !string.IsNullOrWhiteSpace(warranty) &&
-                            byte.TryParse(warranty, out var wm) ? wm : null,
-            ScreenSize = form.TryGetValue("ScreenSize", out var screenSize) &&
-                        !string.IsNullOrWhiteSpace(screenSize) &&
-                        float.TryParse(screenSize, out var ss) ? ss : null,
-            ScreenResolution = form.TryGetValue("ScreenResolution", out var resolution) &&
-                              !string.IsNullOrWhiteSpace(resolution) &&
-                              Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.ScreenResolution>(resolution, out var sr) ? sr : null,
-            SmartTv = form.TryGetValue("SmartTv", out var smartTv) &&
-                     !string.IsNullOrWhiteSpace(smartTv) &&
-                     Enum.TryParse<Domain.Common.Enums.YesNo>(smartTv, out var st) ? st : null,
-            RefreshRate = form.TryGetValue("RefreshRate", out var refreshRate) &&
-                         !string.IsNullOrWhiteSpace(refreshRate) &&
-                         Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.RefreshRate>(refreshRate, out var rr) ? rr : null,
-            HdmiPorts = form.TryGetValue("HdmiPorts", out var hdmi) &&
-                       !string.IsNullOrWhiteSpace(hdmi) &&
-                       byte.TryParse(hdmi, out var hp) ? hp : null,
-            UsbPorts = form.TryGetValue("UsbPorts", out var usb) &&
-                      !string.IsNullOrWhiteSpace(usb) &&
-                      byte.TryParse(usb, out var up) ? up : null,
-            ModelId = form.TryGetValue("ModelId", out var modelId) &&
-                     !string.IsNullOrWhiteSpace(modelId) &&
-                     Guid.TryParse(modelId, out var m) ? m : null
+            IsNew = ParseEnum<YesNo>(form, "IsNew"),
+            WarrantyMonths = ParseByte(form, "WarrantyMonths"),
+            ScreenSize = ParseFloat(form, "ScreenSize"),
+            ScreenResolution = ParseEnum<Domain.Entities.Ads.Electronics.Enums.ScreenResolution>(form, "ScreenResolution"),
+            SmartTv = ParseEnum<YesNo>(form, "SmartTv"),
+            RefreshRate = ParseEnum<Domain.Entities.Ads.Electronics.Enums.RefreshRate>(form, "RefreshRate"),
+            HdmiPorts = ParseByte(form, "HdmiPorts"),
+            UsbPorts = ParseByte(form, "UsbPorts"),
+            BrandName = ParseString(form, "BrandName")
         };
     }
 
@@ -158,33 +137,15 @@ public static class TvMonitorAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            IsNew = form.TryGetValue("IsNew", out var isNew) &&
-                   !string.IsNullOrWhiteSpace(isNew) &&
-                   Enum.TryParse<Domain.Common.Enums.YesNo>(isNew, out var yn) ? yn : null,
-            WarrantyMonths = form.TryGetValue("WarrantyMonths", out var warranty) &&
-                            !string.IsNullOrWhiteSpace(warranty) &&
-                            byte.TryParse(warranty, out var wm) ? wm : null,
-            ScreenSize = form.TryGetValue("ScreenSize", out var screenSize) &&
-                        !string.IsNullOrWhiteSpace(screenSize) &&
-                        float.TryParse(screenSize, out var ss) ? ss : null,
-            ScreenResolution = form.TryGetValue("ScreenResolution", out var resolution) &&
-                              !string.IsNullOrWhiteSpace(resolution) &&
-                              Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.ScreenResolution>(resolution, out var sr) ? sr : null,
-            SmartTv = form.TryGetValue("SmartTv", out var smartTv) &&
-                     !string.IsNullOrWhiteSpace(smartTv) &&
-                     Enum.TryParse<Domain.Common.Enums.YesNo>(smartTv, out var st) ? st : null,
-            RefreshRate = form.TryGetValue("RefreshRate", out var refreshRate) &&
-                         !string.IsNullOrWhiteSpace(refreshRate) &&
-                         Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.RefreshRate>(refreshRate, out var rr) ? rr : null,
-            HdmiPorts = form.TryGetValue("HdmiPorts", out var hdmi) &&
-                       !string.IsNullOrWhiteSpace(hdmi) &&
-                       byte.TryParse(hdmi, out var hp) ? hp : null,
-            UsbPorts = form.TryGetValue("UsbPorts", out var usb) &&
-                      !string.IsNullOrWhiteSpace(usb) &&
-                      byte.TryParse(usb, out var up) ? up : null,
-            ModelId = form.TryGetValue("ModelId", out var modelId) &&
-                     !string.IsNullOrWhiteSpace(modelId) &&
-                     Guid.TryParse(modelId, out var m) ? m : null
+            IsNew = ParseEnum<YesNo>(form, "IsNew"),
+            WarrantyMonths = ParseByte(form, "WarrantyMonths"),
+            ScreenSize = ParseFloat(form, "ScreenSize"),
+            ScreenResolution = ParseEnum<Domain.Entities.Ads.Electronics.Enums.ScreenResolution>(form, "ScreenResolution"),
+            SmartTv = ParseEnum<YesNo>(form, "SmartTv"),
+            RefreshRate = ParseEnum<Domain.Entities.Ads.Electronics.Enums.RefreshRate>(form, "RefreshRate"),
+            HdmiPorts = ParseByte(form, "HdmiPorts"),
+            UsbPorts = ParseByte(form, "UsbPorts"),
+            BrandName = ParseString(form, "BrandName")
         };
     }
 
@@ -192,24 +153,15 @@ public static class TvMonitorAdDtoMapper
     {
         if (ad is TvMonitor tv)
         {
-            if (dto.IsNew.HasValue)
-                tv.IsNew = dto.IsNew;
-            if (dto.WarrantyMonths.HasValue)
-                tv.WarrantyMonths = dto.WarrantyMonths;
-            if (dto.ScreenSize.HasValue)
-                tv.ScreenSize = dto.ScreenSize;
-            if (dto.ScreenResolution.HasValue)
-                tv.ScreenResolution = dto.ScreenResolution;
-            if (dto.SmartTv.HasValue)
-                tv.SmartTv = dto.SmartTv;
-            if (dto.RefreshRate.HasValue)
-                tv.RefreshRate = dto.RefreshRate;
-            if (dto.HdmiPorts.HasValue)
-                tv.HdmiPorts = dto.HdmiPorts;
-            if (dto.UsbPorts.HasValue)
-                tv.UsbPorts = dto.UsbPorts;
-            if (dto.ModelId.HasValue)
-                tv.ModelId = dto.ModelId;
+            if (dto.IsNew.HasValue) tv.IsNew = dto.IsNew;
+            if (dto.WarrantyMonths.HasValue) tv.WarrantyMonths = dto.WarrantyMonths;
+            if (dto.ScreenSize.HasValue) tv.ScreenSize = dto.ScreenSize;
+            if (dto.ScreenResolution.HasValue) tv.ScreenResolution = dto.ScreenResolution;
+            if (dto.SmartTv.HasValue) tv.SmartTv = dto.SmartTv;
+            if (dto.RefreshRate.HasValue) tv.RefreshRate = dto.RefreshRate;
+            if (dto.HdmiPorts.HasValue) tv.HdmiPorts = dto.HdmiPorts;
+            if (dto.UsbPorts.HasValue) tv.UsbPorts = dto.UsbPorts;
+            // Note: BrandName update requires calling BrandModelReleaseService - handled in AdService
         }
     }
 }

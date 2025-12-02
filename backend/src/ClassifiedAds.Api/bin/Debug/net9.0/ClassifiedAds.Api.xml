@@ -4,38 +4,5 @@
         <name>ClassifiedAds.Api</name>
     </assembly>
     <members>
-        <member name="T:ClassifiedAds.Api.Controllers.DynamicAdsController">
-            <summary>
-            Dynamic controller that handles all category slugs
-            </summary>
-        </member>
-        <member name="M:ClassifiedAds.Api.Controllers.DynamicAdsController.UpdateAd(System.String,System.String,ClassifiedAds.Application.DTOs.Ads.AdDto)">
-            <summary>
-            Update an ad by ID (PATCH - partial update)
-            </summary>
-            <param name="lang">Language code (ar or kr)</param>
-            <param name="id">Ad ID</param>
-            <param name="formDto">Ad data to update (all fields optional)</param>
-            <returns>No content on success</returns>
-            <remarks>
-            Example: PATCH /api/ar/ads/507f1f77bcf86cd799439011
-            Content-Type: multipart/form-data
-            
-            All fields are optional. Only provided fields will be updated.
-            
-            Special rules:
-            - If City is updated, Region and Neighborhood must be re-specified or will be cleared
-            - If PriceIsDollar is updated, PriceValue must also be provided
-            - If ImageFiles are provided, all old images will be replaced
-            </remarks>
-        </member>
-        <member name="M:ClassifiedAds.Api.Controllers.DynamicAdsController.DeleteAd(System.String,System.String)">
-            <summary>
-            Delete ad by ID
-            </summary>
-            <remarks>
-            Example: DELETE /api/ar/ads/507f1f77bcf86cd799439011
-            </remarks>
-        </member>
     </members>
 </doc>

@@ -1,28 +1,41 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Vehicles;
+using ClassifiedAds.Application.Interfaces;
 using ClassifiedAds.Domain.Entities.Ads;
 using ClassifiedAds.Domain.Entities.Ads.Vehicles;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
 
 namespace ClassifiedAds.Application.Mappers.Vehicles;
 
 public static class CarAdDtoMapper
 {
-    public static Car MapToEntity(
+    // Async mapper that handles brand/model/release resolution internally
+    public static async Task<Car> MapToEntityAsync(
         CreateCarAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic,
+        List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
-        string fullAddressKurdish)
+        string fullAddressKurdish,
+        string categorySlug,
+        string language,
+        IBrandModelReleaseService brandModelReleaseService)
     {
         if (string.IsNullOrEmpty(dto.Title) || !dto.IsDollar.HasValue || !dto.PriceValue.HasValue)
-        {
             throw new ArgumentException("Required fields are missing");
-        }
+
+        if (string.IsNullOrEmpty(dto.BrandName) || string.IsNullOrEmpty(dto.ModelName) || string.IsNullOrEmpty(dto.ReleaseYear))
+            throw new ArgumentException("BrandName, ModelName, and ReleaseYear are required for Car ads");
+
+        // Resolve brand, model, and release
+        var (modelId, modelsSlugs) = await brandModelReleaseService.ResolveBrandModelAsync(
+            categorySlug, language, dto.BrandName, dto.ModelName);
+        var (_, releaseYear) = await brandModelReleaseService.ResolveReleaseAsync(modelId, dto.ReleaseYear);
 
         string showingPrice = AdDtoMapper.FormatShowingPrice(dto.IsDollar.Value, dto.PriceValue.Value);
 
@@ -38,8 +51,8 @@ public static class CarAdDtoMapper
             },
             Category = new Category
             {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
+                CategoriesSlugsArabic = categoriesSlugsArabic,
+                CategoriesSlugsKurdish = categoriesSlugsKurdish
             },
             LocationAd = new LocationAd
             {
@@ -66,8 +79,8 @@ public static class CarAdDtoMapper
             Transmission = dto.Transmission,
             DriveType = dto.DriveType,
             Color = dto.Color,
-            ModelId = dto.ModelId,
-            SubModelReleaseId = dto.SubModelReleaseId
+            ModelsSlugs = modelsSlugs,
+            ReleaseYear = releaseYear
         };
     }
 
@@ -78,9 +91,25 @@ public static class CarAdDtoMapper
             Id = entity.Id,
             Title = entity.Title,
             Description = entity.Description,
-            Price = new DTOs.Common.PriceResponseDto { Value = entity.Price.Value, IsDollar = entity.Price.IsDollar, ShowingPrice = entity.Price.ShowingPrice },
-            LocationAd = new DTOs.Common.LocationAdResponseDto { LocationIds = entity.LocationAd.LocationIds, FullAddressArabic = entity.LocationAd.FullAddressArabic, FullAddressKurdish = entity.LocationAd.FullAddressKurdish, Street = entity.LocationAd.Street },
-            Images = entity.Images.Select(img => new DTOs.Common.AdImageDto { ImageId = img.ImageId, ImageUrl = img.ImageUrl, Order = img.Order }).ToList(),
+            Price = new DTOs.Common.PriceResponseDto 
+            { 
+                Value = entity.Price.Value, 
+                IsDollar = entity.Price.IsDollar, 
+                ShowingPrice = entity.Price.ShowingPrice 
+            },
+            LocationAd = new DTOs.Common.LocationAdResponseDto 
+            { 
+                LocationIds = entity.LocationAd.LocationIds, 
+                FullAddressArabic = entity.LocationAd.FullAddressArabic, 
+                FullAddressKurdish = entity.LocationAd.FullAddressKurdish, 
+                Street = entity.LocationAd.Street 
+            },
+            Images = entity.Images.Select(img => new DTOs.Common.AdImageDto 
+            { 
+                ImageId = img.ImageId, 
+                ImageUrl = img.ImageUrl, 
+                Order = img.Order 
+            }).ToList(),
             Status = (int)entity.Status,
             CreatedAt = entity.CreatedAt,
             UpdatedAt = entity.UpdatedAt,
@@ -88,7 +117,11 @@ public static class CarAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto 
+            { 
+                CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, 
+                CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish 
+            },
             Specs = new CarSpecsDto
             {
                 FuelType = entity.FuelType,
@@ -100,11 +133,12 @@ public static class CarAdDtoMapper
                 Transmission = entity.Transmission,
                 DriveType = entity.DriveType,
                 Color = entity.Color,
-                ModelId = entity.ModelId,
-                SubModelReleaseId = entity.SubModelReleaseId
+                ModelsSlugs = entity.ModelsSlugs,
+                ReleaseYear = entity.ReleaseYear
             }
         };
     }
+
 
     public static CreateCarAdDto MapFormToDto(CreateAdDto baseDto, Microsoft.AspNetCore.Http.IFormCollection form)
     {
@@ -119,36 +153,19 @@ public static class CarAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            FuelType = form.TryGetValue("FuelType", out var fuelType) &&
-                      !string.IsNullOrWhiteSpace(fuelType) &&
-                      Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.FuelType>(fuelType, out var ft) ? ft : null,
-            EnginePower = form.TryGetValue("EnginePower", out var enginePower) &&
-                         !string.IsNullOrWhiteSpace(enginePower) &&
-                         ushort.TryParse(enginePower, out var ep) ? ep : null,
-            FuelTankCapacity = form.TryGetValue("FuelTankCapacity", out var fuelTank) &&
-                              !string.IsNullOrWhiteSpace(fuelTank) &&
-                              ushort.TryParse(fuelTank, out var ftc) ? ftc : null,
-            DistanceKm = form.TryGetValue("DistanceKm", out var distance) &&
-                        !string.IsNullOrWhiteSpace(distance) &&
-                        int.TryParse(distance, out var dk) ? dk : null,
+            FuelType = ParseEnum<Domain.Entities.Ads.Vehicles.Enums.FuelType>(form, "FuelType"),
+            EnginePower = ParseUShort(form, "EnginePower"),
+            FuelTankCapacity = ParseUShort(form, "FuelTankCapacity"),
+            DistanceKm = ParseInt(form, "DistanceKm"),
             EngineDescription = form.TryGetValue("EngineDescription", out var engineDesc) && 
                                !string.IsNullOrWhiteSpace(engineDesc) ? engineDesc.ToString() : null,
-            Cylinders = form.TryGetValue("Cylinders", out var cylinders) &&
-                       !string.IsNullOrWhiteSpace(cylinders) &&
-                       byte.TryParse(cylinders, out var c) ? c : null,
-            Transmission = form.TryGetValue("Transmission", out var transmission) &&
-                          !string.IsNullOrWhiteSpace(transmission) &&
-                          Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.Transmission>(transmission, out var t) ? t : null,
-            DriveType = form.TryGetValue("DriveType", out var driveType) &&
-                       !string.IsNullOrWhiteSpace(driveType) &&
-                       Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.CarDriveType>(driveType, out var dt) ? dt : null,
+            Cylinders = ParseByte(form, "Cylinders"),
+            Transmission = ParseEnum<Domain.Entities.Ads.Vehicles.Enums.Transmission>(form, "Transmission"),
+            DriveType = ParseEnum<Domain.Entities.Ads.Vehicles.Enums.CarDriveType>(form, "DriveType"),
             Color = form.TryGetValue("Color", out var color) && !string.IsNullOrWhiteSpace(color) ? color.ToString() : null,
-            ModelId = form.TryGetValue("ModelId", out var modelId) &&
-                     !string.IsNullOrWhiteSpace(modelId) &&
-                     Guid.TryParse(modelId, out var mid) ? mid : null,
-            SubModelReleaseId = form.TryGetValue("SubModelReleaseId", out var subModelId) &&
-                               !string.IsNullOrWhiteSpace(subModelId) &&
-                               Guid.TryParse(subModelId, out var smid) ? smid : null
+            BrandName = form.TryGetValue("BrandName", out var brandName) && !string.IsNullOrWhiteSpace(brandName) ? brandName.ToString() : null,
+            ModelName = form.TryGetValue("ModelName", out var modelName) && !string.IsNullOrWhiteSpace(modelName) ? modelName.ToString() : null,
+            ReleaseYear = form.TryGetValue("ReleaseYear", out var releaseYear) && !string.IsNullOrWhiteSpace(releaseYear) ? releaseYear.ToString() : null
         };
     }
 
@@ -165,36 +182,19 @@ public static class CarAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            FuelType = form.TryGetValue("FuelType", out var fuelType) &&
-                      !string.IsNullOrWhiteSpace(fuelType) &&
-                      Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.FuelType>(fuelType, out var ft) ? ft : null,
-            EnginePower = form.TryGetValue("EnginePower", out var enginePower) &&
-                         !string.IsNullOrWhiteSpace(enginePower) &&
-                         ushort.TryParse(enginePower, out var ep) ? ep : null,
-            FuelTankCapacity = form.TryGetValue("FuelTankCapacity", out var fuelTank) &&
-                              !string.IsNullOrWhiteSpace(fuelTank) &&
-                              ushort.TryParse(fuelTank, out var ftc) ? ftc : null,
-            DistanceKm = form.TryGetValue("DistanceKm", out var distance) &&
-                        !string.IsNullOrWhiteSpace(distance) &&
-                        int.TryParse(distance, out var dk) ? dk : null,
+            FuelType = ParseEnum<Domain.Entities.Ads.Vehicles.Enums.FuelType>(form, "FuelType"),
+            EnginePower = ParseUShort(form, "EnginePower"),
+            FuelTankCapacity = ParseUShort(form, "FuelTankCapacity"),
+            DistanceKm = ParseInt(form, "DistanceKm"),
             EngineDescription = form.TryGetValue("EngineDescription", out var engineDesc) && 
                                !string.IsNullOrWhiteSpace(engineDesc) ? engineDesc.ToString() : null,
-            Cylinders = form.TryGetValue("Cylinders", out var cylinders) &&
-                       !string.IsNullOrWhiteSpace(cylinders) &&
-                       byte.TryParse(cylinders, out var c) ? c : null,
-            Transmission = form.TryGetValue("Transmission", out var transmission) &&
-                          !string.IsNullOrWhiteSpace(transmission) &&
-                          Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.Transmission>(transmission, out var t) ? t : null,
-            DriveType = form.TryGetValue("DriveType", out var driveType) &&
-                       !string.IsNullOrWhiteSpace(driveType) &&
-                       Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.CarDriveType>(driveType, out var dt) ? dt : null,
+            Cylinders = ParseByte(form, "Cylinders"),
+            Transmission = ParseEnum<Domain.Entities.Ads.Vehicles.Enums.Transmission>(form, "Transmission"),
+            DriveType = ParseEnum<Domain.Entities.Ads.Vehicles.Enums.CarDriveType>(form, "DriveType"),
             Color = form.TryGetValue("Color", out var color) && !string.IsNullOrWhiteSpace(color) ? color.ToString() : null,
-            ModelId = form.TryGetValue("ModelId", out var modelId) &&
-                     !string.IsNullOrWhiteSpace(modelId) &&
-                     Guid.TryParse(modelId, out var mid) ? mid : null,
-            SubModelReleaseId = form.TryGetValue("SubModelReleaseId", out var subModelId) &&
-                               !string.IsNullOrWhiteSpace(subModelId) &&
-                               Guid.TryParse(subModelId, out var smid) ? smid : null
+            BrandName = form.TryGetValue("BrandName", out var brandName) && !string.IsNullOrWhiteSpace(brandName) ? brandName.ToString() : null,
+            ModelName = form.TryGetValue("ModelName", out var modelName) && !string.IsNullOrWhiteSpace(modelName) ? modelName.ToString() : null,
+            ReleaseYear = form.TryGetValue("ReleaseYear", out var releaseYear) && !string.IsNullOrWhiteSpace(releaseYear) ? releaseYear.ToString() : null
         };
     }
 
@@ -202,28 +202,17 @@ public static class CarAdDtoMapper
     {
         if (ad is Car car)
         {
-            if (dto.FuelType.HasValue)
-                car.FuelType = dto.FuelType;
-            if (dto.EnginePower.HasValue)
-                car.EnginePower = dto.EnginePower;
-            if (dto.FuelTankCapacity.HasValue)
-                car.FuelTankCapacity = dto.FuelTankCapacity;
-            if (dto.DistanceKm.HasValue)
-                car.DistanceKm = dto.DistanceKm;
-            if (!string.IsNullOrEmpty(dto.EngineDescription))
-                car.EngineDescription = dto.EngineDescription;
-            if (dto.Cylinders.HasValue)
-                car.Cylinders = dto.Cylinders;
-            if (dto.Transmission.HasValue)
-                car.Transmission = dto.Transmission;
-            if (dto.DriveType.HasValue)
-                car.DriveType = dto.DriveType;
-            if (!string.IsNullOrEmpty(dto.Color))
-                car.Color = dto.Color;
-            if (dto.ModelId.HasValue)
-                car.ModelId = dto.ModelId;
-            if (dto.SubModelReleaseId.HasValue)
-                car.SubModelReleaseId = dto.SubModelReleaseId;
+            if (dto.FuelType.HasValue) car.FuelType = dto.FuelType;
+            if (dto.EnginePower.HasValue) car.EnginePower = dto.EnginePower;
+            if (dto.FuelTankCapacity.HasValue) car.FuelTankCapacity = dto.FuelTankCapacity;
+            if (dto.DistanceKm.HasValue) car.DistanceKm = dto.DistanceKm;
+            if (!string.IsNullOrEmpty(dto.EngineDescription)) car.EngineDescription = dto.EngineDescription;
+            if (dto.Cylinders.HasValue) car.Cylinders = dto.Cylinders;
+            if (dto.Transmission.HasValue) car.Transmission = dto.Transmission;
+            if (dto.DriveType.HasValue) car.DriveType = dto.DriveType;
+            if (!string.IsNullOrEmpty(dto.Color)) car.Color = dto.Color;
+            // Note: BrandName/ModelName/ReleaseYear update requires calling BrandModelReleaseService - handled in AdService
         }
     }
+
 }

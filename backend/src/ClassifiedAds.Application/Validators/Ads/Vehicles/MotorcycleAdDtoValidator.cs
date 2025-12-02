@@ -36,11 +36,11 @@ public class CreateMotorcycleAdDtoValidator : AbstractValidator<CreateMotorcycle
         Include(new TransportAdDtoValidator());
         Include(new MotorcycleAdDtoValidator());
 
-        RuleFor(x => x.ModelId)
-            .NotNull()
+        RuleFor(x => x.BrandName)
+            .NotEmpty()
             .WithMessage(ValidationMessages.GetMessage(
-                "معرف الموديل مطلوب",
-                "ناسنامەی مۆدێل پێویستە"));
+                "اسم العلامة التجارية مطلوب",
+                "ناوی براند پێویستە"));
 
         // Required enum fields for creation
         RuleFor(x => x.MotorcycleDriveType)

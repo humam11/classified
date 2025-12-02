@@ -20,6 +20,21 @@ public class VideoGameAdDtoValidator : AbstractValidator<VideoGameAdDto>
                 "ناوچەی یاری نادروستە"))
             .When(x => x.VideoGameRegion.HasValue);
 
+        // Update-specific: ModelName required when BrandName changes
+        RuleFor(x => x.ModelName)
+            .NotEmpty()
+            .WithMessage(ValidationMessages.GetMessage(
+                "يجب تحديد الموديل عند تغيير العلامة التجارية",
+                "دەبێت مۆدێل دیاری بکرێت کاتێک براند دەگۆڕێت"))
+            .When(x => !string.IsNullOrEmpty(x.BrandName));
+
+        // Update-specific: BrandName required when ModelName changes
+        RuleFor(x => x.BrandName)
+            .NotEmpty()
+            .WithMessage(ValidationMessages.GetMessage(
+                "يجب تحديد العلامة التجارية عند تغيير الموديل",
+                "دەبێت براند دیاری بکرێت کاتێک مۆدێل دەگۆڕێت"))
+            .When(x => !string.IsNullOrEmpty(x.ModelName));
     }
 }
 
@@ -36,11 +51,17 @@ public class CreateVideoGameAdDtoValidator : AbstractValidator<CreateVideoGameAd
                 "منطقة اللعبة مطلوبة",
                 "ناوچەی یاری پێویستە"));
 
-        RuleFor(x => x.ModelId)
-            .NotNull()
+        RuleFor(x => x.BrandName)
+            .NotEmpty()
             .WithMessage(ValidationMessages.GetMessage(
-                "معرف الموديل مطلوب",
-                "ناسنامەی مۆدێل پێویستە"));
+                "اسم العلامة التجارية مطلوب",
+                "ناوی براند پێویستە"));
+
+        RuleFor(x => x.ModelName)
+            .NotEmpty()
+            .WithMessage(ValidationMessages.GetMessage(
+                "اسم الموديل مطلوب",
+                "ناوی مۆدێل پێویستە"));
 
         this.ApplyCreateRules(); // VideoGame can be IQD or USD
     }

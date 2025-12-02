@@ -33,10 +33,12 @@ public static class CategoryDtoMapper
         ["الاعمال-والمعدات-التجارية-والصناعية/فرص-تجارية-ومشاريع-وشراكات/فرص-شراكة-واستثمار-في-مشاريع"] = typeof(CreateAdDto),
         ["الاعمال-والمعدات-التجارية-والصناعية/فرص-تجارية-ومشاريع-وشراكات/مشاريع-جاهزة-للبيع"] = typeof(CreateAdDto),
         ["الاعمال-والمعدات-التجارية-والصناعية/فرص-تجارية-ومشاريع-وشراكات/وكالات-تجارية"] = typeof(CreateAdDto),
-        ["الالكترونيات-والاجهزة-الرقمية/اجهزة-العاب-الكترونية/اجهزة-العاب-منزلية-ومحمولة"] = typeof(CreateVideoConsoleAdDto),
+        ["الالكترونيات-والاجهزة-الرقمية/اجهزة-العاب-الكترونية/اجهزة-العاب-منزلية-ومحمولة"] = typeof(CreateConsoleAdDto),
         ["مركبات-ونقل/معدات-ثقيلة-واليات/رافعات"] = typeof(CreateCraneAdDto),
         ["الوظائف-وفرص-العمل/ابحث-عن-موظف/تكنولوجيا-المعلومات-والاتصالات/امن-معلومات"] = typeof(CreateCvAdDto),
         ["الخدمات/خدمات-نقل-البضائع-والشحن/خدمات-الشحن-الثقيل-والتخليص-الكمركي"] = typeof(CreateServiceAdDto),
+                ["مركبات-ونقل/سيارات"] = typeof(CreateCarAdDto),
+
 
         ["الاعمال-والمعدات-التجارية-والصناعية/معدات-والات-للاعمال/اثاث-ولوازم-مكتبية-وتجارية"] = typeof(CreateAdDto),
                 ["الالكترونيات-والاجهزة-الرقمية/اجهزة-العاب-الكترونية/اكسسوارات-قيمنق"] = typeof(CreateElectronicAdDto),
@@ -138,8 +140,8 @@ public static class CategoryDtoMapper
             return typeof(Mappers.VideoGameAdDtoMapper);
         if (dtoType == typeof(CreateComputerAdDto) || dtoType == typeof(ComputerAdDto))
             return typeof(Mappers.ComputerAdDtoMapper);
-        if (dtoType == typeof(CreateVideoConsoleAdDto) || dtoType == typeof(VideoConsoleAdDto))
-            return typeof(Mappers.VideoConsoleAdDtoMapper);
+        if (dtoType == typeof(CreateConsoleAdDto) || dtoType == typeof(ConsoleAdDto))
+            return typeof(Mappers.ConsoleAdDtoMapper);
         if (dtoType == typeof(CreateHandheldDeviceAdDto) || dtoType == typeof(HandheldDeviceAdDto))
             return typeof(Mappers.HandheldDeviceAdDtoMapper);
         if (dtoType == typeof(CreateLaptopAdDto) || dtoType == typeof(LaptopAdDto))
@@ -229,9 +231,9 @@ public static class CategoryDtoMapper
         {
             return Mappers.ComputerAdDtoMapper.MapFormToDto(baseDto, form);
         }
-        else if (dtoType == typeof(CreateVideoConsoleAdDto))
+        else if (dtoType == typeof(CreateConsoleAdDto))
         {
-            return Mappers.VideoConsoleAdDtoMapper.MapFormToDto(baseDto, form);
+            return Mappers.ConsoleAdDtoMapper.MapFormToDto(baseDto, form);
         }
         else if (dtoType == typeof(CreateHandheldDeviceAdDto))
         {
@@ -322,4 +324,36 @@ public static class CategoryDtoMapper
         return baseDto;
     }
 
+    // Gets the update DTO type from the existing ad response (only for entities with brand+model validation)
+    public static Type? GetUpdateDtoTypeFromAdResponse(object adResponse)
+    {
+        return adResponse switch
+        {
+            // Car: brand + model + release (all three required together)
+            GetCarAdDto => typeof(CarAdDto),
+            // Console: brand + model (both required together)
+            GetConsoleAdDto => typeof(ConsoleAdDto),
+            // HandheldDevice: brand + model (both required together)
+            GetHandheldDeviceAdDto => typeof(HandheldDeviceAdDto),
+            // VideoGame: brand + model (both required together)
+            GetVideoGameAdDto => typeof(VideoGameAdDto),
+            // Other entities (Truck, Motorcycle, Laptop, TvMonitor) have brand-only, no special validation needed
+            _ => null
+        };
+    }
+
+    // Maps form data to the specific update DTO type for validation
+    public static object MapFormToUpdateDto(AdDto baseDto, Type dtoType, Microsoft.AspNetCore.Http.IFormCollection form)
+    {
+        if (dtoType == typeof(CarAdDto))
+            return Mappers.Vehicles.CarAdDtoMapper.MapFormToUpdateDto(baseDto, form);
+        if (dtoType == typeof(ConsoleAdDto))
+            return Mappers.ConsoleAdDtoMapper.MapFormToUpdateDto(baseDto, form);
+        if (dtoType == typeof(HandheldDeviceAdDto))
+            return Mappers.HandheldDeviceAdDtoMapper.MapFormToUpdateDto(baseDto, form);
+        if (dtoType == typeof(VideoGameAdDto))
+            return Mappers.VideoGameAdDtoMapper.MapFormToUpdateDto(baseDto, form);
+        
+        return baseDto;
+    }
 }

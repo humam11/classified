@@ -1,9 +1,11 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Electronics;
 using ClassifiedAds.Domain.Entities.Ads;
 using ClassifiedAds.Domain.Entities.Ads.Electronics;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
 
 namespace ClassifiedAds.Application.Mappers;
 
@@ -13,8 +15,7 @@ public static class ComputerAdDtoMapper
         CreateComputerAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic, List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
         string fullAddressKurdish)
@@ -36,11 +37,7 @@ public static class ComputerAdDtoMapper
                 Value = dto.PriceValue.Value,
                 ShowingPrice = showingPrice
             },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
             LocationAd = new LocationAd
             {
                 LocationIds = locationIds,
@@ -86,7 +83,7 @@ public static class ComputerAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new ComputerSpecsDto
             {
                 IsNew = entity.IsNew,
@@ -115,29 +112,15 @@ public static class ComputerAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            IsNew = form.TryGetValue("IsNew", out var isNew) &&
-                   !string.IsNullOrWhiteSpace(isNew) &&
-                   Enum.TryParse<Domain.Common.Enums.YesNo>(isNew, out var yn) ? yn : null,
-            WarrantyMonths = form.TryGetValue("WarrantyMonths", out var warranty) &&
-                            !string.IsNullOrWhiteSpace(warranty) &&
-                            byte.TryParse(warranty, out var wm) ? wm : null,
-            CPU = form.TryGetValue("CPU", out var cpu) && !string.IsNullOrWhiteSpace(cpu) ? cpu.ToString() : null,
-            RamSize = form.TryGetValue("RamSize", out var ramSize) &&
-                     !string.IsNullOrWhiteSpace(ramSize) &&
-                     Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.RamSize>(ramSize, out var rs) ? rs : null,
-            IsSSD = form.TryGetValue("IsSSD", out var isSSD) &&
-                   !string.IsNullOrWhiteSpace(isSSD) &&
-                   Enum.TryParse<Domain.Common.Enums.YesNo>(isSSD, out var ssd) ? ssd : null,
-            StorageCapacity = form.TryGetValue("StorageCapacity", out var storage) &&
-                             !string.IsNullOrWhiteSpace(storage) &&
-                             Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.StorageCapacity>(storage, out var sc) ? sc : null,
-            GraphicsCard = form.TryGetValue("GraphicsCard", out var gpu) && !string.IsNullOrWhiteSpace(gpu) ? gpu.ToString() : null,
-            UsbPorts = form.TryGetValue("UsbPorts", out var usb) &&
-                      !string.IsNullOrWhiteSpace(usb) &&
-                      byte.TryParse(usb, out var up) ? up : null,
-            HdmiPorts = form.TryGetValue("HdmiPorts", out var hdmi) &&
-                       !string.IsNullOrWhiteSpace(hdmi) &&
-                       byte.TryParse(hdmi, out var hp) ? hp : null
+            IsNew = ParseEnum<Domain.Common.Enums.YesNo>(form, "IsNew"),
+            WarrantyMonths = ParseByte(form, "WarrantyMonths"),
+            CPU = ParseString(form, "CPU"),
+            RamSize = ParseEnum<Domain.Entities.Ads.Electronics.Enums.RamSize>(form, "RamSize"),
+            IsSSD = ParseEnum<Domain.Common.Enums.YesNo>(form, "IsSSD"),
+            StorageCapacity = ParseEnum<Domain.Entities.Ads.Electronics.Enums.StorageCapacity>(form, "StorageCapacity"),
+            GraphicsCard = ParseString(form, "GraphicsCard"),
+            UsbPorts = ParseByte(form, "UsbPorts"),
+            HdmiPorts = ParseByte(form, "HdmiPorts")
         };
     }
 
@@ -154,29 +137,15 @@ public static class ComputerAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            IsNew = form.TryGetValue("IsNew", out var isNew) &&
-                   !string.IsNullOrWhiteSpace(isNew) &&
-                   Enum.TryParse<Domain.Common.Enums.YesNo>(isNew, out var yn) ? yn : null,
-            WarrantyMonths = form.TryGetValue("WarrantyMonths", out var warranty) &&
-                            !string.IsNullOrWhiteSpace(warranty) &&
-                            byte.TryParse(warranty, out var wm) ? wm : null,
-            CPU = form.TryGetValue("CPU", out var cpu) && !string.IsNullOrWhiteSpace(cpu) ? cpu.ToString() : null,
-            RamSize = form.TryGetValue("RamSize", out var ramSize) &&
-                     !string.IsNullOrWhiteSpace(ramSize) &&
-                     Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.RamSize>(ramSize, out var rs) ? rs : null,
-            IsSSD = form.TryGetValue("IsSSD", out var isSSD) &&
-                   !string.IsNullOrWhiteSpace(isSSD) &&
-                   Enum.TryParse<Domain.Common.Enums.YesNo>(isSSD, out var ssd) ? ssd : null,
-            StorageCapacity = form.TryGetValue("StorageCapacity", out var storage) &&
-                             !string.IsNullOrWhiteSpace(storage) &&
-                             Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.StorageCapacity>(storage, out var sc) ? sc : null,
-            GraphicsCard = form.TryGetValue("GraphicsCard", out var gpu) && !string.IsNullOrWhiteSpace(gpu) ? gpu.ToString() : null,
-            UsbPorts = form.TryGetValue("UsbPorts", out var usb) &&
-                      !string.IsNullOrWhiteSpace(usb) &&
-                      byte.TryParse(usb, out var up) ? up : null,
-            HdmiPorts = form.TryGetValue("HdmiPorts", out var hdmi) &&
-                       !string.IsNullOrWhiteSpace(hdmi) &&
-                       byte.TryParse(hdmi, out var hp) ? hp : null
+            IsNew = ParseEnum<Domain.Common.Enums.YesNo>(form, "IsNew"),
+            WarrantyMonths = ParseByte(form, "WarrantyMonths"),
+            CPU = ParseString(form, "CPU"),
+            RamSize = ParseEnum<Domain.Entities.Ads.Electronics.Enums.RamSize>(form, "RamSize"),
+            IsSSD = ParseEnum<Domain.Common.Enums.YesNo>(form, "IsSSD"),
+            StorageCapacity = ParseEnum<Domain.Entities.Ads.Electronics.Enums.StorageCapacity>(form, "StorageCapacity"),
+            GraphicsCard = ParseString(form, "GraphicsCard"),
+            UsbPorts = ParseByte(form, "UsbPorts"),
+            HdmiPorts = ParseByte(form, "HdmiPorts")
         };
     }
 

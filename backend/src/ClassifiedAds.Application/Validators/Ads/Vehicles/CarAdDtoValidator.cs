@@ -50,6 +50,30 @@ public class CarAdDtoValidator : AbstractValidator<CarAdDto>
                 "يجب ألا يتجاوز اللون 50 حرفًا",
                 "ڕەنگ نابێت لە 50 پیت زیاتر بێت"))
             .When(x => !string.IsNullOrEmpty(x.Color));
+
+        // Update-specific: ModelName required when BrandName changes
+        RuleFor(x => x.ModelName)
+            .NotEmpty()
+            .WithMessage(ValidationMessages.GetMessage(
+                "يجب تحديد الموديل عند تغيير العلامة التجارية",
+                "دەبێت مۆدێل دیاری بکرێت کاتێک براند دەگۆڕێت"))
+            .When(x => !string.IsNullOrEmpty(x.BrandName));
+
+        // Update-specific: BrandName required when ModelName changes
+        RuleFor(x => x.BrandName)
+            .NotEmpty()
+            .WithMessage(ValidationMessages.GetMessage(
+                "يجب تحديد العلامة التجارية عند تغيير الموديل",
+                "دەبێت براند دیاری بکرێت کاتێک مۆدێل دەگۆڕێت"))
+            .When(x => !string.IsNullOrEmpty(x.ModelName));
+
+        // Update-specific: ReleaseYear required when BrandName or ModelName changes
+        RuleFor(x => x.ReleaseYear)
+            .NotEmpty()
+            .WithMessage(ValidationMessages.GetMessage(
+                "يجب تحديد سنة الإصدار عند تغيير العلامة التجارية أو الموديل",
+                "دەبێت ساڵی دەرچوون دیاری بکرێت کاتێک براند یان مۆدێل دەگۆڕێت"))
+            .When(x => !string.IsNullOrEmpty(x.BrandName) || !string.IsNullOrEmpty(x.ModelName));
     }
 }
 
@@ -61,17 +85,26 @@ public class CreateCarAdDtoValidator : AbstractValidator<CreateCarAdDto>
         Include(new TransportAdDtoValidator());
         Include(new CarAdDtoValidator());
 
-        RuleFor(x => x.ModelId)
-            .NotNull()
+        // BrandName is required for creation
+        RuleFor(x => x.BrandName)
+            .NotEmpty()
             .WithMessage(ValidationMessages.GetMessage(
-                "معرف الموديل مطلوب",
-                "ناسنامەی مۆدێل پێویستە"));
+                "اسم العلامة التجارية مطلوب",
+                "ناوی براند پێویستە"));
 
-        RuleFor(x => x.SubModelReleaseId)
-            .NotNull()
+        // ModelName is required for creation
+        RuleFor(x => x.ModelName)
+            .NotEmpty()
             .WithMessage(ValidationMessages.GetMessage(
-                "معرف سنة الموديل مطلوب",
-                "ناسنامەی ساڵی مۆدێل پێویستە"));
+                "اسم الموديل مطلوب",
+                "ناوی مۆدێل پێویستە"));
+
+        // ReleaseYear is required for creation
+        RuleFor(x => x.ReleaseYear)
+            .NotEmpty()
+            .WithMessage(ValidationMessages.GetMessage(
+                "سنة الإصدار مطلوبة",
+                "ساڵی دەرچوون پێویستە"));
 
         // Required enum fields for creation
         RuleFor(x => x.Transmission)

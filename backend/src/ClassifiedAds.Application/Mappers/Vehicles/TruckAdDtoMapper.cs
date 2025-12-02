@@ -1,28 +1,40 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Vehicles;
+using ClassifiedAds.Application.Interfaces;
 using ClassifiedAds.Domain.Entities.Ads;
 using ClassifiedAds.Domain.Entities.Ads.Vehicles;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
 
 namespace ClassifiedAds.Application.Mappers.Vehicles;
 
 public static class TruckAdDtoMapper
 {
-    public static Truck MapToEntity(
+    // Async mapper that handles brand resolution internally
+    public static async Task<Truck> MapToEntityAsync(
         CreateTruckAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic,
+        List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
-        string fullAddressKurdish)
+        string fullAddressKurdish,
+        string categorySlug,
+        string language,
+        IBrandModelReleaseService brandModelReleaseService)
     {
         if (string.IsNullOrEmpty(dto.Title) || !dto.IsDollar.HasValue || !dto.PriceValue.HasValue)
-        {
             throw new ArgumentException("Required fields are missing");
-        }
+
+        if (string.IsNullOrEmpty(dto.BrandName))
+            throw new ArgumentException("BrandName is required for Truck ads");
+
+        // Resolve brand only
+        var (_, modelsSlugs) = await brandModelReleaseService.ResolveBrandAsync(
+            categorySlug, language, dto.BrandName);
 
         string showingPrice = AdDtoMapper.FormatShowingPrice(dto.IsDollar.Value, dto.PriceValue.Value);
 
@@ -31,7 +43,7 @@ public static class TruckAdDtoMapper
             Title = dto.Title,
             Description = dto.Description ?? string.Empty,
             Price = new Price { IsDollar = dto.IsDollar.Value, Value = dto.PriceValue.Value, ShowingPrice = showingPrice },
-            Category = new Category { CategoryJoins = categoryJoins, CategoryIds = categoryIds },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
             LocationAd = new LocationAd { LocationIds = locationIds, Street = dto.Street, FullAddressArabic = fullAddressArabic, FullAddressKurdish = fullAddressKurdish },
             Images = new List<AdImage>(),
             Status = Status.Active,
@@ -48,7 +60,7 @@ public static class TruckAdDtoMapper
             DistanceKm = dto.DistanceKm,
             LoadCapacity = dto.LoadCapacity,
             AxleCount = dto.AxleCount,
-            ModelId = dto.ModelId
+            ModelsSlugs = modelsSlugs
         };
     }
 
@@ -69,7 +81,11 @@ public static class TruckAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto 
+            { 
+                CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, 
+                CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish 
+            },
             Specs = new TruckSpecsDto
             {
                 FuelType = entity.FuelType,
@@ -78,10 +94,11 @@ public static class TruckAdDtoMapper
                 DistanceKm = entity.DistanceKm,
                 LoadCapacity = entity.LoadCapacity,
                 AxleCount = entity.AxleCount,
-                ModelId = entity.ModelId
+                ModelsSlugs = entity.ModelsSlugs
             }
         };
     }
+
 
     public static CreateTruckAdDto MapFormToDto(CreateAdDto baseDto, Microsoft.AspNetCore.Http.IFormCollection form)
     {
@@ -96,13 +113,13 @@ public static class TruckAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            FuelType = form.TryGetValue("FuelType", out var ft) && !string.IsNullOrWhiteSpace(ft) && Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.FuelType>(ft, out var fuelType) ? fuelType : null,
-            EnginePower = form.TryGetValue("EnginePower", out var ep) && !string.IsNullOrWhiteSpace(ep) && ushort.TryParse(ep, out var enginePower) ? enginePower : null,
-            FuelTankCapacity = form.TryGetValue("FuelTankCapacity", out var ftc) && !string.IsNullOrWhiteSpace(ftc) && ushort.TryParse(ftc, out var fuelTank) ? fuelTank : null,
-            DistanceKm = form.TryGetValue("DistanceKm", out var dk) && !string.IsNullOrWhiteSpace(dk) && int.TryParse(dk, out var distance) ? distance : null,
-            LoadCapacity = form.TryGetValue("LoadCapacity", out var lc) && !string.IsNullOrWhiteSpace(lc) && float.TryParse(lc, out var load) ? load : null,
-            AxleCount = form.TryGetValue("AxleCount", out var ac) && !string.IsNullOrWhiteSpace(ac) && byte.TryParse(ac, out var axle) ? axle : null,
-            ModelId = form.TryGetValue("ModelId", out var mid) && !string.IsNullOrWhiteSpace(mid) && Guid.TryParse(mid, out var modelId) ? modelId : null
+            FuelType = ParseEnum<Domain.Entities.Ads.Vehicles.Enums.FuelType>(form, "FuelType"),
+            EnginePower = ParseUShort(form, "EnginePower"),
+            FuelTankCapacity = ParseUShort(form, "FuelTankCapacity"),
+            DistanceKm = ParseInt(form, "DistanceKm"),
+            LoadCapacity = ParseFloat(form, "LoadCapacity"),
+            AxleCount = ParseByte(form, "AxleCount"),
+            BrandName = ParseString(form, "BrandName")
         };
     }
 
@@ -119,13 +136,13 @@ public static class TruckAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            FuelType = form.TryGetValue("FuelType", out var ft) && !string.IsNullOrWhiteSpace(ft) && Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.FuelType>(ft, out var fuelType) ? fuelType : null,
-            EnginePower = form.TryGetValue("EnginePower", out var ep) && !string.IsNullOrWhiteSpace(ep) && ushort.TryParse(ep, out var enginePower) ? enginePower : null,
-            FuelTankCapacity = form.TryGetValue("FuelTankCapacity", out var ftc) && !string.IsNullOrWhiteSpace(ftc) && ushort.TryParse(ftc, out var fuelTank) ? fuelTank : null,
-            DistanceKm = form.TryGetValue("DistanceKm", out var dk) && !string.IsNullOrWhiteSpace(dk) && int.TryParse(dk, out var distance) ? distance : null,
-            LoadCapacity = form.TryGetValue("LoadCapacity", out var lc) && !string.IsNullOrWhiteSpace(lc) && float.TryParse(lc, out var load) ? load : null,
-            AxleCount = form.TryGetValue("AxleCount", out var ac) && !string.IsNullOrWhiteSpace(ac) && byte.TryParse(ac, out var axle) ? axle : null,
-            ModelId = form.TryGetValue("ModelId", out var mid) && !string.IsNullOrWhiteSpace(mid) && Guid.TryParse(mid, out var modelId) ? modelId : null
+            FuelType = ParseEnum<Domain.Entities.Ads.Vehicles.Enums.FuelType>(form, "FuelType"),
+            EnginePower = ParseUShort(form, "EnginePower"),
+            FuelTankCapacity = ParseUShort(form, "FuelTankCapacity"),
+            DistanceKm = ParseInt(form, "DistanceKm"),
+            LoadCapacity = ParseFloat(form, "LoadCapacity"),
+            AxleCount = ParseByte(form, "AxleCount"),
+            BrandName = ParseString(form, "BrandName")
         };
     }
 
@@ -139,7 +156,7 @@ public static class TruckAdDtoMapper
             if (dto.DistanceKm.HasValue) truck.DistanceKm = dto.DistanceKm;
             if (dto.LoadCapacity.HasValue) truck.LoadCapacity = dto.LoadCapacity;
             if (dto.AxleCount.HasValue) truck.AxleCount = dto.AxleCount;
-            if (dto.ModelId.HasValue) truck.ModelId = dto.ModelId;
+            // Note: BrandName update requires calling BrandModelReleaseService - handled in AdService
         }
     }
 }

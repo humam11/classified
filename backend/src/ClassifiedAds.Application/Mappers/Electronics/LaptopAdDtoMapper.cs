@@ -1,28 +1,40 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Electronics;
+using ClassifiedAds.Application.Interfaces;
 using ClassifiedAds.Domain.Entities.Ads;
 using ClassifiedAds.Domain.Entities.Ads.Electronics;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
 
 namespace ClassifiedAds.Application.Mappers;
 
 public static class LaptopAdDtoMapper
 {
-    public static Laptop MapToEntity(
+    // Async mapper that handles brand resolution internally (brand only)
+    public static async Task<Laptop> MapToEntityAsync(
         CreateLaptopAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic,
+        List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
-        string fullAddressKurdish)
+        string fullAddressKurdish,
+        string categorySlug,
+        string language,
+        IBrandModelReleaseService brandModelReleaseService)
     {
         if (string.IsNullOrEmpty(dto.Title) || !dto.IsDollar.HasValue || !dto.PriceValue.HasValue)
-        {
             throw new ArgumentException("Required fields are missing");
-        }
+
+        if (string.IsNullOrEmpty(dto.BrandName))
+            throw new ArgumentException("BrandName is required for Laptop ads");
+
+        // Resolve brand only
+        var (_, modelsSlugs) = await brandModelReleaseService.ResolveBrandAsync(
+            categorySlug, language, dto.BrandName);
 
         string showingPrice = AdDtoMapper.FormatShowingPrice(dto.IsDollar.Value, dto.PriceValue.Value);
 
@@ -30,24 +42,9 @@ public static class LaptopAdDtoMapper
         {
             Title = dto.Title,
             Description = dto.Description ?? string.Empty,
-            Price = new Price
-            {
-                IsDollar = dto.IsDollar.Value,
-                Value = dto.PriceValue.Value,
-                ShowingPrice = showingPrice
-            },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
-            LocationAd = new LocationAd
-            {
-                LocationIds = locationIds,
-                Street = dto.Street,
-                FullAddressArabic = fullAddressArabic,
-                FullAddressKurdish = fullAddressKurdish
-            },
+            Price = new Price { IsDollar = dto.IsDollar.Value, Value = dto.PriceValue.Value, ShowingPrice = showingPrice },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
+            LocationAd = new LocationAd { LocationIds = locationIds, Street = dto.Street, FullAddressArabic = fullAddressArabic, FullAddressKurdish = fullAddressKurdish },
             Images = new List<AdImage>(),
             Status = Status.Active,
             CreatedAt = DateTime.UtcNow,
@@ -74,7 +71,7 @@ public static class LaptopAdDtoMapper
             WebcamResolution = dto.WebcamResolution,
             HasFingerprintReader = dto.HasFingerprintReader,
             Color = dto.Color,
-            ModelId = dto.ModelId
+            ModelsSlugs = modelsSlugs
         };
     }
 
@@ -95,7 +92,7 @@ public static class LaptopAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new LaptopSpecsDto
             {
                 IsNew = entity.IsNew,
@@ -115,7 +112,7 @@ public static class LaptopAdDtoMapper
                 WebcamResolution = entity.WebcamResolution,
                 HasFingerprintReader = entity.HasFingerprintReader,
                 Color = entity.Color,
-                ModelId = entity.ModelId
+                ModelsSlugs = entity.ModelsSlugs
             }
         };
     }
@@ -133,54 +130,24 @@ public static class LaptopAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            IsNew = form.TryGetValue("IsNew", out var isNew) &&
-                   !string.IsNullOrWhiteSpace(isNew) &&
-                   Enum.TryParse<Domain.Common.Enums.YesNo>(isNew, out var yn) ? yn : null,
-            WarrantyMonths = form.TryGetValue("WarrantyMonths", out var warranty) &&
-                            !string.IsNullOrWhiteSpace(warranty) &&
-                            byte.TryParse(warranty, out var wm) ? wm : null,
-            Cpu = form.TryGetValue("Cpu", out var cpu) && !string.IsNullOrWhiteSpace(cpu) ? cpu.ToString() : null,
-            RamSize = form.TryGetValue("RamSize", out var ramSize) &&
-                     !string.IsNullOrWhiteSpace(ramSize) &&
-                     Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.RamSize>(ramSize, out var rs) ? rs : null,
-            IsSSD = form.TryGetValue("IsSSD", out var isSSD) &&
-                   !string.IsNullOrWhiteSpace(isSSD) &&
-                   Enum.TryParse<Domain.Common.Enums.YesNo>(isSSD, out var ssd) ? ssd : null,
-            StorageCapacity = form.TryGetValue("StorageCapacity", out var storage) &&
-                             !string.IsNullOrWhiteSpace(storage) &&
-                             Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.StorageCapacity>(storage, out var sc) ? sc : null,
-            GraphicsCard = form.TryGetValue("GraphicsCard", out var gpu) && !string.IsNullOrWhiteSpace(gpu) ? gpu.ToString() : null,
-            UsbPorts = form.TryGetValue("UsbPorts", out var usb) &&
-                      !string.IsNullOrWhiteSpace(usb) &&
-                      byte.TryParse(usb, out var up) ? up : null,
-            HdmiPorts = form.TryGetValue("HdmiPorts", out var hdmi) &&
-                       !string.IsNullOrWhiteSpace(hdmi) &&
-                       byte.TryParse(hdmi, out var hp) ? hp : null,
-            ScreenSize = form.TryGetValue("ScreenSize", out var screenSize) &&
-                        !string.IsNullOrWhiteSpace(screenSize) &&
-                        float.TryParse(screenSize, out var ss) ? ss : null,
-            IsTouchscreen = form.TryGetValue("IsTouchscreen", out var touch) &&
-                           !string.IsNullOrWhiteSpace(touch) &&
-                           Enum.TryParse<Domain.Common.Enums.YesNo>(touch, out var ts) ? ts : null,
-            Resolution = form.TryGetValue("Resolution", out var res) && !string.IsNullOrWhiteSpace(res) ? res.ToString() : null,
-            IsBacklitKeyboard = form.TryGetValue("IsBacklitKeyboard", out var backlit) &&
-                               !string.IsNullOrWhiteSpace(backlit) &&
-                               Enum.TryParse<Domain.Common.Enums.YesNo>(backlit, out var bk) ? bk : null,
-            HasWebcam = form.TryGetValue("HasWebcam", out var webcam) &&
-                       !string.IsNullOrWhiteSpace(webcam) &&
-                       Enum.TryParse<Domain.Common.Enums.YesNo>(webcam, out var wc) ? wc : null,
-            WebcamResolution = form.TryGetValue("WebcamResolution", out var wcRes) &&
-                              !string.IsNullOrWhiteSpace(wcRes) &&
-                              Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.WebcamResolution>(wcRes, out var wr) ? wr : null,
-            HasFingerprintReader = form.TryGetValue("HasFingerprintReader", out var fingerprint) &&
-                                  !string.IsNullOrWhiteSpace(fingerprint) &&
-                                  Enum.TryParse<Domain.Common.Enums.YesNo>(fingerprint, out var fp) ? fp : null,
-            Color = form.TryGetValue("Color", out var color) &&
-                   !string.IsNullOrWhiteSpace(color) &&
-                   Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.Color>(color, out var c) ? c : null,
-            ModelId = form.TryGetValue("ModelId", out var modelId) &&
-                     !string.IsNullOrWhiteSpace(modelId) &&
-                     Guid.TryParse(modelId, out var m) ? m : null
+            IsNew = ParseEnum<YesNo>(form, "IsNew"),
+            WarrantyMonths = ParseByte(form, "WarrantyMonths"),
+            Cpu = ParseString(form, "Cpu"),
+            RamSize = ParseEnum<Domain.Entities.Ads.Electronics.Enums.RamSize>(form, "RamSize"),
+            IsSSD = ParseEnum<YesNo>(form, "IsSSD"),
+            StorageCapacity = ParseEnum<Domain.Entities.Ads.Electronics.Enums.StorageCapacity>(form, "StorageCapacity"),
+            GraphicsCard = ParseString(form, "GraphicsCard"),
+            UsbPorts = ParseByte(form, "UsbPorts"),
+            HdmiPorts = ParseByte(form, "HdmiPorts"),
+            ScreenSize = ParseFloat(form, "ScreenSize"),
+            IsTouchscreen = ParseEnum<YesNo>(form, "IsTouchscreen"),
+            Resolution = ParseString(form, "Resolution"),
+            IsBacklitKeyboard = ParseEnum<YesNo>(form, "IsBacklitKeyboard"),
+            HasWebcam = ParseEnum<YesNo>(form, "HasWebcam"),
+            WebcamResolution = ParseEnum<Domain.Entities.Ads.Electronics.Enums.WebcamResolution>(form, "WebcamResolution"),
+            HasFingerprintReader = ParseEnum<YesNo>(form, "HasFingerprintReader"),
+            Color = ParseEnum<Domain.Entities.Ads.Electronics.Enums.Color>(form, "Color"),
+            BrandName = ParseString(form, "BrandName")
         };
     }
 
@@ -197,54 +164,24 @@ public static class LaptopAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            IsNew = form.TryGetValue("IsNew", out var isNew) &&
-                   !string.IsNullOrWhiteSpace(isNew) &&
-                   Enum.TryParse<Domain.Common.Enums.YesNo>(isNew, out var yn) ? yn : null,
-            WarrantyMonths = form.TryGetValue("WarrantyMonths", out var warranty) &&
-                            !string.IsNullOrWhiteSpace(warranty) &&
-                            byte.TryParse(warranty, out var wm) ? wm : null,
-            Cpu = form.TryGetValue("Cpu", out var cpu) && !string.IsNullOrWhiteSpace(cpu) ? cpu.ToString() : null,
-            RamSize = form.TryGetValue("RamSize", out var ramSize) &&
-                     !string.IsNullOrWhiteSpace(ramSize) &&
-                     Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.RamSize>(ramSize, out var rs) ? rs : null,
-            IsSSD = form.TryGetValue("IsSSD", out var isSSD) &&
-                   !string.IsNullOrWhiteSpace(isSSD) &&
-                   Enum.TryParse<Domain.Common.Enums.YesNo>(isSSD, out var ssd) ? ssd : null,
-            StorageCapacity = form.TryGetValue("StorageCapacity", out var storage) &&
-                             !string.IsNullOrWhiteSpace(storage) &&
-                             Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.StorageCapacity>(storage, out var sc) ? sc : null,
-            GraphicsCard = form.TryGetValue("GraphicsCard", out var gpu) && !string.IsNullOrWhiteSpace(gpu) ? gpu.ToString() : null,
-            UsbPorts = form.TryGetValue("UsbPorts", out var usb) &&
-                      !string.IsNullOrWhiteSpace(usb) &&
-                      byte.TryParse(usb, out var up) ? up : null,
-            HdmiPorts = form.TryGetValue("HdmiPorts", out var hdmi) &&
-                       !string.IsNullOrWhiteSpace(hdmi) &&
-                       byte.TryParse(hdmi, out var hp) ? hp : null,
-            ScreenSize = form.TryGetValue("ScreenSize", out var screenSize) &&
-                        !string.IsNullOrWhiteSpace(screenSize) &&
-                        float.TryParse(screenSize, out var ss) ? ss : null,
-            IsTouchscreen = form.TryGetValue("IsTouchscreen", out var touch) &&
-                           !string.IsNullOrWhiteSpace(touch) &&
-                           Enum.TryParse<Domain.Common.Enums.YesNo>(touch, out var ts) ? ts : null,
-            Resolution = form.TryGetValue("Resolution", out var res) && !string.IsNullOrWhiteSpace(res) ? res.ToString() : null,
-            IsBacklitKeyboard = form.TryGetValue("IsBacklitKeyboard", out var backlit) &&
-                               !string.IsNullOrWhiteSpace(backlit) &&
-                               Enum.TryParse<Domain.Common.Enums.YesNo>(backlit, out var bk) ? bk : null,
-            HasWebcam = form.TryGetValue("HasWebcam", out var webcam) &&
-                       !string.IsNullOrWhiteSpace(webcam) &&
-                       Enum.TryParse<Domain.Common.Enums.YesNo>(webcam, out var wc) ? wc : null,
-            WebcamResolution = form.TryGetValue("WebcamResolution", out var wcRes) &&
-                              !string.IsNullOrWhiteSpace(wcRes) &&
-                              Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.WebcamResolution>(wcRes, out var wr) ? wr : null,
-            HasFingerprintReader = form.TryGetValue("HasFingerprintReader", out var fingerprint) &&
-                                  !string.IsNullOrWhiteSpace(fingerprint) &&
-                                  Enum.TryParse<Domain.Common.Enums.YesNo>(fingerprint, out var fp) ? fp : null,
-            Color = form.TryGetValue("Color", out var color) &&
-                   !string.IsNullOrWhiteSpace(color) &&
-                   Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.Color>(color, out var c) ? c : null,
-            ModelId = form.TryGetValue("ModelId", out var modelId) &&
-                     !string.IsNullOrWhiteSpace(modelId) &&
-                     Guid.TryParse(modelId, out var m) ? m : null
+            IsNew = ParseEnum<YesNo>(form, "IsNew"),
+            WarrantyMonths = ParseByte(form, "WarrantyMonths"),
+            Cpu = ParseString(form, "Cpu"),
+            RamSize = ParseEnum<Domain.Entities.Ads.Electronics.Enums.RamSize>(form, "RamSize"),
+            IsSSD = ParseEnum<YesNo>(form, "IsSSD"),
+            StorageCapacity = ParseEnum<Domain.Entities.Ads.Electronics.Enums.StorageCapacity>(form, "StorageCapacity"),
+            GraphicsCard = ParseString(form, "GraphicsCard"),
+            UsbPorts = ParseByte(form, "UsbPorts"),
+            HdmiPorts = ParseByte(form, "HdmiPorts"),
+            ScreenSize = ParseFloat(form, "ScreenSize"),
+            IsTouchscreen = ParseEnum<YesNo>(form, "IsTouchscreen"),
+            Resolution = ParseString(form, "Resolution"),
+            IsBacklitKeyboard = ParseEnum<YesNo>(form, "IsBacklitKeyboard"),
+            HasWebcam = ParseEnum<YesNo>(form, "HasWebcam"),
+            WebcamResolution = ParseEnum<Domain.Entities.Ads.Electronics.Enums.WebcamResolution>(form, "WebcamResolution"),
+            HasFingerprintReader = ParseEnum<YesNo>(form, "HasFingerprintReader"),
+            Color = ParseEnum<Domain.Entities.Ads.Electronics.Enums.Color>(form, "Color"),
+            BrandName = ParseString(form, "BrandName")
         };
     }
 
@@ -252,42 +189,24 @@ public static class LaptopAdDtoMapper
     {
         if (ad is Laptop laptop)
         {
-            if (dto.IsNew.HasValue)
-                laptop.IsNew = dto.IsNew;
-            if (dto.WarrantyMonths.HasValue)
-                laptop.WarrantyMonths = dto.WarrantyMonths;
-            if (!string.IsNullOrEmpty(dto.Cpu))
-                laptop.Cpu = dto.Cpu;
-            if (dto.RamSize.HasValue)
-                laptop.RamSize = dto.RamSize;
-            if (dto.IsSSD.HasValue)
-                laptop.IsSSD = dto.IsSSD;
-            if (dto.StorageCapacity.HasValue)
-                laptop.StorageCapacity = dto.StorageCapacity;
-            if (!string.IsNullOrEmpty(dto.GraphicsCard))
-                laptop.GraphicsCard = dto.GraphicsCard;
-            if (dto.UsbPorts.HasValue)
-                laptop.UsbPorts = dto.UsbPorts;
-            if (dto.HdmiPorts.HasValue)
-                laptop.HdmiPorts = dto.HdmiPorts;
-            if (dto.ScreenSize.HasValue)
-                laptop.ScreenSize = dto.ScreenSize;
-            if (dto.IsTouchscreen.HasValue)
-                laptop.IsTouchscreen = dto.IsTouchscreen;
-            if (!string.IsNullOrEmpty(dto.Resolution))
-                laptop.Resolution = dto.Resolution;
-            if (dto.IsBacklitKeyboard.HasValue)
-                laptop.IsBacklitKeyboard = dto.IsBacklitKeyboard;
-            if (dto.HasWebcam.HasValue)
-                laptop.HasWebcam = dto.HasWebcam;
-            if (dto.WebcamResolution.HasValue)
-                laptop.WebcamResolution = dto.WebcamResolution;
-            if (dto.HasFingerprintReader.HasValue)
-                laptop.HasFingerprintReader = dto.HasFingerprintReader;
-            if (dto.Color.HasValue)
-                laptop.Color = dto.Color;
-            if (dto.ModelId.HasValue)
-                laptop.ModelId = dto.ModelId;
+            if (dto.IsNew.HasValue) laptop.IsNew = dto.IsNew;
+            if (dto.WarrantyMonths.HasValue) laptop.WarrantyMonths = dto.WarrantyMonths;
+            if (!string.IsNullOrEmpty(dto.Cpu)) laptop.Cpu = dto.Cpu;
+            if (dto.RamSize.HasValue) laptop.RamSize = dto.RamSize;
+            if (dto.IsSSD.HasValue) laptop.IsSSD = dto.IsSSD;
+            if (dto.StorageCapacity.HasValue) laptop.StorageCapacity = dto.StorageCapacity;
+            if (!string.IsNullOrEmpty(dto.GraphicsCard)) laptop.GraphicsCard = dto.GraphicsCard;
+            if (dto.UsbPorts.HasValue) laptop.UsbPorts = dto.UsbPorts;
+            if (dto.HdmiPorts.HasValue) laptop.HdmiPorts = dto.HdmiPorts;
+            if (dto.ScreenSize.HasValue) laptop.ScreenSize = dto.ScreenSize;
+            if (dto.IsTouchscreen.HasValue) laptop.IsTouchscreen = dto.IsTouchscreen;
+            if (!string.IsNullOrEmpty(dto.Resolution)) laptop.Resolution = dto.Resolution;
+            if (dto.IsBacklitKeyboard.HasValue) laptop.IsBacklitKeyboard = dto.IsBacklitKeyboard;
+            if (dto.HasWebcam.HasValue) laptop.HasWebcam = dto.HasWebcam;
+            if (dto.WebcamResolution.HasValue) laptop.WebcamResolution = dto.WebcamResolution;
+            if (dto.HasFingerprintReader.HasValue) laptop.HasFingerprintReader = dto.HasFingerprintReader;
+            if (dto.Color.HasValue) laptop.Color = dto.Color;
+            // Note: BrandName update requires calling BrandModelReleaseService - handled in AdService
         }
     }
 }

@@ -1,12 +1,12 @@
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\bin\Debug\net9.0\ClassifiedAds.Domain.deps.json
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\bin\Debug\net9.0\ClassifiedAds.Domain.dll
+C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\bin\Debug\net9.0\ClassifiedAds.Domain.pdb
 C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\Debug\net9.0\ClassifiedAds.Domain.csproj.AssemblyReference.cache
 C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\Debug\net9.0\ClassifiedAds.Domain.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\Debug\net9.0\ClassifiedAds.Domain.AssemblyInfoInputs.cache
 C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\Debug\net9.0\ClassifiedAds.Domain.AssemblyInfo.cs
 C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\Debug\net9.0\ClassifiedAds.Domain.csproj.CoreCompileInputs.cache
 C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\Debug\net9.0\ClassifiedAds.Domain.sourcelink.json
-C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\bin\Debug\net9.0\ClassifiedAds.Domain.deps.json
-C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\bin\Debug\net9.0\ClassifiedAds.Domain.dll
-C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\bin\Debug\net9.0\ClassifiedAds.Domain.pdb
 C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\Debug\net9.0\ClassifiedAds.Domain.dll
 C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\Debug\net9.0\refint\ClassifiedAds.Domain.dll
 C:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\Debug\net9.0\ClassifiedAds.Domain.pdb

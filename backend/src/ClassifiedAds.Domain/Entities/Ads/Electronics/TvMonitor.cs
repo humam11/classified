@@ -13,5 +13,6 @@ public class TvMonitor : Electronic
         public RefreshRate? RefreshRate { get; set; }
         public byte? HdmiPorts { get; set; }
         public byte? UsbPorts { get; set; }
-        public Guid? ModelId { get; set; }
+        // Resolved brand slugs from PostgreSQL (brand only)
+        public List<string>? ModelsSlugs { get; set; }
 }

@@ -19,7 +19,9 @@ public class HandheldDeviceAdDto : ElectronicAdDto
     public YesNo? DualSim { get; set; }
     public YesNo? WaterproofSupport { get; set; }
     public YesNo? StylusSupport { get; set; }
-    public Guid? ModelId { get; set; }
+    // Brand/Model resolution inputs (brand + model for handheld devices)
+    public string? BrandName { get; set; }
+    public string? ModelName { get; set; }
 }
 
 public class CreateHandheldDeviceAdDto : HandheldDeviceAdDto
@@ -42,7 +44,8 @@ public class HandheldDeviceSpecsDto : ElectronicSpecsDto
     public YesNo? DualSim { get; set; }
     public YesNo? WaterproofSupport { get; set; }
     public YesNo? StylusSupport { get; set; }
-    public Guid? ModelId { get; set; }
+    // Resolved brand/model slugs stored in MongoDB
+    public List<string>? ModelsSlugs { get; set; }
 }
 
 public class GetHandheldDeviceAdDto : GetElectronicAdDto

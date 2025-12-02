@@ -1,28 +1,40 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Electronics;
+using ClassifiedAds.Application.Interfaces;
 using ClassifiedAds.Domain.Entities.Ads;
 using ClassifiedAds.Domain.Entities.Ads.Electronics;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
 
 namespace ClassifiedAds.Application.Mappers;
 
 public static class HandheldDeviceAdDtoMapper
 {
-    public static HandheldDevice MapToEntity(
+    // Async mapper that handles brand/model resolution internally (brand + model)
+    public static async Task<HandheldDevice> MapToEntityAsync(
         CreateHandheldDeviceAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic,
+        List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
-        string fullAddressKurdish)
+        string fullAddressKurdish,
+        string categorySlug,
+        string language,
+        IBrandModelReleaseService brandModelReleaseService)
     {
         if (string.IsNullOrEmpty(dto.Title) || !dto.IsDollar.HasValue || !dto.PriceValue.HasValue)
-        {
             throw new ArgumentException("Required fields are missing");
-        }
+
+        if (string.IsNullOrEmpty(dto.BrandName) || string.IsNullOrEmpty(dto.ModelName))
+            throw new ArgumentException("BrandName and ModelName are required for HandheldDevice ads");
+
+        // Resolve brand and model
+        var (_, modelsSlugs) = await brandModelReleaseService.ResolveBrandModelAsync(
+            categorySlug, language, dto.BrandName, dto.ModelName);
 
         string showingPrice = AdDtoMapper.FormatShowingPrice(dto.IsDollar.Value, dto.PriceValue.Value);
 
@@ -30,24 +42,9 @@ public static class HandheldDeviceAdDtoMapper
         {
             Title = dto.Title,
             Description = dto.Description ?? string.Empty,
-            Price = new Price
-            {
-                IsDollar = dto.IsDollar.Value,
-                Value = dto.PriceValue.Value,
-                ShowingPrice = showingPrice
-            },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
-            LocationAd = new LocationAd
-            {
-                LocationIds = locationIds,
-                Street = dto.Street,
-                FullAddressArabic = fullAddressArabic,
-                FullAddressKurdish = fullAddressKurdish
-            },
+            Price = new Price { IsDollar = dto.IsDollar.Value, Value = dto.PriceValue.Value, ShowingPrice = showingPrice },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
+            LocationAd = new LocationAd { LocationIds = locationIds, Street = dto.Street, FullAddressArabic = fullAddressArabic, FullAddressKurdish = fullAddressKurdish },
             Images = new List<AdImage>(),
             Status = Status.Active,
             CreatedAt = DateTime.UtcNow,
@@ -72,7 +69,7 @@ public static class HandheldDeviceAdDtoMapper
             DualSim = dto.DualSim,
             WaterproofSupport = dto.WaterproofSupport,
             StylusSupport = dto.StylusSupport,
-            ModelId = dto.ModelId
+            ModelsSlugs = modelsSlugs
         };
     }
 
@@ -93,7 +90,7 @@ public static class HandheldDeviceAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new HandheldDeviceSpecsDto
             {
                 IsNew = entity.IsNew,
@@ -111,7 +108,7 @@ public static class HandheldDeviceAdDtoMapper
                 DualSim = entity.DualSim,
                 WaterproofSupport = entity.WaterproofSupport,
                 StylusSupport = entity.StylusSupport,
-                ModelId = entity.ModelId
+                ModelsSlugs = entity.ModelsSlugs
             }
         };
     }
@@ -129,52 +126,23 @@ public static class HandheldDeviceAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            IsNew = form.TryGetValue("IsNew", out var isNew) &&
-                   !string.IsNullOrWhiteSpace(isNew) &&
-                   Enum.TryParse<Domain.Common.Enums.YesNo>(isNew, out var yn) ? yn : null,
-            WarrantyMonths = form.TryGetValue("WarrantyMonths", out var warranty) &&
-                            !string.IsNullOrWhiteSpace(warranty) &&
-                            byte.TryParse(warranty, out var wm) ? wm : null,
-            StorageCapacity = form.TryGetValue("StorageCapacity", out var storage) &&
-                             !string.IsNullOrWhiteSpace(storage) &&
-                             Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.StorageCapacity>(storage, out var sc) ? sc : null,
-            RamSize = form.TryGetValue("RamSize", out var ramSize) &&
-                     !string.IsNullOrWhiteSpace(ramSize) &&
-                     Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.RamSize>(ramSize, out var rs) ? rs : null,
-            Color = form.TryGetValue("Color", out var color) &&
-                   !string.IsNullOrWhiteSpace(color) &&
-                   Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.Color>(color, out var c) ? c : null,
-            MainCamera = form.TryGetValue("MainCamera", out var mainCam) &&
-                        !string.IsNullOrWhiteSpace(mainCam) &&
-                        Enum.TryParse<Domain.Common.Enums.YesNo>(mainCam, out var mc) ? mc : null,
-            FrontCamera = form.TryGetValue("FrontCamera", out var frontCam) &&
-                         !string.IsNullOrWhiteSpace(frontCam) &&
-                         Enum.TryParse<Domain.Common.Enums.YesNo>(frontCam, out var fc) ? fc : null,
-            MainCameraResolution = form.TryGetValue("MainCameraResolution", out var mainRes) &&
-                                  !string.IsNullOrWhiteSpace(mainRes) &&
-                                  float.TryParse(mainRes, out var mcr) ? mcr : null,
-            FrontCameraResolution = form.TryGetValue("FrontCameraResolution", out var frontRes) &&
-                                   !string.IsNullOrWhiteSpace(frontRes) &&
-                                   float.TryParse(frontRes, out var fcr) ? fcr : null,
-            BatteryCapacity = form.TryGetValue("BatteryCapacity", out var battery) &&
-                             !string.IsNullOrWhiteSpace(battery) &&
-                             ushort.TryParse(battery, out var bc) ? bc : null,
-            ScreenSize = form.TryGetValue("ScreenSize", out var screenSize) &&
-                        !string.IsNullOrWhiteSpace(screenSize) &&
-                        float.TryParse(screenSize, out var ss) ? ss : null,
-            Processor = form.TryGetValue("Processor", out var proc) && !string.IsNullOrWhiteSpace(proc) ? proc.ToString() : null,
-            DualSim = form.TryGetValue("DualSim", out var dualSim) &&
-                     !string.IsNullOrWhiteSpace(dualSim) &&
-                     Enum.TryParse<Domain.Common.Enums.YesNo>(dualSim, out var ds) ? ds : null,
-            WaterproofSupport = form.TryGetValue("WaterproofSupport", out var waterproof) &&
-                               !string.IsNullOrWhiteSpace(waterproof) &&
-                               Enum.TryParse<Domain.Common.Enums.YesNo>(waterproof, out var wp) ? wp : null,
-            StylusSupport = form.TryGetValue("StylusSupport", out var stylus) &&
-                           !string.IsNullOrWhiteSpace(stylus) &&
-                           Enum.TryParse<Domain.Common.Enums.YesNo>(stylus, out var st) ? st : null,
-            ModelId = form.TryGetValue("ModelId", out var modelId) &&
-                     !string.IsNullOrWhiteSpace(modelId) &&
-                     Guid.TryParse(modelId, out var m) ? m : null
+            IsNew = ParseEnum<YesNo>(form, "IsNew"),
+            WarrantyMonths = ParseByte(form, "WarrantyMonths"),
+            StorageCapacity = ParseEnum<Domain.Entities.Ads.Electronics.Enums.StorageCapacity>(form, "StorageCapacity"),
+            RamSize = ParseEnum<Domain.Entities.Ads.Electronics.Enums.RamSize>(form, "RamSize"),
+            Color = ParseEnum<Domain.Entities.Ads.Electronics.Enums.Color>(form, "Color"),
+            MainCamera = ParseEnum<YesNo>(form, "MainCamera"),
+            FrontCamera = ParseEnum<YesNo>(form, "FrontCamera"),
+            MainCameraResolution = ParseFloat(form, "MainCameraResolution"),
+            FrontCameraResolution = ParseFloat(form, "FrontCameraResolution"),
+            BatteryCapacity = ParseUShort(form, "BatteryCapacity"),
+            ScreenSize = ParseFloat(form, "ScreenSize"),
+            Processor = ParseString(form, "Processor"),
+            DualSim = ParseEnum<YesNo>(form, "DualSim"),
+            WaterproofSupport = ParseEnum<YesNo>(form, "WaterproofSupport"),
+            StylusSupport = ParseEnum<YesNo>(form, "StylusSupport"),
+            BrandName = ParseString(form, "BrandName"),
+            ModelName = ParseString(form, "ModelName")
         };
     }
 
@@ -191,52 +159,23 @@ public static class HandheldDeviceAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            IsNew = form.TryGetValue("IsNew", out var isNew) &&
-                   !string.IsNullOrWhiteSpace(isNew) &&
-                   Enum.TryParse<Domain.Common.Enums.YesNo>(isNew, out var yn) ? yn : null,
-            WarrantyMonths = form.TryGetValue("WarrantyMonths", out var warranty) &&
-                            !string.IsNullOrWhiteSpace(warranty) &&
-                            byte.TryParse(warranty, out var wm) ? wm : null,
-            StorageCapacity = form.TryGetValue("StorageCapacity", out var storage) &&
-                             !string.IsNullOrWhiteSpace(storage) &&
-                             Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.StorageCapacity>(storage, out var sc) ? sc : null,
-            RamSize = form.TryGetValue("RamSize", out var ramSize) &&
-                     !string.IsNullOrWhiteSpace(ramSize) &&
-                     Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.RamSize>(ramSize, out var rs) ? rs : null,
-            Color = form.TryGetValue("Color", out var color) &&
-                   !string.IsNullOrWhiteSpace(color) &&
-                   Enum.TryParse<Domain.Entities.Ads.Electronics.Enums.Color>(color, out var c) ? c : null,
-            MainCamera = form.TryGetValue("MainCamera", out var mainCam) &&
-                        !string.IsNullOrWhiteSpace(mainCam) &&
-                        Enum.TryParse<Domain.Common.Enums.YesNo>(mainCam, out var mc) ? mc : null,
-            FrontCamera = form.TryGetValue("FrontCamera", out var frontCam) &&
-                         !string.IsNullOrWhiteSpace(frontCam) &&
-                         Enum.TryParse<Domain.Common.Enums.YesNo>(frontCam, out var fc) ? fc : null,
-            MainCameraResolution = form.TryGetValue("MainCameraResolution", out var mainRes) &&
-                                  !string.IsNullOrWhiteSpace(mainRes) &&
-                                  float.TryParse(mainRes, out var mcr) ? mcr : null,
-            FrontCameraResolution = form.TryGetValue("FrontCameraResolution", out var frontRes) &&
-                                   !string.IsNullOrWhiteSpace(frontRes) &&
-                                   float.TryParse(frontRes, out var fcr) ? fcr : null,
-            BatteryCapacity = form.TryGetValue("BatteryCapacity", out var battery) &&
-                             !string.IsNullOrWhiteSpace(battery) &&
-                             ushort.TryParse(battery, out var bc) ? bc : null,
-            ScreenSize = form.TryGetValue("ScreenSize", out var screenSize) &&
-                        !string.IsNullOrWhiteSpace(screenSize) &&
-                        float.TryParse(screenSize, out var ss) ? ss : null,
-            Processor = form.TryGetValue("Processor", out var proc) && !string.IsNullOrWhiteSpace(proc) ? proc.ToString() : null,
-            DualSim = form.TryGetValue("DualSim", out var dualSim) &&
-                     !string.IsNullOrWhiteSpace(dualSim) &&
-                     Enum.TryParse<Domain.Common.Enums.YesNo>(dualSim, out var ds) ? ds : null,
-            WaterproofSupport = form.TryGetValue("WaterproofSupport", out var waterproof) &&
-                               !string.IsNullOrWhiteSpace(waterproof) &&
-                               Enum.TryParse<Domain.Common.Enums.YesNo>(waterproof, out var wp) ? wp : null,
-            StylusSupport = form.TryGetValue("StylusSupport", out var stylus) &&
-                           !string.IsNullOrWhiteSpace(stylus) &&
-                           Enum.TryParse<Domain.Common.Enums.YesNo>(stylus, out var st) ? st : null,
-            ModelId = form.TryGetValue("ModelId", out var modelId) &&
-                     !string.IsNullOrWhiteSpace(modelId) &&
-                     Guid.TryParse(modelId, out var m) ? m : null
+            IsNew = ParseEnum<YesNo>(form, "IsNew"),
+            WarrantyMonths = ParseByte(form, "WarrantyMonths"),
+            StorageCapacity = ParseEnum<Domain.Entities.Ads.Electronics.Enums.StorageCapacity>(form, "StorageCapacity"),
+            RamSize = ParseEnum<Domain.Entities.Ads.Electronics.Enums.RamSize>(form, "RamSize"),
+            Color = ParseEnum<Domain.Entities.Ads.Electronics.Enums.Color>(form, "Color"),
+            MainCamera = ParseEnum<YesNo>(form, "MainCamera"),
+            FrontCamera = ParseEnum<YesNo>(form, "FrontCamera"),
+            MainCameraResolution = ParseFloat(form, "MainCameraResolution"),
+            FrontCameraResolution = ParseFloat(form, "FrontCameraResolution"),
+            BatteryCapacity = ParseUShort(form, "BatteryCapacity"),
+            ScreenSize = ParseFloat(form, "ScreenSize"),
+            Processor = ParseString(form, "Processor"),
+            DualSim = ParseEnum<YesNo>(form, "DualSim"),
+            WaterproofSupport = ParseEnum<YesNo>(form, "WaterproofSupport"),
+            StylusSupport = ParseEnum<YesNo>(form, "StylusSupport"),
+            BrandName = ParseString(form, "BrandName"),
+            ModelName = ParseString(form, "ModelName")
         };
     }
 
@@ -244,38 +183,22 @@ public static class HandheldDeviceAdDtoMapper
     {
         if (ad is HandheldDevice device)
         {
-            if (dto.IsNew.HasValue)
-                device.IsNew = dto.IsNew;
-            if (dto.WarrantyMonths.HasValue)
-                device.WarrantyMonths = dto.WarrantyMonths;
-            if (dto.StorageCapacity.HasValue)
-                device.StorageCapacity = dto.StorageCapacity;
-            if (dto.RamSize.HasValue)
-                device.RamSize = dto.RamSize;
-            if (dto.Color.HasValue)
-                device.Color = dto.Color;
-            if (dto.MainCamera.HasValue)
-                device.MainCamera = dto.MainCamera;
-            if (dto.FrontCamera.HasValue)
-                device.FrontCamera = dto.FrontCamera;
-            if (dto.MainCameraResolution.HasValue)
-                device.MainCameraResolution = dto.MainCameraResolution;
-            if (dto.FrontCameraResolution.HasValue)
-                device.FrontCameraResolution = dto.FrontCameraResolution;
-            if (dto.BatteryCapacity.HasValue)
-                device.BatteryCapacity = dto.BatteryCapacity;
-            if (dto.ScreenSize.HasValue)
-                device.ScreenSize = dto.ScreenSize;
-            if (!string.IsNullOrEmpty(dto.Processor))
-                device.Processor = dto.Processor;
-            if (dto.DualSim.HasValue)
-                device.DualSim = dto.DualSim;
-            if (dto.WaterproofSupport.HasValue)
-                device.WaterproofSupport = dto.WaterproofSupport;
-            if (dto.StylusSupport.HasValue)
-                device.StylusSupport = dto.StylusSupport;
-            if (dto.ModelId.HasValue)
-                device.ModelId = dto.ModelId;
+            if (dto.IsNew.HasValue) device.IsNew = dto.IsNew;
+            if (dto.WarrantyMonths.HasValue) device.WarrantyMonths = dto.WarrantyMonths;
+            if (dto.StorageCapacity.HasValue) device.StorageCapacity = dto.StorageCapacity;
+            if (dto.RamSize.HasValue) device.RamSize = dto.RamSize;
+            if (dto.Color.HasValue) device.Color = dto.Color;
+            if (dto.MainCamera.HasValue) device.MainCamera = dto.MainCamera;
+            if (dto.FrontCamera.HasValue) device.FrontCamera = dto.FrontCamera;
+            if (dto.MainCameraResolution.HasValue) device.MainCameraResolution = dto.MainCameraResolution;
+            if (dto.FrontCameraResolution.HasValue) device.FrontCameraResolution = dto.FrontCameraResolution;
+            if (dto.BatteryCapacity.HasValue) device.BatteryCapacity = dto.BatteryCapacity;
+            if (dto.ScreenSize.HasValue) device.ScreenSize = dto.ScreenSize;
+            if (!string.IsNullOrEmpty(dto.Processor)) device.Processor = dto.Processor;
+            if (dto.DualSim.HasValue) device.DualSim = dto.DualSim;
+            if (dto.WaterproofSupport.HasValue) device.WaterproofSupport = dto.WaterproofSupport;
+            if (dto.StylusSupport.HasValue) device.StylusSupport = dto.StylusSupport;
+            // Note: BrandName/ModelName update requires calling BrandModelReleaseService - handled in AdService
         }
     }
 }

@@ -4,9 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ClassifiedAds.Infrastructure.Services;
 
-/// <summary>
-/// Service for resolving category slugs to IDs using PostgreSQL categories table
-/// </summary>
+// Service for resolving category slugs using PostgreSQL categories table
 public class CategoryService : ICategoryService
 {
     private readonly PostgresDbContext _context;
@@ -16,72 +14,74 @@ public class CategoryService : ICategoryService
         _context = context;
     }
 
-    /// <summary>
-    /// Resolves category slug path to category IDs using hierarchical self-join
-    /// Example: "مركبات-ونقل/سيارات" → finds parent "مركبات-ونقل", then child "سيارات"
-    /// </summary>
-    public async Task<(List<ushort> CategoryIds, byte CategoryJoins)> ResolveCategoryAsync(
+    // Gets the leaf category ID from a full slug path
+    public async Task<ushort> GetCategoryIdFromSlugAsync(string categorySlug, string language)
+    {
+        if (string.IsNullOrWhiteSpace(categorySlug))
+            throw new ArgumentException("Category slug cannot be empty");
+
+        if (language != "ar" && language != "kr")
+            throw new ArgumentException($"Invalid language: {language}. Must be 'ar' or 'kr'");
+
+        var category = language == "ar"
+            ? await _context.Categories.FirstOrDefaultAsync(c => c.UrlSlugArabic == categorySlug)
+            : await _context.Categories.FirstOrDefaultAsync(c => c.UrlSlugKurdish == categorySlug);
+
+        if (category == null)
+            throw new ArgumentException($"Category not found for slug '{categorySlug}' in language '{language}'");
+
+        return category.CategoryID;
+    }
+
+    // Resolves category slug path to both Arabic and Kurdish slugs (progressive paths)
+    // Validates parent_id chain via self-joins
+    public async Task<(List<string> ArabicSlugs, List<string> KurdishSlugs)> ResolveCategorySlugsAsync(
         string categorySlug,
         string language)
     {
-        var categoryIds = new List<ushort>();
+        var arabicSlugs = new List<string>();
+        var kurdishSlugs = new List<string>();
 
-        // Split the slug by '/' to get hierarchy levels
         var slugParts = categorySlug.Split('/', StringSplitOptions.RemoveEmptyEntries);
 
         if (slugParts.Length == 0)
-        {
             throw new ArgumentException("Category slug cannot be empty");
-        }
 
-        ushort? currentParentId = null;
+        if (language != "ar" && language != "kr")
+            throw new ArgumentException($"Invalid language: {language}. Must be 'ar' or 'kr'");
 
-        // Build the full slug path progressively to match against url_slug columns
+        ushort? expectedParentId = null;
         string currentSlugPath = "";
-        
-        // Traverse the hierarchy level by level
+
         for (int i = 0; i < slugParts.Length; i++)
         {
             var slugPart = slugParts[i];
-            
-            // Build progressive slug path (e.g., "مركبات-ونقل", then "مركبات-ونقل/سيارات")
             currentSlugPath = i == 0 ? slugPart : $"{currentSlugPath}/{slugPart}";
 
-            // Build query based on language - match against url_slug columns
-            var query = _context.Categories.AsQueryable();
+            var category = language == "ar"
+                ? await _context.Categories.FirstOrDefaultAsync(c => c.UrlSlugArabic == currentSlugPath)
+                : await _context.Categories.FirstOrDefaultAsync(c => c.UrlSlugKurdish == currentSlugPath);
 
-            if (language == "ar")
+            if (category == null)
+                throw new ArgumentException($"Category not found for slug path '{currentSlugPath}' in language '{language}'. Full requested path: '{categorySlug}'");
+
+            // Validate parent_id chain
+            if (i == 0)
             {
-                query = query.Where(c => c.UrlSlugArabic == currentSlugPath);
-            }
-            else if (language == "kr")
-            {
-                query = query.Where(c => c.UrlSlugKurdish == currentSlugPath);
+                if (category.ParentID != null)
+                    throw new ArgumentException($"Invalid category hierarchy: '{currentSlugPath}' should be a root category but has parent_id = {category.ParentID}");
             }
             else
             {
-                throw new ArgumentException($"Invalid language: {language}. Must be 'ar' or 'kr'");
+                if (category.ParentID != expectedParentId)
+                    throw new ArgumentException($"Invalid category hierarchy: '{currentSlugPath}' has parent_id = {category.ParentID}, expected {expectedParentId}");
             }
 
-            var category = await query.FirstOrDefaultAsync();
-
-            if (category == null)
-            {
-                throw new ArgumentException(
-                    $"Category not found for slug path '{currentSlugPath}' in language '{language}'. " +
-                    $"Full requested path: '{categorySlug}'");
-            }
-
-            // Add category ID to the list
-            categoryIds.Add((ushort)category.CategoryID);
-
-            // Set current category as parent for next iteration (for validation purposes)
-            currentParentId = (ushort)category.CategoryID;
+            arabicSlugs.Add(category.UrlSlugArabic);
+            kurdishSlugs.Add(category.UrlSlugKurdish);
+            expectedParentId = category.CategoryID;
         }
 
-        // CategoryJoins is the number of levels in the hierarchy
-        byte categoryJoins = (byte)categoryIds.Count;
-
-        return (categoryIds, categoryJoins);
+        return (arabicSlugs, kurdishSlugs);
     }
 }

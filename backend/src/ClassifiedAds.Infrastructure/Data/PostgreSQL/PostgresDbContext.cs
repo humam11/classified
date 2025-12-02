@@ -18,7 +18,7 @@ public class PostgresDbContext : DbContext
     public DbSet<UserReview> UserReviews { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<BrandModel> BrandModels { get; set; }
-    public DbSet<ModelRelease> ModelReleases { get; set; }
+    public DbSet<Release> Releases { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -32,7 +32,7 @@ public class PostgresDbContext : DbContext
         ConfigureUserReview(modelBuilder);
         ConfigureCategory(modelBuilder);
         ConfigureBrandModel(modelBuilder);
-        ConfigureModelRelease(modelBuilder);
+        ConfigureRelease(modelBuilder);
     }
 
     private void ConfigureLocation(ModelBuilder modelBuilder)
@@ -194,7 +194,7 @@ public class PostgresDbContext : DbContext
     {
         modelBuilder.Entity<BrandModel>(entity =>
         {
-            entity.ToTable("brand_models");
+            entity.ToTable("brands_models");
             entity.HasKey(e => e.BrandModelID);
 
             // Map column names
@@ -203,8 +203,7 @@ public class PostgresDbContext : DbContext
             entity.Property(e => e.NameArabic).HasColumnName("name_arabic");
             entity.Property(e => e.NameKurdish).HasColumnName("name_kurdish");
             entity.Property(e => e.IsBrand).HasColumnName("is_brand");
-            entity.Property(e => e.UrlSlugArabic).HasColumnName("url_slug_arabic");
-            entity.Property(e => e.UrlSlugKurdish).HasColumnName("url_slug_kurdish");
+            entity.Property(e => e.UrlSlug).HasColumnName("url_slug");
             entity.Property(e => e.ImageUrl).HasColumnName("image_url");
             entity.Property(e => e.AutomationKeyword).HasColumnName("automation_keyword");
             entity.Property(e => e.HierarchyPath).HasColumnName("hierarchy_path").HasColumnType("ltree");
@@ -223,24 +222,23 @@ public class PostgresDbContext : DbContext
         });
     }
 
-    private void ConfigureModelRelease(ModelBuilder modelBuilder)
+    private void ConfigureRelease(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<ModelRelease>(entity =>
+        modelBuilder.Entity<Release>(entity =>
         {
-            entity.ToTable("model_releases");
-            entity.HasKey(e => e.ModelReleaseID);
+            entity.ToTable("releases");
+            entity.HasKey(e => e.ReleaseId);
 
             // Map column names
-            entity.Property(e => e.ModelReleaseID).HasColumnName("model_release_id");
+            entity.Property(e => e.ReleaseId).HasColumnName("release_id");
             entity.Property(e => e.ReleaseYear).HasColumnName("release_year");
-            entity.Property(e => e.UrlSlug).HasColumnName("url_slug");
             entity.Property(e => e.ImageUrl).HasColumnName("image_url");
-            entity.Property(e => e.ModelID).HasColumnName("model_id");
+            entity.Property(e => e.ModelId).HasColumnName("model_id");
 
             // Relationships
             entity.HasOne(e => e.Model)
-                .WithMany(e => e.ModelReleases)
-                .HasForeignKey(e => e.ModelID);
+                .WithMany(e => e.Releases)
+                .HasForeignKey(e => e.ModelId);
         });
     }
 }

@@ -1,9 +1,12 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.RealEstate;
 using ClassifiedAds.Domain.Entities.Ads;
 using ClassifiedAds.Domain.Entities.Ads.RealEstate;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
+
 
 namespace ClassifiedAds.Application.Mappers;
 
@@ -13,8 +16,7 @@ public static class RealEstateAdDtoMapper
         CreateRealEstateAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic, List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
         string fullAddressKurdish)
@@ -36,11 +38,7 @@ public static class RealEstateAdDtoMapper
                 Value = dto.PriceValue.Value,
                 ShowingPrice = showingPrice
             },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
             LocationAd = new LocationAd
             {
                 LocationIds = locationIds,
@@ -78,7 +76,7 @@ public static class RealEstateAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new RealEstateSpecsDto
             {
                 Area = entity.Area
@@ -99,9 +97,7 @@ public static class RealEstateAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            Area = form.TryGetValue("Area", out var area) &&
-                  !string.IsNullOrWhiteSpace(area) &&
-                  float.TryParse(area, out var a) ? a : null
+            Area = FormParsingHelpers.ParseFloat(form, "Area")
         };
     }
 
@@ -118,9 +114,7 @@ public static class RealEstateAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            Area = form.TryGetValue("Area", out var area) &&
-                  !string.IsNullOrWhiteSpace(area) &&
-                  float.TryParse(area, out var a) ? a : null
+            Area = FormParsingHelpers.ParseFloat(form, "Area")
         };
     }
 

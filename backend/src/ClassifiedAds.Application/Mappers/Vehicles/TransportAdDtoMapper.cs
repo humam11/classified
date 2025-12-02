@@ -1,9 +1,11 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Vehicles;
 using ClassifiedAds.Domain.Entities.Ads;
 using ClassifiedAds.Domain.Entities.Ads.Vehicles;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
 
 namespace ClassifiedAds.Application.Mappers.Vehicles;
 
@@ -13,8 +15,7 @@ public static class TransportAdDtoMapper
         CreateTransportAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic, List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
         string fullAddressKurdish)
@@ -36,11 +37,7 @@ public static class TransportAdDtoMapper
                 Value = dto.PriceValue.Value,
                 ShowingPrice = showingPrice
             },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
             LocationAd = new LocationAd
             {
                 LocationIds = locationIds,
@@ -80,7 +77,7 @@ public static class TransportAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new TransportSpecsDto
             {
                 FuelType = entity.FuelType,
@@ -103,15 +100,9 @@ public static class TransportAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            FuelType = form.TryGetValue("FuelType", out var fuelType) &&
-                      !string.IsNullOrWhiteSpace(fuelType) &&
-                      Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.FuelType>(fuelType, out var ft) ? ft : null,
-            EnginePower = form.TryGetValue("EnginePower", out var enginePower) &&
-                         !string.IsNullOrWhiteSpace(enginePower) &&
-                         ushort.TryParse(enginePower, out var ep) ? ep : null,
-            FuelTankCapacity = form.TryGetValue("FuelTankCapacity", out var fuelTank) &&
-                              !string.IsNullOrWhiteSpace(fuelTank) &&
-                              ushort.TryParse(fuelTank, out var ftc) ? ftc : null
+            FuelType = ParseEnum<Domain.Entities.Ads.Vehicles.Enums.FuelType>(form, "FuelType"),
+            EnginePower = ParseUShort(form, "EnginePower"),
+            FuelTankCapacity = ParseUShort(form, "FuelTankCapacity")
         };
     }
 
@@ -128,15 +119,9 @@ public static class TransportAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            FuelType = form.TryGetValue("FuelType", out var fuelType) &&
-                      !string.IsNullOrWhiteSpace(fuelType) &&
-                      Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.FuelType>(fuelType, out var ft) ? ft : null,
-            EnginePower = form.TryGetValue("EnginePower", out var enginePower) &&
-                         !string.IsNullOrWhiteSpace(enginePower) &&
-                         ushort.TryParse(enginePower, out var ep) ? ep : null,
-            FuelTankCapacity = form.TryGetValue("FuelTankCapacity", out var fuelTank) &&
-                              !string.IsNullOrWhiteSpace(fuelTank) &&
-                              ushort.TryParse(fuelTank, out var ftc) ? ftc : null
+            FuelType = ParseEnum<Domain.Entities.Ads.Vehicles.Enums.FuelType>(form, "FuelType"),
+            EnginePower = ParseUShort(form, "EnginePower"),
+            FuelTankCapacity = ParseUShort(form, "FuelTankCapacity")
         };
     }
 

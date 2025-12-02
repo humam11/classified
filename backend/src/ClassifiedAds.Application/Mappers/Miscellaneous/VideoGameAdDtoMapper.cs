@@ -1,30 +1,41 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Miscellaneous;
+using ClassifiedAds.Application.Interfaces;
 using ClassifiedAds.Domain.Entities.Ads;
 using ClassifiedAds.Domain.Entities.Ads.Miscellaneous;
 using ClassifiedAds.Domain.Entities.Ads.Electronics.Enums;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
 
 namespace ClassifiedAds.Application.Mappers;
 
 public static class VideoGameAdDtoMapper
 {
-    // Maps CreateVideoGameAdDto to VideoGame entity - Used by: AdService.CreateAdAsync
-    public static VideoGame MapToEntity(
+    // Async mapper that handles brand/model resolution internally (brand + model)
+    public static async Task<VideoGame> MapToEntityAsync(
         CreateVideoGameAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic,
+        List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
-        string fullAddressKurdish)
+        string fullAddressKurdish,
+        string categorySlug,
+        string language,
+        IBrandModelReleaseService brandModelReleaseService)
     {
         if (string.IsNullOrEmpty(dto.Title) || !dto.IsDollar.HasValue || !dto.PriceValue.HasValue)
-        {
             throw new ArgumentException("Required fields are missing");
-        }
+
+        if (string.IsNullOrEmpty(dto.BrandName) || string.IsNullOrEmpty(dto.ModelName))
+            throw new ArgumentException("BrandName and ModelName are required for VideoGame ads");
+
+        // Resolve brand and model
+        var (_, modelsSlugs) = await brandModelReleaseService.ResolveBrandModelAsync(
+            categorySlug, language, dto.BrandName, dto.ModelName);
 
         string showingPrice = AdDtoMapper.FormatShowingPrice(dto.IsDollar.Value, dto.PriceValue.Value);
 
@@ -32,24 +43,9 @@ public static class VideoGameAdDtoMapper
         {
             Title = dto.Title,
             Description = dto.Description ?? string.Empty,
-            Price = new Price
-            {
-                IsDollar = dto.IsDollar.Value,
-                Value = dto.PriceValue.Value,
-                ShowingPrice = showingPrice
-            },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
-            LocationAd = new LocationAd
-            {
-                LocationIds = locationIds,
-                Street = dto.Street,
-                FullAddressArabic = fullAddressArabic,
-                FullAddressKurdish = fullAddressKurdish
-            },
+            Price = new Price { IsDollar = dto.IsDollar.Value, Value = dto.PriceValue.Value, ShowingPrice = showingPrice },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
+            LocationAd = new LocationAd { LocationIds = locationIds, Street = dto.Street, FullAddressArabic = fullAddressArabic, FullAddressKurdish = fullAddressKurdish },
             Images = new List<AdImage>(),
             Status = Status.Active,
             CreatedAt = DateTime.UtcNow,
@@ -60,7 +56,7 @@ public static class VideoGameAdDtoMapper
             Priority = 0,
             Slug = slug,
             VideoGameRegion = dto.VideoGameRegion,
-            ModelId = dto.ModelId ?? Guid.Empty
+            ModelsSlugs = modelsSlugs
         };
     }
 
@@ -81,16 +77,15 @@ public static class VideoGameAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new VideoGameSpecsDto
             {
                 VideoGameRegion = entity.VideoGameRegion,
-                ModelId = entity.ModelId
+                ModelsSlugs = entity.ModelsSlugs
             }
         };
     }
 
-    // Maps form data to CreateVideoGameAdDto - Used by: CategoryDtoMapper.MapFormToDto
     public static CreateVideoGameAdDto MapFormToDto(CreateAdDto baseDto, Microsoft.AspNetCore.Http.IFormCollection form)
     {
         return new CreateVideoGameAdDto
@@ -104,16 +99,12 @@ public static class VideoGameAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            VideoGameRegion = form.TryGetValue("VideoGameRegion", out var region) &&
-                             !string.IsNullOrWhiteSpace(region) &&
-                             Enum.TryParse<Region>(region, out var r) ? r : null,
-            ModelId = form.TryGetValue("ModelId", out var modelId) &&
-                     !string.IsNullOrWhiteSpace(modelId) &&
-                     Guid.TryParse(modelId, out var m) ? m : null
+            VideoGameRegion = ParseEnum<Region>(form, "VideoGameRegion"),
+            BrandName = ParseString(form, "BrandName"),
+            ModelName = ParseString(form, "ModelName")
         };
     }
 
-    // Maps form data to VideoGameAdDto for updates - Used by: AdService.UpdateAdAsync
     public static VideoGameAdDto MapFormToUpdateDto(AdDto baseDto, Microsoft.AspNetCore.Http.IFormCollection form)
     {
         return new VideoGameAdDto
@@ -127,24 +118,18 @@ public static class VideoGameAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            VideoGameRegion = form.TryGetValue("VideoGameRegion", out var region) &&
-                             !string.IsNullOrWhiteSpace(region) &&
-                             Enum.TryParse<Region>(region, out var r) ? r : null,
-            ModelId = form.TryGetValue("ModelId", out var modelId) &&
-                     !string.IsNullOrWhiteSpace(modelId) &&
-                     Guid.TryParse(modelId, out var m) ? m : null
+            VideoGameRegion = ParseEnum<Region>(form, "VideoGameRegion"),
+            BrandName = ParseString(form, "BrandName"),
+            ModelName = ParseString(form, "ModelName")
         };
     }
 
-    // Updates videogame-specific fields - Used by: AdService.UpdateAdAsync
     public static void UpdateAttributes(Ad ad, VideoGameAdDto dto)
     {
         if (ad is VideoGame game)
         {
-            if (dto.VideoGameRegion.HasValue)
-                game.VideoGameRegion = dto.VideoGameRegion;
-            if (dto.ModelId.HasValue)
-                game.ModelId = dto.ModelId.Value;
+            if (dto.VideoGameRegion.HasValue) game.VideoGameRegion = dto.VideoGameRegion;
+            // Note: BrandName/ModelName update requires calling BrandModelReleaseService - handled in AdService
         }
     }
 }

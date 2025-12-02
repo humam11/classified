@@ -6,7 +6,9 @@ namespace ClassifiedAds.Application.DTOs.Ads.Miscellaneous;
 public class VideoGameAdDto : AdDto
 {
     public Region? VideoGameRegion { get; set; }
-    public Guid? ModelId { get; set; }
+    // Brand/Model resolution inputs (brand + model for video games)
+    public string? BrandName { get; set; }
+    public string? ModelName { get; set; }
 }
 
 public class CreateVideoGameAdDto : VideoGameAdDto
@@ -17,7 +19,8 @@ public class CreateVideoGameAdDto : VideoGameAdDto
 public class VideoGameSpecsDto
 {
     public Region? VideoGameRegion { get; set; }
-    public Guid? ModelId { get; set; }
+    // Resolved brand/model slugs stored in MongoDB
+    public List<string>? ModelsSlugs { get; set; }
 }
 
 public class GetVideoGameAdDto : GetAdDto

@@ -41,11 +41,12 @@ public class CreateTruckAdDtoValidator : AbstractValidator<CreateTruckAdDto>
         Include(new TransportAdDtoValidator());
         Include(new TruckAdDtoValidator());
 
-        RuleFor(x => x.ModelId)
-            .NotNull()
+        // BrandName is required for creation
+        RuleFor(x => x.BrandName)
+            .NotEmpty()
             .WithMessage(ValidationMessages.GetMessage(
-                "معرف الموديل مطلوب",
-                "ناسنامەی مۆدێل پێویستە"));
+                "اسم العلامة التجارية مطلوب",
+                "ناوی براند پێویستە"));
 
         this.ApplyCreateRules(); // Truck can be IQD or USD
     }

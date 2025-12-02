@@ -1,3 +1,4 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Miscellaneous;
 using ClassifiedAds.Domain.Entities.Ads;
@@ -5,6 +6,7 @@ using ClassifiedAds.Domain.Entities.Ads.Miscellaneous;
 using ClassifiedAds.Domain.Entities.Ads.Miscellaneous.Enums;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
 
 namespace ClassifiedAds.Application.Mappers;
 
@@ -14,8 +16,7 @@ public static class EngineOilAdDtoMapper
         CreateEngineOilAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic, List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
         string fullAddressKurdish)
@@ -37,11 +38,7 @@ public static class EngineOilAdDtoMapper
                 Value = dto.PriceValue.Value,
                 ShowingPrice = showingPrice
             },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
             LocationAd = new LocationAd
             {
                 LocationIds = locationIds,
@@ -81,7 +78,7 @@ public static class EngineOilAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new EngineOilSpecsDto
             {
                 Volume = entity.Volume,
@@ -104,15 +101,9 @@ public static class EngineOilAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            OilType = form.TryGetValue("OilType", out var oilType) &&
-                     !string.IsNullOrWhiteSpace(oilType) &&
-                     Enum.TryParse<OilType>(oilType, out var ot) ? ot : null,
-            Viscosity = form.TryGetValue("Viscosity", out var viscosity) &&
-                       !string.IsNullOrWhiteSpace(viscosity) &&
-                       Enum.TryParse<Viscosity>(viscosity, out var v) ? v : null,
-            Volume = form.TryGetValue("Volume", out var volume) &&
-                    !string.IsNullOrWhiteSpace(volume) &&
-                    ushort.TryParse(volume, out var vol) ? vol : null
+            OilType = FormParsingHelpers.ParseEnum<OilType>(form, "OilType"),
+            Viscosity = FormParsingHelpers.ParseEnum<Viscosity>(form, "Viscosity"),
+            Volume = FormParsingHelpers.ParseUShort(form, "Volume")
         };
     }
 
@@ -129,15 +120,9 @@ public static class EngineOilAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            OilType = form.TryGetValue("OilType", out var oilType) &&
-                     !string.IsNullOrWhiteSpace(oilType) &&
-                     Enum.TryParse<OilType>(oilType, out var ot) ? ot : null,
-            Viscosity = form.TryGetValue("Viscosity", out var viscosity) &&
-                       !string.IsNullOrWhiteSpace(viscosity) &&
-                       Enum.TryParse<Viscosity>(viscosity, out var v) ? v : null,
-            Volume = form.TryGetValue("Volume", out var volume) &&
-                    !string.IsNullOrWhiteSpace(volume) &&
-                    ushort.TryParse(volume, out var vol) ? vol : null
+            OilType = FormParsingHelpers.ParseEnum<OilType>(form, "OilType"),
+            Viscosity = FormParsingHelpers.ParseEnum<Viscosity>(form, "Viscosity"),
+            Volume = FormParsingHelpers.ParseUShort(form, "Volume")
         };
     }
 

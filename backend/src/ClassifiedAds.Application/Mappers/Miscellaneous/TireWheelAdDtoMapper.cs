@@ -1,9 +1,11 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Miscellaneous;
 using ClassifiedAds.Domain.Entities.Ads;
 using ClassifiedAds.Domain.Entities.Ads.Miscellaneous;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
 
 namespace ClassifiedAds.Application.Mappers;
 
@@ -13,8 +15,7 @@ public static class TireWheelAdDtoMapper
         CreateTireWheelAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic, List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
         string fullAddressKurdish)
@@ -36,11 +37,7 @@ public static class TireWheelAdDtoMapper
                 Value = dto.PriceValue.Value,
                 ShowingPrice = showingPrice
             },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
             LocationAd = new LocationAd
             {
                 LocationIds = locationIds,
@@ -80,7 +77,7 @@ public static class TireWheelAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new TireWheelSpecsDto
             {
                 Width = entity.Width,
@@ -103,15 +100,9 @@ public static class TireWheelAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            Width = form.TryGetValue("Width", out var width) &&
-                   !string.IsNullOrWhiteSpace(width) &&
-                   ushort.TryParse(width, out var w) ? w : null,
-            AspectRatio = form.TryGetValue("AspectRatio", out var aspectRatio) &&
-                         !string.IsNullOrWhiteSpace(aspectRatio) &&
-                         byte.TryParse(aspectRatio, out var ar) ? ar : null,
-            RimDiameter = form.TryGetValue("RimDiameter", out var rimDiameter) &&
-                         !string.IsNullOrWhiteSpace(rimDiameter) &&
-                         byte.TryParse(rimDiameter, out var rd) ? rd : null
+            Width = FormParsingHelpers.ParseUShort(form, "Width"),
+            AspectRatio = FormParsingHelpers.ParseByte(form, "AspectRatio"),
+            RimDiameter = FormParsingHelpers.ParseByte(form, "RimDiameter")
         };
     }
 
@@ -128,15 +119,9 @@ public static class TireWheelAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            Width = form.TryGetValue("Width", out var width) &&
-                   !string.IsNullOrWhiteSpace(width) &&
-                   ushort.TryParse(width, out var w) ? w : null,
-            AspectRatio = form.TryGetValue("AspectRatio", out var aspectRatio) &&
-                         !string.IsNullOrWhiteSpace(aspectRatio) &&
-                         byte.TryParse(aspectRatio, out var ar) ? ar : null,
-            RimDiameter = form.TryGetValue("RimDiameter", out var rimDiameter) &&
-                         !string.IsNullOrWhiteSpace(rimDiameter) &&
-                         byte.TryParse(rimDiameter, out var rd) ? rd : null
+            Width = FormParsingHelpers.ParseUShort(form, "Width"),
+            AspectRatio = FormParsingHelpers.ParseByte(form, "AspectRatio"),
+            RimDiameter = FormParsingHelpers.ParseByte(form, "RimDiameter")
         };
     }
 

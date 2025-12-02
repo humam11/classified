@@ -1,3 +1,4 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Miscellaneous;
 using ClassifiedAds.Domain.Entities.Ads;
@@ -5,6 +6,7 @@ using ClassifiedAds.Domain.Entities.Ads.Miscellaneous;
 using ClassifiedAds.Domain.Entities.Ads.Miscellaneous.Enums;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
 
 namespace ClassifiedAds.Application.Mappers;
 
@@ -15,8 +17,7 @@ public static class BookAdDtoMapper
         CreateBookAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic, List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
         string fullAddressKurdish)
@@ -40,11 +41,7 @@ public static class BookAdDtoMapper
                 Value = dto.PriceValue.Value,
                 ShowingPrice = showingPrice
             },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
             LocationAd = new LocationAd
             {
                 LocationIds = locationIds,
@@ -86,7 +83,7 @@ public static class BookAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new BookSpecsDto
             {
                 BookLanguage = entity.BookLanguage,
@@ -109,13 +106,8 @@ public static class BookAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            BookLanguage = form.TryGetValue("BookLanguage", out var bookLang) &&
-                          !string.IsNullOrWhiteSpace(bookLang) &&
-                          Enum.TryParse<BookLanguage>(bookLang, out var lang)
-                          ? lang : null,
-            Pages = form.TryGetValue("Pages", out var pages) &&
-                   !string.IsNullOrWhiteSpace(pages) &&
-                   ushort.TryParse(pages, out var p) ? p : null
+            BookLanguage = ParseEnum<BookLanguage>(form, "BookLanguage"),
+            Pages = ParseUShort(form, "Pages")
         };
     }
 
@@ -133,12 +125,8 @@ public static class BookAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            BookLanguage = form.TryGetValue("BookLanguage", out var bookLang) &&
-                          !string.IsNullOrWhiteSpace(bookLang) &&
-                          Enum.TryParse<BookLanguage>(bookLang, out var bl) ? bl : null,
-            Pages = form.TryGetValue("Pages", out var pages) &&
-                   !string.IsNullOrWhiteSpace(pages) &&
-                   ushort.TryParse(pages, out var p) ? p : null
+            BookLanguage = ParseEnum<BookLanguage>(form, "BookLanguage"),
+            Pages = ParseUShort(form, "Pages")
         };
     }
 

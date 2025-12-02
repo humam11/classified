@@ -1,9 +1,11 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Electronics;
 using ClassifiedAds.Domain.Entities.Ads;
 using ClassifiedAds.Domain.Entities.Ads.Electronics;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
 
 namespace ClassifiedAds.Application.Mappers;
 
@@ -13,8 +15,7 @@ public static class ElectronicAdDtoMapper
         CreateElectronicAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic, List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
         string fullAddressKurdish)
@@ -36,11 +37,7 @@ public static class ElectronicAdDtoMapper
                 Value = dto.PriceValue.Value,
                 ShowingPrice = showingPrice
             },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
             LocationAd = new LocationAd
             {
                 LocationIds = locationIds,
@@ -79,7 +76,7 @@ public static class ElectronicAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new ElectronicSpecsDto
             {
                 IsNew = entity.IsNew,
@@ -101,12 +98,8 @@ public static class ElectronicAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            IsNew = form.TryGetValue("IsNew", out var isNew) &&
-                   !string.IsNullOrWhiteSpace(isNew) &&
-                   Enum.TryParse<Domain.Common.Enums.YesNo>(isNew, out var yn) ? yn : null,
-            WarrantyMonths = form.TryGetValue("WarrantyMonths", out var warranty) &&
-                            !string.IsNullOrWhiteSpace(warranty) &&
-                            byte.TryParse(warranty, out var wm) ? wm : null
+            IsNew = ParseEnum<Domain.Common.Enums.YesNo>(form, "IsNew"),
+            WarrantyMonths = ParseByte(form, "WarrantyMonths")
         };
     }
 
@@ -123,12 +116,8 @@ public static class ElectronicAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            IsNew = form.TryGetValue("IsNew", out var isNew) &&
-                   !string.IsNullOrWhiteSpace(isNew) &&
-                   Enum.TryParse<Domain.Common.Enums.YesNo>(isNew, out var yn) ? yn : null,
-            WarrantyMonths = form.TryGetValue("WarrantyMonths", out var warranty) &&
-                            !string.IsNullOrWhiteSpace(warranty) &&
-                            byte.TryParse(warranty, out var wm) ? wm : null
+            IsNew = ParseEnum<Domain.Common.Enums.YesNo>(form, "IsNew"),
+            WarrantyMonths = ParseByte(form, "WarrantyMonths")
         };
     }
 

@@ -1,3 +1,4 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Jobs;
 using ClassifiedAds.Domain.Entities.Ads;
@@ -6,7 +7,7 @@ using ClassifiedAds.Domain.Entities.Ads.JobsServices.Enums;
 using ClassifiedAds.Domain.Entities.Ads.JobsServices.ValueObjects;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
-using System.Text.Json;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
 
 namespace ClassifiedAds.Application.Mappers.Jobs;
 
@@ -17,8 +18,7 @@ public static class CvAdDtoMapper
         CreateCvAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic, List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
         string fullAddressKurdish)
@@ -41,11 +41,7 @@ public static class CvAdDtoMapper
                 Value = dto.PriceValue.Value,
                 ShowingPrice = showingPrice
             },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
             LocationAd = new LocationAd
             {
                 LocationIds = locationIds,
@@ -130,8 +126,8 @@ public static class CvAdDtoMapper
             Slug = entity.Slug,
             Category = new DTOs.Common.CategoryResponseDto
             {
-                CategoryJoins = entity.Category.CategoryJoins,
-                CategoryIds = entity.Category.CategoryIds
+                CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic,
+                CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish
             },
             // CV-specific fields grouped in Specs object
             Specs = new CvSpecsDto
@@ -181,25 +177,16 @@ public static class CvAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            FirstName = form.TryGetValue("FirstName", out var firstName) && !string.IsNullOrWhiteSpace(firstName) ? firstName.ToString() : null,
-            LastName = form.TryGetValue("LastName", out var lastName) && !string.IsNullOrWhiteSpace(lastName) ? lastName.ToString() : null,
-            Gender = form.TryGetValue("Gender", out var gender) &&
-                    !string.IsNullOrWhiteSpace(gender) &&
-                    Enum.TryParse<Gender>(gender, out var g) ? g : null,
-            DateOfBirth = form.TryGetValue("DateOfBirth", out var dob) &&
-                         !string.IsNullOrWhiteSpace(dob) &&
-                         DateTime.TryParse(dob, out var d) ? d : null,
-            PhoneNumber = form.TryGetValue("PhoneNumber", out var phone) && !string.IsNullOrWhiteSpace(phone) ? phone.ToString() : null,
-            ContactEmail = form.TryGetValue("ContactEmail", out var email) && !string.IsNullOrWhiteSpace(email) ? email.ToString() : null,
-            JobSearchStatus = form.TryGetValue("JobSearchStatus", out var status) &&
-                             !string.IsNullOrWhiteSpace(status) &&
-                             Enum.TryParse<JobSearchStatus>(status, out var jss) ? jss : null,
-            Education = form.TryGetValue("Education", out var education) && !string.IsNullOrWhiteSpace(education)
-                ? JsonSerializer.Deserialize<List<EducationDto>>(education.ToString()) : null,
-            Experience = form.TryGetValue("Experience", out var experience) && !string.IsNullOrWhiteSpace(experience)
-                ? JsonSerializer.Deserialize<List<ExperienceDto>>(experience.ToString()) : null,
-            Languages = form.TryGetValue("Languages", out var languages) && !string.IsNullOrWhiteSpace(languages)
-                ? JsonSerializer.Deserialize<List<LanguageDto>>(languages.ToString()) : null
+            FirstName = ParseString(form, "FirstName"),
+            LastName = ParseString(form, "LastName"),
+            Gender = ParseEnum<Gender>(form, "Gender"),
+            DateOfBirth = ParseDateTime(form, "DateOfBirth"),
+            PhoneNumber = ParseString(form, "PhoneNumber"),
+            ContactEmail = ParseString(form, "ContactEmail"),
+            JobSearchStatus = ParseEnum<JobSearchStatus>(form, "JobSearchStatus"),
+            Education = ParseJson<List<EducationDto>>(form, "Education"),
+            Experience = ParseJson<List<ExperienceDto>>(form, "Experience"),
+            Languages = ParseJson<List<LanguageDto>>(form, "Languages")
         };
     }
 
@@ -217,25 +204,16 @@ public static class CvAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            FirstName = form.TryGetValue("FirstName", out var firstName) && !string.IsNullOrWhiteSpace(firstName) ? firstName.ToString() : null,
-            LastName = form.TryGetValue("LastName", out var lastName) && !string.IsNullOrWhiteSpace(lastName) ? lastName.ToString() : null,
-            Gender = form.TryGetValue("Gender", out var gender) &&
-                    !string.IsNullOrWhiteSpace(gender) &&
-                    Enum.TryParse<Gender>(gender, out var g) ? g : null,
-            DateOfBirth = form.TryGetValue("DateOfBirth", out var dob) &&
-                         !string.IsNullOrWhiteSpace(dob) &&
-                         DateTime.TryParse(dob, out var d) ? d : null,
-            PhoneNumber = form.TryGetValue("PhoneNumber", out var phone) && !string.IsNullOrWhiteSpace(phone) ? phone.ToString() : null,
-            ContactEmail = form.TryGetValue("ContactEmail", out var email) && !string.IsNullOrWhiteSpace(email) ? email.ToString() : null,
-            JobSearchStatus = form.TryGetValue("JobSearchStatus", out var status) &&
-                             !string.IsNullOrWhiteSpace(status) &&
-                             Enum.TryParse<JobSearchStatus>(status, out var jss) ? jss : null,
-            Education = form.TryGetValue("Education", out var education) && !string.IsNullOrWhiteSpace(education)
-                ? JsonSerializer.Deserialize<List<EducationDto>>(education.ToString()) : null,
-            Experience = form.TryGetValue("Experience", out var experience) && !string.IsNullOrWhiteSpace(experience)
-                ? JsonSerializer.Deserialize<List<ExperienceDto>>(experience.ToString()) : null,
-            Languages = form.TryGetValue("Languages", out var languages) && !string.IsNullOrWhiteSpace(languages)
-                ? JsonSerializer.Deserialize<List<LanguageDto>>(languages.ToString()) : null
+            FirstName = ParseString(form, "FirstName"),
+            LastName = ParseString(form, "LastName"),
+            Gender = ParseEnum<Gender>(form, "Gender"),
+            DateOfBirth = ParseDateTime(form, "DateOfBirth"),
+            PhoneNumber = ParseString(form, "PhoneNumber"),
+            ContactEmail = ParseString(form, "ContactEmail"),
+            JobSearchStatus = ParseEnum<JobSearchStatus>(form, "JobSearchStatus"),
+            Education = ParseJson<List<EducationDto>>(form, "Education"),
+            Experience = ParseJson<List<ExperienceDto>>(form, "Experience"),
+            Languages = ParseJson<List<LanguageDto>>(form, "Languages")
         };
     }
 

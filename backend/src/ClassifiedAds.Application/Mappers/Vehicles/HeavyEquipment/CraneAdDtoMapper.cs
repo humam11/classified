@@ -1,15 +1,19 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Vehicles.HeavyEquipment;
 using ClassifiedAds.Domain.Entities.Ads;
 using ClassifiedAds.Domain.Entities.Ads.Vehicles.HeavyEquipment;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using FuelType = ClassifiedAds.Domain.Entities.Ads.Vehicles.Enums.FuelType;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
+
 
 namespace ClassifiedAds.Application.Mappers.Vehicles.HeavyEquipment;
 
 public static class CraneAdDtoMapper
 {
-    public static Crane MapToEntity(CreateCraneAdDto dto, string slug, Guid userId, List<ushort> categoryIds, byte categoryJoins, List<ushort> locationIds, string fullAddressArabic, string fullAddressKurdish)
+    public static Crane MapToEntity(CreateCraneAdDto dto, string slug, Guid userId, List<string> categoriesSlugsArabic, List<string> categoriesSlugsKurdish, List<ushort> locationIds, string fullAddressArabic, string fullAddressKurdish)
     {
         if (string.IsNullOrEmpty(dto.Title) || !dto.IsDollar.HasValue || !dto.PriceValue.HasValue)
             throw new ArgumentException("Required fields are missing");
@@ -18,7 +22,7 @@ public static class CraneAdDtoMapper
         {
             Title = dto.Title, Description = dto.Description ?? string.Empty,
             Price = new Price { IsDollar = dto.IsDollar.Value, Value = dto.PriceValue.Value, ShowingPrice = AdDtoMapper.FormatShowingPrice(dto.IsDollar.Value, dto.PriceValue.Value) },
-            Category = new Category { CategoryJoins = categoryJoins, CategoryIds = categoryIds },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
             LocationAd = new LocationAd { LocationIds = locationIds, Street = dto.Street, FullAddressArabic = fullAddressArabic, FullAddressKurdish = fullAddressKurdish },
             Images = new List<AdImage>(), Status = Status.Active, CreatedAt = DateTime.UtcNow, UpdatedAt = DateTime.UtcNow,
             ImageCount = 0, ViewsCount = 0, UserId = userId, Priority = 0, Slug = slug,
@@ -45,7 +49,7 @@ public static class CraneAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new CraneSpecsDto
             {
                 FuelType = entity.FuelType,
@@ -67,15 +71,15 @@ public static class CraneAdDtoMapper
         {
             Title = baseDto.Title, Description = baseDto.Description, IsDollar = baseDto.IsDollar, PriceValue = baseDto.PriceValue,
             City = baseDto.City, Region = baseDto.Region, Neighborhood = baseDto.Neighborhood, Street = baseDto.Street, ImageFiles = baseDto.ImageFiles,
-            FuelType = form.TryGetValue("FuelType", out var ft) && !string.IsNullOrWhiteSpace(ft) && Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.FuelType>(ft, out var fuelType) ? fuelType : null,
-            EnginePower = form.TryGetValue("EnginePower", out var ep) && !string.IsNullOrWhiteSpace(ep) && ushort.TryParse(ep, out var enginePower) ? enginePower : null,
-            FuelTankCapacity = form.TryGetValue("FuelTankCapacity", out var ftc) && !string.IsNullOrWhiteSpace(ftc) && ushort.TryParse(ftc, out var fuelTank) ? fuelTank : null,
-            OperatingMass = form.TryGetValue("OperatingMass", out var om) && !string.IsNullOrWhiteSpace(om) && float.TryParse(om, out var operatingMass) ? operatingMass : null,
-            Weight = form.TryGetValue("Weight", out var w) && !string.IsNullOrWhiteSpace(w) && float.TryParse(w, out var weight) ? weight : null,
-            LiftingCapacity = form.TryGetValue("LiftingCapacity", out var lc) && !string.IsNullOrWhiteSpace(lc) && float.TryParse(lc, out var lifting) ? lifting : null,
-            MaxLiftingHeight = form.TryGetValue("MaxLiftingHeight", out var mlh) && !string.IsNullOrWhiteSpace(mlh) && float.TryParse(mlh, out var maxHeight) ? maxHeight : null,
-            BoomLength = form.TryGetValue("BoomLength", out var bl) && !string.IsNullOrWhiteSpace(bl) && float.TryParse(bl, out var boom) ? boom : null,
-            RotationAngle = form.TryGetValue("RotationAngle", out var ra) && !string.IsNullOrWhiteSpace(ra) && ushort.TryParse(ra, out var rotation) ? rotation : null
+            FuelType = FormParsingHelpers.ParseEnum<FuelType>(form, "FuelType"),
+            EnginePower = FormParsingHelpers.ParseUShort(form, "EnginePower"),
+            FuelTankCapacity = FormParsingHelpers.ParseUShort(form, "FuelTankCapacity"),
+            OperatingMass = FormParsingHelpers.ParseFloat(form, "OperatingMass"),
+            Weight = FormParsingHelpers.ParseFloat(form, "Weight"),
+            LiftingCapacity = FormParsingHelpers.ParseFloat(form, "LiftingCapacity"),
+            MaxLiftingHeight = FormParsingHelpers.ParseFloat(form, "MaxLiftingHeight"),
+            BoomLength = FormParsingHelpers.ParseFloat(form, "BoomLength"),
+            RotationAngle = FormParsingHelpers.ParseUShort(form, "RotationAngle")
         };
     }
 
@@ -85,15 +89,15 @@ public static class CraneAdDtoMapper
         {
             Title = baseDto.Title, Description = baseDto.Description, IsDollar = baseDto.IsDollar, PriceValue = baseDto.PriceValue,
             City = baseDto.City, Region = baseDto.Region, Neighborhood = baseDto.Neighborhood, Street = baseDto.Street, ImageFiles = baseDto.ImageFiles,
-            FuelType = form.TryGetValue("FuelType", out var ft) && !string.IsNullOrWhiteSpace(ft) && Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.FuelType>(ft, out var fuelType) ? fuelType : null,
-            EnginePower = form.TryGetValue("EnginePower", out var ep) && !string.IsNullOrWhiteSpace(ep) && ushort.TryParse(ep, out var enginePower) ? enginePower : null,
-            FuelTankCapacity = form.TryGetValue("FuelTankCapacity", out var ftc) && !string.IsNullOrWhiteSpace(ftc) && ushort.TryParse(ftc, out var fuelTank) ? fuelTank : null,
-            OperatingMass = form.TryGetValue("OperatingMass", out var om) && !string.IsNullOrWhiteSpace(om) && float.TryParse(om, out var operatingMass) ? operatingMass : null,
-            Weight = form.TryGetValue("Weight", out var w) && !string.IsNullOrWhiteSpace(w) && float.TryParse(w, out var weight) ? weight : null,
-            LiftingCapacity = form.TryGetValue("LiftingCapacity", out var lc) && !string.IsNullOrWhiteSpace(lc) && float.TryParse(lc, out var lifting) ? lifting : null,
-            MaxLiftingHeight = form.TryGetValue("MaxLiftingHeight", out var mlh) && !string.IsNullOrWhiteSpace(mlh) && float.TryParse(mlh, out var maxHeight) ? maxHeight : null,
-            BoomLength = form.TryGetValue("BoomLength", out var bl) && !string.IsNullOrWhiteSpace(bl) && float.TryParse(bl, out var boom) ? boom : null,
-            RotationAngle = form.TryGetValue("RotationAngle", out var ra) && !string.IsNullOrWhiteSpace(ra) && ushort.TryParse(ra, out var rotation) ? rotation : null
+            FuelType = FormParsingHelpers.ParseEnum<FuelType>(form, "FuelType"),
+            EnginePower = FormParsingHelpers.ParseUShort(form, "EnginePower"),
+            FuelTankCapacity = FormParsingHelpers.ParseUShort(form, "FuelTankCapacity"),
+            OperatingMass = FormParsingHelpers.ParseFloat(form, "OperatingMass"),
+            Weight = FormParsingHelpers.ParseFloat(form, "Weight"),
+            LiftingCapacity = FormParsingHelpers.ParseFloat(form, "LiftingCapacity"),
+            MaxLiftingHeight = FormParsingHelpers.ParseFloat(form, "MaxLiftingHeight"),
+            BoomLength = FormParsingHelpers.ParseFloat(form, "BoomLength"),
+            RotationAngle = FormParsingHelpers.ParseUShort(form, "RotationAngle")
         };
     }
 

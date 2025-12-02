@@ -1,15 +1,17 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Vehicles;
 using ClassifiedAds.Domain.Entities.Ads;
 using ClassifiedAds.Domain.Entities.Ads.Vehicles;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
 
 namespace ClassifiedAds.Application.Mappers.Vehicles;
 
 public static class BoatAdDtoMapper
 {
-    public static Boat MapToEntity(CreateBoatAdDto dto, string slug, Guid userId, List<ushort> categoryIds, byte categoryJoins, List<ushort> locationIds, string fullAddressArabic, string fullAddressKurdish)
+    public static Boat MapToEntity(CreateBoatAdDto dto, string slug, Guid userId, List<string> categoriesSlugsArabic, List<string> categoriesSlugsKurdish, List<ushort> locationIds, string fullAddressArabic, string fullAddressKurdish)
     {
         if (string.IsNullOrEmpty(dto.Title) || !dto.IsDollar.HasValue || !dto.PriceValue.HasValue)
             throw new ArgumentException("Required fields are missing");
@@ -19,7 +21,7 @@ public static class BoatAdDtoMapper
             Title = dto.Title,
             Description = dto.Description ?? string.Empty,
             Price = new Price { IsDollar = dto.IsDollar.Value, Value = dto.PriceValue.Value, ShowingPrice = AdDtoMapper.FormatShowingPrice(dto.IsDollar.Value, dto.PriceValue.Value) },
-            Category = new Category { CategoryJoins = categoryJoins, CategoryIds = categoryIds },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
             LocationAd = new LocationAd { LocationIds = locationIds, Street = dto.Street, FullAddressArabic = fullAddressArabic, FullAddressKurdish = fullAddressKurdish },
             Images = new List<AdImage>(),
             Status = Status.Active,
@@ -55,7 +57,7 @@ public static class BoatAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new BoatSpecsDto
             {
                 FuelType = entity.FuelType,
@@ -73,11 +75,11 @@ public static class BoatAdDtoMapper
         {
             Title = baseDto.Title, Description = baseDto.Description, IsDollar = baseDto.IsDollar, PriceValue = baseDto.PriceValue,
             City = baseDto.City, Region = baseDto.Region, Neighborhood = baseDto.Neighborhood, Street = baseDto.Street, ImageFiles = baseDto.ImageFiles,
-            FuelType = form.TryGetValue("FuelType", out var ft) && !string.IsNullOrWhiteSpace(ft) && Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.FuelType>(ft, out var fuelType) ? fuelType : null,
-            EnginePower = form.TryGetValue("EnginePower", out var ep) && !string.IsNullOrWhiteSpace(ep) && ushort.TryParse(ep, out var enginePower) ? enginePower : null,
-            FuelTankCapacity = form.TryGetValue("FuelTankCapacity", out var ftc) && !string.IsNullOrWhiteSpace(ftc) && ushort.TryParse(ftc, out var fuelTank) ? fuelTank : null,
-            Length = form.TryGetValue("Length", out var len) && !string.IsNullOrWhiteSpace(len) && float.TryParse(len, out var length) ? length : null,
-            Capacity = form.TryGetValue("Capacity", out var cap) && !string.IsNullOrWhiteSpace(cap) && byte.TryParse(cap, out var capacity) ? capacity : null
+            FuelType = ParseEnum<Domain.Entities.Ads.Vehicles.Enums.FuelType>(form, "FuelType"),
+            EnginePower = ParseUShort(form, "EnginePower"),
+            FuelTankCapacity = ParseUShort(form, "FuelTankCapacity"),
+            Length = ParseFloat(form, "Length"),
+            Capacity = ParseByte(form, "Capacity")
         };
     }
 
@@ -87,11 +89,11 @@ public static class BoatAdDtoMapper
         {
             Title = baseDto.Title, Description = baseDto.Description, IsDollar = baseDto.IsDollar, PriceValue = baseDto.PriceValue,
             City = baseDto.City, Region = baseDto.Region, Neighborhood = baseDto.Neighborhood, Street = baseDto.Street, ImageFiles = baseDto.ImageFiles,
-            FuelType = form.TryGetValue("FuelType", out var ft) && !string.IsNullOrWhiteSpace(ft) && Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.FuelType>(ft, out var fuelType) ? fuelType : null,
-            EnginePower = form.TryGetValue("EnginePower", out var ep) && !string.IsNullOrWhiteSpace(ep) && ushort.TryParse(ep, out var enginePower) ? enginePower : null,
-            FuelTankCapacity = form.TryGetValue("FuelTankCapacity", out var ftc) && !string.IsNullOrWhiteSpace(ftc) && ushort.TryParse(ftc, out var fuelTank) ? fuelTank : null,
-            Length = form.TryGetValue("Length", out var len) && !string.IsNullOrWhiteSpace(len) && float.TryParse(len, out var length) ? length : null,
-            Capacity = form.TryGetValue("Capacity", out var cap) && !string.IsNullOrWhiteSpace(cap) && byte.TryParse(cap, out var capacity) ? capacity : null
+            FuelType = ParseEnum<Domain.Entities.Ads.Vehicles.Enums.FuelType>(form, "FuelType"),
+            EnginePower = ParseUShort(form, "EnginePower"),
+            FuelTankCapacity = ParseUShort(form, "FuelTankCapacity"),
+            Length = ParseFloat(form, "Length"),
+            Capacity = ParseByte(form, "Capacity")
         };
     }
 

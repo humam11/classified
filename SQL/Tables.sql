@@ -46,7 +46,7 @@ CREATE INDEX ix_locations_hierarchy_path ON locations USING GIST (hierarchy_path
 -- Users Table
 CREATE TABLE users (
     -- Primary Key
-    user_id UUID DEFAULT gen_random_uuid() PRIMARY KEY, -- Use uuidv7() if available
+    user_id uuid DEFAULT uuidv7() PRIMARY KEY, -- Use uuidv7() if available
     
     -- Core Identifying Information
     first_name VARCHAR(50) NOT NULL,
@@ -86,7 +86,7 @@ CREATE TABLE users (
 -- User Reports Table
 CREATE TABLE user_reports (
     -- Primary Key
-    user_report_id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    user_report_id uuid DEFAULT uuidv7() PRIMARY KEY,
 
     -- Core Report Data
     reason_type SMALLINT CHECK (reason_type BETWEEN 0 AND 5) NOT NULL,
@@ -106,7 +106,7 @@ CREATE TABLE user_reports (
 -- Bug Reports Table
 CREATE TABLE bug_reports (
     -- Primary Key
-    bug_report_id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    bug_report_id uuid DEFAULT uuidv7() PRIMARY KEY,
 
     -- Core Report Data
     description VARCHAR(1000),
@@ -125,7 +125,7 @@ CREATE TABLE bug_reports (
 -- User Reviews Table
 CREATE TABLE user_reviews (
     -- Primary Key
-    user_review_id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    user_review_id uuid DEFAULT uuidv7() PRIMARY KEY,
 
     -- Core Review Data
     rating SMALLINT CHECK (rating BETWEEN 1 AND 5) NOT NULL,
@@ -161,7 +161,7 @@ CREATE TABLE categories (
     -- Hierarchical Data
     hierarchy_path LTREE NULL,
     level INTEGER GENERATED ALWAYS AS (nlevel(hierarchy_path)) STORED,
-    is_leaf BOOLEAN NOT NULL DEFAULT FALSE,
+    is_leaf BOOLEAN NOT NULL,
     
     -- Foreign Keys
     parent_id SMALLINT NULL REFERENCES categories(category_id)
@@ -181,8 +181,7 @@ CREATE TABLE brands_models (
     is_brand BOOLEAN NOT NULL,
 
     -- Metadata Fields
-    url_slug_arabic VARCHAR(255) NOT NULL UNIQUE,
-    url_slug_kurdish VARCHAR(255) NOT NULL UNIQUE,
+    url_slug VARCHAR(255) NOT NULL,
     image_url VARCHAR(255) NOT NULL,
     automation_keyword VARCHAR(255) NULL UNIQUE,
     
@@ -195,7 +194,7 @@ CREATE TABLE brands_models (
     category_id SMALLINT NOT NULL REFERENCES categories(category_id),
     
     -- Constraints
-    UNIQUE (name_english, parent_id, category_id),
+    UNIQUE (category_id, name_english),
     CONSTRAINT chk_brands_models_hierarchy CHECK (
         (is_brand = TRUE AND parent_id IS NULL) OR
         (is_brand = FALSE AND parent_id IS NOT NULL)
@@ -205,16 +204,15 @@ CREATE TABLE brands_models (
 CREATE INDEX ix_brands_models_hierarchy_path ON brands_models USING GIST (hierarchy_path);
 
 
--- Model Releases Table
-CREATE TABLE model_releases (
+-- Releases Table
+CREATE TABLE releases (
     -- Primary Key
-    model_release_id SMALLSERIAL PRIMARY KEY,
+    release_id SMALLSERIAL PRIMARY KEY,
     
     -- Core Data Fields
-    release_year SMALLINT NOT NULL CHECK (release_year BETWEEN 1900 AND 2100),
+    release_year VARCHAR(4) NOT NULL,
     
     -- Metadata Fields
-    url_slug VARCHAR(20) NOT NULL,
     image_url VARCHAR(255) NOT NULL,
 
     -- Foreign Keys
@@ -224,7 +222,7 @@ CREATE TABLE model_releases (
     UNIQUE (model_id, release_year)
 );
 
-CREATE INDEX ix_model_releases_model_id_url_slug ON model_releases(model_id, url_slug);
+CREATE INDEX ix_releases_model_id ON releases(model_id);
 
 -- Comments for documentation
 COMMENT ON TABLE locations IS 'Hierarchical location data: City (0) → District (1) → Neighborhood (2)';
@@ -234,4 +232,4 @@ COMMENT ON TABLE bug_reports IS 'Technical bug reports from users';
 COMMENT ON TABLE user_reviews IS 'User ratings and reviews (1-5 stars)';
 COMMENT ON TABLE categories IS 'Hierarchical category structure for ads';
 COMMENT ON TABLE brands_models IS 'Brand and model hierarchy (Brand → Model)';
-COMMENT ON TABLE model_releases IS 'Model release years (sub-models)';
+COMMENT ON TABLE releases IS 'Model release years (sub-models)';

@@ -1,6 +1,6 @@
 # API Endpoints - Redesigned for SEO & URL Clarity
-**{apiPrefix}/{locationSlug}/categories/electronics/phones/brands/samsung-سامسونغ/models/galaxy-s20-جالاكسي-اس٢٠/ads for searching**
-**{apiPrefix}/categories/electronics/phones/brands/samsung-سامسونغ/models/galaxy-s20-جالاكسي-اس٢٠/ads/{adSlug} for ad specific**
+**{apiPrefix}/categories/الالكترونيات-والاجهزة-الرقمية/موبايلات-واجهزة-لوحية/موبايلات-ذكية/models/samsung-galaxy-s20/ads for searching**
+**{apiPrefix}/categories/الالكترونيات-والاجهزة-الرقمية/موبايلات-واجهزة-لوحية/موبايلات-ذكية/models/samsung-galaxy-s20/ads/{adSlug} for ad specific**
 
 
 
@@ -25,47 +25,34 @@
 - POST    `{apiPrefix}/bug-reports`
 
 ## Collection: User Ad CRUD
-- POST    `{apiPrefix}/{locationSlug}/categories/{categorySlug}/ads`
+- POST    `{apiPrefix}/categories/{categorySlug}/ads`
 
 ## Collection: User Ads Listing
 - GET     `{apiPrefix}/users/{userId}/ads`  # pagination needed
 
 
-## Collection: Ads Search & Browsing
+## Collection: Ads Search & Browsing (long. latu. should be provided within request)
 
 ### Category Level Search
-- GET     `{apiPrefix}/{locationSlug}/categories/{categorySlug}/ads` # pagination needed
+- GET     `{apiPrefix}/categories/{categorySlug}/ads` 
 
-### Brand Level Search
-- GET     `{apiPrefix}/{locationSlug}/categories/{categorySlug}/brands/{brandModelSlug}/ads` # pagination needed
-
-### Model Level Search
-- GET     `{apiPrefix}/{locationSlug}/categories/{categorySlug}/brands/{brandModelSlug}/models/{brandModelSlug}/ads` # pagination needed
+### BrandModel Level Search
+- GET     `{apiPrefix}/categories/{categorySlug}/models/{brandModelSlug}/ads` 
 
 ### Car Release Year Level Search
-- GET     `{apiPrefix}/{locationSlug}/categories/{categorySlug}/brands/{brandModelSlug}/models/{brandModelSlug}/years/{release-year}/ads` # pagination needed
+- GET     `{apiPrefix}/categories/{categorySlug}/models/{brandModelSlug}/releases/{release-year}/ads`
 
-## Collection: Public Ad Viewing, Editing & Deleting
+## Specific Ad Viewing
 
-### Category Level
+### Category Level (most of ads)
 - GET `{apiPrefix}/categories/{categorySlug}/ads/{adSlug}`
-- PATCH `{apiPrefix}/categories/{categorySlug}/ads/{adSlug}` (with permission check)
-- DELETE `{apiPrefix}/categories/{categorySlug}/ads/{adSlug}` (with permission check)
 
-### Brand Level  
-- GET `{apiPrefix}/categories/{categorySlug}/brands/{brandModelSlug}/ads/{adSlug}`
-- PATCH `{apiPrefix}/categories/{categorySlug}/brands/{brandModelSlug}/ads/{adSlug}` (with permission check)
-- DELETE `{apiPrefix}/categories/{categorySlug}/brands/{brandModelSlug}/ads/{adSlug}` (with permission check)
-
-### Model Level  
-- GET `{apiPrefix}/categories/{categorySlug}/brands/{brandModelSlug}/models/{brandModelSlug}/ads/{adSlug}`
-- PATCH `{apiPrefix}/categories/{categorySlug}/brands/{brandModelSlug}/models/{brandModelSlug}/ads/{adSlug}` (with permission check)
-- DELETE `{apiPrefix}/categories/{categorySlug}/brands/{brandModelSlug}/models/{brandModelSlug}/ads/{adSlug}` (with permission check)
+### Brand Level  (Truck, Motorcycle, VideoGame, HandhledDevice, Laptop, TvMonitor, Console)
+- GET `{apiPrefix}/categories/{categorySlug}/models/{brandModelSlug}/ads/{adSlug}`
 
 ### Release Year Level (for cars only)
-- GET `{apiPrefix}/categories/{categorySlug}/brands/{brandModelSlug}/models/{brandModelSlug}/years/{release-year}/ads/{adSlug}`
-- PATCH `{apiPrefix}/categories/{categorySlug}/brands/{brandModelSlug}/models/{brandModelSlug}/years/{release-year}/ads/{adSlug}` (with permission check)
-- DELETE `{apiPrefix}/categories/{categorySlug}/brands/{brandModelSlug}/models/{brandModelSlug}/years/{release-year}/ads/{adSlug}` (with permission check)
+- GET `{apiPrefix}/categories/{categorySlug}/models/{brandModelSlug}/releases/{release-year}/ads/{adSlug}`
+
 
 ## Collection: Chat & Messaging
 

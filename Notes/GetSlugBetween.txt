@@ -1,9 +1,0 @@
-app.MapGet("products/start/{*slug}", (string slug) => 
-{
-    if (slug.EndsWith("/stop"))
-    {
-        var actualSlug = slug.Substring(0, slug.Length - 5); // Remove "/stop"
-        return $"here is your slug: {actualSlug}";
-    }
-    return "Pattern not matched";
-});

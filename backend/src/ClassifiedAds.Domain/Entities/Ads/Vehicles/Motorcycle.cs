@@ -8,5 +8,6 @@ public class Motorcycle : Transport
 {
         public MotorcycleDriveType? MotorcycleDriveType { get; set; }
         public byte? GearCount { get; set; }
-        public Guid? ModelId { get; set; }
+        // Resolved brand slugs from PostgreSQL (brand only)
+        public List<string>? ModelsSlugs { get; set; }
 }

@@ -1,3 +1,4 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Jobs;
 using ClassifiedAds.Domain.Entities.Ads;
@@ -5,7 +6,7 @@ using ClassifiedAds.Domain.Entities.Ads.JobsServices;
 using ClassifiedAds.Domain.Entities.Ads.JobsServices.ValueObjects;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
-using System.Text.Json;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
 
 namespace ClassifiedAds.Application.Mappers.Jobs;
 
@@ -16,8 +17,7 @@ public static class ServiceAdDtoMapper
         CreateServiceAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic, List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
         string fullAddressKurdish)
@@ -40,11 +40,7 @@ public static class ServiceAdDtoMapper
                 Value = dto.PriceValue.Value,
                 ShowingPrice = showingPrice
             },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
             LocationAd = new LocationAd
             {
                 LocationIds = locationIds,
@@ -114,8 +110,8 @@ public static class ServiceAdDtoMapper
             Slug = entity.Slug,
             Category = new DTOs.Common.CategoryResponseDto
             {
-                CategoryJoins = entity.Category.CategoryJoins,
-                CategoryIds = entity.Category.CategoryIds
+                CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic,
+                CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish
             },
             Specs = new ServiceSpecsDto
             {
@@ -149,11 +145,8 @@ public static class ServiceAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            PaymentPeriod = form.TryGetValue("PaymentPeriod", out var period) &&
-                           !string.IsNullOrWhiteSpace(period) &&
-                           Enum.TryParse<Domain.Entities.Ads.JobsServices.Enums.PaymentPeriod>(period, out var pp) ? pp : null,
-            DailyAvailability = form.TryGetValue("DailyAvailability", out var availability) && !string.IsNullOrWhiteSpace(availability)
-                ? JsonSerializer.Deserialize<List<DailyAvailabilityDto>>(availability.ToString()) : null
+            PaymentPeriod = ParseEnum<Domain.Entities.Ads.JobsServices.Enums.PaymentPeriod>(form, "PaymentPeriod"),
+            DailyAvailability = ParseJson<List<DailyAvailabilityDto>>(form, "DailyAvailability")
         };
     }
 
@@ -171,11 +164,8 @@ public static class ServiceAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            PaymentPeriod = form.TryGetValue("PaymentPeriod", out var period) &&
-                           !string.IsNullOrWhiteSpace(period) &&
-                           Enum.TryParse<Domain.Entities.Ads.JobsServices.Enums.PaymentPeriod>(period, out var pp) ? pp : null,
-            DailyAvailability = form.TryGetValue("DailyAvailability", out var availability) && !string.IsNullOrWhiteSpace(availability)
-                ? JsonSerializer.Deserialize<List<DailyAvailabilityDto>>(availability.ToString()) : null
+            PaymentPeriod = ParseEnum<Domain.Entities.Ads.JobsServices.Enums.PaymentPeriod>(form, "PaymentPeriod"),
+            DailyAvailability = ParseJson<List<DailyAvailabilityDto>>(form, "DailyAvailability")
         };
     }
 

@@ -1,9 +1,12 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.RealEstate;
 using ClassifiedAds.Domain.Entities.Ads;
 using ClassifiedAds.Domain.Entities.Ads.RealEstate;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
+
 
 namespace ClassifiedAds.Application.Mappers;
 
@@ -13,8 +16,7 @@ public static class ConstructionProjectAdDtoMapper
         CreateConstructionProjectAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic, List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
         string fullAddressKurdish)
@@ -36,11 +38,7 @@ public static class ConstructionProjectAdDtoMapper
                 Value = dto.PriceValue.Value,
                 ShowingPrice = showingPrice
             },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
             LocationAd = new LocationAd
             {
                 LocationIds = locationIds,
@@ -79,7 +77,7 @@ public static class ConstructionProjectAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new ConstructionProjectSpecsDto
             {
                 Area = entity.Area,
@@ -101,12 +99,8 @@ public static class ConstructionProjectAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            Area = form.TryGetValue("Area", out var area) &&
-                  !string.IsNullOrWhiteSpace(area) &&
-                  float.TryParse(area, out var a) ? a : null,
-            CompletionStatus = form.TryGetValue("CompletionStatus", out var status) &&
-                              !string.IsNullOrWhiteSpace(status) &&
-                              Enum.TryParse<Domain.Entities.Ads.RealEstate.Enums.CompletionStatus>(status, out var cs) ? cs : null
+            Area = FormParsingHelpers.ParseFloat(form, "Area"),
+            CompletionStatus = FormParsingHelpers.ParseEnum<Domain.Entities.Ads.RealEstate.Enums.CompletionStatus>(form, "CompletionStatus")
         };
     }
 
@@ -123,12 +117,8 @@ public static class ConstructionProjectAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            Area = form.TryGetValue("Area", out var area) &&
-                  !string.IsNullOrWhiteSpace(area) &&
-                  float.TryParse(area, out var a) ? a : null,
-            CompletionStatus = form.TryGetValue("CompletionStatus", out var status) &&
-                              !string.IsNullOrWhiteSpace(status) &&
-                              Enum.TryParse<Domain.Entities.Ads.RealEstate.Enums.CompletionStatus>(status, out var cs) ? cs : null
+            Area = FormParsingHelpers.ParseFloat(form, "Area"),
+            CompletionStatus = FormParsingHelpers.ParseEnum<Domain.Entities.Ads.RealEstate.Enums.CompletionStatus>(form, "CompletionStatus")
         };
     }
 

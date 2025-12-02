@@ -1,17 +1,15 @@
 namespace ClassifiedAds.Application.Interfaces;
 
-/// <summary>
-/// Service for resolving category slugs to category IDs from PostgreSQL
-/// </summary>
+// Service for resolving category slugs from PostgreSQL
 public interface ICategoryService
 {
-    /// <summary>
-    /// Resolves category slug path to category IDs and metadata from PostgreSQL
-    /// </summary>
-    /// <param name="categorySlug">Full category path slug (e.g., "مركبات-ونقل/سيارات")</param>
-    /// <param name="language">Language code (ar or kr)</param>
-    /// <returns>Tuple of (CategoryIds, CategoryJoins)</returns>
-    Task<(List<ushort> CategoryIds, byte CategoryJoins)> ResolveCategoryAsync(
+    // Gets the leaf category ID from a full slug path
+    // Example: "مركبات-ونقل/سيارات" → returns category_id of "سيارات"
+    Task<ushort> GetCategoryIdFromSlugAsync(string categorySlug, string language);
+
+    // Resolves category slug path to both Arabic and Kurdish slugs (progressive paths)
+    // Example: "مركبات-ونقل/سيارات" → Arabic: ["مركبات-ونقل", "مركبات-ونقل/سيارات"]
+    Task<(List<string> ArabicSlugs, List<string> KurdishSlugs)> ResolveCategorySlugsAsync(
         string categorySlug,
         string language);
 }

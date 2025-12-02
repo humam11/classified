@@ -51,6 +51,7 @@ public static class DependencyInjection
         services.AddScoped<ILocationService, Infrastructure.Services.LocationService>();
         services.AddScoped<ICategoryService, Infrastructure.Services.CategoryService>();
         services.AddScoped<IImageService, Infrastructure.Services.ImageService>();
+        services.AddScoped<IBrandModelReleaseService, Infrastructure.Services.BrandModelReleaseService>();
 
         return services;
     }

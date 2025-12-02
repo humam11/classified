@@ -12,7 +12,8 @@ public class TvMonitorAdDto : ElectronicAdDto
     public RefreshRate? RefreshRate { get; set; }
     public byte? HdmiPorts { get; set; }
     public byte? UsbPorts { get; set; }
-    public Guid? ModelId { get; set; }
+    // Brand resolution input (brand only for TV/monitors)
+    public string? BrandName { get; set; }
 }
 
 public class CreateTvMonitorAdDto : TvMonitorAdDto
@@ -28,7 +29,8 @@ public class TvMonitorSpecsDto : ElectronicSpecsDto
     public RefreshRate? RefreshRate { get; set; }
     public byte? HdmiPorts { get; set; }
     public byte? UsbPorts { get; set; }
-    public Guid? ModelId { get; set; }
+    // Resolved brand slugs stored in MongoDB
+    public List<string>? ModelsSlugs { get; set; }
 }
 
 public class GetTvMonitorAdDto : GetElectronicAdDto

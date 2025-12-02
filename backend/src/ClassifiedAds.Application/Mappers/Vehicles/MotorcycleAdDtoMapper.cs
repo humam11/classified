@@ -1,28 +1,40 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Vehicles;
+using ClassifiedAds.Application.Interfaces;
 using ClassifiedAds.Domain.Entities.Ads;
 using ClassifiedAds.Domain.Entities.Ads.Vehicles;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
 
 namespace ClassifiedAds.Application.Mappers.Vehicles;
 
 public static class MotorcycleAdDtoMapper
 {
-    public static Motorcycle MapToEntity(
+    // Async mapper that handles brand resolution internally (brand only)
+    public static async Task<Motorcycle> MapToEntityAsync(
         CreateMotorcycleAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic,
+        List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
-        string fullAddressKurdish)
+        string fullAddressKurdish,
+        string categorySlug,
+        string language,
+        IBrandModelReleaseService brandModelReleaseService)
     {
         if (string.IsNullOrEmpty(dto.Title) || !dto.IsDollar.HasValue || !dto.PriceValue.HasValue)
-        {
             throw new ArgumentException("Required fields are missing");
-        }
+
+        if (string.IsNullOrEmpty(dto.BrandName))
+            throw new ArgumentException("BrandName is required for Motorcycle ads");
+
+        // Resolve brand only
+        var (_, modelsSlugs) = await brandModelReleaseService.ResolveBrandAsync(
+            categorySlug, language, dto.BrandName);
 
         string showingPrice = AdDtoMapper.FormatShowingPrice(dto.IsDollar.Value, dto.PriceValue.Value);
 
@@ -30,24 +42,9 @@ public static class MotorcycleAdDtoMapper
         {
             Title = dto.Title,
             Description = dto.Description ?? string.Empty,
-            Price = new Price
-            {
-                IsDollar = dto.IsDollar.Value,
-                Value = dto.PriceValue.Value,
-                ShowingPrice = showingPrice
-            },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
-            LocationAd = new LocationAd
-            {
-                LocationIds = locationIds,
-                Street = dto.Street,
-                FullAddressArabic = fullAddressArabic,
-                FullAddressKurdish = fullAddressKurdish
-            },
+            Price = new Price { IsDollar = dto.IsDollar.Value, Value = dto.PriceValue.Value, ShowingPrice = showingPrice },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
+            LocationAd = new LocationAd { LocationIds = locationIds, Street = dto.Street, FullAddressArabic = fullAddressArabic, FullAddressKurdish = fullAddressKurdish },
             Images = new List<AdImage>(),
             Status = Status.Active,
             CreatedAt = DateTime.UtcNow,
@@ -62,7 +59,7 @@ public static class MotorcycleAdDtoMapper
             FuelTankCapacity = dto.FuelTankCapacity,
             MotorcycleDriveType = dto.MotorcycleDriveType,
             GearCount = dto.GearCount,
-            ModelId = dto.ModelId
+            ModelsSlugs = modelsSlugs
         };
     }
 
@@ -83,7 +80,7 @@ public static class MotorcycleAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new MotorcycleSpecsDto
             {
                 FuelType = entity.FuelType,
@@ -91,7 +88,7 @@ public static class MotorcycleAdDtoMapper
                 FuelTankCapacity = entity.FuelTankCapacity,
                 MotorcycleDriveType = entity.MotorcycleDriveType,
                 GearCount = entity.GearCount,
-                ModelId = entity.ModelId
+                ModelsSlugs = entity.ModelsSlugs
             }
         };
     }
@@ -109,24 +106,12 @@ public static class MotorcycleAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            FuelType = form.TryGetValue("FuelType", out var fuelType) &&
-                      !string.IsNullOrWhiteSpace(fuelType) &&
-                      Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.FuelType>(fuelType, out var ft) ? ft : null,
-            EnginePower = form.TryGetValue("EnginePower", out var enginePower) &&
-                         !string.IsNullOrWhiteSpace(enginePower) &&
-                         ushort.TryParse(enginePower, out var ep) ? ep : null,
-            FuelTankCapacity = form.TryGetValue("FuelTankCapacity", out var fuelTank) &&
-                              !string.IsNullOrWhiteSpace(fuelTank) &&
-                              ushort.TryParse(fuelTank, out var ftc) ? ftc : null,
-            MotorcycleDriveType = form.TryGetValue("MotorcycleDriveType", out var driveType) &&
-                                 !string.IsNullOrWhiteSpace(driveType) &&
-                                 Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.MotorcycleDriveType>(driveType, out var mdt) ? mdt : null,
-            GearCount = form.TryGetValue("GearCount", out var gearCount) &&
-                       !string.IsNullOrWhiteSpace(gearCount) &&
-                       byte.TryParse(gearCount, out var gc) ? gc : null,
-            ModelId = form.TryGetValue("ModelId", out var modelId) &&
-                     !string.IsNullOrWhiteSpace(modelId) &&
-                     Guid.TryParse(modelId, out var mid) ? mid : null
+            FuelType = ParseEnum<Domain.Entities.Ads.Vehicles.Enums.FuelType>(form, "FuelType"),
+            EnginePower = ParseUShort(form, "EnginePower"),
+            FuelTankCapacity = ParseUShort(form, "FuelTankCapacity"),
+            MotorcycleDriveType = ParseEnum<Domain.Entities.Ads.Vehicles.Enums.MotorcycleDriveType>(form, "MotorcycleDriveType"),
+            GearCount = ParseByte(form, "GearCount"),
+            BrandName = ParseString(form, "BrandName")
         };
     }
 
@@ -143,24 +128,12 @@ public static class MotorcycleAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            FuelType = form.TryGetValue("FuelType", out var fuelType) &&
-                      !string.IsNullOrWhiteSpace(fuelType) &&
-                      Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.FuelType>(fuelType, out var ft) ? ft : null,
-            EnginePower = form.TryGetValue("EnginePower", out var enginePower) &&
-                         !string.IsNullOrWhiteSpace(enginePower) &&
-                         ushort.TryParse(enginePower, out var ep) ? ep : null,
-            FuelTankCapacity = form.TryGetValue("FuelTankCapacity", out var fuelTank) &&
-                              !string.IsNullOrWhiteSpace(fuelTank) &&
-                              ushort.TryParse(fuelTank, out var ftc) ? ftc : null,
-            MotorcycleDriveType = form.TryGetValue("MotorcycleDriveType", out var driveType) &&
-                                 !string.IsNullOrWhiteSpace(driveType) &&
-                                 Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.MotorcycleDriveType>(driveType, out var mdt) ? mdt : null,
-            GearCount = form.TryGetValue("GearCount", out var gearCount) &&
-                       !string.IsNullOrWhiteSpace(gearCount) &&
-                       byte.TryParse(gearCount, out var gc) ? gc : null,
-            ModelId = form.TryGetValue("ModelId", out var modelId) &&
-                     !string.IsNullOrWhiteSpace(modelId) &&
-                     Guid.TryParse(modelId, out var mid) ? mid : null
+            FuelType = ParseEnum<Domain.Entities.Ads.Vehicles.Enums.FuelType>(form, "FuelType"),
+            EnginePower = ParseUShort(form, "EnginePower"),
+            FuelTankCapacity = ParseUShort(form, "FuelTankCapacity"),
+            MotorcycleDriveType = ParseEnum<Domain.Entities.Ads.Vehicles.Enums.MotorcycleDriveType>(form, "MotorcycleDriveType"),
+            GearCount = ParseByte(form, "GearCount"),
+            BrandName = ParseString(form, "BrandName")
         };
     }
 
@@ -168,18 +141,12 @@ public static class MotorcycleAdDtoMapper
     {
         if (ad is Motorcycle motorcycle)
         {
-            if (dto.FuelType.HasValue)
-                motorcycle.FuelType = dto.FuelType;
-            if (dto.EnginePower.HasValue)
-                motorcycle.EnginePower = dto.EnginePower;
-            if (dto.FuelTankCapacity.HasValue)
-                motorcycle.FuelTankCapacity = dto.FuelTankCapacity;
-            if (dto.MotorcycleDriveType.HasValue)
-                motorcycle.MotorcycleDriveType = dto.MotorcycleDriveType;
-            if (dto.GearCount.HasValue)
-                motorcycle.GearCount = dto.GearCount;
-            if (dto.ModelId.HasValue)
-                motorcycle.ModelId = dto.ModelId;
+            if (dto.FuelType.HasValue) motorcycle.FuelType = dto.FuelType;
+            if (dto.EnginePower.HasValue) motorcycle.EnginePower = dto.EnginePower;
+            if (dto.FuelTankCapacity.HasValue) motorcycle.FuelTankCapacity = dto.FuelTankCapacity;
+            if (dto.MotorcycleDriveType.HasValue) motorcycle.MotorcycleDriveType = dto.MotorcycleDriveType;
+            if (dto.GearCount.HasValue) motorcycle.GearCount = dto.GearCount;
+            // Note: BrandName update requires calling BrandModelReleaseService - handled in AdService
         }
     }
 }

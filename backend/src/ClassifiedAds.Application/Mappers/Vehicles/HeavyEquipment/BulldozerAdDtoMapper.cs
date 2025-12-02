@@ -1,15 +1,19 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Vehicles.HeavyEquipment;
 using ClassifiedAds.Domain.Entities.Ads;
 using ClassifiedAds.Domain.Entities.Ads.Vehicles.HeavyEquipment;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using FuelType = ClassifiedAds.Domain.Entities.Ads.Vehicles.Enums.FuelType;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
+
 
 namespace ClassifiedAds.Application.Mappers.Vehicles.HeavyEquipment;
 
 public static class BulldozerAdDtoMapper
 {
-    public static Bulldozer MapToEntity(CreateBulldozerAdDto dto, string slug, Guid userId, List<ushort> categoryIds, byte categoryJoins, List<ushort> locationIds, string fullAddressArabic, string fullAddressKurdish)
+    public static Bulldozer MapToEntity(CreateBulldozerAdDto dto, string slug, Guid userId, List<string> categoriesSlugsArabic, List<string> categoriesSlugsKurdish, List<ushort> locationIds, string fullAddressArabic, string fullAddressKurdish)
     {
         if (string.IsNullOrEmpty(dto.Title) || !dto.IsDollar.HasValue || !dto.PriceValue.HasValue)
             throw new ArgumentException("Required fields are missing");
@@ -18,7 +22,7 @@ public static class BulldozerAdDtoMapper
         {
             Title = dto.Title, Description = dto.Description ?? string.Empty,
             Price = new Price { IsDollar = dto.IsDollar.Value, Value = dto.PriceValue.Value, ShowingPrice = AdDtoMapper.FormatShowingPrice(dto.IsDollar.Value, dto.PriceValue.Value) },
-            Category = new Category { CategoryJoins = categoryJoins, CategoryIds = categoryIds },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
             LocationAd = new LocationAd { LocationIds = locationIds, Street = dto.Street, FullAddressArabic = fullAddressArabic, FullAddressKurdish = fullAddressKurdish },
             Images = new List<AdImage>(), Status = Status.Active, CreatedAt = DateTime.UtcNow, UpdatedAt = DateTime.UtcNow,
             ImageCount = 0, ViewsCount = 0,
@@ -53,7 +57,7 @@ public static class BulldozerAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new BulldozerSpecsDto
             {
                 FuelType = entity.FuelType,
@@ -74,14 +78,14 @@ public static class BulldozerAdDtoMapper
         {
             Title = baseDto.Title, Description = baseDto.Description, IsDollar = baseDto.IsDollar, PriceValue = baseDto.PriceValue,
             City = baseDto.City, Region = baseDto.Region, Neighborhood = baseDto.Neighborhood, Street = baseDto.Street, ImageFiles = baseDto.ImageFiles,
-            FuelType = form.TryGetValue("FuelType", out var ft) && !string.IsNullOrWhiteSpace(ft) && Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.FuelType>(ft, out var fuelType) ? fuelType : null,
-            EnginePower = form.TryGetValue("EnginePower", out var ep) && !string.IsNullOrWhiteSpace(ep) && ushort.TryParse(ep, out var enginePower) ? enginePower : null,
-            FuelTankCapacity = form.TryGetValue("FuelTankCapacity", out var ftc) && !string.IsNullOrWhiteSpace(ftc) && ushort.TryParse(ftc, out var fuelTank) ? fuelTank : null,
-            OperatingMass = form.TryGetValue("OperatingMass", out var om) && !string.IsNullOrWhiteSpace(om) && float.TryParse(om, out var operatingMass) ? operatingMass : null,
-            Weight = form.TryGetValue("Weight", out var w) && !string.IsNullOrWhiteSpace(w) && float.TryParse(w, out var weight) ? weight : null,
-            BladeWidth = form.TryGetValue("BladeWidth", out var bw) && !string.IsNullOrWhiteSpace(bw) && float.TryParse(bw, out var bladeWidth) ? bladeWidth : null,
-            MaxPushingCapacity = form.TryGetValue("MaxPushingCapacity", out var mpc) && !string.IsNullOrWhiteSpace(mpc) && float.TryParse(mpc, out var maxPushing) ? maxPushing : null,
-            TrackWidth = form.TryGetValue("TrackWidth", out var tw) && !string.IsNullOrWhiteSpace(tw) && float.TryParse(tw, out var trackWidth) ? trackWidth : null
+            FuelType = FormParsingHelpers.ParseEnum<FuelType>(form, "FuelType"),
+            EnginePower = FormParsingHelpers.ParseUShort(form, "EnginePower"),
+            FuelTankCapacity = FormParsingHelpers.ParseUShort(form, "FuelTankCapacity"),
+            OperatingMass = FormParsingHelpers.ParseFloat(form, "OperatingMass"),
+            Weight = FormParsingHelpers.ParseFloat(form, "Weight"),
+            BladeWidth = FormParsingHelpers.ParseFloat(form, "BladeWidth"),
+            MaxPushingCapacity = FormParsingHelpers.ParseFloat(form, "MaxPushingCapacity"),
+            TrackWidth = FormParsingHelpers.ParseFloat(form, "TrackWidth")
         };
     }
 
@@ -91,14 +95,14 @@ public static class BulldozerAdDtoMapper
         {
             Title = baseDto.Title, Description = baseDto.Description, IsDollar = baseDto.IsDollar, PriceValue = baseDto.PriceValue,
             City = baseDto.City, Region = baseDto.Region, Neighborhood = baseDto.Neighborhood, Street = baseDto.Street, ImageFiles = baseDto.ImageFiles,
-            FuelType = form.TryGetValue("FuelType", out var ft) && !string.IsNullOrWhiteSpace(ft) && Enum.TryParse<Domain.Entities.Ads.Vehicles.Enums.FuelType>(ft, out var fuelType) ? fuelType : null,
-            EnginePower = form.TryGetValue("EnginePower", out var ep) && !string.IsNullOrWhiteSpace(ep) && ushort.TryParse(ep, out var enginePower) ? enginePower : null,
-            FuelTankCapacity = form.TryGetValue("FuelTankCapacity", out var ftc) && !string.IsNullOrWhiteSpace(ftc) && ushort.TryParse(ftc, out var fuelTank) ? fuelTank : null,
-            OperatingMass = form.TryGetValue("OperatingMass", out var om) && !string.IsNullOrWhiteSpace(om) && float.TryParse(om, out var operatingMass) ? operatingMass : null,
-            Weight = form.TryGetValue("Weight", out var w) && !string.IsNullOrWhiteSpace(w) && float.TryParse(w, out var weight) ? weight : null,
-            BladeWidth = form.TryGetValue("BladeWidth", out var bw) && !string.IsNullOrWhiteSpace(bw) && float.TryParse(bw, out var bladeWidth) ? bladeWidth : null,
-            MaxPushingCapacity = form.TryGetValue("MaxPushingCapacity", out var mpc) && !string.IsNullOrWhiteSpace(mpc) && float.TryParse(mpc, out var maxPushing) ? maxPushing : null,
-            TrackWidth = form.TryGetValue("TrackWidth", out var tw) && !string.IsNullOrWhiteSpace(tw) && float.TryParse(tw, out var trackWidth) ? trackWidth : null
+            FuelType = FormParsingHelpers.ParseEnum<FuelType>(form, "FuelType"),
+            EnginePower = FormParsingHelpers.ParseUShort(form, "EnginePower"),
+            FuelTankCapacity = FormParsingHelpers.ParseUShort(form, "FuelTankCapacity"),
+            OperatingMass = FormParsingHelpers.ParseFloat(form, "OperatingMass"),
+            Weight = FormParsingHelpers.ParseFloat(form, "Weight"),
+            BladeWidth = FormParsingHelpers.ParseFloat(form, "BladeWidth"),
+            MaxPushingCapacity = FormParsingHelpers.ParseFloat(form, "MaxPushingCapacity"),
+            TrackWidth = FormParsingHelpers.ParseFloat(form, "TrackWidth")
         };
     }
 

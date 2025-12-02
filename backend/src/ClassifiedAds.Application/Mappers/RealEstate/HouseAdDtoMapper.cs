@@ -1,9 +1,12 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.RealEstate;
 using ClassifiedAds.Domain.Entities.Ads;
 using ClassifiedAds.Domain.Entities.Ads.RealEstate;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
+
 
 namespace ClassifiedAds.Application.Mappers;
 
@@ -13,8 +16,7 @@ public static class HouseAdDtoMapper
         CreateHouseAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic, List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
         string fullAddressKurdish)
@@ -36,11 +38,7 @@ public static class HouseAdDtoMapper
                 Value = dto.PriceValue.Value,
                 ShowingPrice = showingPrice
             },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
             LocationAd = new LocationAd
             {
                 LocationIds = locationIds,
@@ -83,7 +81,7 @@ public static class HouseAdDtoMapper
             ViewsCount = entity.ViewsCount,
             Priority = entity.Priority,
             Slug = entity.Slug,
-            Category = new DTOs.Common.CategoryResponseDto { CategoryJoins = entity.Category.CategoryJoins, CategoryIds = entity.Category.CategoryIds },
+            Category = new DTOs.Common.CategoryResponseDto { CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic, CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish },
             Specs = new HouseSpecsDto
             {
                 Area = entity.Area,
@@ -109,24 +107,12 @@ public static class HouseAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            Area = form.TryGetValue("Area", out var area) &&
-                  !string.IsNullOrWhiteSpace(area) &&
-                  float.TryParse(area, out var a) ? a : null,
-            Floors = form.TryGetValue("Floors", out var floors) &&
-                    !string.IsNullOrWhiteSpace(floors) &&
-                    byte.TryParse(floors, out var fl) ? fl : null,
-            Bedrooms = form.TryGetValue("Bedrooms", out var bedrooms) &&
-                      !string.IsNullOrWhiteSpace(bedrooms) &&
-                      byte.TryParse(bedrooms, out var br) ? br : null,
-            Bathrooms = form.TryGetValue("Bathrooms", out var bathrooms) &&
-                       !string.IsNullOrWhiteSpace(bathrooms) &&
-                       byte.TryParse(bathrooms, out var ba) ? ba : null,
-            Garage = form.TryGetValue("Garage", out var garage) &&
-                    !string.IsNullOrWhiteSpace(garage) &&
-                    Enum.TryParse<YesNo>(garage, out var ga) ? ga : null,
-            Garden = form.TryGetValue("Garden", out var garden) &&
-                    !string.IsNullOrWhiteSpace(garden) &&
-                    Enum.TryParse<YesNo>(garden, out var gd) ? gd : null
+            Area = FormParsingHelpers.ParseFloat(form, "Area"),
+            Floors = FormParsingHelpers.ParseByte(form, "Floors"),
+            Bedrooms = FormParsingHelpers.ParseByte(form, "Bedrooms"),
+            Bathrooms = FormParsingHelpers.ParseByte(form, "Bathrooms"),
+            Garage = FormParsingHelpers.ParseEnum<YesNo>(form, "Garage"),
+            Garden = FormParsingHelpers.ParseEnum<YesNo>(form, "Garden")
         };
     }
 
@@ -143,24 +129,12 @@ public static class HouseAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            Area = form.TryGetValue("Area", out var area) &&
-                  !string.IsNullOrWhiteSpace(area) &&
-                  float.TryParse(area, out var a) ? a : null,
-            Floors = form.TryGetValue("Floors", out var floors) &&
-                    !string.IsNullOrWhiteSpace(floors) &&
-                    byte.TryParse(floors, out var fl) ? fl : null,
-            Bedrooms = form.TryGetValue("Bedrooms", out var bedrooms) &&
-                      !string.IsNullOrWhiteSpace(bedrooms) &&
-                      byte.TryParse(bedrooms, out var br) ? br : null,
-            Bathrooms = form.TryGetValue("Bathrooms", out var bathrooms) &&
-                       !string.IsNullOrWhiteSpace(bathrooms) &&
-                       byte.TryParse(bathrooms, out var ba) ? ba : null,
-            Garage = form.TryGetValue("Garage", out var garage) &&
-                    !string.IsNullOrWhiteSpace(garage) &&
-                    Enum.TryParse<YesNo>(garage, out var ga) ? ga : null,
-            Garden = form.TryGetValue("Garden", out var garden) &&
-                    !string.IsNullOrWhiteSpace(garden) &&
-                    Enum.TryParse<YesNo>(garden, out var gd) ? gd : null
+            Area = FormParsingHelpers.ParseFloat(form, "Area"),
+            Floors = FormParsingHelpers.ParseByte(form, "Floors"),
+            Bedrooms = FormParsingHelpers.ParseByte(form, "Bedrooms"),
+            Bathrooms = FormParsingHelpers.ParseByte(form, "Bathrooms"),
+            Garage = FormParsingHelpers.ParseEnum<YesNo>(form, "Garage"),
+            Garden = FormParsingHelpers.ParseEnum<YesNo>(form, "Garden")
         };
     }
 

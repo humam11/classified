@@ -1,3 +1,6 @@
+        SELECT version();
+SELECT uuidv7();
+
 INSERT INTO locations (
     name_english,
     name_arabic,

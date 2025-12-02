@@ -1,3 +1,4 @@
+using ClassifiedAds.Application.Common;
 using ClassifiedAds.Application.DTOs.Ads;
 using ClassifiedAds.Application.DTOs.Ads.Jobs;
 using ClassifiedAds.Domain.Entities.Ads;
@@ -5,6 +6,7 @@ using ClassifiedAds.Domain.Entities.Ads.JobsServices;
 using ClassifiedAds.Domain.Entities.Ads.JobsServices.Enums;
 using ClassifiedAds.Domain.Common.Enums;
 using ClassifiedAds.Domain.Common.ValueObjects;
+using static ClassifiedAds.Application.Common.FormParsingHelpers;
 
 namespace ClassifiedAds.Application.Mappers.Jobs;
 
@@ -15,8 +17,7 @@ public static class VacancyAdDtoMapper
         CreateVacancyAdDto dto,
         string slug,
         Guid userId,
-        List<ushort> categoryIds,
-        byte categoryJoins,
+        List<string> categoriesSlugsArabic, List<string> categoriesSlugsKurdish,
         List<ushort> locationIds,
         string fullAddressArabic,
         string fullAddressKurdish)
@@ -39,11 +40,7 @@ public static class VacancyAdDtoMapper
                 Value = dto.PriceValue.Value,
                 ShowingPrice = showingPrice
             },
-            Category = new Category
-            {
-                CategoryJoins = categoryJoins,
-                CategoryIds = categoryIds
-            },
+            Category = new Category { CategoriesSlugsArabic = categoriesSlugsArabic, CategoriesSlugsKurdish = categoriesSlugsKurdish },
             LocationAd = new LocationAd
             {
                 LocationIds = locationIds,
@@ -107,8 +104,8 @@ public static class VacancyAdDtoMapper
             Slug = entity.Slug,
             Category = new DTOs.Common.CategoryResponseDto
             {
-                CategoryJoins = entity.Category.CategoryJoins,
-                CategoryIds = entity.Category.CategoryIds
+                CategoriesSlugsArabic = entity.Category.CategoriesSlugsArabic,
+                CategoriesSlugsKurdish = entity.Category.CategoriesSlugsKurdish
             },
             Specs = new VacancySpecsDto
             {
@@ -136,24 +133,12 @@ public static class VacancyAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            JobType = form.TryGetValue("JobType", out var jobType) &&
-                     !string.IsNullOrWhiteSpace(jobType) &&
-                     Enum.TryParse<JobType>(jobType, out var jt) ? jt : null,
-            ExperienceYears = form.TryGetValue("ExperienceYears", out var exp) &&
-                             !string.IsNullOrWhiteSpace(exp) &&
-                             byte.TryParse(exp, out var ey) ? ey : null,
-            EducationLevel = form.TryGetValue("EducationLevel", out var edu) &&
-                            !string.IsNullOrWhiteSpace(edu) &&
-                            Enum.TryParse<EducationLevel>(edu, out var el) ? el : null,
-            WorkingHours = form.TryGetValue("WorkingHours", out var hours) &&
-                          !string.IsNullOrWhiteSpace(hours) &&
-                          Enum.TryParse<WorkingHours>(hours, out var wh) ? wh : null,
-            Max = form.TryGetValue("Max", out var max) &&
-                 !string.IsNullOrWhiteSpace(max) &&
-                 decimal.TryParse(max, out var m) ? m : null,
-            PaymentPeriod = form.TryGetValue("PaymentPeriod", out var period) &&
-                           !string.IsNullOrWhiteSpace(period) &&
-                           Enum.TryParse<PaymentPeriod>(period, out var pp) ? pp : null
+            JobType = ParseEnum<JobType>(form, "JobType"),
+            ExperienceYears = ParseByte(form, "ExperienceYears"),
+            EducationLevel = ParseEnum<EducationLevel>(form, "EducationLevel"),
+            WorkingHours = ParseEnum<WorkingHours>(form, "WorkingHours"),
+            Max = ParseDecimal(form, "Max"),
+            PaymentPeriod = ParseEnum<PaymentPeriod>(form, "PaymentPeriod")
         };
     }
 
@@ -171,24 +156,12 @@ public static class VacancyAdDtoMapper
             Neighborhood = baseDto.Neighborhood,
             Street = baseDto.Street,
             ImageFiles = baseDto.ImageFiles,
-            JobType = form.TryGetValue("JobType", out var jobType) &&
-                     !string.IsNullOrWhiteSpace(jobType) &&
-                     Enum.TryParse<JobType>(jobType, out var jt) ? jt : null,
-            ExperienceYears = form.TryGetValue("ExperienceYears", out var exp) &&
-                             !string.IsNullOrWhiteSpace(exp) &&
-                             byte.TryParse(exp, out var ey) ? ey : null,
-            EducationLevel = form.TryGetValue("EducationLevel", out var edu) &&
-                            !string.IsNullOrWhiteSpace(edu) &&
-                            Enum.TryParse<EducationLevel>(edu, out var el) ? el : null,
-            WorkingHours = form.TryGetValue("WorkingHours", out var hours) &&
-                          !string.IsNullOrWhiteSpace(hours) &&
-                          Enum.TryParse<WorkingHours>(hours, out var wh) ? wh : null,
-            Max = form.TryGetValue("Max", out var max) &&
-                 !string.IsNullOrWhiteSpace(max) &&
-                 decimal.TryParse(max, out var m) ? m : null,
-            PaymentPeriod = form.TryGetValue("PaymentPeriod", out var period) &&
-                           !string.IsNullOrWhiteSpace(period) &&
-                           Enum.TryParse<PaymentPeriod>(period, out var pp) ? pp : null
+            JobType = ParseEnum<JobType>(form, "JobType"),
+            ExperienceYears = ParseByte(form, "ExperienceYears"),
+            EducationLevel = ParseEnum<EducationLevel>(form, "EducationLevel"),
+            WorkingHours = ParseEnum<WorkingHours>(form, "WorkingHours"),
+            Max = ParseDecimal(form, "Max"),
+            PaymentPeriod = ParseEnum<PaymentPeriod>(form, "PaymentPeriod")
         };
     }
 
