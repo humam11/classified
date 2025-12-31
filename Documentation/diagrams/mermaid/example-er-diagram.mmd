@@ -1,0 +1,91 @@
+%% PostgreSQL Entity Relationship Diagram
+%% Shows main tables and their relationships
+
+erDiagram
+    USERS ||--o{ ADS : creates
+    USERS ||--o{ USER_REVIEWS : receives
+    USERS ||--o{ USER_REVIEWS : writes
+    USERS ||--o{ USER_REPORTS : reports
+    USERS ||--o{ USER_REPORTS : reported_by
+    USERS }o--|| LOCATIONS : "lives in"
+    
+    CATEGORIES ||--o{ CATEGORIES : "parent of"
+    CATEGORIES ||--o{ BRANDS_MODELS : "applies to"
+    
+    BRANDS_MODELS ||--o{ BRANDS_MODELS : "parent of"
+    BRANDS_MODELS ||--o{ RELEASES : "has"
+    
+    LOCATIONS ||--o{ LOCATIONS : "parent of"
+    
+    USERS {
+        uuid user_id PK
+        varchar username
+        varchar email
+        varchar password_hash
+        int location_id FK
+        decimal rating
+        int review_count
+        timestamp created_at
+    }
+    
+    CATEGORIES {
+        smallint category_id PK
+        varchar name_english
+        varchar name_russian
+        varchar slug_english
+        varchar slug_russian
+        smallint parent_id FK
+        ltree hierarchy_path
+        int level
+        boolean is_leaf
+    }
+    
+    LOCATIONS {
+        int location_id PK
+        varchar name_english
+        varchar name_russian
+        int parent_id FK
+        ltree hierarchy_path
+        int level
+    }
+    
+    BRANDS_MODELS {
+        int brand_model_id PK
+        varchar name
+        int parent_id FK
+        smallint category_id FK
+        boolean is_brand
+        varchar automation_keyword
+    }
+    
+    RELEASES {
+        int release_id PK
+        int model_id FK
+        smallint release_year
+        varchar name
+    }
+    
+    USER_REVIEWS {
+        uuid review_id PK
+        uuid reviewer_id FK
+        uuid reviewed_user_id FK
+        smallint rating
+        text comment
+        timestamp created_at
+    }
+    
+    USER_REPORTS {
+        uuid report_id PK
+        uuid reporter_id FK
+        uuid reported_user_id FK
+        text reason
+        timestamp created_at
+    }
+    
+    ADS {
+        objectid _id PK "MongoDB"
+        uuid user_id FK
+        varchar title
+        decimal price
+        varchar status
+    }

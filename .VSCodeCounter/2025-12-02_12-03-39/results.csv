@@ -1,0 +1,386 @@
+"filename", "language", "MS SQL", "Markdown", "Python", "JSON", "C#", "PowerShell", "Properties", "XML", "comment", "blank", "total"
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\.vs\VSWorkspaceState.json", "JSON", 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 7
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\Archieve\ClassifiedTablesSQL-Server.sql", "MS SQL", 119, 0, 0, 0, 0, 0, 0, 0, 57, 90, 266
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\Archieve\archieve_sql.sql", "MS SQL", 499, 0, 0, 0, 0, 0, 0, 0, 198, 143, 840
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\Categories\Generate-CategoryDtoMapper.ps1", "PowerShell", 0, 0, 0, 0, 0, 124, 0, 0, 8, 29, 161
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\Categories\transform-categories.ps1", "PowerShell", 0, 0, 0, 0, 0, 76, 0, 0, 14, 24, 114
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Electronics\gaming_console_example.json", "JSON", 0, 0, 0, 40, 0, 0, 0, 0, 29, 7, 76
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Electronics\general_electronic_example.json", "JSON", 0, 0, 0, 35, 0, 0, 0, 0, 4, 5, 44
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Electronics\laptop_only_example.json", "JSON", 0, 0, 0, 66, 0, 0, 0, 0, 81, 2, 149
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Electronics\pc-build_example.json", "JSON", 0, 0, 0, 55, 0, 0, 0, 0, 52, 2, 109
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Electronics\phone_tablet_example.json", "JSON", 0, 0, 0, 62, 0, 0, 0, 0, 123, 2, 187
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Electronics\tv_monitor_example.json", "JSON", 0, 0, 0, 55, 0, 0, 0, 0, 86, 1, 142
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Jobs-Services\cv_example.json", "JSON", 0, 0, 0, 91, 0, 0, 0, 0, 115, 0, 206
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Jobs-Services\service_example.json", "JSON", 0, 0, 0, 96, 0, 0, 0, 0, 66, 0, 162
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Jobs-Services\vacancy_example.json", "JSON", 0, 0, 0, 39, 0, 0, 0, 0, 85, 6, 130
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Miscellaneous\book_example.json", "JSON", 0, 0, 0, 46, 0, 0, 0, 0, 29, 0, 75
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Miscellaneous\cloth_example.json", "JSON", 0, 0, 0, 47, 0, 0, 0, 0, 58, 0, 105
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Miscellaneous\engine-oil_example.json", "JSON", 0, 0, 0, 46, 0, 0, 0, 0, 105, 0, 151
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Miscellaneous\furniture_example.json", "JSON", 0, 0, 0, 48, 0, 0, 0, 0, 33, 0, 81
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Miscellaneous\plant_example.json", "JSON", 0, 0, 0, 46, 0, 0, 0, 0, 17, 0, 63
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Miscellaneous\shoe_example.json", "JSON", 0, 0, 0, 35, 0, 0, 0, 0, 4, 6, 45
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Miscellaneous\tire-wheel_example.json", "JSON", 0, 0, 0, 36, 0, 0, 0, 0, 7, 6, 49
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Miscellaneous\video-game_example.json", "JSON", 0, 0, 0, 35, 0, 0, 0, 0, 25, 7, 67
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Real Estate\apartment_example.json", "JSON", 0, 0, 0, 40, 0, 0, 0, 0, 19, 6, 65
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Real Estate\construction-project_example.json", "JSON", 0, 0, 0, 48, 0, 0, 0, 0, 18, 1, 67
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Real Estate\general_real-estate_example.json", "JSON", 0, 0, 0, 34, 0, 0, 0, 0, 3, 5, 42
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Real Estate\house_example.json", "JSON", 0, 0, 0, 52, 0, 0, 0, 0, 30, 2, 84
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Vehicles\Heavy Equipment\bulldozer_example.json", "JSON", 0, 0, 0, 45, 0, 0, 0, 0, 5, 9, 59
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Vehicles\Heavy Equipment\bus_example.json", "JSON", 0, 0, 0, 43, 0, 0, 0, 0, 3, 5, 51
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Vehicles\Heavy Equipment\crane_example.json", "JSON", 0, 0, 0, 46, 0, 0, 0, 0, 6, 5, 57
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Vehicles\Heavy Equipment\excavator_example.json", "JSON", 0, 0, 0, 55, 0, 0, 0, 0, 4, 1, 60
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Vehicles\Heavy Equipment\general_heavy-equipment_example.json", "JSON", 0, 0, 0, 40, 0, 0, 0, 0, 4, 5, 49
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Vehicles\boat_example.json", "JSON", 0, 0, 0, 51, 0, 0, 0, 0, 8, 3, 62
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Vehicles\car_example.json", "JSON", 0, 0, 0, 57, 0, 0, 0, 0, 43, 3, 103
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Vehicles\general_transport_example.json", "JSON", 0, 0, 0, 36, 0, 0, 0, 0, 5, 6, 47
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Vehicles\motorcycle_example.json", "JSON", 0, 0, 0, 52, 0, 0, 0, 0, 23, 1, 76
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\Vehicles\truck_example.json", "JSON", 0, 0, 0, 42, 0, 0, 0, 0, 6, 7, 55
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\AdsClassificationAttributes\common-fileds-data-type.json", "JSON", 0, 0, 0, 36, 0, 0, 0, 0, 6, 10, 52
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\ChatSystem\README.md", "Markdown", 0, 58, 0, 0, 0, 0, 0, 0, 0, 12, 70
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\ChatSystem\conversation.json", "JSON", 0, 0, 0, 37, 0, 0, 0, 0, 17, 10, 64
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\ChatSystem\indexes.json", "JSON", 0, 0, 0, 11, 0, 0, 0, 0, 3, 2, 16
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\ChatSystem\message.json", "JSON", 0, 0, 0, 8, 0, 0, 0, 0, 3, 1, 12
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\Sort&Exchange\exchange_rates.json", "JSON", 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 27
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\MongoDB Documents\Sort&Exchange\price_sorting_queries.json", "JSON", 0, 0, 0, 117, 0, 0, 0, 0, 0, 0, 117
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\Notes\Vacancy & CV Posting Workflow.md", "Markdown", 0, 24, 0, 0, 0, 0, 0, 0, 0, 4, 28
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\Notes\endpoints_only.md", "Markdown", 0, 45, 0, 0, 0, 0, 0, 0, 0, 21, 66
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\Notes\enumSystem\DOCUMENTATION.md", "Markdown", 0, 334, 0, 0, 0, 0, 0, 0, 0, 88, 422
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\Notes\enumSystem\MultilingualEnumHandler.cs", "C#", 0, 0, 0, 0, 297, 0, 0, 0, 46, 55, 398
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\Notes\logisticRegression.md", "Markdown", 0, 10, 0, 0, 0, 0, 0, 0, 0, 2, 12
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\Notes\rateLimiter.md", "Markdown", 0, 33, 0, 0, 0, 0, 0, 0, 0, 7, 40
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\Notes\redirect-rules-with-mongodb-slug.md", "Markdown", 0, 38, 0, 0, 0, 0, 0, 0, 0, 33, 71
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\Notes\takepoints.md", "Markdown", 0, 11, 0, 0, 0, 0, 0, 0, 0, 10, 21
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\SQL\Inserting-data\brands_models_inserts.sql", "MS SQL", 189, 0, 0, 0, 0, 0, 0, 0, 41, 101, 331
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\SQL\Inserting-data\category_generator.py", "Python", 0, 0, 363, 0, 0, 0, 0, 0, 39, 112, 514
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\SQL\Inserting-data\category_inserts.sql", "MS SQL", 1458, 0, 0, 0, 0, 0, 0, 0, 34, 114, 1606
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\SQL\Tables.sql", "MS SQL", 116, 0, 0, 0, 0, 0, 0, 0, 60, 59, 235
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\SQL\data-inserting-example.sql", "MS SQL", 37, 0, 0, 0, 0, 0, 0, 0, 2, 11, 50
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\SQL\insert.sql", "MS SQL", 189, 0, 0, 0, 0, 0, 0, 0, 41, 101, 331
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\SQL\year.sql", "MS SQL", 9, 0, 0, 0, 0, 0, 0, 0, 11, 9, 29
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\ClassifiedAds.Api.csproj", "XML", 0, 0, 0, 0, 0, 0, 0, 19, 0, 5, 24
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\Controllers\DynamicAdsController.cs", "C#", 0, 0, 0, 0, 427, 0, 0, 0, 39, 79, 545
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\Examples\AdPatch.md", "Markdown", 0, 13, 0, 0, 0, 0, 0, 0, 0, 1, 14
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\Examples\AdPost.md", "Markdown", 0, 14, 0, 0, 0, 0, 0, 0, 0, 1, 15
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\Examples\Jobs\CvAd\CvAdPost.md", "Markdown", 0, 32, 0, 0, 0, 0, 0, 0, 0, 5, 37
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\Examples\Jobs\ServiceAd\ServiceAdPost.md", "Markdown", 0, 36, 0, 0, 0, 0, 0, 0, 0, 7, 43
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\Examples\Jobs\VacancyAd\VacancyAdPost.md", "Markdown", 0, 19, 0, 0, 0, 0, 0, 0, 0, 2, 21
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\Examples\Miscellaneous\BookAd\BookAdPatch.md", "Markdown", 0, 15, 0, 0, 0, 0, 0, 0, 0, 2, 17
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\Examples\Miscellaneous\BookAd\BookAdPost.md", "Markdown", 0, 15, 0, 0, 0, 0, 0, 0, 0, 2, 17
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\Examples\Vehicles\CarAd\CarAdPost.md", "Markdown", 0, 22, 0, 0, 0, 0, 0, 0, 0, 3, 25
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\Examples\Vehicles\HeavyEquipment\CraneAd\CraneAdPost.md", "Markdown", 0, 23, 0, 0, 0, 0, 0, 0, 0, 2, 25
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\Examples\Vehicles\TruckAd\TruckAdPost.md", "Markdown", 0, 18, 0, 0, 0, 0, 0, 0, 0, 3, 21
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\Middleware\LanguageMiddleware.cs", "C#", 0, 0, 0, 0, 33, 0, 0, 0, 0, 8, 41
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\Program.cs", "C#", 0, 0, 0, 0, 66, 0, 0, 0, 9, 20, 95
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\Properties\launchSettings.json", "JSON", 0, 0, 0, 23, 0, 0, 0, 0, 0, 1, 24
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\README_API_IMPLEMENTATION.md", "Markdown", 0, 209, 0, 0, 0, 0, 0, 0, 0, 58, 267
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\appsettings.Development.json", "JSON", 0, 0, 0, 8, 0, 0, 0, 0, 0, 1, 9
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\appsettings.json", "JSON", 0, 0, 0, 21, 0, 0, 0, 0, 0, 1, 22
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\bin\Debug\net9.0\ClassifiedAds.Api.deps.json", "JSON", 0, 0, 0, 730, 0, 0, 0, 0, 0, 0, 730
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\bin\Debug\net9.0\ClassifiedAds.Api.runtimeconfig.json", "JSON", 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 20
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\bin\Debug\net9.0\ClassifiedAds.Api.staticwebassets.endpoints.json", "JSON", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\bin\Debug\net9.0\ClassifiedAds.Api.staticwebassets.runtime.json", "JSON", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\bin\Debug\net9.0\ClassifiedAds.Api.xml", "XML", 0, 0, 0, 0, 0, 0, 0, 8, 0, 1, 9
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\bin\Debug\net9.0\appsettings.Development.json", "JSON", 0, 0, 0, 8, 0, 0, 0, 0, 0, 1, 9
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\bin\Debug\net9.0\appsettings.json", "JSON", 0, 0, 0, 21, 0, 0, 0, 0, 0, 1, 22
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\ClassifiedAds.Api.csproj.nuget.dgspec.json", "JSON", 0, 0, 0, 352, 0, 0, 0, 0, 0, 0, 352
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\ClassifiedAds.Api.csproj.nuget.g.props", "XML", 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 24
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\ClassifiedAds.Api.csproj.nuget.g.targets", "XML", 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 8
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Debug\net9.0\.NETCoreApp,Version=v9.0.AssemblyAttributes.cs", "C#", 0, 0, 0, 0, 3, 0, 0, 0, 1, 1, 5
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Debug\net9.0\ClassifiedAds.Api.AssemblyInfo.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 9, 5, 23
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Debug\net9.0\ClassifiedAds.Api.GeneratedMSBuildEditorConfig.editorconfig", "Properties", 0, 0, 0, 0, 0, 0, 21, 0, 0, 1, 22
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Debug\net9.0\ClassifiedAds.Api.GlobalUsings.g.cs", "C#", 0, 0, 0, 0, 16, 0, 0, 0, 1, 1, 18
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Debug\net9.0\ClassifiedAds.Api.MvcApplicationPartsAssemblyInfo.cs", "C#", 0, 0, 0, 0, 6, 0, 0, 0, 9, 5, 20
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Debug\net9.0\ClassifiedAds.Api.sourcelink.json", "JSON", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Debug\net9.0\ClassifiedAds.Api.xml", "XML", 0, 0, 0, 0, 0, 0, 0, 8, 0, 1, 9
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Debug\net9.0\rjimswa.dswa.cache.json", "JSON", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json", "JSON", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Debug\net9.0\rjsmrazor.dswa.cache.json", "JSON", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Debug\net9.0\rpswa.dswa.cache.json", "JSON", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Debug\net9.0\staticwebassets.build.endpoints.json", "JSON", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Debug\net9.0\staticwebassets.build.json", "JSON", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Debug\net9.0\staticwebassets.development.json", "JSON", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Release\net9.0\.NETCoreApp,Version=v9.0.AssemblyAttributes.cs", "C#", 0, 0, 0, 0, 3, 0, 0, 0, 1, 1, 5
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Release\net9.0\ClassifiedAds.Api.AssemblyInfo.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 10, 5, 24
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Release\net9.0\ClassifiedAds.Api.GeneratedMSBuildEditorConfig.editorconfig", "Properties", 0, 0, 0, 0, 0, 0, 21, 0, 0, 1, 22
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\Release\net9.0\ClassifiedAds.Api.GlobalUsings.g.cs", "C#", 0, 0, 0, 0, 16, 0, 0, 0, 1, 1, 18
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Api\obj\project.assets.json", "JSON", 0, 0, 0, 2085, 0, 0, 0, 0, 0, 0, 2085
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\ClassifiedAds.Application.csproj", "XML", 0, 0, 0, 0, 0, 0, 0, 18, 0, 6, 24
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Common\EnumQueryStringHelper.cs", "C#", 0, 0, 0, 0, 96, 0, 0, 0, 22, 19, 137
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Common\FormParsingHelpers.cs", "C#", 0, 0, 0, 0, 96, 0, 0, 0, 3, 13, 112
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Common\LanguageContext.cs", "C#", 0, 0, 0, 0, 12, 0, 0, 0, 0, 4, 16
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Common\README_MULTILINGUAL_QUERY-PARAMS.md", "Markdown", 0, 179, 0, 0, 0, 0, 0, 0, 0, 51, 230
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\AdDto.cs", "C#", 0, 0, 0, 0, 50, 0, 0, 0, 10, 21, 81
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Electronics\ComputerAdDto.cs", "C#", 0, 0, 0, 0, 32, 0, 0, 0, 1, 6, 39
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Electronics\ConsoleAdDto.cs", "C#", 0, 0, 0, 0, 24, 0, 0, 0, 3, 6, 33
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Electronics\ElectronicAdDto.cs", "C#", 0, 0, 0, 0, 21, 0, 0, 0, 1, 6, 28
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Electronics\HandheldDeviceAdDto.cs", "C#", 0, 0, 0, 0, 47, 0, 0, 0, 3, 6, 56
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Electronics\LaptopAdDto.cs", "C#", 0, 0, 0, 0, 50, 0, 0, 0, 3, 6, 59
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Electronics\TvMonitorAdDto.cs", "C#", 0, 0, 0, 0, 32, 0, 0, 0, 3, 6, 41
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Jobs\Cv\CvAdDto.cs", "C#", 0, 0, 0, 0, 37, 0, 0, 0, 8, 6, 51
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Jobs\Cv\EducationDto.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 0, 0, 3, 13
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Jobs\Cv\ExperienceDto.cs", "C#", 0, 0, 0, 0, 8, 0, 0, 0, 0, 2, 10
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Jobs\Cv\LanguageDto.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 0, 3, 10
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Jobs\Service\DailyAvailabilityDto.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 0, 0, 3, 13
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Jobs\Service\ServiceAdDto.cs", "C#", 0, 0, 0, 0, 21, 0, 0, 0, 5, 6, 32
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Jobs\Service\TimeSlotDto.cs", "C#", 0, 0, 0, 0, 6, 0, 0, 0, 0, 2, 8
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Jobs\VacancyAdDto.cs", "C#", 0, 0, 0, 0, 29, 0, 0, 0, 1, 6, 36
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Miscellaneous\BookAdDto.cs", "C#", 0, 0, 0, 0, 21, 0, 0, 0, 1, 5, 27
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Miscellaneous\ClothAdDto.cs", "C#", 0, 0, 0, 0, 23, 0, 0, 0, 1, 6, 30
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Miscellaneous\EngineOilAdDto.cs", "C#", 0, 0, 0, 0, 23, 0, 0, 0, 1, 6, 30
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Miscellaneous\FurnitureAdDto.cs", "C#", 0, 0, 0, 0, 25, 0, 0, 0, 1, 6, 32
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Miscellaneous\PlantAdDto.cs", "C#", 0, 0, 0, 0, 21, 0, 0, 0, 1, 6, 28
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Miscellaneous\ShoeAdDto.cs", "C#", 0, 0, 0, 0, 21, 0, 0, 0, 1, 6, 28
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Miscellaneous\TireWheelAdDto.cs", "C#", 0, 0, 0, 0, 22, 0, 0, 0, 1, 6, 29
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Miscellaneous\VideoGameAdDto.cs", "C#", 0, 0, 0, 0, 22, 0, 0, 0, 3, 6, 31
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\RealEstate\ApartmentAdDto.cs", "C#", 0, 0, 0, 0, 27, 0, 0, 0, 1, 6, 34
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\RealEstate\ConstructionProjectAdDto.cs", "C#", 0, 0, 0, 0, 19, 0, 0, 0, 1, 6, 26
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\RealEstate\HouseAdDto.cs", "C#", 0, 0, 0, 0, 27, 0, 0, 0, 1, 6, 34
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\RealEstate\RealEstateAdDto.cs", "C#", 0, 0, 0, 0, 18, 0, 0, 0, 1, 6, 25
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Vehicles\BoatAdDto.cs", "C#", 0, 0, 0, 0, 20, 0, 0, 0, 1, 6, 27
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Vehicles\CarAdDto.cs", "C#", 0, 0, 0, 0, 34, 0, 0, 0, 4, 6, 44
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Vehicles\HeavyEquipment\BulldozerAdDto.cs", "C#", 0, 0, 0, 0, 22, 0, 0, 0, 1, 6, 29
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Vehicles\HeavyEquipment\BusAdDto.cs", "C#", 0, 0, 0, 0, 18, 0, 0, 0, 1, 6, 25
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Vehicles\HeavyEquipment\CraneAdDto.cs", "C#", 0, 0, 0, 0, 24, 0, 0, 0, 1, 6, 31
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Vehicles\HeavyEquipment\ExcavatorAdDto.cs", "C#", 0, 0, 0, 0, 20, 0, 0, 0, 1, 6, 27
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Vehicles\HeavyEquipment\HeavyEquipmentAdDto.cs", "C#", 0, 0, 0, 0, 20, 0, 0, 0, 1, 6, 27
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Vehicles\MotorcycleAdDto.cs", "C#", 0, 0, 0, 0, 23, 0, 0, 0, 3, 6, 32
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Vehicles\TransportAdDto.cs", "C#", 0, 0, 0, 0, 23, 0, 0, 0, 1, 6, 30
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Ads\Vehicles\TruckAdDto.cs", "C#", 0, 0, 0, 0, 24, 0, 0, 0, 4, 6, 34
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Common\GET\AdImageDto.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 3, 2, 12
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Common\GET\CategoryResponseDto.cs", "C#", 0, 0, 0, 0, 6, 0, 0, 0, 11, 3, 20
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Common\GET\LocationAdResponseDto.cs", "C#", 0, 0, 0, 0, 8, 0, 0, 0, 3, 2, 13
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Common\GET\PriceResponseDto.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 3, 2, 12
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Common\LocationAdDto.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 4, 9, 22
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Common\PriceDto.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 0, 6, 13
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\DTOs\Users\CreateUserDto.cs", "C#", 0, 0, 0, 0, 14, 0, 0, 0, 0, 3, 17
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Interfaces\IAdService.cs", "C#", 0, 0, 0, 0, 28, 0, 0, 0, 3, 7, 38
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Interfaces\IBrandModelReleaseService.cs", "C#", 0, 0, 0, 0, 16, 0, 0, 0, 4, 4, 24
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Interfaces\ICategoryService.cs", "C#", 0, 0, 0, 0, 8, 0, 0, 0, 5, 3, 16
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Interfaces\IImageService.cs", "C#", 0, 0, 0, 0, 17, 0, 0, 0, 19, 5, 41
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Interfaces\ILocationService.cs", "C#", 0, 0, 0, 0, 8, 0, 0, 0, 9, 3, 20
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\AdDtoMapper.cs", "C#", 0, 0, 0, 0, 101, 0, 0, 0, 7, 8, 116
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Electronics\ComputerAdDtoMapper.cs", "C#", 0, 0, 0, 0, 168, 0, 0, 0, 0, 9, 177
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Electronics\ConsoleAdDtoMapper.cs", "C#", 0, 0, 0, 0, 136, 0, 0, 0, 3, 11, 150
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Electronics\ElectronicAdDtoMapper.cs", "C#", 0, 0, 0, 0, 126, 0, 0, 0, 0, 9, 135
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Electronics\HandheldDeviceAdDtoMapper.cs", "C#", 0, 0, 0, 0, 191, 0, 0, 0, 3, 11, 205
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Electronics\LaptopAdDtoMapper.cs", "C#", 0, 0, 0, 0, 199, 0, 0, 0, 3, 11, 213
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Electronics\TvMonitorAdDtoMapper.cs", "C#", 0, 0, 0, 0, 154, 0, 0, 0, 3, 11, 168
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Jobs\CvAdDtoMapper.cs", "C#", 0, 0, 0, 0, 247, 0, 0, 0, 8, 10, 265
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Jobs\ServiceAdDtoMapper.cs", "C#", 0, 0, 0, 0, 177, 0, 0, 0, 7, 11, 195
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Jobs\VacancyAdDtoMapper.cs", "C#", 0, 0, 0, 0, 171, 0, 0, 0, 7, 10, 188
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Miscellaneous\BookAdDtoMapper.cs", "C#", 0, 0, 0, 0, 127, 0, 0, 0, 8, 11, 146
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Miscellaneous\ClothAdDtoMapper.cs", "C#", 0, 0, 0, 0, 133, 0, 0, 0, 4, 9, 146
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Miscellaneous\EngineOilAdDtoMapper.cs", "C#", 0, 0, 0, 0, 133, 0, 0, 0, 0, 9, 142
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Miscellaneous\FurnitureAdDtoMapper.cs", "C#", 0, 0, 0, 0, 153, 0, 0, 0, 0, 9, 162
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Miscellaneous\PlantAdDtoMapper.cs", "C#", 0, 0, 0, 0, 127, 0, 0, 0, 0, 9, 136
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Miscellaneous\ShoeAdDtoMapper.cs", "C#", 0, 0, 0, 0, 126, 0, 0, 0, 0, 9, 135
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Miscellaneous\TireWheelAdDtoMapper.cs", "C#", 0, 0, 0, 0, 132, 0, 0, 0, 0, 9, 141
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Miscellaneous\VideoGameAdDtoMapper.cs", "C#", 0, 0, 0, 0, 122, 0, 0, 0, 3, 11, 136
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\RealEstate\ApartmentAdDtoMapper.cs", "C#", 0, 0, 0, 0, 150, 0, 0, 0, 0, 10, 160
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\RealEstate\ConstructionProjectAdDtoMapper.cs", "C#", 0, 0, 0, 0, 126, 0, 0, 0, 0, 10, 136
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\RealEstate\HouseAdDtoMapper.cs", "C#", 0, 0, 0, 0, 150, 0, 0, 0, 0, 10, 160
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\RealEstate\RealEstateAdDtoMapper.cs", "C#", 0, 0, 0, 0, 120, 0, 0, 0, 0, 10, 130
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Vehicles\BoatAdDtoMapper.cs", "C#", 0, 0, 0, 0, 104, 0, 0, 0, 0, 8, 112
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Vehicles\CarAdDtoMapper.cs", "C#", 0, 0, 0, 0, 203, 0, 0, 0, 3, 13, 219
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Vehicles\HeavyEquipment\BulldozerAdDtoMapper.cs", "C#", 0, 0, 0, 0, 115, 0, 0, 0, 0, 9, 124
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Vehicles\HeavyEquipment\BusAdDtoMapper.cs", "C#", 0, 0, 0, 0, 98, 0, 0, 0, 0, 9, 107
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Vehicles\HeavyEquipment\CraneAdDtoMapper.cs", "C#", 0, 0, 0, 0, 111, 0, 0, 0, 0, 9, 120
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Vehicles\HeavyEquipment\ExcavatorAdDtoMapper.cs", "C#", 0, 0, 0, 0, 103, 0, 0, 0, 0, 9, 112
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Vehicles\HeavyEquipment\HeavyEquipmentAdDtoMapper.cs", "C#", 0, 0, 0, 0, 145, 0, 0, 0, 0, 10, 155
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Vehicles\MotorcycleAdDtoMapper.cs", "C#", 0, 0, 0, 0, 139, 0, 0, 0, 3, 11, 153
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Vehicles\TransportAdDtoMapper.cs", "C#", 0, 0, 0, 0, 132, 0, 0, 0, 0, 9, 141
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Mappers\Vehicles\TruckAdDtoMapper.cs", "C#", 0, 0, 0, 0, 148, 0, 0, 0, 3, 12, 163
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Services\AdService.cs", "C#", 0, 0, 0, 0, 825, 0, 0, 0, 107, 94, 1026
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Services\CategoryDtoMapper.cs", "C#", 0, 0, 0, 0, 317, 0, 0, 0, 16, 27, 360
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\AdDtoValidator.cs", "C#", 0, 0, 0, 0, 112, 0, 0, 0, 5, 19, 136
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Electronics\ComputerAdDtoValidator.cs", "C#", 0, 0, 0, 0, 77, 0, 0, 0, 1, 15, 93
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Electronics\ConsoleAdDtoValidator.cs", "C#", 0, 0, 0, 0, 68, 0, 0, 0, 3, 13, 84
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Electronics\ElectronicAdDtoValidator.cs", "C#", 0, 0, 0, 0, 38, 0, 0, 0, 1, 8, 47
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Electronics\HandheldDeviceAdDtoValidator.cs", "C#", 0, 0, 0, 0, 159, 0, 0, 0, 3, 30, 192
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Electronics\LaptopAdDtoValidator.cs", "C#", 0, 0, 0, 0, 158, 0, 0, 0, 1, 30, 189
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Electronics\TvMonitorAdDtoValidator.cs", "C#", 0, 0, 0, 0, 77, 0, 0, 0, 1, 15, 93
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Jobs\Cv\CvAdDtoValidator.cs", "C#", 0, 0, 0, 0, 119, 0, 0, 0, 8, 22, 149
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Jobs\Cv\EducationDtoValidator.cs", "C#", 0, 0, 0, 0, 61, 0, 0, 0, 4, 10, 75
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Jobs\Cv\ExperienceDtoValidator.cs", "C#", 0, 0, 0, 0, 49, 0, 0, 0, 3, 8, 60
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Jobs\Cv\LanguageDtoValidator.cs", "C#", 0, 0, 0, 0, 31, 0, 0, 0, 1, 5, 37
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Jobs\Service\DailyAvailabilityDtoValidator.cs", "C#", 0, 0, 0, 0, 80, 0, 0, 0, 7, 14, 101
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Jobs\Service\ServiceAdDtoValidator.cs", "C#", 0, 0, 0, 0, 40, 0, 0, 0, 6, 10, 56
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Jobs\Service\TimeSlotDtoValidator.cs", "C#", 0, 0, 0, 0, 28, 0, 0, 0, 0, 4, 32
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Jobs\VacancyAdDtoValidator.cs", "C#", 0, 0, 0, 0, 78, 0, 0, 0, 6, 17, 101
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Miscellaneous\BookAdDtoValidator.cs", "C#", 0, 0, 0, 0, 40, 0, 0, 0, 6, 9, 55
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Miscellaneous\ClothAdDtoValidator.cs", "C#", 0, 0, 0, 0, 55, 0, 0, 0, 0, 11, 66
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Miscellaneous\EngineOilAdDtoValidator.cs", "C#", 0, 0, 0, 0, 50, 0, 0, 0, 0, 10, 60
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Miscellaneous\FurnitureAdDtoValidator.cs", "C#", 0, 0, 0, 0, 51, 0, 0, 0, 0, 10, 61
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Miscellaneous\PlantAdDtoValidator.cs", "C#", 0, 0, 0, 0, 39, 0, 0, 0, 0, 8, 47
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Miscellaneous\ShoeAdDtoValidator.cs", "C#", 0, 0, 0, 0, 39, 0, 0, 0, 0, 8, 47
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Miscellaneous\TireWheelAdDtoValidator.cs", "C#", 0, 0, 0, 0, 39, 0, 0, 0, 0, 8, 47
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Miscellaneous\VideoGameAdDtoValidator.cs", "C#", 0, 0, 0, 0, 55, 0, 0, 0, 3, 11, 69
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\RealEstate\ApartmentAdDtoValidator.cs", "C#", 0, 0, 0, 0, 61, 0, 0, 0, 1, 12, 74
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\RealEstate\ConstructionProjectAdDtoValidator.cs", "C#", 0, 0, 0, 0, 35, 0, 0, 0, 1, 7, 43
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\RealEstate\HouseAdDtoValidator.cs", "C#", 0, 0, 0, 0, 61, 0, 0, 0, 1, 12, 74
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\RealEstate\RealEstateAdDtoValidator.cs", "C#", 0, 0, 0, 0, 26, 0, 0, 0, 0, 6, 32
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Vehicles\BoatAdDtoValidator.cs", "C#", 0, 0, 0, 0, 34, 0, 0, 0, 0, 7, 41
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Vehicles\CarAdDtoValidator.cs", "C#", 0, 0, 0, 0, 99, 0, 0, 0, 7, 19, 125
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Vehicles\HeavyEquipment\BulldozerAdDtoValidator.cs", "C#", 0, 0, 0, 0, 42, 0, 0, 0, 0, 8, 50
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Vehicles\HeavyEquipment\BusAdDtoValidator.cs", "C#", 0, 0, 0, 0, 32, 0, 0, 0, 0, 6, 38
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Vehicles\HeavyEquipment\CraneAdDtoValidator.cs", "C#", 0, 0, 0, 0, 47, 0, 0, 0, 0, 9, 56
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Vehicles\HeavyEquipment\ExcavatorAdDtoValidator.cs", "C#", 0, 0, 0, 0, 37, 0, 0, 0, 0, 7, 44
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Vehicles\HeavyEquipment\HeavyEquipmentAdDtoValidator.cs", "C#", 0, 0, 0, 0, 35, 0, 0, 0, 0, 7, 42
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Vehicles\MotorcycleAdDtoValidator.cs", "C#", 0, 0, 0, 0, 45, 0, 0, 0, 1, 9, 55
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Vehicles\TransportAdDtoValidator.cs", "C#", 0, 0, 0, 0, 43, 0, 0, 0, 1, 9, 53
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Ads\Vehicles\TruckAdDtoValidator.cs", "C#", 0, 0, 0, 0, 44, 0, 0, 0, 1, 9, 54
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Common\EnumValidatorExtensions.cs", "C#", 0, 0, 0, 0, 26, 0, 0, 0, 3, 5, 34
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Common\LocationAdDtoValidator.cs", "C#", 0, 0, 0, 0, 57, 0, 0, 0, 5, 10, 72
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\README_MULTILINGUAL_VALIDATION.md", "Markdown", 0, 154, 0, 0, 0, 0, 0, 0, 0, 37, 191
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\Validators\Users\CreateUserDtoValidator.cs", "C#", 0, 0, 0, 0, 41, 0, 0, 0, 0, 12, 53
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\bin\Debug\net9.0\ClassifiedAds.Application.deps.json", "JSON", 0, 0, 0, 434, 0, 0, 0, 0, 0, 0, 434
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\ClassifiedAds.Application.csproj.nuget.dgspec.json", "JSON", 0, 0, 0, 171, 0, 0, 0, 0, 0, 0, 171
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\ClassifiedAds.Application.csproj.nuget.g.props", "XML", 0, 0, 0, 0, 0, 0, 0, 19, 0, 0, 19
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\ClassifiedAds.Application.csproj.nuget.g.targets", "XML", 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 7
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Debug\net9.0\.NETCoreApp,Version=v9.0.AssemblyAttributes.cs", "C#", 0, 0, 0, 0, 3, 0, 0, 0, 1, 1, 5
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Debug\net9.0\ClassifiedAds.Application.AssemblyInfo.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 9, 5, 23
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Debug\net9.0\ClassifiedAds.Application.GeneratedMSBuildEditorConfig.editorconfig", "Properties", 0, 0, 0, 0, 0, 0, 15, 0, 0, 1, 16
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Debug\net9.0\ClassifiedAds.Application.GlobalUsings.g.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 1, 1, 9
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Debug\net9.0\ClassifiedAds.Application.sourcelink.json", "JSON", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Release\net9.0\.NETCoreApp,Version=v9.0.AssemblyAttributes.cs", "C#", 0, 0, 0, 0, 3, 0, 0, 0, 1, 1, 5
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Release\net9.0\ClassifiedAds.Application.AssemblyInfo.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 10, 5, 24
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Release\net9.0\ClassifiedAds.Application.GeneratedMSBuildEditorConfig.editorconfig", "Properties", 0, 0, 0, 0, 0, 0, 15, 0, 0, 1, 16
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\Release\net9.0\ClassifiedAds.Application.GlobalUsings.g.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 1, 1, 9
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Application\obj\project.assets.json", "JSON", 0, 0, 0, 1281, 0, 0, 0, 0, 0, 0, 1281
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\ClassifiedAds.Domain.csproj", "XML", 0, 0, 0, 0, 0, 0, 0, 11, 0, 4, 15
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Common\Attributes\GetUnitsAttribute.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 0, 3, 10
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Common\Attributes\QueryKeyAttribute.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 0, 2, 9
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Common\Attributes\QueryValueAttribute.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 0, 2, 9
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Common\Enums\Status.cs", "C#", 0, 0, 0, 0, 8, 0, 0, 0, 0, 3, 11
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Common\Enums\Units.cs", "C#", 0, 0, 0, 0, 28, 0, 0, 0, 0, 14, 42
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Common\Enums\YesNo.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 0, 4, 13
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Common\ValueObjects\AdImage.cs", "C#", 0, 0, 0, 0, 11, 0, 0, 0, 0, 3, 14
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Common\ValueObjects\Category.cs", "C#", 0, 0, 0, 0, 6, 0, 0, 0, 12, 3, 21
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Common\ValueObjects\LocationAd.cs", "C#", 0, 0, 0, 0, 8, 0, 0, 0, 20, 5, 33
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Common\ValueObjects\Price.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 4, 5, 16
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Ad.cs", "C#", 0, 0, 0, 0, 59, 0, 0, 0, 0, 3, 62
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Electronics\Computer.cs", "C#", 0, 0, 0, 0, 15, 0, 0, 0, 0, 3, 18
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Electronics\Console.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 0, 1, 3, 14
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Electronics\Electronic.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 0, 3, 12
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Electronics\Enums\Color.cs", "C#", 0, 0, 0, 0, 26, 0, 0, 0, 0, 12, 38
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Electronics\Enums\RamSize.cs", "C#", 0, 0, 0, 0, 12, 0, 0, 0, 0, 7, 19
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Electronics\Enums\RefreshRate.cs", "C#", 0, 0, 0, 0, 20, 0, 0, 0, 0, 14, 34
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Electronics\Enums\Region.cs", "C#", 0, 0, 0, 0, 16, 0, 0, 0, 0, 7, 23
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Electronics\Enums\ScreenResolution.cs", "C#", 0, 0, 0, 0, 16, 0, 0, 0, 0, 6, 22
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Electronics\Enums\StorageCapacity.cs", "C#", 0, 0, 0, 0, 15, 0, 0, 0, 0, 10, 25
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Electronics\Enums\WebcamResolution.cs", "C#", 0, 0, 0, 0, 20, 0, 0, 0, 0, 9, 29
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Electronics\HandheldDevice.cs", "C#", 0, 0, 0, 0, 22, 0, 0, 0, 1, 3, 26
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Electronics\Laptop.cs", "C#", 0, 0, 0, 0, 24, 0, 0, 0, 1, 3, 28
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Electronics\TvMonitor.cs", "C#", 0, 0, 0, 0, 15, 0, 0, 0, 1, 3, 19
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\JobsServices\Cv.cs", "C#", 0, 0, 0, 0, 18, 0, 0, 0, 0, 3, 21
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\JobsServices\Enums\DayWeek.cs", "C#", 0, 0, 0, 0, 24, 0, 0, 0, 0, 11, 35
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\JobsServices\Enums\EducationDegree.cs", "C#", 0, 0, 0, 0, 18, 0, 0, 0, 0, 8, 26
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\JobsServices\Enums\EducationLevel.cs", "C#", 0, 0, 0, 0, 18, 0, 0, 0, 0, 8, 26
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\JobsServices\Enums\FieldOfStudy.cs", "C#", 0, 0, 0, 0, 18, 0, 0, 0, 0, 8, 26
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\JobsServices\Enums\Gender.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 0, 0, 4, 14
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\JobsServices\Enums\JobSearchStatus.cs", "C#", 0, 0, 0, 0, 12, 0, 0, 0, 0, 5, 17
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\JobsServices\Enums\JobType.cs", "C#", 0, 0, 0, 0, 16, 0, 0, 0, 0, 7, 23
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\JobsServices\Enums\LanguageProficiency.cs", "C#", 0, 0, 0, 0, 16, 0, 0, 0, 0, 7, 23
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\JobsServices\Enums\PaymentPeriod.cs", "C#", 0, 0, 0, 0, 24, 0, 0, 0, 0, 11, 35
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\JobsServices\Enums\WorkingHours.cs", "C#", 0, 0, 0, 0, 14, 0, 0, 0, 0, 6, 20
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\JobsServices\Service.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 0, 0, 4, 14
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\JobsServices\Vacancy.cs", "C#", 0, 0, 0, 0, 13, 0, 0, 0, 0, 3, 16
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\JobsServices\ValueObjects\DailyAvailability.cs", "C#", 0, 0, 0, 0, 12, 0, 0, 0, 0, 3, 15
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\JobsServices\ValueObjects\Education.cs", "C#", 0, 0, 0, 0, 12, 0, 0, 0, 0, 3, 15
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\JobsServices\ValueObjects\Experience.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 0, 0, 3, 13
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\JobsServices\ValueObjects\Language.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 0, 3, 12
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\JobsServices\ValueObjects\TimeSlot.cs", "C#", 0, 0, 0, 0, 8, 0, 0, 0, 0, 3, 11
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Miscellaneous\Book.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 0, 3, 12
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Miscellaneous\Cloth.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 0, 0, 3, 13
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Miscellaneous\EngineOil.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 0, 0, 3, 13
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Miscellaneous\Enums\BookLanguage.cs", "C#", 0, 0, 0, 0, 18, 0, 0, 0, 0, 8, 26
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Miscellaneous\Enums\ClothCondition.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 0, 0, 4, 14
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Miscellaneous\Enums\ClothingSize.cs", "C#", 0, 0, 0, 0, 13, 0, 0, 0, 0, 9, 22
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Miscellaneous\Enums\FurnitureMaterial.cs", "C#", 0, 0, 0, 0, 20, 0, 0, 0, 0, 9, 29
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Miscellaneous\Enums\OilType.cs", "C#", 0, 0, 0, 0, 26, 0, 0, 0, 0, 12, 38
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Miscellaneous\Enums\PlantType.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 0, 0, 4, 14
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Miscellaneous\Enums\Season.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 0, 0, 4, 14
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Miscellaneous\Enums\Viscosity.cs", "C#", 0, 0, 0, 0, 46, 0, 0, 0, 0, 21, 67
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Miscellaneous\Furniture.cs", "C#", 0, 0, 0, 0, 11, 0, 0, 0, 0, 3, 14
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Miscellaneous\Plant.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 0, 3, 12
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Miscellaneous\Shoe.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 0, 3, 12
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Miscellaneous\TireWheel.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 0, 3, 12
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Miscellaneous\VideoGame.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 1, 3, 13
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\RealEstate\Apartment.cs", "C#", 0, 0, 0, 0, 12, 0, 0, 0, 0, 3, 15
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\RealEstate\ConstructionProject.cs", "C#", 0, 0, 0, 0, 8, 0, 0, 0, 0, 3, 11
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\RealEstate\Enums\CompletionStatus.cs", "C#", 0, 0, 0, 0, 12, 0, 0, 0, 0, 5, 17
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\RealEstate\House.cs", "C#", 0, 0, 0, 0, 12, 0, 0, 0, 0, 3, 15
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\RealEstate\RealEstate.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 0, 4, 11
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Vehicles\Boat.cs", "C#", 0, 0, 0, 0, 8, 0, 0, 0, 0, 3, 11
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Vehicles\Car.cs", "C#", 0, 0, 0, 0, 15, 0, 0, 0, 8, 5, 28
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Vehicles\Enums\CarDriveType.cs", "C#", 0, 0, 0, 0, 12, 0, 0, 0, 0, 5, 17
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Vehicles\Enums\FuelType.cs", "C#", 0, 0, 0, 0, 18, 0, 0, 0, 0, 8, 26
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Vehicles\Enums\MotorcycleDriveType.cs", "C#", 0, 0, 0, 0, 14, 0, 0, 0, 0, 6, 20
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Vehicles\Enums\Transmission.cs", "C#", 0, 0, 0, 0, 12, 0, 0, 0, 0, 5, 17
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Vehicles\HeavyEquipment\Bulldozer.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 0, 3, 12
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Vehicles\HeavyEquipment\Bus.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 0, 3, 10
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Vehicles\HeavyEquipment\Crane.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 0, 0, 3, 13
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Vehicles\HeavyEquipment\Excavator.cs", "C#", 0, 0, 0, 0, 8, 0, 0, 0, 0, 3, 11
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Vehicles\HeavyEquipment\HeavyEquipment.cs", "C#", 0, 0, 0, 0, 8, 0, 0, 0, 0, 3, 11
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Vehicles\Motorcycle.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 0, 1, 3, 14
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Vehicles\Transport.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 0, 0, 3, 13
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Ads\Vehicles\Truck.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 0, 4, 4, 18
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Chat\Conversation.cs", "C#", 0, 0, 0, 0, 18, 0, 0, 0, 0, 3, 21
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Chat\Enums\ContentType.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 0, 2, 9
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Chat\Enums\ConversationStatus.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 0, 2, 9
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Chat\Message.cs", "C#", 0, 0, 0, 0, 14, 0, 0, 0, 0, 3, 17
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Chat\ValueObjects\LastMessage.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 0, 2, 9
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Chat\ValueObjects\ParticipantInfo.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 0, 2, 9
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\Chat\ValueObjects\RelatedAd.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 0, 3, 12
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\PostgreSQL\BrandModel.cs", "C#", 0, 0, 0, 0, 20, 0, 0, 0, 0, 3, 23
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\PostgreSQL\BugReport.cs", "C#", 0, 0, 0, 0, 12, 0, 0, 0, 0, 4, 16
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\PostgreSQL\Category.cs", "C#", 0, 0, 0, 0, 17, 0, 0, 0, 0, 3, 20
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\PostgreSQL\Enums\BugReportStatus.cs", "C#", 0, 0, 0, 0, 8, 0, 0, 0, 0, 2, 10
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\PostgreSQL\Enums\LocationSource.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 0, 2, 9
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\PostgreSQL\Enums\UserReportReasonType.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 0, 0, 2, 12
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\PostgreSQL\Enums\UserReportStatus.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 0, 2, 9
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\PostgreSQL\Location.cs", "C#", 0, 0, 0, 0, 13, 0, 0, 0, 0, 3, 16
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\PostgreSQL\Release.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 0, 3, 12
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\PostgreSQL\User.cs", "C#", 0, 0, 0, 0, 28, 0, 0, 0, 0, 4, 32
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\PostgreSQL\UserReport.cs", "C#", 0, 0, 0, 0, 14, 0, 0, 0, 0, 4, 18
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\Entities\PostgreSQL\UserReview.cs", "C#", 0, 0, 0, 0, 12, 0, 0, 0, 0, 3, 15
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\bin\Debug\net9.0\ClassifiedAds.Domain.deps.json", "JSON", 0, 0, 0, 251, 0, 0, 0, 0, 0, 0, 251
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\ClassifiedAds.Domain.csproj.nuget.dgspec.json", "JSON", 0, 0, 0, 84, 0, 0, 0, 0, 0, 0, 84
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\ClassifiedAds.Domain.csproj.nuget.g.props", "XML", 0, 0, 0, 0, 0, 0, 0, 19, 0, 0, 19
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\ClassifiedAds.Domain.csproj.nuget.g.targets", "XML", 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 7
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\Debug\net9.0\.NETCoreApp,Version=v9.0.AssemblyAttributes.cs", "C#", 0, 0, 0, 0, 3, 0, 0, 0, 1, 1, 5
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\Debug\net9.0\ClassifiedAds.Domain.AssemblyInfo.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 9, 5, 23
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\Debug\net9.0\ClassifiedAds.Domain.GeneratedMSBuildEditorConfig.editorconfig", "Properties", 0, 0, 0, 0, 0, 0, 15, 0, 0, 1, 16
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\Debug\net9.0\ClassifiedAds.Domain.GlobalUsings.g.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 1, 1, 9
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\Debug\net9.0\ClassifiedAds.Domain.sourcelink.json", "JSON", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\Release\net9.0\.NETCoreApp,Version=v9.0.AssemblyAttributes.cs", "C#", 0, 0, 0, 0, 3, 0, 0, 0, 1, 1, 5
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\Release\net9.0\ClassifiedAds.Domain.AssemblyInfo.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 10, 5, 24
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\Release\net9.0\ClassifiedAds.Domain.GeneratedMSBuildEditorConfig.editorconfig", "Properties", 0, 0, 0, 0, 0, 0, 15, 0, 0, 1, 16
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\Release\net9.0\ClassifiedAds.Domain.GlobalUsings.g.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 1, 1, 9
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Domain\obj\project.assets.json", "JSON", 0, 0, 0, 734, 0, 0, 0, 0, 0, 0, 734
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\ClassifiedAds.Infrastructure.csproj", "XML", 0, 0, 0, 0, 0, 0, 0, 16, 0, 5, 21
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\Data\MongoDB\MongoDbConfiguration.cs", "C#", 0, 0, 0, 0, 45, 0, 0, 0, 2, 11, 58
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\Data\MongoDB\MongoDbContext.cs", "C#", 0, 0, 0, 0, 16, 0, 0, 0, 2, 6, 24
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\Data\MongoDB\README.md", "Markdown", 0, 198, 0, 0, 0, 0, 0, 0, 0, 55, 253
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\Data\PostgreSQL\PostgresDbContext.cs", "C#", 0, 0, 0, 0, 196, 0, 0, 0, 16, 33, 245
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\Data\PostgreSQL\README.md", "Markdown", 0, 242, 0, 0, 0, 0, 0, 0, 0, 72, 314
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\DependencyInjection.cs", "C#", 0, 0, 0, 0, 46, 0, 0, 0, 4, 9, 59
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\Services\BrandModelReleaseService.cs", "C#", 0, 0, 0, 0, 79, 0, 0, 0, 5, 22, 106
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\Services\CategoryService.cs", "C#", 0, 0, 0, 0, 63, 0, 0, 0, 5, 20, 88
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\Services\ImageService.cs", "C#", 0, 0, 0, 0, 99, 0, 0, 0, 9, 20, 128
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\Services\LocationService.cs", "C#", 0, 0, 0, 0, 64, 0, 0, 0, 13, 20, 97
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\bin\Debug\net9.0\ClassifiedAds.Infrastructure.deps.json", "JSON", 0, 0, 0, 546, 0, 0, 0, 0, 0, 0, 546
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\obj\ClassifiedAds.Infrastructure.csproj.nuget.dgspec.json", "JSON", 0, 0, 0, 258, 0, 0, 0, 0, 0, 0, 258
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\obj\ClassifiedAds.Infrastructure.csproj.nuget.g.props", "XML", 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 20
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\obj\ClassifiedAds.Infrastructure.csproj.nuget.g.targets", "XML", 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 7
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\obj\Debug\net9.0\.NETCoreApp,Version=v9.0.AssemblyAttributes.cs", "C#", 0, 0, 0, 0, 3, 0, 0, 0, 1, 1, 5
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\obj\Debug\net9.0\ClassifiedAds.Infrastructure.AssemblyInfo.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 9, 5, 23
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\obj\Debug\net9.0\ClassifiedAds.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig", "Properties", 0, 0, 0, 0, 0, 0, 15, 0, 0, 1, 16
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\obj\Debug\net9.0\ClassifiedAds.Infrastructure.GlobalUsings.g.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 1, 1, 9
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\obj\Debug\net9.0\ClassifiedAds.Infrastructure.sourcelink.json", "JSON", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\obj\Release\net9.0\.NETCoreApp,Version=v9.0.AssemblyAttributes.cs", "C#", 0, 0, 0, 0, 3, 0, 0, 0, 1, 1, 5
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\obj\Release\net9.0\ClassifiedAds.Infrastructure.AssemblyInfo.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 10, 5, 24
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\obj\Release\net9.0\ClassifiedAds.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig", "Properties", 0, 0, 0, 0, 0, 0, 15, 0, 0, 1, 16
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\obj\Release\net9.0\ClassifiedAds.Infrastructure.GlobalUsings.g.cs", "C#", 0, 0, 0, 0, 7, 0, 0, 0, 1, 1, 9
+"c:\Users\Humam\OneDrive\Documents\Classified-db-v2\backend\src\ClassifiedAds.Infrastructure\obj\project.assets.json", "JSON", 0, 0, 0, 1507, 0, 0, 0, 0, 0, 0, 1507
+"Total", "-", 2616, 1742, 363, 10309, 12140, 200, 132, 191, 2362, 3438, 33493

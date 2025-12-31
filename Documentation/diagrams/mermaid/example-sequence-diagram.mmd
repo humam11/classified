@@ -1,0 +1,38 @@
+%% Sequence Diagram: Create Ad Workflow
+%% Shows the interaction between layers when creating a new ad
+
+sequenceDiagram
+    participant Client
+    participant Controller as DynamicAdsController
+    participant Validator as FluentValidation
+    participant Service as AdService
+    participant Mapper as AdDtoMapper
+    participant ImageService
+    participant MongoDB
+    participant FileSystem
+    
+    Client->>Controller: POST /api/en/categories/vehicles/cars<br/>(multipart/form-data)
+    
+    Controller->>Validator: Validate CreateCarAdDto
+    alt Validation Fails
+        Validator-->>Controller: ValidationException
+        Controller-->>Client: 400 Bad Request<br/>(validation errors)
+    else Validation Succeeds
+        Validator-->>Controller: Valid
+        
+        Controller->>Service: CreateAdAsync(dto, categorySlug, images)
+        
+        Service->>Mapper: MapDtoToEntity(dto)
+        Mapper-->>Service: Car entity
+        
+        Service->>ImageService: SaveImagesAsync(images, adId)
+        ImageService->>FileSystem: Write image files
+        FileSystem-->>ImageService: File paths
+        ImageService-->>Service: AdImage[] metadata
+        
+        Service->>MongoDB: InsertOneAsync(car)
+        MongoDB-->>Service: Success
+        
+        Service-->>Controller: adId
+        Controller-->>Client: 201 Created<br/>{ "id": "507f..." }
+    end

@@ -183,10 +183,10 @@ CREATE TABLE brands_models (
     -- Metadata Fields
     url_slug VARCHAR(255) NOT NULL,
     image_url VARCHAR(255) NOT NULL,
-    automation_keyword VARCHAR(255) NULL UNIQUE,
+    automation_keyword VARCHAR(255) UNIQUE,
     
     -- Hierarchical Data
-    hierarchy_path LTREE NULL,
+    hierarchy_path LTREE,
     level INTEGER GENERATED ALWAYS AS (nlevel(hierarchy_path)) STORED,
 
     -- Foreign Keys

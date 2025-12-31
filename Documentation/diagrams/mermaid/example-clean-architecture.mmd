@@ -1,0 +1,39 @@
+%% Clean Architecture Layers Diagram
+%% This diagram shows the four layers of Clean Architecture and their dependencies
+
+flowchart TB
+    subgraph API["API Layer (Presentation)"]
+        Controllers["Controllers<br/>DynamicAdsController"]
+        Middleware["Middleware<br/>LanguageMiddleware"]
+        Program["Program.cs<br/>Configuration"]
+    end
+    
+    subgraph Application["Application Layer (Use Cases)"]
+        DTOs["DTOs<br/>AdDto, CreateCarAdDto"]
+        Validators["Validators<br/>FluentValidation"]
+        Mappers["Mappers<br/>AdDtoMapper"]
+        Interfaces["Service Interfaces<br/>IAdService, ICategoryService"]
+    end
+    
+    subgraph Infrastructure["Infrastructure Layer (External)"]
+        DbContexts["Database Contexts<br/>PostgresDbContext, MongoDbContext"]
+        Services["Service Implementations<br/>AdService, CategoryService"]
+        FileSystem["File System<br/>ImageService"]
+    end
+    
+    subgraph Domain["Domain Layer (Core)"]
+        Entities["Entities<br/>Ad, Car, User"]
+        ValueObjects["Value Objects<br/>Price, LocationAd"]
+        Enums["Enums<br/>Status, FuelType"]
+    end
+    
+    API --> Application
+    API --> Infrastructure
+    Application --> Domain
+    Infrastructure --> Application
+    Infrastructure --> Domain
+    
+    style Domain fill:#2563eb,stroke:#1e40af,color:#fff
+    style Application fill:#16a34a,stroke:#15803d,color:#fff
+    style Infrastructure fill:#eab308,stroke:#ca8a04,color:#000
+    style API fill:#dc2626,stroke:#b91c1c,color:#fff
